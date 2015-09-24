@@ -46,7 +46,11 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'capybara'
+  # gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
 
   gem 'guard'
   gem 'guard-rspec', require: false
@@ -54,10 +58,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
+
 end
 
 
