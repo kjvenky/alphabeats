@@ -1,16 +1,19 @@
 Feature: Static Pages of the website
-	As a user
 	In order to learn about the music application
+	As a visitor
 	I want to access different pages in the website
+	
+	The value addition of this feature is informing visitors of
+	the application and help onboarding them.
 
 Scenario Outline: Interlinking between pages
-	Given I am on Home Page
-	When I click on <word>
-	Then I should go to <page>
+	Given I am on <page1>
+	When I click on "About Us"
+	Then I should go to <page2>
 
 	Examples:
-		| word | page |
-		| "About us" | About Page |
+		| page1 | word | page2 |
+		| Home Page | "About Us" | About Page |
 		
 
 
