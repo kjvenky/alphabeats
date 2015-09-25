@@ -1,11 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe StaticPagesController, type: :controller do
+RSpec.describe StaticPagesController, type: :controller do render_views
 
   describe "GET #home" do
     it "returns http success" do
       get :home
       expect(response).to have_http_status(:success)
+      expect(response.body).to have_link('About Us', href: about_path)
+      expect(response.body).to have_link('FAQ', href: faq_path)
+      expect(response.body).to have_link('Contact', href: contact_path)
+      expect(response.body).to have_link('Legal', href: legal_path)
     end
   end
 
