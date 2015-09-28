@@ -8,10 +8,12 @@ Feature: Signup and Login
 	Scenario: Signing up
 	Given I am on sign up page
 	When I sign up by filling the fields
-	Then I should receive a confirmation mail
-	And I should be logged in
+	Then I should be logged in
+	# And I should receive a confirmation mail
 
 	Scenario: Unconfirmed sign up
 	Scenario: Bad sign up
+	Scenario: Facebook Sign up
+	Scenario: Facebook Sign up and resetting through normal signup??
 	Scenario: Successful Login
 	Scenario: Unsuccessful Login
