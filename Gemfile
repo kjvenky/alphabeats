@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem "letter_opener", :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,6 +52,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   # gem 'capybara'
   gem 'cucumber-rails', require: false
+  gem 'capybara-email'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
