@@ -24,3 +24,12 @@ Then(/^I should receive a confirmation mail$/) do
 	current_email.click_link("Confirm my account")
 end
 
+
+Given(/^I am an existing user and on login page$/) do
+  visit('/users/sign_in')
+end
+
+When(/^I login by filling the fields$/) do
+  pending # express the regexp above with the code you wish you had
+end
+

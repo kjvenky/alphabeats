@@ -12,10 +12,10 @@ Feature: Signup and Login
 		Then I should be logged in 
 		And I should receive a confirmation mail
 	
-	# Scenario: Successful Login
-	# 	Given I am a user of the website who confirmed email
-	# 	When I login by filling the fields
-	# 	Then I should be logged in
+	Scenario: Successful Login
+		Given I am an existing user and on login page
+		When I login by filling the fields
+		Then I should be logged in
 
 	# Scenario: Unsuccessful Login
 	# 	Given I am not a user of the website
