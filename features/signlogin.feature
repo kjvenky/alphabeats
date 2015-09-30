@@ -5,7 +5,7 @@ Feature: Signup and Login
 
 	The value addition of this feature is in being able to retain customers and create additional features which need persistent user data(wallet, playlist).
 	
-	@javascript
+	# @javascript
 	Scenario: Signing up
 		Given I am on sign up page
 		When I sign up by filling the fields
@@ -17,19 +17,25 @@ Feature: Signup and Login
 		When I login by filling the fields
 		Then I should be logged in
 
-	# Scenario: Unsuccessful Login
-	# 	Given I am not a user of the website
-	# 	When I login by filling the fields
-	# 	Then I should see an error message
+
 	# @javascript
-
-
 	Scenario: Unconfirmed sign up works only until 2 days and fails later
 		Given I signed up without confirming
 		When I login by filling the fields
 		Then I should be logged in
 		When I login after two days
-		Then I should not be able to login #Later | refine tests based on your views.
+		Then I should not be able to login
+
+
+
+		 #Later | refine tests based on your links on  views.
+
+		 	# Scenario: Unsuccessful Login
+	# 	Given I am not a user of the website
+	# 	When I login by filling the fields
+	# 	Then I should see an error message
+	# @javascript
+
 
 	# Scenario: Facebook Sign up
 	# 	Given I am on sign up page

@@ -18,14 +18,11 @@ When(/^I sign up by filling the fields$/) do
 end
 
 Then(/^I should be logged in$/) do
-  expect(page.current_path).to have_content("/")
-  expect(page).to have_content("Signed in successfully")
-  #Later| Should be changed to discover.
+  expect(page).to have_content("Log out")
 end
 
 Then(/^I should receive a confirmation mail$/) do
 	open_email(johnemail)
-	# debugger
 	current_email.click_link("Confirm my account")
 end
 
@@ -51,17 +48,15 @@ Given(/^I signed up without confirming$/) do
 end
 
 Then(/^I login after two days$/) do
+  click_link("Log out")
   @usr.update_attributes(confirmed_at: nil, confirmation_sent_at: Time.now - 3.days)
 end
 
 Then(/^I should not be able to login$/) do
-  visit('/')
-  click_link('Log out')
-  expect(page).to have_content("Signed out successfully")
   visit('/users/sign_in')
   fill_in('Email', with: email )
   fill_in('Password', with: password)
   click_button('Log in')
-  expect(page).not_to have_content("Signed in successfully")
+  expect(page).to have_content("You have to confirm your email address before continuing")
 end
 
