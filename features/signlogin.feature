@@ -5,7 +5,7 @@ Feature: Signup and Login
 
 	The value addition of this feature is in being able to retain customers and create additional features which need persistent user data(wallet, playlist).
 	
-	# @javascript
+	@javascript
 	Scenario: Signing up
 		Given I am on sign up page
 		When I sign up by filling the fields

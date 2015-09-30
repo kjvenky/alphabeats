@@ -1,4 +1,8 @@
 johnemail = 'john@lennon.com'
+firstname="First"
+lastname="Last"
+email="first@last.com"
+password="secret123"
 # World(Capybara::Email::DSL)
 Given(/^I am on sign up page$/) do
   visit('/users/sign_up')
@@ -20,16 +24,20 @@ end
 
 Then(/^I should receive a confirmation mail$/) do
 	open_email(johnemail)
-	#debugger
+	# debugger
 	current_email.click_link("Confirm my account")
 end
 
 
 Given(/^I am an existing user and on login page$/) do
-  visit('/users/sign_in')
+  usr = User.create(first_name: firstname, last_name: lastname, email: email, password: password, password_confirmation: password, confirmed_at: Time.now-2.days)
+  usr.confirm!
 end
 
 When(/^I login by filling the fields$/) do
-  pending # express the regexp above with the code you wish you had
+  visit('/users/sign_in')
+  fill_in('Email', with: email )
+  fill_in('Password', with: password)
+  click_button('Log in')
 end
 
