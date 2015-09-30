@@ -21,12 +21,15 @@ Feature: Signup and Login
 	# 	Given I am not a user of the website
 	# 	When I login by filling the fields
 	# 	Then I should see an error message
+	# @javascript
 
-	# Scenario: Unconfirmed sign up works only until 2 days and fails later
-	# 	Given I signed up
-	# 	When I don't confirm email
-	# 	Then I should be logged in
-	# 	But after two days I should not be able to login
+
+	Scenario: Unconfirmed sign up works only until 2 days and fails later
+		Given I signed up without confirming
+		When I login by filling the fields
+		Then I should be logged in
+		When I login after two days
+		Then I should not be able to login #Later | refine tests based on your views.
 
 	# Scenario: Facebook Sign up
 	# 	Given I am on sign up page
