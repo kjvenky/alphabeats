@@ -26,6 +26,8 @@ gem 'devise'
 
 gem "letter_opener", :group => :development
 
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,6 +62,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'guard-cucumber'
+  gem 'dotenv-rails'
 end
 
 group :test do

@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_up_path_for(resource_or_scope)
+  	# if request.env['omniauth.origin']
+   #    root_path
+   #  end
+   	redirect_to root_path
+   end
+
   protected
 
   def configure_permitted_parameters

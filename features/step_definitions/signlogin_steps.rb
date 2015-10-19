@@ -1,11 +1,20 @@
+# OmniAuth.config.test_mode = true
+# request.env["devise.mapping"] = Devise.mappings[:user] 
 johnemail = 'john@lennon.com'
 firstname="First"
 lastname="Last"
 email="first@last.com"
 password="secret123"
+fbemail="hbbpcqm_sharpeescu_1444030592@tfbnw.net"
+fbpassword="secret123"
+
 # World(Capybara::Email::DSL)
 Given(/^I am on sign up page$/) do
   visit('/users/sign_up')
+end
+
+Given(/^I am on sign in page$/) do
+  visit('/users/sign_in')
 end
 
 When(/^I sign up by filling the fields$/) do
@@ -18,6 +27,7 @@ When(/^I sign up by filling the fields$/) do
 end
 
 Then(/^I should be logged in$/) do
+  sleep 2
   expect(page).to have_content("Log out")
 end
 
@@ -58,5 +68,21 @@ Then(/^I should not be able to login$/) do
   fill_in('Password', with: password)
   click_button('Log in')
   expect(page).to have_content("You have to confirm your email address before continuing")
+end
+
+
+
+
+When(/^I sign up by filling facebook fields$/) do
+  click_link("Sign in with Facebook")
+  # byebug
+  # sleep 2
+  # fill_in('Email', with: fbemail )
+  # fill_in('Password', with: fbpassword)
+  # click_button('Log in')
+  # byebug
+  # sleep 5
+  # click_button('Okay')o
+  expect(page).to have_content("Home")
 end
 

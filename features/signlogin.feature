@@ -26,6 +26,15 @@ Feature: Signup and Login
 		When I login after two days
 		Then I should not be able to login
 
+		######Important needs to be added
+	# @javascript @omniauth_test
+	# Scenario: Facebook Sign up
+	# 	Given I am on sign in page
+	# 	When I sign up by filling facebook fields
+	# 	Then I should be logged in
+		#Later(?)| When I don't confirm email
+		#Later(?)| Then I should not be able to login
+
 
 
 		 #Later | refine tests based on your links on  views.
@@ -37,12 +46,7 @@ Feature: Signup and Login
 	# @javascript
 
 
-	# Scenario: Facebook Sign up
-	# 	Given I am on sign up page
-	# 	When I sign up by filling facebook fields
-	# 	Then I should be logged in
-	# 	#Later(?)| When I don't confirm email
-	# 	#Later(?)| Then I should not be able to login
+
 
 	# Scenario: Bad sign up
 	# #Later| validate first name, last name, password, email
