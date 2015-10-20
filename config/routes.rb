@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'faq', to: "static_pages#faq"
   get 'contact', to: "static_pages#contact"
   get 'legal', to: "static_pages#legal"
+  get 'updates', to: "static_pages#updates"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

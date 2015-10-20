@@ -13,5 +13,9 @@ class StaticPagesController < ApplicationController
 
   def legal
   end
+
+  def updates
+    redirect_to "https://docs.google.com/a/alphabeatsmusic.com/forms/d/1kNieUkKV9GTG-_uAWE1h6DuTJKXBuODGnrOyhTIXMD8/viewform"
+  end
   
 end
