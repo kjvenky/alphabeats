@@ -8,4 +8,18 @@ body{
 	background-size: cover;
 	background-repeat: repeat-y;
 	text-align: center;
+	color: white;
+	a {
+		color:white;
+		&:hover{
+		text-decoration: underline;
+		}
+	}
+}
+
+#homepage-carousel{
+	.carousel-control.left, .carousel-control.right  {
+	   background-image: none;
+
+	}
 }
