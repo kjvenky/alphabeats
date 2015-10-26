@@ -23,7 +23,6 @@ body{
 	background-position: 0% 0%;
 	background-size: cover;
 	background-repeat: repeat-y;
-	text-align: center;
 	color: white;
 	a {
 		color:white;
@@ -66,4 +65,15 @@ body{
  	height:auto;
  	margin-top: -15px;
  }
+}
+
+
+
+// FAQ SUB Heading syntax
+.faq-subheads {
+	text-decoration: underline;
+}
+
+.faq-text-style{
+	font-size: 1.2em;
 }
