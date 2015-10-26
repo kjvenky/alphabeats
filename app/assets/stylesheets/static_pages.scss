@@ -11,10 +11,10 @@ margin:0;
 min-height: 100%;
 height: auto !important;
 height: 100%;
-margin: 0 auto -4em;
+margin: 0 auto -3em;
 }
 .footer, .push {
-height: 4em;
+height: 3em;
 }
 
 
@@ -29,6 +29,7 @@ body{
 		color:white;
 		&:hover{
 		text-decoration: underline;
+		color:white;
 		}
 	}
 
@@ -41,6 +42,28 @@ body{
 	}
 }
 
+.signup-updates{
+	width: 350px;
+	height:70px;
+	background-color: #8e44ad;
+	margin: 270px auto;
+	border-radius: 5px;
+	#updates {
+		font-size: 2em;
+		vertical-align: -70%;
+	}
+}
 
+#updates-path{
+	a:hover {
+		text-decoration: none;
+	}
+}
 
-
+#logoheader {
+ img{
+ 	max-width: 250px;
+ 	height:auto;
+ 	margin-top: -15px;
+ }
+}
