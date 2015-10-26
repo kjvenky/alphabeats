@@ -7,18 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="wrapper">
   <%= render "static_pages/header" %>
-	<p class="notice"><%= notice %></p>
+  <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 
-<div class=<%= Width::CONTAINER %>>
-  <div class="row">
-    <%= yield %>
+  <div class=<%= Width::CONTAINER %>>
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
+  <div class="push"></div>
 </div>
-
-
   <%= render "static_pages/footer" %>
-
 </body>
 </html>
