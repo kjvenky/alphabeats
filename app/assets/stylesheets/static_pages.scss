@@ -3,21 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-html, body {
-height: 100%;
-margin:0;
-}
-.wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -3em;
-}
-.footer, .push {
-height: 3em;
-}
-
-
 body{
 	background-image: url("abbackground.jpg");
 	background-position: 0% 0%;
@@ -34,6 +19,34 @@ body{
 
 }
 
+
+//////////////////////////////////
+//// 			Footer		  ////
+//////////////////////////////////
+
+//Fix footer to bottom
+html, body {
+height: 100%;
+margin:0;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -3em;
+}
+.footer, .push {
+height: 3em;
+}
+// End of footer //
+
+
+
+
+//////////////////////////////////
+////        Home Page         ////
+//////////////////////////////////
+
 #homepage-carousel{
 	.carousel-control.left, .carousel-control.right  {
 	   background-image: none;
@@ -42,15 +55,15 @@ body{
 }
 
 .signup-updates{
-	width: 350px;
-	height:70px;
-	background-color: #8e44ad;
-	margin: 270px auto;
-	border-radius: 5px;
+	// width: 350px;
+	// height:70px;
+	// background-color: #8e44ad;
+	margin: 30px auto;
+	// border-radius: 5px;
 	text-align: center;
 	#updates {
-		font-size: 2em;
-		vertical-align: -70%;
+		font-size: 1.5em;
+		// vertical-align: -70%;
 	}
 }
 
@@ -60,17 +73,31 @@ body{
 	}
 }
 
+// end home page //
+
+
+//////////////////////////////////
+////       		Header        ////
+//////////////////////////////////
 #logoheader {
  img{
  	max-width: 250px;
  	height:auto;
- 	margin-top: -15px;
+ 	margin-top: -0.75em;
  }
 }
 
+#navbarupdates {
+	margin-top: 0.5em;
+}
 
 
-// FAQ SUB Heading syntax
+// End header //
+
+
+//////////////////////////////////
+//// 		FAQ              ////
+//////////////////////////////////
 .faq-subheads {
 	text-decoration: underline;
 }
@@ -81,3 +108,5 @@ body{
 .glyphiconstyle{
 	font-size: 0.6em;
 }
+
+// End FAQ //

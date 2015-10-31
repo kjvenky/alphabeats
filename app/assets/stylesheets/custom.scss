@@ -1,0 +1,53 @@
+//////////////////////////////////
+//// Custom Bootstrap button  ////
+//////////////////////////////////
+.btn-transparent { 
+  color: #ffffff; 
+  // background-color: #611BBD;
+  background-color: transparent; 
+  // border-color: #130269; 
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-transparent:hover, 
+.btn-transparent:focus, 
+.btn-transparent:active, 
+.btn-transparent.active, 
+.open .dropdown-toggle.btn-transparent { 
+  color: #ffffff; 
+  // background-color: #49247A;
+  background-color: transparent;
+  opacity: 0.5; 
+  // border-color: #130269;
+  border-color: #FFFFFF; 
+} 
+ 
+.btn-transparent:active, 
+.btn-transparent.active, 
+.open .dropdown-toggle.btn-transparent { 
+  background-image: none; 
+} 
+ 
+.btn-transparent.disabled, 
+.btn-transparent[disabled], 
+fieldset[disabled] .btn-transparent, 
+.btn-transparent.disabled:hover, 
+.btn-transparent[disabled]:hover, 
+fieldset[disabled] .btn-transparent:hover, 
+.btn-transparent.disabled:focus, 
+.btn-transparent[disabled]:focus, 
+fieldset[disabled] .btn-transparent:focus, 
+.btn-transparent.disabled:active, 
+.btn-transparent[disabled]:active, 
+fieldset[disabled] .btn-transparent:active, 
+.btn-transparent.disabled.active, 
+.btn-transparent[disabled].active, 
+fieldset[disabled] .btn-transparent.active { 
+  background-color: #611BBD; 
+  border-color: #130269; 
+} 
+ 
+.btn-transparent .badge { 
+  color: #611BBD; 
+  background-color: #ffffff; 
+}
