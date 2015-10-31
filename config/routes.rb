@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'contact', to: "static_pages#contact"
   get 'legal', to: "static_pages#legal"
   get 'updates', to: "static_pages#updates"
+  get 'letter', to: "static_pages#letter"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
