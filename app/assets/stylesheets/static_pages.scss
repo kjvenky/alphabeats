@@ -38,13 +38,14 @@ text-align: center;
 	   background-image: none;
 
 	}
+
 }
 
 .signup-updates{
 	// width: 350px;
 	// height:70px;
 	// background-color: #8e44ad;
-	margin: 20vh auto;
+	margin: 10vh auto;
 	// border-radius: 5px;
 	text-align: center;
 	#updates {
@@ -78,7 +79,16 @@ text-align: center;
 	&:hover{
 		background-color: transparent;
 		text-decoration: underline;
+		border: none;
 	}
+    &:active{
+     background-color: transparent;
+     border: none;
+    }
+    &:focus{
+      background-color: transparent;
+      border: none;
+    }
 }
 .icon-bar {
 	background-color: white;
