@@ -10,7 +10,18 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
+      <div class="item active">
+      <img src="<%= asset_path("transparent.png") %>" alt="Letter">
+      <div class="carousel-caption"> 
+        <h2>Letter from the founder</h2>
+        <h4>
+     Hello. My name is Shenil, and I am the founder of Alphabeats. We aim to help uncover talented artists living amongst us and help them become popular. In our case, we focus on musicians. <b>We will do this by allowing fans to invest in unsigned musicians' songs.</b>
+        </b><a href="<%= letter_path %>"><em>Click to read more</em></a>
+        </h4>
+      </div>
+    </div>
+
+    <div class="item">
       <img src="<%= asset_path("transparent.png") %>" alt="Independent artists">
       <div class="carousel-caption">
            <h2>Unsigned and Independent Artists</h2>
@@ -26,18 +37,7 @@
       </div>
     </div>
 
-      <div class="item">
-      <img src="<%= asset_path("transparent.png") %>" alt="Letter">
-      <div class="carousel-caption"> 
-        <p>
-        Hello. My name is Shenil, and I am the founder of Alphabeats. We aim to help uncover the many talented artists living amongst us and help them become popular. In our case, we focus on musicians.
-        <br>
-        <b>
-        Alphabeats allows independent musicians to raise money against the earnings of a song's digital income. The digital income includes proceeds from popular streaming channels such as Spotify, Apple Music, Tidal and Deezer.
-        </b><a href="<%= letter_path %>"><em>Click to read more</em></a>
-        </p>
-      </div>
-    </div>
+
   </div>
 
   <!-- Controls -->
