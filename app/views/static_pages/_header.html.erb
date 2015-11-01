@@ -2,9 +2,15 @@
   <div class=<%= Width::CONTAINER %>>
     <div class="navbar-header">
       <a class="navbar-brand" id="logoheader" href="/"><img src="<%= asset_path("whitelogo.png") %>" alt="logo" /></a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
     </div>
-    <div>
 
+
+     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         
         <% if user_signed_in? %>
@@ -13,9 +19,7 @@
             <li><% link_to "Sign up", new_user_registration_path %></li>
             <li><% link_to "Login", new_user_session_path %></li>
         <% end %>
-        <button class="btn btn-transparent" id="navbarupdates">
-        <li><%= link_to "Sign up for updates", updates_path %></li>
-        </button>
+        <li><%= link_to "Sign up for updates", updates_path, id: "navupdates" %></li>
 
       </ul>
     </div>
