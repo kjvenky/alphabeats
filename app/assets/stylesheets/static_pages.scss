@@ -134,5 +134,9 @@ list-style: none;
     background-color: transparent;
     border-style: solid;
     color: white;
+    font-size: 1.2em;
     border-color: white;
+ &:focus{
+    	border-color: white;
+    }
 }
