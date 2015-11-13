@@ -80,6 +80,7 @@ Rails.application.configure do
   #Mailer configuration
   config.action_mailer.default_url_options = { host: 'abmusic.herokuapp.com' }
 
-  config.serve_static_assets = true
+  # config.serve_static_assets = true
+  config.serve_static_files = true
   config.assets.compile = true
 end
