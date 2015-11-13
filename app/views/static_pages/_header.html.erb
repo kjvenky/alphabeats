@@ -11,7 +11,7 @@
 
 
      <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav-justified">
         
         <% if user_signed_in? %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>

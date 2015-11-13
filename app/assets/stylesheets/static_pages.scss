@@ -6,28 +6,55 @@
 
 
 //////////////////////////////////
-//// 			Footer		  ////
+////       		Header        ////
 //////////////////////////////////
+#logoheader {
+ img{
+ 	max-width: 250px;
+ 	height:auto;
+ 	margin-top: -0.75em;
+ }
+}
 
-//Fix footer to bottom
-html, body {
-height: 100%;
-margin:0;
+#myNavbar{
+	ul{
+		margin-top: 2em;
+		text-align: right;
+		li{
+			list-style: none;
+		}
+		li:first-child{
+			padding-right: 17em;
+		}
+	}
 }
-.wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -3em;
+
+// #navbarupdates {
+// 	margin-top: 0.5em;
+// }
+
+// #navupdates{
+// 	font-size: 1.5em;
+// 	margin-top: 0.5em;
+// 	&:hover{
+// 		background-color: transparent;
+// 		text-decoration: underline;
+// 		border: none;
+// 	}
+//     &:active{
+//      background-color: transparent;
+//      border: none;
+//     }
+//     &:focus{
+//       background-color: transparent;
+//       border: none;
+//     }
+// }
+.icon-bar {
+	background-color: white;
 }
-.footer, .push {
-height: 3em;
-text-align: center;
-li{
-list-style: none;
-}
-}
-// End of footer //
+// End header //
+
 
 
 
@@ -66,41 +93,29 @@ list-style: none;
 
 
 //////////////////////////////////
-////       		Header        ////
+//// 			Footer		  ////
 //////////////////////////////////
-#logoheader {
- img{
- 	max-width: 250px;
- 	height:auto;
- 	margin-top: -0.75em;
- }
-}
 
-#navbarupdates {
-	margin-top: 0.5em;
+//Fix footer to bottom
+html, body {
+height: 100%;
+margin:0;
 }
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -3em;
+}
+.footer, .push {
+height: 3em;
+text-align: center;
+li{
+list-style: none;
+}
+}
+// End of footer //
 
-#navupdates{
-	font-size: 1.5em;
-	margin-top: 0.5em;
-	&:hover{
-		background-color: transparent;
-		text-decoration: underline;
-		border: none;
-	}
-    &:active{
-     background-color: transparent;
-     border: none;
-    }
-    &:focus{
-      background-color: transparent;
-      border: none;
-    }
-}
-.icon-bar {
-	background-color: white;
-}
-// End header //
 
 
 //////////////////////////////////
