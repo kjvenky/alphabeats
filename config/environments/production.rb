@@ -78,9 +78,19 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Mailer configuration
-  config.action_mailer.default_url_options = { host: 'abmusic.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'alphabeatsmusic.com' }
 
   # config.serve_static_assets = true
   config.serve_static_files = true
   config.assets.compile = true
+
+    ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 end
