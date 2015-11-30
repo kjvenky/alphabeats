@@ -15,6 +15,7 @@ end
 
 Given(/^I am on sign in page$/) do
   visit('/users/sign_in')
+  # visit('/users/sign_up')
 end
 
 When(/^I sign up by filling the fields$/) do
@@ -74,15 +75,16 @@ end
 
 
 When(/^I sign up by filling facebook fields$/) do
-  click_link("Sign in with Facebook")
-  # byebug
   # sleep 2
-  # fill_in('Email', with: fbemail )
-  # fill_in('Password', with: fbpassword)
-  # click_button('Log in')
+  click_link("Sign in with Facebook")
+  # expect(page).to have_content("Phone")
+  # sleep 5
+  fill_in('Email or Phone:', with: fbemail )
+  fill_in('Password:', with: fbpassword)
+  click_button('Log in')
   # byebug
   # sleep 5
-  # click_button('Okay')o
-  expect(page).to have_content("Home")
+  # click_button('Okay')
+  # expect(page).to have_content("Log")
 end
 

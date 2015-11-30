@@ -5,7 +5,7 @@ Feature: Signup and Login
 
 	The value addition of this feature is in being able to retain customers and create additional features which need persistent user data(wallet, playlist).
 	
-	# @javascript
+	@javascript
 	Scenario: Signing up
 		Given I am on sign up page
 		When I sign up by filling the fields
@@ -18,7 +18,7 @@ Feature: Signup and Login
 		Then I should be logged in
 
 
-	# @javascript
+	@javascript
 	Scenario: Unconfirmed sign up works only until 2 days and fails later
 		Given I signed up without confirming
 		When I login by filling the fields
@@ -29,11 +29,11 @@ Feature: Signup and Login
 		######Important needs to be added
 	# @javascript @omniauth_test
 	# Scenario: Facebook Sign up
-	# 	Given I am on sign in page
+	# 	Given I am on sign up page
 	# 	When I sign up by filling facebook fields
 	# 	Then I should be logged in
-		#Later(?)| When I don't confirm email
-		#Later(?)| Then I should not be able to login
+	# 	#Later(?)| When I don't confirm email
+	# 	#Later(?)| Then I should not be able to login
 
 
 
