@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
 	    user.last_name=auth.info.last_name
 	  end
 	end
+
+  def musician?
+    self.musician 
+  end
   
 end
