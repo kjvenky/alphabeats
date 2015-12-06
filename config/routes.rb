@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get 'songs/new'
+  resources :songs
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'static_pages/home'
   get 'about', to: "static_pages#about"

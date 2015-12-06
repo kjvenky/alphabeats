@@ -4,6 +4,11 @@ FactoryGirl.define do
 	    password "secret123"
 	    first_name "Ravi"
 	    last_name "Kanth"
+      musician false
+      
+      factory :musician do
+        musician true
+      end
   end
 
 end
