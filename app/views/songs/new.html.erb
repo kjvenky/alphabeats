@@ -1,2 +1,19 @@
-<h1>Songs#new</h1>
-<p>Find me in app/views/songs/new.html.erb</p>
+<h1>Upload New Song</h1>
+
+<%= simple_form_for @song do |f| %>
+  <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :song_writer, label: 'Song writer', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :album, label: 'Write your album name', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :stage_band_name, label: 'Write your stage name or band name', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :record_label, label: 'Write your label name if you have any', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :language, label: 'Language', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :primary_genre, label: 'Primary Genre', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :secondary_genre, label: 'Secondary Genre', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :lyrics, label: 'Lyrics', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :release_date, label: 'Release date', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :album_cover, label: 'Album Cover', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :duration, label: 'Song Duration', input_html: {class: 'input input-style form-control'} %>
+  <%= f.input :terms, label: 'Terms and Conditions', input_html: {class: 'input input-style form-control'} %>
+  <%= f.button :submit, input_html: {class: 'btn btn-transparent btn-lg'}%>
+<% end %>
