@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: songs
+#
+#  id              :integer          not null, primary key
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  song_title      :string
+#  song_writer     :string
+#  album           :string
+#  stage_band_name :string
+#  record_label    :string
+#  language        :integer
+#  primary_genre   :integer
+#  secondary_genre :integer
+#  lyrics          :text
+#  terms           :boolean
+#  release_date    :date
+#  audio_file      :string
+#  album_cover     :string
+#  duration        :time
+#
+
 class Song < ActiveRecord::Base
   validates :song_title, presence: true
   validates :song_writer, presence: true
