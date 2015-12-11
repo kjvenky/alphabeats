@@ -12,6 +12,9 @@ class SongsController < ApplicationController
     end
   end
 
+  def show
+  end
+
 
 private
   def song_params

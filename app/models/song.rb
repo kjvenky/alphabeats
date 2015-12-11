@@ -10,7 +10,9 @@ class Song < ActiveRecord::Base
   # validates :lyrics, absence: true
   validates :terms, presence: true
   # validates :release_date, absence: true
+  mount_uploader :audio_file, AudioFileUploader
   validates :audio_file, presence: true
+  mount_uploader :album_cover, AlbumCoverUploader
   validates :album_cover, presence: true
   # validates :duration, absence: true
 end
