@@ -38,4 +38,53 @@ class Song < ActiveRecord::Base
   mount_uploader :album_cover, AlbumCoverUploader
   validates :album_cover, presence: true
   # validates :duration, absence: true
+
+  module Language
+    ENGLISH = {code: 1, text: "English"}
+    ARABIC  = {code: 2, text: "Arabic"}
+    CATALAN  = {code: 3, text: "Arabic"}
+    CANTONESE  = {code: 4, text: "Cantonese"}
+    CHINESE_SIM  = {code: 5, text: "Chinese(Simplified)"}
+    CHINESE_TRAD  = {code: 6, text: "Chinese(Simplified)"}
+    CROATIAN  = {code: 7, text: "Croatian"}
+    CZECH  = {code: 8, text: "Czech"}
+    DANISH  = {code: 9, text: "Danish"}
+    DUTCH  = {code: 10, text: "Dutch"}
+    ESTONIAN  = {code: 11, text: "Estonian"}
+    FINNISH  = {code: 12, text: "Finnish"}
+    FRENCH  = {code: 13, text: "French"}
+    GERMAN  = {code: 14, text: "German"}
+    GREEK  = {code: 15, text: "Greek"}
+    HEBREW  = {code: 16, text: "Hebrew"}
+    HUNGARIAN  = {code: 17, text: "Hungarian"}
+    ICELANDIC  = {code: 18, text: "Icelandic"}
+    INDONESIAN  = {code: 19, text: "Indonesian"}
+    ITALIAN  = {code: 20, text: "Italian"}
+    JAPANESE  = {code: 21, text: "Japanese"}
+    KOREAN  = {code: 22, text: "Korean"}
+    LAO  = {code: 23, text: "Lao"}
+    LATVIAN  = {code: 24, text: "Latvian"} 
+    LITHUANIAN  = {code: 25, text: "Lithuanian"}
+    MALAY  = {code: 26, text: "Malay"}
+    NORWEGIAN  = {code: 27, text: "Norwegian"}
+    POLISH  = {code: 28, text: "Polish"}
+    PORTUGUESE  = {code: 29, text: "Portuguese"}
+    ROMANIAN  = {code: 30, text: "Romanian"}
+    RUSSIAN  = {code: 31, text: "Russian"}
+    SLOVAK  = {code: 32, text: "Slovak"}
+    SPANISH  = {code: 33, text: "Spanish"}
+    SWEDISH  = {code: 34, text: "Swedish"}
+    TAGALOG  = {code: 35, text: "Tagalog"}
+    THAI  = {code: 36, text: "Thai"}
+    TURKISH  = {code: 37, text: "Turkish"}
+    UKRAINIAN  = {code: 38, text: "Ukrainian"}
+    VIETNAMESE  = {code: 39, text: "Vietnamese"}
+
+    def self.language_list
+      Song::Language.constants.collect { |language| OpenStruct.new Song::Language.const_get(language)}
+    end
+  end
+
+  module Genre
+  end
 end
