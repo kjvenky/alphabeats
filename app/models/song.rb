@@ -86,5 +86,42 @@ class Song < ActiveRecord::Base
   end
 
   module Genre
+    ALTERNATIVE = {code: 1, text: "Alternative"}
+    BIGBAND = {code: 2, text: "Big Band"}
+    BLUES = {code: 3, text: "Blues"}
+    CHILDRENSMUSIC = {code: 4, text: "Childern's Music"} #CHANGE
+    CHRISTIANGOSPEL = {code: 5, text: "Christian/Gospel"} #CHANGE
+    CLASSICAL = {code: 6, text: "Classical"}
+    COMEDY = {code: 7, text: "Comedy"}
+    COUNTRY = {code: 8, text: "Country"}
+    DANCE = {code: 9, text: "Dance"}
+    ELECTRONIC = {code: 10, text: "Electronic"}
+    FITNESSANDWORKOUT = {code: 11, text: "Fitness and Workout"} #CHANGE
+    FOLK = {code: 12, text: "Folk"}
+    FRENCHPOP = {code: 13, text: "French Pop"}
+    GERMANFOLK = {code: 14, text: "German Folk"}
+    GERMANPOP = {code: 15, text: "German Pop"}
+    HIPHOPRAP = {code: 16, text: "Hip Hop/Rap"} #CHANGE
+    HOLIDAY = {code: 17, text: "Holiday"}
+    JPOP = {code: 18, text: "J-Pop"} #CHANGE
+    JAZZ = {code: 19, text: "Jazz"}
+    KPOP = {code: 20, text: "K-Pop"} #CHANGE
+    LATIN = {code: 21, text: "Latin"}
+    METAL = {code: 22, text: "Metal"}
+    NEWAGE = {code: 23, text: "New Age"}
+    POP = {code: 24, text: "Pop"}
+    PUNK = {code: 25, text: "Punk"}
+    RBSOUL = {code: 26, text: "R&B/Soul"} #CHANGE
+    REGGAE = {code: 27, text: "Reggae"}
+    ROCK = {code: 28, text: "Rock"}
+    SINGERSONGWRITER = {code: 29, text: "Singer/Songwriter"} #CHANGE
+    SOUNDTRACK = {code: 30, text: "Soundtrack"}
+    SPOKENWORD = {code: 31, text: "Spoken Word"}
+    VOCAL = {code: 32, text: "Vocal"}
+    WORLD = {code: 33, text: "World"}
+
+    def self.genre_list
+      Song::Genre.constants.collect { |genre| OpenStruct.new Song::Genre.const_get(genre)}
+    end
   end
 end
