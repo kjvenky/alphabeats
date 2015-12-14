@@ -79,6 +79,7 @@ class Song < ActiveRecord::Base
     TURKISH  = {code: 37, text: "Turkish"}
     UKRAINIAN  = {code: 38, text: "Ukrainian"}
     VIETNAMESE  = {code: 39, text: "Vietnamese"}
+    OTHER  = {code: 40, text: "Other"}
 
     def self.language_list
       Song::Language.constants.collect { |language| OpenStruct.new Song::Language.const_get(language)}
