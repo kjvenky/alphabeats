@@ -27,16 +27,16 @@ class Song < ActiveRecord::Base
   validates :album, presence: true
   validates :stage_band_name, presence: true
   # validates :record_label, absence: true
-  validates :language, presence: true
-  validates :primary_genre, presence: true
-  validates :secondary_genre, presence: true
+  validates :language, presence: true, inclusion: {in: 1..40}
+  validates :primary_genre, presence: true, inclusion: {in: 0..33}
+  validates :secondary_genre, presence: true, inclusion: {in: 0..33}
   # validates :lyrics, absence: true
-  validates :terms, presence: true
+  validates :terms, acceptance: {accept: true}
   # validates :release_date, absence: true
   mount_uploader :audio_file, AudioFileUploader
-  validates :audio_file, presence: true
+  validates :audio_file, presence: true, uniqueness: true
   mount_uploader :album_cover, AlbumCoverUploader
-  validates :album_cover, presence: true
+  validates :album_cover, presence: true, uniqueness: true
   # validates :duration, absence: true
 
   module Language
@@ -87,6 +87,7 @@ class Song < ActiveRecord::Base
   end
 
   module Genre
+    SELECT_GENRE= {code: 0, text: "Select a genre"}
     ALTERNATIVE = {code: 1, text: "Alternative"}
     BIGBAND = {code: 2, text: "Big Band"}
     BLUES = {code: 3, text: "Blues"}
