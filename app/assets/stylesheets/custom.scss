@@ -89,6 +89,10 @@ body{
     &:focus{
       color:white;
     }
+  } // end of anchor tag
+
+  select option {
+    color:black;
   }
 
-}
+} // end of body tag

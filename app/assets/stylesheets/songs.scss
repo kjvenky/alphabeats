@@ -1,3 +1,63 @@
 // Place all the styles related to the Songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//////////////////////////////////
+////    Begin Form Styling    ////
+//////////////////////////////////
+
+// Set up the height of lyrics box
+#song_lyrics {
+  height:70vh;
+}
+// Sets up the input box heights and adjusts the upload file feature
+#new_song {
+  input, select {
+    height:2.4em;
+    padding: 0px 3px;
+  }
+}
+
+//Begin release date styling
+.song_release_date{
+  label{
+    display:block}
+  }
+
+#song_release_date_1i{
+  display:inline-block;
+  width:30%;
+}
+#song_release_date_2i{
+  display:inline-block;
+  width:43%;
+}
+#song_release_date_3i{
+  display:inline-block;
+  width:22%;
+}
+//End release date styling
+
+//Begin song duaration styling
+.song_duration{
+  label{
+    display:block;
+  }
+}
+
+#song_duration_4i{
+  display:inline-block;
+  width:22%;
+}
+#song_duration_5i{
+  display:inline-block;
+  width:22%;
+}
+//End song duration styling
+
+//song_terms styling of position of check box
+#song_terms {
+  margin:-0.5em 0em 0em 0.5em;
+}
+
+//end form styling
