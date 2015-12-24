@@ -10,6 +10,7 @@ RSpec.describe SongsController, type: :controller do
   end
 
   describe "POST #create" do
+
     context "with valid attributes" do
       it "redirects to show page upon save" do
         post :create, song: FactoryGirl.attributes_for(:song)
@@ -24,6 +25,15 @@ RSpec.describe SongsController, type: :controller do
       end
     end
 
+  end
+
+
+  describe "GET #edit" do
+    it "returns http success" do
+      new_song = FactoryGirl.create(:song)
+      get :edit, song: new_song
+      expect(response).to have_http_status(:success)
+    end
   end
 
 end
