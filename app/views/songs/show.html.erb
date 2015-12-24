@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
-    <h1>Details of song <%= @song.song_title %></h1>
+    <h1>Details of song <%= @song.song_title %> <%= link_to "Edit", edit_song_path(@song) %></h1>
     <div class="col-sm-5">
       <h5>Song Title</h5>
       <%= @song.song_title %> <br/>
@@ -27,10 +27,10 @@
       <%= Song::Genre.genre_list[@song.secondary_genre].text %> <br/>
 
       <h5>Release date</h5>
-      <%= @song.release_date %> <br/>
+      <%= @song.release_date.strftime("%B %d %Y") %> <br/>
 
       <h5>Song Duration</h5>
-      <%= @song.duration %> <br/>
+      <%= @song.duration.strftime("%M:%S") %> <br/>
 
       <h5>Link to Song</h5>
       <%= @song.audio_file %> <br/>
