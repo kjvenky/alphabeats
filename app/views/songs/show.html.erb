@@ -18,7 +18,7 @@
       <%= @song.record_label %> <br/>
 
       <h5>Language</h5>
-      <%= Song::Language.language_list[@song.language].text %> <br/>
+      <%= Song::Language.language_list[@song.language-1].text %> <br/>
 
       <h5>Primary Genre</h5>
       <%= Song::Genre.genre_list[@song.primary_genre].text %> <br/>
