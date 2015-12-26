@@ -33,10 +33,10 @@ class Song < ActiveRecord::Base
   # validates :lyrics, absence: true
   validates :terms, acceptance: {accept: true}
   # validates :release_date, absence: true
-  mount_uploader :audio_file, AudioFileUploader
-  validates :audio_file, presence: true, uniqueness: true
   mount_uploader :album_cover, AlbumCoverUploader
-  validates :album_cover, presence: true, uniqueness: true
+  validates :album_cover, presence: true# , uniqueness: true
+  mount_uploader :audio_file, AudioFileUploader
+  validates :audio_file, presence: true# , uniqueness: true
   # validates :duration, absence: true
 
   module Language

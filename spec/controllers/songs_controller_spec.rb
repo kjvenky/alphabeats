@@ -31,9 +31,27 @@ RSpec.describe SongsController, type: :controller do
   describe "GET #edit" do
     it "returns http success" do
       new_song = FactoryGirl.create(:song)
-      get :edit, song: new_song
+      get :edit, {id: new_song.id}
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "PUT #update" do
+      let(:attr) do 
+        FactoryGirl.attributes_for(:updated_song)
+      end
+      
+
+    before(:each) do
+      @new_song = FactoryGirl.create(:song)
+      put :update, :id=>@new_song.id, :song=>FactoryGirl.attributes_for(:updated_song)
+      @new_song.reload
+    end
+    it { expect(response).to redirect_to(@new_song) }
+    it { expect(@new_song.song_title).to eql attr[:song_title] }
+    it { expect(@new_song.song_writer).to eql attr[:song_writer] }
+  end
+
+
 
 end
