@@ -29,7 +29,7 @@ class Song < ActiveRecord::Base
   # validates :record_label, absence: true
   validates :language, presence: true, inclusion: {in: 1..40}
   validates :primary_genre, presence: true, inclusion: {in: 0..33}
-  validates :secondary_genre, presence: true, inclusion: {in: 0..33}
+  validates :secondary_genre, inclusion: {in: 0..33}
   # validates :lyrics, absence: true
   validates :terms, acceptance: {accept: true}
   # validates :release_date, absence: true

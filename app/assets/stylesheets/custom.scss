@@ -96,3 +96,31 @@ body{
   }
 
 } // end of body tag
+
+
+
+//////////////////////////////////
+////    header customization  ////
+//////////////////////////////////
+
+#logged_in_menu {
+  width: 375px;
+  height: 70px;
+  background-color: white;
+  margin: -35px 803px;
+  color: #4E4E4E;
+
+  #discover{
+    width:75px;
+    height:70px;
+    border:solid;
+    border-width: 0px 0.5px 0px 0px;
+  }
+
+  #invest {
+  }
+
+  #my_account {
+  }
+}
+

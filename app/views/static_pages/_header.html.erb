@@ -16,6 +16,13 @@
         <% if user_signed_in? %>
           <li><%= link_to "Upload a song", new_song_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <div id="logged_in_menu">
+                <div id="discover"> Discover </div>
+                <div id="invest"></div>
+                <div id="my_account"></div>
+            
+            
+            </div>
           <% else %>
             <li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>
             <li><%= link_to "LOGIN", new_user_session_path, class:"btn btn-md btn-transparent" %></li>
