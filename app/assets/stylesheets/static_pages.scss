@@ -155,3 +155,61 @@ list-style: none;
     	border-color: white;
     }
 }
+
+//////////////////////////////////
+////    header customization  ////
+//////////////////////////////////
+$header_menu_width: 300px;
+$header_menu_height: 70px;
+#logged_in_menu {
+  width: $header_menu_width;
+  height: $header_menu_height;
+  background-color: white;
+  margin: -35px 803px;
+  color: #4E4E4E;
+
+  .icon-color {
+    color:#EB5443;
+  }
+
+  #discover{
+    width: $header_menu_width/4;
+    height: $header_menu_height;
+    border:solid;
+    border-width: 0px 0.5px 0px 0px;
+
+    display: table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 10px;
+  }
+
+  #invest {
+    width: $header_menu_width/4;
+    height: $header_menu_height;
+    border:solid;
+    border-width: 0px 0.5px 0px 0px;
+
+    display: table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 10px;
+    &.active{
+      color: white;
+      background-color: red;
+    }
+  }
+
+  #my_account {
+    width: $header_menu_width/2;
+    height: $header_menu_height;
+    border:solid;
+    border-width: 0px 0px 0px 0px;
+
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+  }
+}
+
