@@ -217,8 +217,16 @@ $header_menu_height: 70px;
     padding: 10px;
     &.active{
       color: white;
-      background-color: red;
+      background-color: #C57E6C;
     }
   }
 }
 
+.second-menu {
+  width: 97vw;
+  height: 3vh;
+  background-color: #FEF5F8;
+  .second-menu-font {
+    color:#E72501;
+  }
+}
