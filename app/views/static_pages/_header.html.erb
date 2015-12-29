@@ -17,9 +17,11 @@
           <li><%= link_to "Upload a song", new_song_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             <div id="logged_in_menu">
-              <div id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/>DISCOVER </div>
-                <div id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/>INVEST </div>
-                <div id="my_account"><i class="fa fa-user icon-color"></i> MY ACCOUNT</div></a>
+              <div id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
+                <div id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
+                
+                <div id="my_account"><a href="/songs"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
+                
             </div>
           <% else %>
             <li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>

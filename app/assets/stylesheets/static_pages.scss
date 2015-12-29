@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  position:relative;
+}
 
 
 
@@ -165,12 +168,18 @@ $header_menu_height: 70px;
   width: $header_menu_width;
   height: $header_menu_height;
   background-color: white;
-  margin: -35px 803px;
+  // margin: -35px 803px;
   color: #4E4E4E;
+  position: absolute;
+  left: 950px;
+  top: 10px;
 
   .icon-color {
     color:#EB5443;
   }
+ .white-top-menu-font {
+  color: #4E4E4E;
+ }
 
   #discover{
     width: $header_menu_width/4;
