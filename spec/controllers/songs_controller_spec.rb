@@ -25,6 +25,15 @@ RSpec.describe SongsController, type: :controller do
       end
     end
 
+    context "with valid attributes including a note to admin" do
+      it "redirects to show page upon save" do
+        post :create, song: FactoryGirl.attributes_for(:song_with_notes)
+        expect(response).to redirect_to Song.last
+        expect(Song.last.note_to_admin).to_not eql " "
+        expect(Song.last.note_to_admin).to eql "please add my notes"
+      end
+    end
+
   end
 
 

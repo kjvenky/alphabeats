@@ -19,6 +19,7 @@
 #  audio_file      :string
 #  album_cover     :string
 #  duration        :time
+#  note_to_admin   :text
 #
 
 require 'rails_helper'
@@ -95,6 +96,11 @@ RSpec.describe Song, type: :model do
     it "is invalid without a terms of site check" do
       new_song = FactoryGirl.build(:song, terms: false)
       expect(new_song).to_not be_valid
+    end
+
+    it "is valid without a note to admin" do
+      new_song = FactoryGirl.build(:song, note_to_admin: nil)
+      expect(new_song).to be_valid
     end
   end
 

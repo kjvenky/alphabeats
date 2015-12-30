@@ -37,6 +37,7 @@ FactoryGirl.define do
     audio_file {Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/testfiles/sample_audio.mp3')))} 
     duration "" #Add appropriate value in appropriate format. Time.now?
     terms true
+    note_to_admin ""
 
     factory :invalid_song do
       song_title ""
@@ -45,6 +46,10 @@ FactoryGirl.define do
     factory :updated_song do
       song_title "UPDATED Rolling in the deep"
       song_writer "UPDATED Adele writer"
+    end
+
+    factory :song_with_notes do
+      note_to_admin "please add my notes"
     end
   end
 
