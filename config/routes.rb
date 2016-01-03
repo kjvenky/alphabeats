@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :albums
   # get 'songs/new'
   resources :songs
 

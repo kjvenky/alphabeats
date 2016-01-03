@@ -6,3 +6,12 @@
 </div>
 
 <%= render partial: "form", locals: {song: @song} %>
+
+<script>
+$("#song_album").on('change', function(e) {
+      var valueSelected = this.value;
+          if (valueSelected == -1) {
+                     window.location.href=("//localhost:3000/albums/new")
+          }; 
+})
+</script>

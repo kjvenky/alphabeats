@@ -46,7 +46,7 @@ class Song < ActiveRecord::Base
     CATALAN  = {code: 3, text: "Arabic"}
     CANTONESE  = {code: 4, text: "Cantonese"}
     CHINESE_SIM  = {code: 5, text: "Chinese(Simplified)"}
-    CHINESE_TRAD  = {code: 6, text: "Chinese(Simplified)"}
+    CHINESE_TRAD  = {code: 6, text: "Chinese(Traditional)"}
     CROATIAN  = {code: 7, text: "Croatian"}
     CZECH  = {code: 8, text: "Czech"}
     DANISH  = {code: 9, text: "Danish"}
@@ -125,6 +125,16 @@ class Song < ActiveRecord::Base
 
     def self.genre_list
       Song::Genre.constants.collect { |genre| OpenStruct.new Song::Genre.const_get(genre)}
+    end
+  end
+
+  module Alb
+    NO_ALBUM = {code: 0, text: "No Album(Single)"}
+    CREATE_NEW = {code: 1, text: "Create New Album"}
+
+    def self.alb_list
+      default_list =Song::Alb.constants.collect { |genre| OpenStruct.new Song::Genre.const_get(genre)}
+      dynamic_list = {}
     end
   end
 end
