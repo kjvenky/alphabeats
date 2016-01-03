@@ -46,7 +46,7 @@ class Song < ActiveRecord::Base
     CATALAN  = {code: 3, text: "Arabic"}
     CANTONESE  = {code: 4, text: "Cantonese"}
     CHINESE_SIM  = {code: 5, text: "Chinese(Simplified)"}
-    CHINESE_TRAD  = {code: 6, text: "Chinese(Simplified)"}
+    CHINESE_TRAD  = {code: 6, text: "Chinese(Traditional)"}
     CROATIAN  = {code: 7, text: "Croatian"}
     CZECH  = {code: 8, text: "Czech"}
     DANISH  = {code: 9, text: "Danish"}
