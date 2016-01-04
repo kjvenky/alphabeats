@@ -35,6 +35,8 @@ RSpec.describe User, type: :model do
 		 :email => "user@example.com",  :password => "secret123", :confirmed_at => Time.now-2.days}
 	  end
 
+    it { should have_many(:albums).with_foreign_key('musician_id') }
+
     it "should create a new instance given valid attributes" do 
         new_user = User.new(@attr)
         # new_user.save

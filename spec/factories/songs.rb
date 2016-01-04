@@ -19,6 +19,7 @@
 #  audio_file      :string
 #  album_cover     :string
 #  duration        :time
+#  note_to_admin   :text
 #
 
 FactoryGirl.define do
