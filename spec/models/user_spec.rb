@@ -36,6 +36,7 @@ RSpec.describe User, type: :model do
 	  end
 
     it { should have_many(:albums).with_foreign_key('musician_id') }
+    it { should have_many(:songs).with_foreign_key('musician_id') }
 
     it "should create a new instance given valid attributes" do 
         new_user = User.new(@attr)

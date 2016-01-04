@@ -20,9 +20,13 @@
 #  album_cover     :string
 #  duration        :time
 #  note_to_admin   :text
+#  album_id        :integer
+#  musician_id     :integer
 #
 
 class Song < ActiveRecord::Base
+  belongs_to :musician, class_name: User.name
+  belongs_to :album
   validates :song_title, presence: true
   validates :song_writer, presence: true
   validates :album, presence: true

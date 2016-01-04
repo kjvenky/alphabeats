@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 25 }
 
   has_many :albums, foreign_key: 'musician_id'
+  has_many :songs, foreign_key: 'musician_id'
 
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

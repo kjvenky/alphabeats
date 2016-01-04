@@ -20,12 +20,16 @@
 #  album_cover     :string
 #  duration        :time
 #  note_to_admin   :text
+#  album_id        :integer
+#  musician_id     :integer
 #
 
 require 'rails_helper'
 
 RSpec.describe Song, type: :model do
   # pending
+  it { should belong_to(:album) }
+  it { should belong_to(:musician).class_name('User') }
   context "with invalid attributes" do
     it "is valid given valid attributes" do
       new_song = FactoryGirl.create(:song)

@@ -20,6 +20,8 @@
 #  album_cover     :string
 #  duration        :time
 #  note_to_admin   :text
+#  album_id        :integer
+#  musician_id     :integer
 #
 
 FactoryGirl.define do
