@@ -41,6 +41,8 @@ FactoryGirl.define do
     duration "" #Add appropriate value in appropriate format. Time.now?
     terms true
     note_to_admin ""
+    association :musician, factory: :user
+    album
 
     factory :invalid_song do
       song_title ""

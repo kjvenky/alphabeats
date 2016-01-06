@@ -12,7 +12,7 @@
 FactoryGirl.define do
   factory :album do
     album_name "MyString"
-    musician nil
+    association :musician, factory: :user
   end
 
 end
