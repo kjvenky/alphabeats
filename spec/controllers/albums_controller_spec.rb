@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
-  # before(:all) do
-  #   login_musician
-  # end
 
   describe "GET #index" do
     login_musician
@@ -14,7 +11,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET #show" do
-    # login_musician
     it "returns http success" do
       show_album = FactoryGirl.create(:album)
       sign_in :user, show_album.musician
@@ -71,7 +67,6 @@ RSpec.describe AlbumsController, type: :controller do
       sign_in :user, @update_album.musician
       put :update, :id => @update_album.id, :album => FactoryGirl.attributes_for(:updated_album)
       @update_album.reload
-      # byebug
     end
 
     it { expect(response).to redirect_to(@update_album) }
@@ -79,13 +74,5 @@ RSpec.describe AlbumsController, type: :controller do
     it { expect(@update_album.stage_band_name).to eql attr[:stage_band_name] }
 
   end
-  #
-  # describe "GET #destroy" do
-  #   login_musician
-  #   it "returns http success" do
-  #     get :destroy
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
 
 end

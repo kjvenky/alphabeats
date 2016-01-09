@@ -2,47 +2,31 @@
 #
 # Table name: songs
 #
-#  id              :integer          not null, primary key
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  song_title      :string
-#  song_writer     :string
-#  album           :string
-#  stage_band_name :string
-#  record_label    :string
-#  language        :integer
-#  primary_genre   :integer
-#  secondary_genre :integer
-#  lyrics          :text
-#  terms           :boolean
-#  release_date    :date
-#  audio_file      :string
-#  album_cover     :string
-#  duration        :time
-#  note_to_admin   :text
-#  album_id        :integer
-#  musician_id     :integer
+#  id            :integer          not null, primary key
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  song_title    :string
+#  song_writer   :string
+#  lyrics        :text
+#  terms         :boolean
+#  audio_file    :string
+#  duration      :time
+#  note_to_admin :text
+#  album_id      :integer
+#  musician_id   :integer
 #
 
 class Song < ActiveRecord::Base
+
   belongs_to :musician, class_name: User.name
   belongs_to :album
-  validates :song_title, presence: true
-  validates :song_writer, presence: true
-  validates :album, presence: true
-  validates :stage_band_name, presence: true
-  # validates :record_label, absence: true
-  validates :language, presence: true, inclusion: {in: 1..40}
-  validates :primary_genre, presence: true, inclusion: {in: 0..33}
-  validates :secondary_genre, inclusion: {in: 0..33}
-  # validates :lyrics, absence: true
+
+
+  validates_presence_of :song_title, :song_writer, :terms, :audio_file, :album_id, :musician_id
+
   validates :terms, acceptance: {accept: true}
-  # validates :release_date, absence: true
-  mount_uploader :album_cover, AlbumCoverUploader
-  validates :album_cover, presence: true# , uniqueness: true
+
   mount_uploader :audio_file, AudioFileUploader
-  validates :audio_file, presence: true# , uniqueness: true
-  # validates :duration, absence: true
 
   module Language
     ENGLISH = {code: 1, text: "English"}

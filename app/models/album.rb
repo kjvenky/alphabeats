@@ -19,6 +19,14 @@
 class Album < ActiveRecord::Base
   belongs_to :musician, class_name: User.name
   has_many :songs
+
   validates_presence_of :album_name, :musician_id, :stage_band_name, :album_cover, :language, :primary_genre
   validates_numericality_of :musician_id, :language, :primary_genre, :secondary_genre
+
+  validates_inclusion_of :language, :in => 1..40
+  validates_inclusion_of :primary_genre, :in => 0..33
+  validates_inclusion_of :secondary_genre, :in => 0..33
+
+  mount_uploader :album_cover, AlbumCoverUploader
+
 end
