@@ -33,6 +33,7 @@ FactoryGirl.define do
 	    first_name "Ravi"
 	    last_name "Kanth"
       musician false
+      confirmed_at Date.today
       
       factory :musician do
         musician true

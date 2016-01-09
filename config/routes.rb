@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
+  
+  # get 'albums/show'
+  #
+  # get 'albums/new'
+  #
+  # get 'albums/edit'
+  #
+  # get 'albums/create'
+  #
+  # get 'albums/update'
+  #
+  # get 'albums/destroy'
+  #
   # get 'songs/new'
-  resources :songs
+  resources :songs, :albums
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'static_pages/home'
