@@ -1,9 +1,42 @@
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-offset-10">
+  <div class="col-sm-offset-1 col-sm-10">
 
-  <h1>Albums#show</h1>
-  <p>Find me in app/views/albums/show.html.erb</p>
+  <h1>Details of song <%= @album.album_name %> <%= link_to "Edit", edit_album_path(@album) %></h1>
+  <div class="col-sm-7">
+
+  <h5>Album Name</h5>
+  <%=@album.album_name %>
+
+  <h5>Stage/Band Name</h5>
+  <%=@album.stage_band_name %>
+
+  <h5>Release Date</h5>
+  <%=@album.release_date.strftime("%B %d %Y") %>
+
+  <h5>Record Label</h5>
+  <%=@album.record_label %>
+
+  <h5>Language</h5>
+  <%= Song::Language.language_list[@album.language-1].text %> <br/>
+
+  <h5>Primary Genre</h5>
+  <%= Song::Genre.genre_list[@album.primary_genre].text %> <br/>
+
+
+  <% if Song::Genre.genre_list[@album.secondary_genre].text!=0 %> 
+    <%= "<h5>Secondary Genre</h5><br/>" %>
+    <%= Song::Genre.genre_list[@album.secondary_genre].text %> <br/>
+  <% end %>
+  </div>
+
+  <div class="col-sm-5">
+    <h5>Album Cover</h5>
+    <img src="<%=@album.album_cover %>" width="300px" alt="">
+  </div>
   
+
+
   </div>
 </div>
 
+<br/>
