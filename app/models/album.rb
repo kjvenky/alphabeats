@@ -72,7 +72,7 @@ class Album < ActiveRecord::Base
     OTHER  = {code: 40, text: "Other"}
 
     def self.language_list
-      Song::Language.constants.collect { |language| OpenStruct.new Song::Language.const_get(language)}
+      Album::Language.constants.collect { |language| OpenStruct.new Album::Language.const_get(language)}
     end
   end
 
@@ -113,7 +113,7 @@ class Album < ActiveRecord::Base
     WORLD = {code: 33, text: "World"}
 
     def self.genre_list
-      Song::Genre.constants.collect { |genre| OpenStruct.new Song::Genre.const_get(genre)}
+      Album::Genre.constants.collect { |genre| OpenStruct.new Album::Genre.const_get(genre)}
     end
   end
 
