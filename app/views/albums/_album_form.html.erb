@@ -1,0 +1,14 @@
+
+<%= simple_form_for(album) do |f| %>
+
+      <%= f.input :album_name, label: 'Album Name', input_html: {class: 'input input-style form-control'} %>
+      <%= f.input :stage_band_name, label: 'Stage/Band name', input_html: {class: 'input input-style form-control'}  %>
+      <%= f.input :release_date, label: 'Release Date', input_html: {class: 'input input-style form-control release_date'}  %>
+      <%= f.input :record_label, label: 'Record Label', input_html: {class: 'input input-style form-control'}  %>
+      <%= f.input :album_cover, label: 'Upload Album Cover', input_html: {class: 'input input-style form-control'}  %>
+      <%= f.input :language, label: 'Choose Language', input_html: {class: 'input input-style form-control'}, collection: Song::Language.language_list, label_method: :text, value_method: :code, include_blank: false  %>
+      <%= f.input :primary_genre, label: 'Choose Primary Genre', input_html: {class: 'input input-style form-control'}, collection: Song::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false  %>
+      <%= f.input :secondary_genre, label: 'Choose Secondary Genre', input_html: {class: 'input input-style form-control'}, collection: Song::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false   %>
+      <br/>
+      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+<% end %>

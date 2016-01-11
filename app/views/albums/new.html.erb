@@ -1,2 +1,8 @@
-<h1>Albums#new</h1>
-<p>Find me in app/views/albums/new.html.erb</p>
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+<h1>Create New Album</h1>
+<%= render partial: "album_form", locals: {album: @album} %>
+  </div>
+</div>
+<br/>
+<br/>
