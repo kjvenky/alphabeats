@@ -19,3 +19,6 @@
 #Ignore production .env
 .env.production
 .env
+
+#Ignore uploads folder in public
+public/uploads/*
