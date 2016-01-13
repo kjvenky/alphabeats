@@ -1,38 +1,18 @@
 <div class="form-bg">
 <%= simple_form_for(song) do |f| %>
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-6">
-    <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.input :song_writer, label: 'Song writer', input_html: {class: 'input input-style form-control'} %>
-        <%= f.input :stage_band_name, label: 'Write your stage name or band name', input_html: {class: 'input input-style form-control'} %>
-        <%= f.input :language, label: 'Language', input_html: {class: 'input input-style form-control'}, collection: Song::Language.language_list, label_method: :text, value_method: :code, include_blank: false %>
-        <%= f.input :primary_genre, label: 'Primary Genre', input_html: {class: 'input input-style form-control'}, collection: Song::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false %>
-        <%= f.input :secondary_genre, label: 'Secondary Genre', input_html: {class: 'input input-style form-control'}, collection: Song::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false %>
-        <%= f.input :release_date, label: 'Release date', input_html: {class: 'input input-style form-control release_date'} %>
-        <%= f.input :duration, label: 'Song Duration', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("3:46") %>
-      
-      </div>
-      <div class="col-sm-6">
-        <%= f.input :album, label: 'Write your album name', input_html: {class: 'input input-style form-control'} %>
-        <%= f.input :record_label, label: 'Write your label name if you have any', input_html: {class: 'input input-style form-control'} %>
-        <%= f.input :album_cover, label: 'Album Cover', input_html: {class: 'input input-style form-control'} %>
-        <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %>
-      </div>
-    </div> <!-- end of inner row -->
-  </div> <!-- End of col-offset-1 and col-sm-6-->
-
-  <div class="col-sm-4">
-    <%= f.input :lyrics, label: 'Lyrics', input_html: {class: 'input input-style form-control'} %>
-  </div>
-</div> <!-- end of outer row -->
-
-<div class="row">
   <div class="col-sm-offset-1 col-sm-10">
+    <%= f.input :album, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %>
+    <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :song_writer, label: 'Song writer', input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :duration, label: 'Song Duration', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("3:46") %>
+      
+    <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %>
+
+    <%= f.input :lyrics, label: 'Lyrics', input_html: {class: 'input input-style form-control'} %>
     <%= f.input :note_to_admin, label: 'Note to admin', input_html: {class: 'input input-style form-control'} %>
-  </div>
 </div>
+
 
 <div class="row">
   <div class="col-sm-offset-1 col-sm-6">
@@ -50,3 +30,11 @@
 </div>
 <br/>
 <br/>
+<script>
+$("#song_album").on('change', function(e) {
+        var valueSelected = this.value;
+                  if (valueSelected == -1) {
+                                         window.location.href=("//localhost:3000/albums/new")
+                                                     }; 
+})
+</script>
