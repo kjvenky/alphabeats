@@ -1,12 +1,19 @@
 <%= simple_form_for(album) do |f| %>
-      <%= f.input :album_name, label: 'Album Name', input_html: {class: 'input input-style form-control'} %>
-      <%= f.input :stage_band_name, label: 'Stage/Band name', input_html: {class: 'input input-style form-control'}  %>
+      <%= f.input :album_name, label: 'Album Name', input_html: {class: 'input input-style form-control'} %> <br>
+      <%= f.input :stage_band_name, label: 'Artist/Band name', input_html: {class: 'input input-style form-control'}  %>
+            <li>Important: Only list your name, stage name, or band name. Do not include anyone else's names without their permission.</li>
+            <li>Featured artists: Don't list them here. Instead, put featured artists in your song titles (more info in that section, below).</li>
+            <li>Capitalization: Use "Title Case". Stores will reject ALL CAPS, all-lowercase, and wEiRd caps.</li><br>
       <%= f.input :release_date, label: 'Release Date', input_html: {class: 'input input-style form-control release_date'}  %>
+            <li>If you're choosing a date in the future and it's important that your album goes live on that exact day, <a href="https://distrokid.desk.com/customer/portal/articles/1624043-if-i-specify-a-custom-release-date-when-will-my-album-appear-in-stores-">click here for info.</a></li><br>
       <%= f.input :record_label, label: 'Record Label', input_html: {class: 'input input-style form-control'}  %>
+            <li>Anything you want (optional)</li><br>
       <%= f.input :album_cover, label: 'Upload Album Cover', input_html: {class: 'input input-style form-control'}  %>
-      <%= f.input :language, label: 'Choose Language', input_html: {class: 'input input-style form-control'}, collection: Album::Language.language_list, label_method: :text, value_method: :code, include_blank: false  %>
-      <%= f.input :primary_genre, label: 'Choose Primary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false  %>
-      <%= f.input :secondary_genre, label: 'Choose Secondary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false   %>
+            <li>.jpg extension. optimal is perfect square. optimal size is 3000x3000</li>
+            <li>Stores will reject artwork that contains a website address (URL), Twitter name, or any image that's pixelated, rotated, or poor quality. They'll also reject artwork with prices or store logos (don't put an iTunes or Spotify logo on your artwork). Also, please don't reuse the same artwork for multiple albums.</li><br>
+      <%= f.input :language, label: 'Choose Language', input_html: {class: 'input input-style form-control'}, collection: Album::Language.language_list, label_method: :text, value_method: :code, include_blank: false  %> <br>
+      <%= f.input :primary_genre, label: 'Choose Primary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false  %> <br>
+      <%= f.input :secondary_genre, label: 'Choose Secondary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false   %> <br>
       <br/>
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
 <% end %>
