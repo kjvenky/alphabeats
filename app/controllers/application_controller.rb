@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name
    end
+
+  def authorize_musician
+    redirect_to root_url, alert: "You are not authorized" if !current_user.musician?
+  end
 end

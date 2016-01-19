@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20160109091730) do
   add_index "songs", ["musician_id"], name: "index_songs_on_musician_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160109091730) do
     t.string   "unconfirmed_email"
     t.string   "provider"
     t.string   "uid"
-    t.boolean  "musician",               default: false
+    t.boolean  "musician",               default: true
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
