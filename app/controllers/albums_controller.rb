@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_filter :authenticate_user!
+  before_action :authorize_musician
 
   def index
     @albums = current_user.albums.all
@@ -45,4 +46,5 @@ private
   def album_params
     params.require(:album).permit(:album_name, :stage_band_name, :release_date, :record_label, :album_cover, :language, :primary_genre, :secondary_genre)
   end
+
 end

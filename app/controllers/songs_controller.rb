@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :authorize_musician
   
   def index
     @songs = current_user.songs
@@ -42,4 +43,5 @@ private
   def song_params
     params.require(:song).permit(:song_title, :song_writer, :lyrics, :terms, :audio_file,  :duration, :note_to_admin, :album_id)
   end
+
 end
