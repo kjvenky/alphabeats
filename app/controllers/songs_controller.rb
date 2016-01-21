@@ -8,7 +8,8 @@ class SongsController < ApplicationController
 
   def new
     @song = current_user.songs.new
-    default_list = [OpenStruct.new({code: -2, text: "No Album(Single)"}), OpenStruct.new({code: -1, text: "Create New Album"})]
+    # default_list = [OpenStruct.new({code: -2, text: "No Album(Single)"}), OpenStruct.new({code: -1, text: "Create New Album"})]
+    default_list = [OpenStruct.new({code: -1, text: "Create New Album"})]
     dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) }
     @song_album_list = default_list + dynamic_list
   end
