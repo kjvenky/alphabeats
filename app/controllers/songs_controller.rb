@@ -8,10 +8,7 @@ class SongsController < ApplicationController
 
   def new
     @song = current_user.songs.new
-    # default_list = [OpenStruct.new({code: -2, text: "No Album(Single)"}), OpenStruct.new({code: -1, text: "Create New Album"})]
-    default_list = [OpenStruct.new({code: -1, text: "Create New Album"})]
-    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) }
-    @song_album_list = default_list + dynamic_list
+    @song_album_list = song_album_list #Defined in application controller
   end
   
   def create
@@ -19,7 +16,9 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to song_path(@song), notice: "The song #{@song.song_title} has been created"
     else
-      render "new"
+      @song_album_list = song_album_list #Defined in application controller 
+      # and makes sure album field is prepopulated properly when there is an error in the form
+      render :action => "new"
     end
   end
 
