@@ -20,6 +20,15 @@
       <h5>Note to Admin</h5>
       <%= @song.note_to_admin %> <br/>
 
+      <h5>Explicit Lyrics</h5>
+      <% if @song.explicit_lyrics %>
+        <%= raw("Yes") %>
+      <% else %>
+        <%= raw("No") %>
+      <% end %>
+       
+        <br/>
+
     </div>
     <div class="col-sm-7">
       <h5>Lyrics of the song</h5>
