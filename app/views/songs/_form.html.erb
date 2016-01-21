@@ -2,6 +2,7 @@
 <%= simple_form_for(song) do |f| %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
+  <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
 
     <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> <br>
 
