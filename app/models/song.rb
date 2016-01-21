@@ -23,7 +23,7 @@ class Song < ActiveRecord::Base
   belongs_to :album
 
 
-  validates_presence_of :song_title, :song_writer, :terms, :audio_file, :album_id, :musician_id
+  validates_presence_of :song_title, :song_writer, :terms, :audio_file, :album_id, :musician_id, :explicit_lyrics
 
   validates :terms, acceptance: {accept: true}
 
