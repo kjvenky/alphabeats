@@ -20,4 +20,8 @@ class StaticPagesController < ApplicationController
   
   def letter
   end
+
+  def dashboard
+    @albums= current_user.albums.all
+  end
 end
