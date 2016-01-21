@@ -9,10 +9,10 @@
       <%= @song.song_writer %> <br/>
 
       <h5>Album Name</h5>
-      <%= @song.album %> <br/>
+      <%= @song.album.album_name %> <br/>
 
       <h5>Song Duration</h5>
-      <%= @song.duration.strftime("%M:%S") %> <br/>
+      <%= @song.duration.strftime("%H:%M") %> <br/>
 
       <h5>Link to Song</h5>
       <%= @song.audio_file %> <br/>
