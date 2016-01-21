@@ -1,9 +1,9 @@
 <nav class="second-menu">
   <ul class="list-inline pull-right">
-    <li><%= link_to "Upload Song", new_song_path, :class =>"second-menu-font" %></li>
+    <li><%= link_to "Upload Single", new_song_path, :class =>"second-menu-font" %></li>
     <li><%= link_to "Create Album", new_album_path, :class =>"second-menu-font" %></li>
-    <li><%= link_to "My Albums", albums_path, :class =>"second-menu-font" %></li>
-    <li><%= link_to "My Songs", songs_path, :class =>"second-menu-font" %></li>
+    <li><%= link_to "Albums", albums_path, :class =>"second-menu-font" %></li>
+    <li><%= link_to "Singles", songs_path, :class =>"second-menu-font" %></li>
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>"second-menu-font" %></li>
   </ul>
 </nav>
