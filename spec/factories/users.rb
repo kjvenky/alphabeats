@@ -23,7 +23,7 @@
 #  unconfirmed_email      :string
 #  provider               :string
 #  uid                    :string
-#  musician               :boolean          default(FALSE)
+#  musician               :boolean          default(TRUE)
 #
 
 FactoryGirl.define do

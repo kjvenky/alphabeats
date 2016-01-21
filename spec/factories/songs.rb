@@ -2,18 +2,19 @@
 #
 # Table name: songs
 #
-#  id            :integer          not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  song_title    :string
-#  song_writer   :string
-#  lyrics        :text
-#  terms         :boolean
-#  audio_file    :string
-#  duration      :time
-#  note_to_admin :text
-#  album_id      :integer
-#  musician_id   :integer
+#  id              :integer          not null, primary key
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  song_title      :string
+#  song_writer     :string
+#  lyrics          :text
+#  terms           :boolean
+#  audio_file      :string
+#  duration        :time
+#  note_to_admin   :text
+#  album_id        :integer
+#  musician_id     :integer
+#  explicit_lyrics :boolean
 #
 
 FactoryGirl.define do
