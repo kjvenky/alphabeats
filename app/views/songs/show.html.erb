@@ -11,24 +11,6 @@
       <h5>Album Name</h5>
       <%= @song.album %> <br/>
 
-      <h5>Stage/Band Name</h5>
-      <%= @song.stage_band_name %> <br/>
-       
-      <h5>Label Name</h5>
-      <%= @song.record_label %> <br/>
-
-      <h5>Language</h5>
-      <%= Song::Language.language_list[@song.language-1].text %> <br/>
-
-      <h5>Primary Genre</h5>
-      <%= Song::Genre.genre_list[@song.primary_genre].text %> <br/>
-
-      <h5>Secondary Genre</h5>
-      <%= Song::Genre.genre_list[@song.secondary_genre].text %> <br/>
-
-      <h5>Release date</h5>
-      <%= @song.release_date.strftime("%B %d %Y") %> <br/>
-
       <h5>Song Duration</h5>
       <%= @song.duration.strftime("%M:%S") %> <br/>
 

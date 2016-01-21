@@ -2,7 +2,7 @@
 <%= simple_form_for(song) do |f| %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
-    <%= f.input :album, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> <br>
+    <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> <br>
     <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
       <li>Featured artists: Use the word feat. in parenthesis, with names separated by ampersand & commas. Example: Sweetest Girl (feat. Akon, Lil Wayne & Niia)</li>
       <li>Instrumental/remix/versioning: If the title needs an explanatory word, put it in parenthesis. Example: Cheerleader (instrumental)</li>
