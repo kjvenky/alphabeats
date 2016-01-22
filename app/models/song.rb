@@ -25,9 +25,11 @@ class Song < ActiveRecord::Base
   belongs_to :album
 
 
-  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :musician_id, :explicit_lyrics, :self_written, :original_artist, :original_song_title
+  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :musician_id,  :original_artist, :original_song_title
 
   validates :terms, acceptance: {accept: true}
+  validates_inclusion_of :explicit_lyrics, :in => [true, false]
+  validates_inclusion_of :self_written, :in => [true, false]
 
   mount_uploader :audio_file, AudioFileUploader
 
