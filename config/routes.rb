@@ -23,11 +23,9 @@ Rails.application.routes.draw do
   get 'legal', to: "static_pages#legal"
   get 'updates', to: "static_pages#updates"
   get 'letter', to: "static_pages#letter"
-<<<<<<< HEAD
   get 'pricing', to: "static_pages#pricing"
-=======
   get 'dashboard', to: "static_pages#dashboard"
->>>>>>> upload-album
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
