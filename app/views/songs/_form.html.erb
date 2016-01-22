@@ -13,8 +13,8 @@
       <li>Cover songs: If a cover, remix, or mashup, do not include the original artist's name here. Example: Thriller</li>   
       <li>Capitalization: Use title case. Stores will reject all-lowercase or wEirD capitalization. Example: It's the End of the World As We Know It (And I Feel Fine)</li> <br>   
 
-    <%= f.input :explicit_lyrics, :as => :radio_buttons, label: 'Explicit Lyrics', :item_wrapper_class => 'inline', :checked => false %> <br>
-
+    <%= f.label :explicit_lyrics %> </br>
+    <%= f.collection_radio_buttons :explicit_lyrics, [[true, 'Yes'] ,[false, 'No']], :first, :last , :item_wrapper_class => "radio-css"%>
     <%= f.input :duration, label: 'Song Duration', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("03:46") %> <br>
 
     <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %> 
@@ -26,7 +26,8 @@
       <li>If the song's royalties are being shared amongst multiple people, please provide their email address and percent of rights owned, and separate individuals by commas. Example s@alphabeatsmusic.com (50%), mum@example.com (10%)</li>
       <li>Special requests?</li><br> 
 
-    <%= f.input :self_written, :as => :radio_buttons, collection: [ [ true, "I wrote this song (it's an original tune)" ], [ false, "Another artist wrote it (it's a cover, click for more info)"] ], label_method: :last, value_method: :first,  label: 'Song Writer', :item_wrapper_class => 'inline', :checked => true %> <br>
+    <%= f.label :self_written, label: "Song Writer" %> </br>
+    <%= f.collection_radio_buttons :self_written, [[true, "I wrote this song (it's an original tune)"] ,[false, "Another artist wrote it (it's a cover, click for more info)"]], :first, :last , :item_wrapper_class => "radio-css"%>
     <li>Write "NA" if the songs are original and not cover songs. If the songs are cover songs fill the fields using the instructions below the fields</li>
 
     <%= f.input :original_artist, label: 'Original artist/songwriter', input_html: {class: 'input input-style form-control'} %>
