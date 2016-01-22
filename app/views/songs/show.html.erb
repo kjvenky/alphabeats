@@ -1,7 +1,7 @@
 <%= render "songs/secondheader" %>
 <%= render partial: "songs/song_show", locals: {song: @song} %>
 
-
+<div class="row">
 
   <div class="col-sm-4">
     <a href="<%= new_song_path %>">
@@ -14,7 +14,7 @@
   </div>
 
   <div class="col-sm-4">
-    <a href="<%= album_songs_path(@song.album) %>">
+    <a href="<%= album_song_path(@song.album) %>">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
           <span id="updates">View album & songs</span>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="col-sm-4">
-    <a href="<%= album_songs_path(@song.album) %>">
+    <a href="<%= album_song_path(@song.album) %>">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
           <span id="updates">Proceed To Checkout</span>
