@@ -30,10 +30,11 @@ RSpec.describe Song, type: :model do
   it { should validate_presence_of(:audio_file)}
   it { should validate_presence_of(:album_id)}
   it { should validate_presence_of(:musician_id)}
-  it { should validate_presence_of(:explicit_lyrics)}
-  it { should validate_presence_of(:self_written)}
   it { should validate_presence_of(:original_artist)}
   it { should validate_presence_of(:original_song_title)}
+
+  it { should validate_inclusion_of(:explicit_lyrics).in_array([true, false]) }
+  it { should validate_inclusion_of(:self_written).in_array([true, false]) }
 
 
   

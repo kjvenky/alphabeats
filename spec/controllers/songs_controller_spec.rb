@@ -82,7 +82,6 @@ RSpec.describe SongsController, type: :controller do
     end
     it { expect(response).to redirect_to(@new_song) }
     it { expect(@new_song.song_title).to eql attr[:song_title] }
-    it { expect(@new_song.song_writer).to eql attr[:song_writer] }
   end
 
 end

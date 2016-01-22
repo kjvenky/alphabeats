@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
     end
 
     it "is not a musician by default" do
-        non_musican_user = User.new(@attr)
+        non_musican_user = User.new(@attr.merge(:musician => false))
         expect(non_musican_user).to be_valid
         expect(non_musican_user.musician?).to be false
     end
