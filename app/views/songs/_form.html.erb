@@ -2,15 +2,11 @@
 <%= simple_form_for(song) do |f| %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
-<<<<<<< HEAD
+
+    <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
     <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> 
       <li>If you are uploading a single, you must still create a unique album for it. We suggest you use the name of the single itself as the album name.</li> <br>
-=======
-  <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
 
-    <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> <br>
-
->>>>>>> upload-album
     <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
       <li>Featured artists: Use the word feat. in parenthesis, with names separated by ampersand & commas. Example: Sweetest Girl (feat. Akon, Lil Wayne & Niia)</li>
       <li>Instrumental/remix/versioning: If the title needs an explanatory word, put it in parenthesis. Example: Cheerleader (instrumental)</li>
@@ -48,7 +44,12 @@
     <div class="row">
       <div class="col-sm-6">
         <br/>
-        <%= f.input :terms, label: 'Terms and Conditions', input_html: {class: 'input input-style form-control'} %>
+        <span>
+          <%= link_to 'Terms and Conditions', terms_path %>
+        </span>
+        <span>
+          <%= f.input :terms, label: false, input_html: {class: 'input input-style form-control'} %>
+        </span>
         <br/>
         <%= f.button :submit, "Add to Cart", class: 'btn btn-transparent btn-lg' %>
       </div>

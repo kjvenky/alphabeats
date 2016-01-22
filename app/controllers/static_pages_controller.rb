@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def legal
+  def terms
   end
 
   def updates
