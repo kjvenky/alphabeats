@@ -42,6 +42,10 @@ class AlbumsController < ApplicationController
   def destroy
   end
 
+  def album_song_show
+    @album = current_user.albums.find(params[:id])
+  end
+
 private
   def album_params
     params.require(:album).permit(:album_name, :stage_band_name, :release_date, :record_label, :album_cover, :language, :primary_genre, :secondary_genre)
