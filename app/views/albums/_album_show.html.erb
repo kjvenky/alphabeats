@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+
+  <h1>Details of the album <%= album.album_name %> <%= link_to "Edit", edit_album_path(album) %></h1>
+  <div class="col-sm-7">
+
+  <h5>Album Name</h5>
+  <%=album.album_name %>
+
+  <h5>Stage/Band Name</h5>
+  <%=album.stage_band_name %>
+
+  <h5>Release Date</h5>
+  <%=album.release_date.strftime("%B %d %Y") %>
+
+  <h5>Record Label</h5>
+  <%=album.record_label %>
+
+  <h5>Language</h5>
+  <%= Album::Language.language_list[album.language-1].text %> <br/>
+
+  <h5>Primary Genre</h5>
+  <%= Album::Genre.genre_list[album.primary_genre].text %> <br/>
+
+
+  <% if Album::Genre.genre_list[album.secondary_genre].text!=0 %> 
+    <%= raw("<h5>Secondary Genre</h5>") %>
+    <%= Album::Genre.genre_list[album.secondary_genre].text %>
+  <% end %>
+  </div>
+
+  <div class="col-sm-5">
+    <h5>Album Cover</h5>
+    <img src="<%=album.album_cover %>" width="300px" alt="">
+  </div>
+
+  </div>
+</div>
+
+<br/>
