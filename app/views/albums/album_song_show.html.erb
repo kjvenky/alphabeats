@@ -1,0 +1,10 @@
+<h2>The following are the details of the album <%= @album.album_name %> and the songs that belong to it. </h2>
+
+<%= render partial: "albums/album_show", locals: {album: @album}  %>
+
+<%# <%= @album.songs.count %>
+<% @album.songs.each do |song| %>
+<%= render partial: "songs/song_show", locals: {song: song} %>
+<% end %>
+
+
