@@ -6,7 +6,18 @@
       <%= @song.song_title %> <br/>
 
       <h5>Song Writer</h5>
-      <%= @song.song_writer %> <br/>
+      <% if @song.self_written %>
+        <%= raw("Self Written") %>
+      <% else %>
+        <%= raw("Original artist:") %>
+        <%= @song.original_artist %>
+        <br/>
+        <%= raw("Original song title:") %>
+        <%= @song.original_song_title %>
+      <% end %>
+
+       
+        <br/>
 
       <h5>Album Name</h5>
       <%= @song.album.album_name %> <br/>
@@ -19,6 +30,15 @@
 
       <h5>Note to Admin</h5>
       <%= @song.note_to_admin %> <br/>
+
+      <h5>Explicit Lyrics</h5>
+      <% if @song.explicit_lyrics %>
+        <%= raw("Yes") %>
+      <% else %>
+        <%= raw("No") %>
+      <% end %>
+       
+        <br/>
 
     </div>
     <div class="col-sm-7">

@@ -2,18 +2,21 @@
 #
 # Table name: songs
 #
-#  id            :integer          not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  song_title    :string
-#  song_writer   :string
-#  lyrics        :text
-#  terms         :boolean
-#  audio_file    :string
-#  duration      :time
-#  note_to_admin :text
-#  album_id      :integer
-#  musician_id   :integer
+#  id                  :integer          not null, primary key
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  song_title          :string
+#  lyrics              :text
+#  terms               :boolean
+#  audio_file          :string
+#  duration            :time
+#  note_to_admin       :text
+#  album_id            :integer
+#  musician_id         :integer
+#  explicit_lyrics     :boolean
+#  self_written        :boolean
+#  original_artist     :string
+#  original_song_title :string
 #
 
 class Song < ActiveRecord::Base
@@ -22,10 +25,11 @@ class Song < ActiveRecord::Base
   belongs_to :album
 
 
-  validates_presence_of :song_title, :song_writer, :terms, :audio_file, :album_id, :musician_id
+  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :musician_id, :explicit_lyrics, :self_written, :original_artist, :original_song_title
 
   validates :terms, acceptance: {accept: true}
 
   mount_uploader :audio_file, AudioFileUploader
+
 
 end

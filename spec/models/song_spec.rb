@@ -2,18 +2,21 @@
 #
 # Table name: songs
 #
-#  id            :integer          not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  song_title    :string
-#  song_writer   :string
-#  lyrics        :text
-#  terms         :boolean
-#  audio_file    :string
-#  duration      :time
-#  note_to_admin :text
-#  album_id      :integer
-#  musician_id   :integer
+#  id                  :integer          not null, primary key
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  song_title          :string
+#  lyrics              :text
+#  terms               :boolean
+#  audio_file          :string
+#  duration            :time
+#  note_to_admin       :text
+#  album_id            :integer
+#  musician_id         :integer
+#  explicit_lyrics     :boolean
+#  self_written        :boolean
+#  original_artist     :string
+#  original_song_title :string
 #
 
 require 'rails_helper'
@@ -23,11 +26,14 @@ RSpec.describe Song, type: :model do
   it { should belong_to(:musician).class_name('User') }
 
   it { should validate_presence_of(:song_title) }
-  it { should validate_presence_of(:song_writer) }
   it { should validate_presence_of(:terms) }
   it { should validate_presence_of(:audio_file)}
   it { should validate_presence_of(:album_id)}
   it { should validate_presence_of(:musician_id)}
+  it { should validate_presence_of(:explicit_lyrics)}
+  it { should validate_presence_of(:self_written)}
+  it { should validate_presence_of(:original_artist)}
+  it { should validate_presence_of(:original_song_title)}
 
 
   

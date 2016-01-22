@@ -2,23 +2,44 @@
 <%= simple_form_for(song) do |f| %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
+<<<<<<< HEAD
     <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> 
       <li>If you are uploading a single, you must still create a unique album for it. We suggest you use the name of the single itself as the album name.</li> <br>
+=======
+  <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
+
+    <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> <br>
+
+>>>>>>> upload-album
     <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
       <li>Featured artists: Use the word feat. in parenthesis, with names separated by ampersand & commas. Example: Sweetest Girl (feat. Akon, Lil Wayne & Niia)</li>
       <li>Instrumental/remix/versioning: If the title needs an explanatory word, put it in parenthesis. Example: Cheerleader (instrumental)</li>
       <li>Multiple parenthesis: Titles can only have 1 set of parenthesis. If you need more, use brackets instead. Example: C'mon (Catch 'Em by Surprise) [Tiësto remix] [feat. Busta Rhymes]</li>
       <li>Cover songs: If a cover, remix, or mashup, do not include the original artist's name here. Example: Thriller</li>   
       <li>Capitalization: Use title case. Stores will reject all-lowercase or wEirD capitalization. Example: It's the End of the World As We Know It (And I Feel Fine)</li> <br>   
-    <%= f.input :song_writer, label: 'Song writer', input_html: {class: 'input input-style form-control'} %> <br>
+
+    <%= f.label :explicit_lyrics %> </br>
+    <%= f.collection_radio_buttons :explicit_lyrics, [[true, 'Yes'] ,[false, 'No']], :first, :last , :item_wrapper_class => "radio-css"%>
     <%= f.input :duration, label: 'Song Duration', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("03:46") %> <br>
+
     <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %> 
       <li>WAV, WMA, M4A, FLAC, MP3, or CDDA</li><br>
+
     <%= f.input :lyrics, label: 'Lyrics', input_html: {class: 'input input-style form-control'} %> <br>
+
     <%= f.input :note_to_admin, label: 'Note to admin', input_html: {class: 'input input-style form-control'} %> 
       <li>If the song's royalties are being shared amongst multiple people, please provide their email address and percent of rights owned, and separate individuals by commas. Example songwriter@alphabeatsmusic.com (50%), drummer@example.com (10%)</li>
       <li>If you would like to delete a single, please write a note here</li> 
       <li>Special requests?</li><br> 
+
+    <%= f.label :self_written, label: "Song Writer" %> </br>
+    <%= f.collection_radio_buttons :self_written, [[true, "I wrote this song (it's an original tune)"] ,[false, "Another artist wrote it (it's a cover, click for more info)"]], :first, :last , :item_wrapper_class => "radio-css"%>
+    <li>Write "NA" if the songs are original and not cover songs. If the songs are cover songs fill the fields using the instructions below the fields</li>
+
+    <%= f.input :original_artist, label: 'Original artist/songwriter', input_html: {class: 'input input-style form-control'} %>
+
+    <%= f.input :original_song_title, label: 'Original song title', input_html: {class: 'input input-style form-control'} %>
+
 </div>
 
 
@@ -38,11 +59,12 @@
 </div>
 <br/>
 <br/>
+
 <script>
-$("#song_album").on('change', function(e) {
-        var valueSelected = this.value;
-                  if (valueSelected == -1) {
-                                         window.location.href=("//localhost:3000/albums/new")
-                                                     }; 
-})
+  $("#song_album_id").on('change', function(e) {
+      var valueSelected = this.value;
+      if (valueSelected == -1) {
+         window.location.href=("//localhost:3000/albums/new")
+     }; 
+  })
 </script>
