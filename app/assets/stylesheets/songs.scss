@@ -23,16 +23,15 @@
 }
 
 // Begin radio styling
-.song_explicit_lyrics .inline {
-  #song_explicit_lyrics_true, #song_explicit_lyrics_false {
+  input#song_explicit_lyrics_true, input#song_explicit_lyrics_false {
     height: 1em;
   } 
-}
-.song_self_written .inline {
-  #song_self_written_false, #song_self_written_true {
+  span.radio-css {
+    display:block;
+  }
+ input#song_self_written_false, input#song_self_written_true {
     height:1em;
   }
-}
 
 //Begin release date styling
 .song_release_date{
