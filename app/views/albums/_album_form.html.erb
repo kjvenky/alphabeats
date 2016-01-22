@@ -1,4 +1,5 @@
 <%= simple_form_for(album) do |f| %>
+  <%= render partial: 'shared/error_messages', locals: {resource: album}  %>
       <%= f.input :album_name, label: 'Album Name', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :stage_band_name, label: 'Artist/Band name', input_html: {class: 'input input-style form-control'}  %>
             <li>Important: Only list your name, stage name, or band name. Do not include anyone else's names without their permission.</li>

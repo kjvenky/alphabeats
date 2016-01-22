@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
   has_many :albums, foreign_key: 'musician_id'
   has_many :songs, foreign_key: 'musician_id'
 
+
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	    user.email = auth.info.email
@@ -52,5 +53,6 @@ class User < ActiveRecord::Base
   def musician?
     self.musician 
   end
+
   
 end

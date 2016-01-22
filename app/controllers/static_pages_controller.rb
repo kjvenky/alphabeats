@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   def home
   end
 
@@ -22,6 +23,7 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
-    @albums= current_user.albums.all
+    @albums = current_user.albums.all
   end
+
 end
