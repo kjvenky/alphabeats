@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121132011) do
+ActiveRecord::Schema.define(version: 20160127090854) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -28,6 +28,29 @@ ActiveRecord::Schema.define(version: 20160121132011) do
   end
 
   add_index "albums", ["musician_id"], name: "index_albums_on_musician_id"
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_items", ["album_id"], name: "index_order_items_on_album_id"
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "musician_id"
+    t.decimal  "total",           default: 0.0
+    t.boolean  "payment_status",  default: false
+    t.boolean  "shazam",          default: false
+    t.boolean  "youtube",         default: false
+    t.boolean  "store_maximizer", default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "orders", ["musician_id"], name: "index_orders_on_musician_id"
 
   create_table "songs", force: :cascade do |t|
     t.datetime "created_at",          null: false

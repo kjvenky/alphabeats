@@ -39,4 +39,6 @@ RSpec.describe Album, type: :model do
 
   it { should belong_to(:musician).class_name('User') }
   it { should have_many(:songs) }
+  it { should have_many(:order_items)}
+
 end
