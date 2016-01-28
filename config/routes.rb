@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get 'pricing', to: "static_pages#pricing"
   get 'dashboard', to: "static_pages#dashboard"
   get 'terms', to: "static_pages#terms"
+  get 'cart_page', to: "static_pages#cart_page"
+  get 'payment_page', to: "static_pages#payment_page"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

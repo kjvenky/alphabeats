@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
 
+  before_filter :authenticate_user!, only: [:cart_page, :payment_page]
+
   def home
   end
 
@@ -27,6 +29,13 @@ class StaticPagesController < ApplicationController
 
   def dashboard
     @albums = current_user.albums.all
+  end
+  
+  def cart_page
+    @albums = current_user.albums.all
+  end
+
+  def payment_page
   end
 
 end
