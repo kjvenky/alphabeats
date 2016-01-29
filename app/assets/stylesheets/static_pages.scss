@@ -144,9 +144,9 @@ list-style: none;
 	text-align: center;
 }
 
-//////////////////////////////////
-//// 			Contact		  ////
-//////////////////////////////////
+////////////////////////////////
+// 			Contact		  ////
+////////////////////////////////
 
 .input-style {
     background-color: transparent;
@@ -229,4 +229,20 @@ $header_menu_height: 70px;
   .second-menu-font {
     color:#E72501;
   }
+}
+
+
+////////////////////////////////
+//    			Cart Page		    ////
+////////////////////////////////
+
+
+.li-styling > li {
+  list-style:none;
+}
+
+
+.album_index_name {
+  font-size:2em;
+  font:bold;
 }
