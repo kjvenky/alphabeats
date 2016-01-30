@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 li-styling">
     <h2>List of Albums and Songs</h2>
-
+  
     <%= render "cart_show" %>
 
    
@@ -17,7 +17,6 @@
     <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
     <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
     <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true %>
-    <%= link_to "Remove from Order", order_item_path(:album_id => album.id), method: :delete, remote: :true %>
   </li>
   <% album.songs.each do |song| %>
     <li class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
