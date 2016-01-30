@@ -1,4 +1,3 @@
-
 <%= render "songs/secondheader" %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 li-styling">
@@ -30,4 +29,18 @@
   <%= raw("You have not yet uploaded any songs or albums") %>
 <% end %>
   </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-offset-6 col-sm-6">
+    <a href="<%= new_song_path %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent">
+          <span id="updates">Continue</span>
+        </button>
+      </div>
+    </a>
+  </div>
+
 </div>
