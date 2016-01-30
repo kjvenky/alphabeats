@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter  :configure_permitted_parameters, if: :devise_controller? 
+  helper_method :current_order
   def after_sign_up_path_for(resource_or_scope)
   	# if request.env['omniauth.origin']
    #    root_path
@@ -17,7 +18,13 @@ class ApplicationController < ActionController::Base
     default_list + dynamic_list
   end
 
-
+  def current_order
+    if !session[:order_id].nil?
+      current_user.orders.find(session[:order_id])
+    else
+      current_user.orders.new
+    end
+  end
 
   protected
 
