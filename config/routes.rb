@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :orders, only: [:update, :destroy]
   resources :order_items, only: [:create, :update, :destroy]
 
   resources :songs, :albums
