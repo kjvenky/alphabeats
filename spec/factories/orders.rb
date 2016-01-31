@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id              :integer          not null, primary key
+#  musician_id     :integer
+#  total           :decimal(, )      default(0.0)
+#  payment_status  :boolean          default(FALSE)
+#  shazam          :boolean          default(FALSE)
+#  youtube         :boolean          default(FALSE)
+#  store_maximizer :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 FactoryGirl.define do
   factory :order do
     musician nil
