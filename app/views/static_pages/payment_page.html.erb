@@ -1,6 +1,14 @@
 <%= render "songs/secondheader" %>
 <%= render "total_show" %>
 
+<br/>
+ <%=link_to "Add Shazam", order_path(current_order), data: { params: { order: {  shazam: true} }.to_param }, :method => 'PATCH', remote: true%>
+<br/>
+ <%=link_to "Add Youtube", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%>
+<br/>
+ <%=link_to "Add Store maximizer", order_path(current_order), data: { params: { order: {  store_maximizer: true} }.to_param }, :method => 'PATCH', remote: true%>
+<br/>
+
 
 <div class="row">
 

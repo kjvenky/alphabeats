@@ -1,22 +1,35 @@
-<% if !current_order.order_items.nil? %>
-  <% @total = 0 %>
-  <% current_order.order_items.each do |order_item| %>
-    <% if order_item.album.songs.count==1 %>
-      <% @total = @total+12 if !order_item.album.songs.last.self_written %> 
-      <% @total = @total+0.99 if order_item.order.shazam %> 
-      <% @total = @total+4.95 if order_item.order.youtube %> 
-      <% @total = @total+7.95 if order_item.order.store_maximizer %> 
-    <% elsif order_item.album.songs.count!=1 %>
-      <% order_item.album.songs.each do |song| %>
-        <% @total = @total+12 if !song.self_written %> 
+<div class="total_show">
+
+  <% if !current_order.order_items.nil? %>
+    <% @total = 0 %>
+    <% current_order.order_items.each do |order_item| %>
+      <% if order_item.album.songs.count==1 %>
+        <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
+        <% @total = @total+0.99 if order_item.order.shazam  %>
+        <% @total = @total+4.95 if order_item.order.youtube  %>
+        <% @total = @total+7.95 if order_item.order.store_maximizer  %>
+      <% elsif order_item.album.songs.count!=1 %>
+        <% order_item.album.songs.each do |song| %>
+          <% @total = @total+12 if !song.self_written  %>
+        <% end %>
+        <% @total = @total+0.99 if order_item.order.shazam  %>
+        <% @total = @total+14.95 if order_item.order.youtube  %>
+        <% @total = @total+7.95 if order_item.order.store_maximizer  %>
       <% end %>
-      <% @total = @total+0.99 if order_item.order.shazam %> 
-      <% @total = @total+14.95 if order_item.order.youtube %> 
-      <% @total = @total+7.95 if order_item.order.store_maximizer %> 
     <% end %>
   <% end %>
+
   Total: <%= @total %>
-<% end %>
+  <br/>
+
+ <%=link_to "Remove Shazam", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
+<br/>
+ <%=link_to "Remove Youtube", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
+<br/>
+ <%=link_to "Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
+<br/>
+
+</div>
 
 
 
