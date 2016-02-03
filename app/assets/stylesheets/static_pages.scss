@@ -15,11 +15,13 @@ body {
  img{
  	max-width: 250px;
  	height:auto;
- 	margin-top: -0.75em;
+  padding-right: 3em;
  }
 }
 
 #myNavbar{
+
+  
 	ul{
 		margin-top: 2em;
 		text-align: right;
@@ -66,30 +68,137 @@ body {
 ////        Home Page         ////
 //////////////////////////////////
 
-#homepage-carousel{
-	.carousel-control.left, .carousel-control.right  {
-	   background-image: none;
+#home {
+  
+  text-align: center;
+  
+  p {
+      padding-top: 1.5em;
+      font-size: 1.5em;
+  }
+    
+  h1 {
+    padding-top: 1em;
+  }
 
-	}
-	#carousel-letter{
-		text-align: justify;
-	}
+  a {
+      color: black;
+    }
 
+
+  #cover {
+    height: 60vmin;
+    background: url('musician.jpg');
+    background-size: 100%;
+
+    h1 {
+      color: white;
+      font-weight: bold;
+      font-size: 5em;
+    }
+  }
+
+  #welcome-text {
+    text-align: center;
+    height: 40vmin;
+    
+    h1 {
+      padding-top: 1em;
+    }
+
+    p {
+      padding-top: 1.5em;
+      font-size: 1.5em;
+    }
+
+    a {
+      color: black;
+      font-size: 3em;
+    }
+    
+    .fbright {
+      text-align: right;
+      .fblogo {
+        color: #F8F8FF;
+        font-size: 0.6em;
+        padding: 0.5em;
+        border-radius: 50px;
+        background-color: #4561AB;
+      }
+    }
+  }
+
+  #about-us {
+    padding: 2em 0 2em;
+    background-color: #f8f8e6;
+
+    p {
+      padding-top: 0;
+    }
+
+    .screenshot {
+      margin-top: 2em;
+    }
+
+    .about-action {
+      padding-top: 1.5em;
+    }
+  }
+
+  #pricing-menu {
+    text-align: left;
+    padding-bottom: 3em;
+    
+    h3 {
+      padding-top: 1em;
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.5em;
+    }
+
+    h4 {
+      padding-top: 1em;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    p {
+      padding-top: 0;
+    }
+
+    
+  }
+
+  #freq-questions {
+    text-align: left;
+    h1 {
+      text-align: center;
+    }
+    p {
+      padding-top: 0;
+    }
+    .arrow-row {
+      text-align: center;
+      background-color: #F8F8FF;
+      .fa {
+        font-size: 1em;
+      }
+    }
+    .faq-text {
+      background-color: #f8f8e6; 
+      // margin-bottom: 2em; 
+    }
+  }
+
+  #contact-us {
+    background-color: black;
+    color: white;
+
+    p {
+      padding-top: 0;
+      font-size: 0.9em;
+    }
+  }
 }
-
-.signup-updates{
-	// width: 350px;
-	// height:70px;
-	// background-color: #8e44ad;
-	margin: 10vh auto;
-	// border-radius: 5px;
-	text-align: center;
-	#updates {
-		font-size: 1.3em;
-		// vertical-align: -70%;
-	}
-}
-
 
 
 // end home page //
@@ -101,21 +210,21 @@ body {
 
 //Fix footer to bottom
 html, body {
-height: 100%;
-margin:0;
+  height: 100%;
+  margin:0;
 }
 .wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -3em;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -3em;
 }
 .footer, .push {
-height: 3em;
-text-align: center;
-li{
-list-style: none;
-}
+  height: 3em;
+  text-align: center;
+  li{
+    list-style: none;
+  }
 }
 // End of footer //
 
@@ -149,19 +258,25 @@ list-style: none;
 //////////////////////////////////
 
 .input-style {
-    background-color: transparent;
-    border-style: solid;
-    color: white;
-    font-size: 1.2em;
-    border-color: white;
- &:focus{
-    	border-color: white;
-    }
+  background-color: transparent;
+  border-style: solid;
+  color: white;
+  font-size: 1.2em;
+  border-color: white;
+  &:focus{
+   border-color: white;
+ }
 }
 
 //////////////////////////////////
 ////    header customization  ////
 //////////////////////////////////
+#navigation-header {
+  background-color: #4c004c;
+  height: 5em;
+  line-height: 5em;
+}
+
 $header_menu_width: 300px;
 $header_menu_height: 70px;
 #logged_in_menu {
@@ -177,9 +292,9 @@ $header_menu_height: 70px;
   .icon-color {
     color:#EB5443;
   }
- .white-top-menu-font {
-  color: #4E4E4E;
- }
+  .white-top-menu-font {
+    color: #4E4E4E;
+  }
 
   #discover{
     width: $header_menu_width/4;

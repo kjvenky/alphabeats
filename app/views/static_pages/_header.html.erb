@@ -1,33 +1,20 @@
-<nav class="navbar">
+<!-- <nav class="navbar" id="navigation-header">
   <div class=<%= Width::CONTAINER %>>
     <div class="navbar-header">
-      <a class="navbar-brand" id="logoheader" href="/"><img src="<%= asset_path("whitelogo.png") %>" alt="logo" /></a>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-        </button>
-    </div>
-
-
-     <div class="collapse navbar-collapse" id="myNavbar">
+      <a class="navbar-brand" id="logoheader" href="/"><img src="<%= asset_path("textlogo.png") %>" alt="logo" /></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
       <ul class="nav-justified">
-        
-        <% if user_signed_in? %>
-            <div id="logged_in_menu">
-              <div id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
-                <div id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
-                
-                <div id="my_account"><a href="/songs"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
-                
-            </div>
-          <% else %>
-            <li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>
-            <li><%= link_to "LOGIN", new_user_session_path, class:"btn btn-md btn-transparent" %></li>
-        <% end %>
-        
-
-      </ul>
+        <li><%= link_to 'About Us', about_path %> </li>
+        <li><%= link_to 'Pricing', pricing_path %></li>
+        <li><%= link_to 'FAQ', faq_path %></li>
+        <li><%= link_to 'Contact', contact_path %></li>
+        <li><a href="https://www.facebook.com/alphabeatsmusic"><i class="fa fa-facebook fa-2"></i>acebook</a></li>
+      </ul> 
     </div>
   </div>
 </nav>
+ -->
