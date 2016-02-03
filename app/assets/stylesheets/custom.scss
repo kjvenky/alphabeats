@@ -85,16 +85,16 @@ body{
 
 
   a {
-    color:white;
+    color:black;
     &:hover{
     text-decoration: underline;
-    color:white;
+    color:black;
     }
     &:active{
-     color:white; 
+     color:black; 
     }
     &:focus{
-      color:white;
+      color:black;
     }
   } // end of anchor tag
 
