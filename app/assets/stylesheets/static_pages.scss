@@ -69,7 +69,7 @@ body {
 //////////////////////////////////
 
 #home {
-  
+  background-color: #F8F8FF;
   text-align: center;
   
   p {
@@ -84,7 +84,9 @@ body {
   #cover {
     height: 60vmin;
     background: url('musician.jpg');
-    background-size: 100%;
+    background-position: bottom;
+    background-size: 100% 100%;
+    // background-size: 100%;
 
     h1 {
       color: #F8F8FF;
@@ -96,7 +98,8 @@ body {
   #welcome-text {
     text-align: center;
     height: 40vmin;
-    
+    background-color: #F8F8FF;
+
     h1 {
       padding-top: 1em;
     }
@@ -118,14 +121,33 @@ body {
         font-size: 0.6em;
         padding: 0.5em;
         border-radius: 50px;
-        background-color: #4561AB;
+        background-color: #3b5998;
+      }
+
+      .iglogo {
+        color: #F8F8FF;
+        font-size: 0.6em;
+        padding: 0.5em;
+        border-radius: 50px;
+        background-color: #125688;  
+      }
+
+      .gmlogo {
+        color: #F8F8FF;
+        font-size: 0.6em;
+        padding: 0.5em;
+        border-radius: 50px;
+        background-color: #dd4b39;
       }
     }
   }
 
   #about-us {
     padding: 0.1em 0 0.5em;
-    background-color: #f8f8e6;
+    background-color: #f1f1f1;
+    border-left: 3px solid;
+    border-right: 3px solid;
+    border-color: #dd4b39;
 
     p {
       padding-top: 0;
@@ -142,7 +164,18 @@ body {
 
   #pricing-menu {
     text-align: left;
-    padding-bottom: 1em;
+    background-color: #2a2a2a;
+
+    .inner-content {
+      border-left: 3px solid;
+      border-right: 3px solid;
+      border-color: #dd4b39;
+      background-color: #F8F8FF;
+    }
+    .side-block {
+      border-top: 3px solid;
+      border-color: #dd4b39;
+    }
     
     h3 {
       padding-top: 1em;
@@ -159,38 +192,25 @@ body {
     p {
       padding-top: 0;
     }
-
-    
   }
 
-  #freq-questions {
-    text-align: left;
-    h1 {
-      text-align: center;
-    }
-    p {
-      padding-top: 0;
-    }
-    .arrow-row {
-      text-align: center;
-      background-color: #F8F8FF;
-      .fa {
-        font-size: 1em;
-      }
-    }
-    .faq-text {
-      background-color: #f8f8e6; 
-      // margin-bottom: 2em; 
+  #faq-home {
+    .inside-faq {
+      background-color: blue;
     }
   }
 
   #contact-us {
-    background-color: black;
-    color: white;
+    background-color: #F8F8FF;
+    color: black;
 
     p {
       padding-top: 0;
       font-size: 0.9em;
+    }
+
+    .the-outside {
+      background-color: #f1f1f1;
     }
   }
 }
