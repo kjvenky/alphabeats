@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127090854) do
+ActiveRecord::Schema.define(version: 20160204062735) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 20160127090854) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "musician_id"
-    t.decimal  "total",           default: 0.0
-    t.boolean  "payment_status",  default: false
-    t.boolean  "shazam",          default: false
-    t.boolean  "youtube",         default: false
-    t.boolean  "store_maximizer", default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.decimal  "total",           precision: 7, scale: 2, default: 0.0
+    t.boolean  "payment_status",                          default: false
+    t.boolean  "shazam",                                  default: false
+    t.boolean  "youtube",                                 default: false
+    t.boolean  "store_maximizer",                         default: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
 
   add_index "orders", ["musician_id"], name: "index_orders_on_musician_id"
@@ -101,5 +101,14 @@ ActiveRecord::Schema.define(version: 20160127090854) do
   add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid"
+
+  create_table "wallets", force: :cascade do |t|
+    t.decimal  "amount",     precision: 7, scale: 2, default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+  end
+
+  add_index "wallets", ["user_id"], name: "index_wallets_on_user_id"
 
 end
