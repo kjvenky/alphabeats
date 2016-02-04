@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   has_many :songs, foreign_key: 'musician_id'
   has_many :orders, foreign_key: 'musician_id'
   has_one :wallet
+  has_many :transaction_logs
 
 
 	def self.from_omniauth(auth)

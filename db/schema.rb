@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204062735) do
+ActiveRecord::Schema.define(version: 20160204210429) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -41,16 +41,18 @@ ActiveRecord::Schema.define(version: 20160204062735) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "musician_id"
-    t.decimal  "total",           precision: 7, scale: 2, default: 0.0
-    t.boolean  "payment_status",                          default: false
-    t.boolean  "shazam",                                  default: false
-    t.boolean  "youtube",                                 default: false
-    t.boolean  "store_maximizer",                         default: false
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.decimal  "total",              precision: 7, scale: 2, default: 0.0
+    t.boolean  "payment_status",                             default: false
+    t.boolean  "shazam",                                     default: false
+    t.boolean  "youtube",                                    default: false
+    t.boolean  "store_maximizer",                            default: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+    t.integer  "transaction_log_id"
   end
 
   add_index "orders", ["musician_id"], name: "index_orders_on_musician_id"
+  add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
 
   create_table "songs", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -71,6 +73,17 @@ ActiveRecord::Schema.define(version: 20160204062735) do
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
   add_index "songs", ["musician_id"], name: "index_songs_on_musician_id"
+
+  create_table "transaction_logs", force: :cascade do |t|
+    t.integer  "transaction_type"
+    t.decimal  "amount",           precision: 7, scale: 2
+    t.integer  "status"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "user_id"
+  end
+
+  add_index "transaction_logs", ["user_id"], name: "index_transaction_logs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",   null: false
