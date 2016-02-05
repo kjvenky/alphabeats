@@ -4,6 +4,7 @@
 
 body {
   position:relative;
+  overflow-x: hidden;
 }
 
 
@@ -28,9 +29,9 @@ body {
 		li{
 			list-style: none;
 		}
-		li:first-child{
-			padding-right: 17em;
-		}
+		// li:first-child{
+		// 	padding-right: 17em;
+		// }
 	}
 }
 
