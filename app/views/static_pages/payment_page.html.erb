@@ -15,7 +15,7 @@
 
 
 
- <%= link_to "Make Payment", transaction_logs_path(), data: { params: { transaction_logs: {  amount: @total} }.to_param }, :method => 'POST', remote: true %>
+ <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST'%>
 <div class="row">
 
   <div class="col-sm-4">
