@@ -11,8 +11,8 @@
       <% elsif order_item.album.songs.count!=1 %>
         <% order_item.album.songs.each do |song| %>
           <% @total = @total+12 if !song.self_written  %>
+          <% @total = @total+0.99 if order_item.order.shazam  %>
         <% end %>
-        <% @total = @total+0.99 if order_item.order.shazam  %>
         <% @total = @total+14.95 if order_item.order.youtube  %>
         <% @total = @total+7.95 if order_item.order.store_maximizer  %>
       <% end %>

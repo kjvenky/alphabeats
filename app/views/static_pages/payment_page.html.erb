@@ -8,8 +8,14 @@
 <br/>
  <%=link_to "Add Store maximizer", order_path(current_order), data: { params: { order: {  store_maximizer: true} }.to_param }, :method => 'PATCH', remote: true%>
 <br/>
+<br/>
+<br/>
+<br/>
 
 
+
+
+ <%= link_to "Make Payment", transaction_logs_path(), data: { params: { transaction_logs: {  amount: @total} }.to_param }, :method => 'POST', remote: true %>
 <div class="row">
 
   <div class="col-sm-4">
