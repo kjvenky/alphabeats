@@ -72,6 +72,7 @@ body {
 #home {
   background-color: #F8F8FF;
   text-align: center;
+  color: black;
   
   p {
       padding-top: 1.5em;
@@ -186,7 +187,9 @@ body {
     //   border-top: 3px solid;
     //   border-color: #dd4b39;
     // }
-    
+    a {
+      color: black;
+    }
     h3 {
       padding-top: 1em;
       font-weight: bold;
@@ -207,7 +210,9 @@ body {
   #faq-home {
     text-align: left;
     background-color: #F8F8FF;
-
+    a {
+      color: black;
+    }
     .faq-click, h1 {
       text-align: center;
     }
