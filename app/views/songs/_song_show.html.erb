@@ -23,7 +23,7 @@
       <%= song.album.album_name %> <br/>
 
       <h5>Song Duration</h5>
-      <%= song.duration.strftime("%H:%M") %> <br/>
+      <%= song.duration.strftime("%H:%M") if !song.duration.nil?%> <br/>
 
       <h5>Link to Song</h5>
       <%= song.audio_file %> <br/>

@@ -1,5 +1,4 @@
 <li class="album_<%= album.id %>">
-  <span class="album_index_name"> <%=album.album_name %> </span>
-  <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
+  <span class="album_index_name"> <%=link_to album.album_name, album_song_path(album) %> </span>
   <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
 </li>

@@ -17,7 +17,7 @@ class TransactionLogsController < ApplicationController
       current_user.wallet.update(amount: new_wallet_amount)
     end
     session[:order_id] = nil
-    redirect_to root_path, notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
+    redirect_to albums_path, notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
   end
 
 private

@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
   	# if request.env['omniauth.origin']
    #    root_path
    #  end
-   	redirect_to root_path
+   	redirect_to albums_path
+  end
+  def after_sign_in_path_for(resource)
+    albums_path
   end
 
   def song_album_list

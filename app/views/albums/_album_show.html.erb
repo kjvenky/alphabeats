@@ -11,7 +11,7 @@
   <%=album.stage_band_name %>
 
   <h5>Release Date</h5>
-  <%=album.release_date.strftime("%B %d %Y") %>
+  <%=album.release_date.strftime("%B %d %Y") if !album.release_date.nil?%>
 
   <h5>Record Label</h5>
   <%=album.record_label %>
