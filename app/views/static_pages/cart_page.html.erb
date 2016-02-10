@@ -10,18 +10,20 @@
 <% if !@albums.nil? %>
 
 <% @albums.each do |album| %>
-  <li class="album_<%= album.id %>">
-    <span class="album_index_name"> <%=album.album_name %> </span>
-    <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
-    <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
-    <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true %>
-  </li>
-  <% album.songs.each do |song| %>
-    <li class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span class="song_index_name"> <%=song.song_title %> </span>
-      <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
-      <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
+  <% if album.order_items.last.nil? || !album.order_items.last.order.payment_status%>
+    <li class="album_<%= album.id %>">
+      <span class="album_index_name"> <%=album.album_name %> </span>
+      <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
+      <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
+      <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true %>
     </li>
+    <% album.songs.each do |song| %>
+      <li class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="song_index_name"> <%=song.song_title %> </span>
+        <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
+        <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
+      </li>
+    <% end %>
   <% end %>
 <% end %>
 <% else %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204210429) do
+ActiveRecord::Schema.define(version: 20160209135626) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 20160204210429) do
 
   create_table "transaction_logs", force: :cascade do |t|
     t.integer  "transaction_type"
-    t.decimal  "amount",           precision: 7, scale: 2
-    t.integer  "status"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.decimal  "amount",             precision: 7, scale: 2
+    t.integer  "transaction_status"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "user_id"
   end
 

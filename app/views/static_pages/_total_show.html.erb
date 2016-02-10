@@ -28,7 +28,12 @@
 <br/>
  <%=link_to "Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
 <br/>
+<br/>
+<br/>
+<br/>
 
+
+ <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST'%>
 </div>
 
 

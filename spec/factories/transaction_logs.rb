@@ -2,12 +2,13 @@
 #
 # Table name: transaction_logs
 #
-#  id               :integer          not null, primary key
-#  transaction_type :integer
-#  amount           :decimal(7, 2)
-#  status           :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                 :integer          not null, primary key
+#  transaction_type   :integer
+#  amount             :decimal(7, 2)
+#  transaction_status :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  user_id            :integer
 #
 
 FactoryGirl.define do
