@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def song_album_list
     default_list = [OpenStruct.new({code: -1, text: "Create New Album"})]
-    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.order_items.nil?}.compact
+    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.order_items.last.nil?}.compact
     default_list + dynamic_list
   end
 
