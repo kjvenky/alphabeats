@@ -11,7 +11,10 @@
 </head>
 <body>
 <div class="wrapper">
-  <%= render "static_pages/header" %>
+  <% if request.path == "/home" %>
+  <% else %>
+  <%= render partial: 'static_pages/header' %>
+  <% end %>
   <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 
