@@ -6,7 +6,6 @@ class TransactionLogMailer < ApplicationMailer
     @order = order.reload
     @transaction_log = order.reload.transaction_log
     @album= order.order_items.last.album
-    byebug
 
     # @order = transactionlog.reload.order
     # @wallet_balance = @user.reload.wallet.amount
