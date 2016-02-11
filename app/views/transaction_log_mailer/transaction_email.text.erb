@@ -1,0 +1,20 @@
+Hi <%= @user.first_name %>
+Here are the details of the album you just placed order for <%= album_song_url(@album) %>
+
+You have paid for the following services:
+<%= raw("Shazam") if @order.shazam %>
+<%= raw("Youtube") if @order.youtube %>
+<%= raw("Store Maximizer") if @order.store_maximizer %>
+
+
+
+You paid a total of <%= @transaction_log.amount %>
+
+
+
+regards,
+Shenil
+
+
+
+
