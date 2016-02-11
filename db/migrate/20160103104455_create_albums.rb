@@ -6,6 +6,6 @@ class CreateAlbums < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :albums, :musicians, column: :musician_id
+    add_foreign_key :albums, :users, column: :musician_id
   end
 end
