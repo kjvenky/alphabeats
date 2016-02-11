@@ -16,6 +16,7 @@ class TransactionLogsController < ApplicationController
       new_wallet_amount = current_user.wallet.amount - BigDecimal.new(params[:transaction_logs][:amount])
       current_user.wallet.update(amount: new_wallet_amount)
     end
+    TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
     session[:order_id] = nil
     redirect_to albums_path, notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
   end
