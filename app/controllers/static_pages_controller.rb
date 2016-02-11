@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   before_filter :authenticate_user!, only: [:cart_page, :payment_page]
 
   def home
+    render :layout => false
   end
 
   def about
