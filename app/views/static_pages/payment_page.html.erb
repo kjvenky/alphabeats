@@ -2,11 +2,45 @@
 <%= render "total_show" %>
 
 <br/>
- <%=link_to "Add Shazam", order_path(current_order), data: { params: { order: {  shazam: true} }.to_param }, :method => 'PATCH', remote: true%>
+
+<div class="col-md-offset-1 col-md-8"> 
+    <a href="<%= %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent">
+          <span id="updates">Add Shazam & iPhone Siri</span>
+        </button>
+      </div> 
+    </a> <br>
+  <%=link_to "Click to add Shazam & iPhone Siri: $0.99 per track /year", order_path(current_order), data: { params: { order: {  shazam: true} }.to_param }, :method => 'PATCH', remote: true%>
+ <p>Make it easy for people to identify this single if they hear it playing on radio/tv, in stores, restaurants, parties, etc.</p>
 <br/>
- <%=link_to "Add Youtube", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%>
+
+ 
+    <a href="<%= %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent">
+          <span id="updates">Add Youtube Money</span>
+        </button>
+      </div>
+    </a> <br>
+ 
+ <%=link_to "Click to add YouTube Money: $4.95/year + 20% of YouTube ad revenue for singles OR $14.95/year + 20% of YouTube ad revenue for albums", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%>
+ <p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this single/ album to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
 <br/>
- <%=link_to "Add Store maximizer", order_path(current_order), data: { params: { order: {  store_maximizer: true} }.to_param }, :method => 'PATCH', remote: true%>
+
+
+    <a href="<%= %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent">
+          <span id="updates">Add Store Maximizer</span>
+        </button>
+      </div>
+    </a> <br>
+
+ <%=link_to "Click to add Store maximizer:  $7.95 per album /year", order_path(current_order), data: { params: { order: {  store_maximizer: true} }.to_param }, :method => 'PATCH', remote: true%>
+ <p>DistroKid will automatically deliver this album to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
+
+</div>
 <br/>
 <br/>
 <br/>
@@ -17,34 +51,10 @@
 
 <div class="row">
 
-  <div class="col-sm-4">
-    <a href="<%= %>">
-      <div class="signup-updates">
-        <button class="btn btn-lg btn-transparent">
-          <span id="updates">Add Shazam </span>
-        </button>
-      </div>
-    </a>
-  </div>
+  
 
-  <div class="col-sm-4">
-    <a href="<%= %>">
-      <div class="signup-updates">
-        <button class="btn btn-lg btn-transparent">
-          <span id="updates">Add Youtube</span>
-        </button>
-      </div>
-    </a>
-  </div>
+  
 
-  <div class="col-sm-4">
-    <a href="<%= %>">
-      <div class="signup-updates">
-        <button class="btn btn-lg btn-transparent">
-          <span id="updates">Add Store Maximizer</span>
-        </button>
-      </div>
-    </a>
-  </div>
+  
   
 </div>
