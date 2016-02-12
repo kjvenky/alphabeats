@@ -10,7 +10,7 @@
 <% if !@albums.nil? %>
 
 <% @albums.each do |album| %>
-  <% if album.order_items.last.nil? || !album.order_items.last.order.payment_status%>
+  <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil?%>
     <li class="album_<%= album.id %>">
       <span class="album_index_name"> <%=album.album_name %> </span>
       <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
