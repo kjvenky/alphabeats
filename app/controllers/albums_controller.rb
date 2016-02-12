@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = current_user.albums.all
+    @paid_albums = current_user.albums.all.select { |album| album.order_items.last.order.payment_status }
   end
 
   def show
