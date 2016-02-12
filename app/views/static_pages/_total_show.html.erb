@@ -33,7 +33,7 @@
 <br/>
 
 
- <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST'%>
+<%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST', data: {confirm: 'Please check pricing and click OK to continue'} %>
 </div>
 
 
