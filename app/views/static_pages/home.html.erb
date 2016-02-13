@@ -1,220 +1,231 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alphabeats - Invest in music</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,700italic' rel='stylesheet' type='text/css'>
-  <%= csrf_meta_tags %>
+<title>Alphabeats - Invest in music</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,700italic' rel='stylesheet' type='text/css'>
+<%= csrf_meta_tags %>
 
 </head>
 <div class="row" id="home">
-  <div id="cover">
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav-justified">
-        <% if user_signed_in? %>
-        <div id="logged_in_menu">
-          <div id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
-          <div id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
-          
-          <div id="my_account"><a href="/songs"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
-          
-        </div>
-        <% else %>
-        <li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>
-        <li><%= link_to "LOGIN", new_user_session_path, class:"btn btn-md btn-transparent" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <h1>Alphabeats: Invest in Music</h1>
-  </div><!-- ends #cover -->
-  <div id="welcome-text">
-    <h1>A Crowdsourced Record Label</h1>
-    <p>Invite the music industry's bloggers and influencers to <b>invest in your songs</b>. Then, let <br>them promote your music while you continue busking and producing new tracks.</p>
-    <div class="row"id="icon-welcome-text">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <a href="#about-us"><i class="fa fa-long-arrow-down"></i></a>
-    </div>
-    <div class="col-md-2 fbright">
-      <a href="https://www.facebook.com/alphabeatsmusic"><i class="fa fa-facebook fblogo"></i></a>
-      <a href="https://www.instagram.com/alphabeats_music/"><i class="fa fa-instagram iglogo"></i></a>
-      <a href="mailto:s+email@alphabeatsmusic.com"><i class="fa fa-envelope-o gmlogo"></i></a>
-    </div>
-    </div>
-  </div><!-- ends #welcome-text -->
-  <div id="about-us">
-    <h2>About Us</h2>
-    <p>Alphabeats gives music influencers (bloggers, audiophiles and record labels) the opportunity to invest in songs of unsigned and rising artists.</p> 
-    <div class="col-md-4 screenshot">
-      <%= image_tag("upload.png") %>
-      <p class="about-action">1. Upload</p>
-      <p>Artists upload songs on Alphabeats. We will then put them on all the major streaming services.</p>
-    </div>
-    <div class="col-md-4 screenshot">
-      <%= image_tag("trade.png") %>
-      <p class="about-action">2. Invest</p>
-      <p>Using the Alphabeats stock-market like platform, influencers can invest in their favorite songs.</p>
-    </div>
-    <div class="col-md-4 screenshot">
-      <%= image_tag("latch.png") %>
-      <p class="about-action">3. Share</p>
-      <p>With personal interest in the song's success, investors endorse the track with their followers.</p>
-    </div>
-    <p> . </p>
-  </div><!-- ends #about-us -->
-  <div id="pricing-menu">
-    <div class="row">
+<div id="cover">
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav-justified">
+<% if user_signed_in? %>
+<div id="logged_in_menu">
+<div id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
+<div id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
 
-      <div class="col-md-2 side-block"></div>
-      <div class="col-md-8 inner-content">
-        <h1 class="centre">Pricing Menu for Artists</h1>
-        <h4>Unlimited Upload Fee - $20/year</h4>
-        <p>Pay a flat annual fee for unlimited song uploads on 150+ streaming services.</p>
-        
-        <div faqtest>
-          <a href="#ex-prices"><h3 data-toggle="collapse" data-target="#additional-pricing">&nbsp;Click here to show/ hide additional pricing</h3></a>
+<div id="my_account"><a href="/songs"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
 
-          <div id="additional-pricing" class="collapse demo">
-            <h3 id="ex-prices">Extra Charges per song uploaded</h3>
+</div>
+<% else %>
+<li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>
+<li><%= link_to "LOGIN", new_user_session_path, class:"btn btn-md btn-transparent" %></li>
+<% end %>
+</ul>
+</div>
+<h1>Alphabeats: Invest in Music</h1>
+</div><!-- ends #cover -->
+<div id="welcome-text">
+<h1>A Crowdsourced Record Label</h1>
+<p>Invite the music industry's bloggers and influencers to <b>invest in your songs</b>. Then, let <br>them promote your music while you continue busking and producing new tracks.</p>
+<div class="row"id="icon-welcome-text">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<a href="#about-us"><i class="fa fa-long-arrow-down"></i></a>
+</div>
+<div class="col-md-2 fbright">
+<a href="https://www.facebook.com/alphabeatsmusic"><i class="fa fa-facebook fblogo"></i></a>
+<a href="https://www.instagram.com/alphabeats_music/"><i class="fa fa-instagram iglogo"></i></a>
+<a href="mailto:s+email@alphabeatsmusic.com"><i class="fa fa-envelope-o gmlogo"></i></a>
+</div>
+</div>
+</div><!-- ends #welcome-text -->
+<div id="about-us">
+<h2>About Us</h2>
+<p>Alphabeats gives music influencers (bloggers, audiophiles and record labels) the opportunity to invest in songs of unsigned and rising artists.</p> 
+<div class="col-md-4 screenshot">
+<%= image_tag("upload.png") %>
+<p class="about-action">1. Upload</p>
+<p>Artists upload songs on Alphabeats. We will then put them on all the major streaming services.</p>
+</div>
+<div class="col-md-4 screenshot">
+<%= image_tag("trade.png") %>
+<p class="about-action">2. Invest</p>
+<p>Using the Alphabeats stock-market like platform, influencers can invest in their favorite songs.</p>
+</div>
+<div class="col-md-4 screenshot">
+<%= image_tag("latch.png") %>
+<p class="about-action">3. Share</p>
+<p>With personal interest in the song's success, investors endorse the track with their followers.</p>
+</div>
+<p> . </p>
+</div><!-- ends #about-us -->
+<div id="pricing-menu">
+<div class="row">
 
-            <h4>Cover songs - $12/year</h4>
-            <p>This fee is used to compensate the original artist, obtain licenses, keep-up-to-date with copyright laws regarding the subject matter.</p>
+<div class="col-md-2 side-block"></div>
+<div class="col-md-8 inner-content">
+<h1 class="centre">Pricing Menu for Artists</h1>
+<h4>Unlimited Upload Fee - $20/year</h4>
+<p>Pay a flat annual fee for unlimited song uploads on 150+ streaming services.</p>
 
-            <h4>Shazam &amp; iPhone Siri - $0.99/year</h4>
-            <p>Make it easy for people to identify this single if they hear it playing on radio/tv, in stores, restaurants, parties, etc.</p>
+<div faqtest>
+<a href="#ex-prices"><h3 data-toggle="collapse" data-target="#additional-pricing">&nbsp;Click here to show/ hide additional pricing</h3></a>
 
-            <h3>Singles</h3>
+<div id="additional-pricing" class="collapse demo">
+<h3 id="ex-prices">Extra Charges per song uploaded</h3>
 
-            <h4>YouTube Money - $4.95/year + 20% of YouTube ad revenue</h4>
-            <p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this single to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
+<h4>Cover songs - $12/year</h4>
+<p>This fee is used to compensate the original artist, obtain licenses, keep-up-to-date with copyright laws regarding the subject matter.</p>
 
-            <h4>Store Maximizer - $7.95/year</h4>
-            <p>DistroKid will automatically deliver this single to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
+<h4>Shazam &amp; iPhone Siri - $0.99/year</h4>
+<p>Make it easy for people to identify this single if they hear it playing on radio/tv, in stores, restaurants, parties, etc.</p>
 
-            <h3>Albums</h3>
-            <h4>YouTube Money - $14.95/year + 20% of YouTube ad revenue</h4>
-            <p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this album to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
+<h3>Singles</h3>
 
-            <h4>Store Maximizer - $7.95/year</h4>
-            <p>DistroKid will automatically deliver this album to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
+<h4>YouTube Money - $4.95/year + 20% of YouTube ad revenue</h4>
+<p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this single to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
 
-          <a href="#ex-prices"><h3 data-toggle="collapse" data-target="#additional-pricing">&nbsp;Click here to hide additional pricing</h3></a>
-          </div>
-        
-        </div><!-- ends faqtest -->
-      </div>
-      <div class="col-md-2 side-block"></div>
-    </div><!-- ends row -->
-  </div><!-- ends #pricing-menu -->
-  <div id="faq-home">
-    <div class="row">
+<h4>Store Maximizer - $7.95/year</h4>
+<p>DistroKid will automatically deliver this single to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
 
-      <div class="col-md-2 faq-side-block"></div>
-    <div class="col-md-8 inner-content">
+<h3>Albums</h3>
+<h4>YouTube Money - $14.95/year + 20% of YouTube ad revenue</h4>
+<p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this album to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
 
-            <div faqtest>
+<h4>Store Maximizer - $7.95/year</h4>
+<p>DistroKid will automatically deliver this album to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
 
-        <div class="row">
-          <a href="#faq-drop"><p data-toggle="collapse" data-target="#faq-drop" class="faq-click"><i class="fa fa-arrows-v"></i> Click to show/hide the FAQs</p></a>
-        </div><!-- ends arrow-row <-->
-        
-        <div class="row">
-          <div id="faq-drop" class="collapse demo">
-            <div ng-app="faqApp">
-             
-              <h1>Frequently Asked Questions</h1>
-              <h2 class="faq-subheads">About Alphabeats</h2>
-              
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq1" class="question"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What is Alphabeats?</h3>
-                <p id="faq1" class="collapse demo faq-text-style">
-                  Alphabeats is a website that gives music influencers (bloggers, audiophiles and record labels) the opportunity to invest in songs of unsigned and rising artists.</p>
-              </div><!--ends faqtest -->
+<a href="#ex-prices"><h3 data-toggle="collapse" data-target="#additional-pricing">&nbsp;Click here to hide additional pricing</h3></a>
+</div>
 
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq2"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How does it work?</h3>
+</div><!-- ends faqtest -->
+</div>
+<div class="col-md-2 side-block"></div>
+</div><!-- ends row -->
+</div><!-- ends #pricing-menu -->
+<div id="faq-home">
+<div class="row">
 
-                <p id="faq2" class="collapse demo faq-text-style">
-                  Artists upload their song on their Alphabeats account. Then, with the help of our chosen aggregator, <a href="https://distrokid.com/">Distrokid</a>, we put the song on all major streaming services - giving the artist (or relevant rightholders) the royalty payments. Musicians can request funding in exchange for the future royalty earnings of a song. Influencers (bloggers, audiophiles, labels) can then bid to invest in the song in a stock market like interface. <br><br>
-                  This creates magic. By investing in a song, influencers create an opportunity to earn fun money. Obviously, the more that they promote the song, the more they are likely to gain from their investment - creating a win-win situation for all: <br>
-                  1. Through the promotion efforts led by influencers, musicians gain exposure to new audiences <br>  
-                  2. Influencers can make some money in a fun way, as well as establish themselves as music curators <br>
-                  3. Audiences are more likely to discover hidden talents in the music industry <br>
-              </div><!--ends faqtest -->
+<div class="col-md-2 faq-side-block"></div>
+<div class="col-md-8 inner-content">
 
-              <h2 class="faq-subheads">About the Wallet</h2>
-          
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq3"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why do we use it?</h3>
-                <p id="faq3" class="collapse demo faq-text-style">We use the wallet to reduce transaction costs. To do any activity on the website, you will be paying through your wallet to minimize the number of times a payment is made through your bank account. You can withdraw from your wallet anytime.</p>
-              </div><!--ends faqtest -->
-            
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq3-1"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why is the default currency USD?</h3>
-                <p id="faq3-1" class="collapse demo faq-text-style">Despite being an Irish company, we operate in USD because royalty payouts from the aggregator, <a href="https://distrokid.com">Distrokid</a>, are given in this currency.</p>
-              </div><!--ends faqtest -->
-            
-              <h2 class="faq-subheads">Uploading Music (for artists)</h2>
-            
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq8"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Am I eligible to upload music?</h3>
-                <p id="faq8" class="collapse demo faq-text-style">Yes. As long as you have the rights to the song, you may upload it on Alphabeats. If you share the rights with others, you can put a note while uploading. From there, we will send a confirmation to the other rightholders that they are okay with the song being uploaded.</p>
-              </div><!--ends faqtest -->
-             
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq9"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How much does uploading music and maintaining my account cost?</h3>
-                <p id="faq9" class="collapse demo faq-text-style">
-                  See our <u><%= link_to 'pricing', pricing_path %></u> page
-                </p>
-              </div><!--ends faqtest -->
-              
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq11"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What if I want to remove my song from the website?</h3>
-                <p id="faq11" class="collapse demo faq-text-style">In your dashboard, Edit the song and write a removal request in the Notes field. We will review and act accordingly.</p>
-              </div><!--ends faqtest -->
-             
-              <h2 class="faq-subheads">Raising Money (for artists)</h2>
-              
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq12"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why should I raise money?</h3>
-                <p id="faq12" class="collapse demo faq-text-style">By raising money, you are not just increasing your short term bank balance. You are also creating links with influencers in the industry. These links will motivate them to help your songs succeed, giving you reach to new fans and more time to work on the creative process.</p>
-              </div><!--ends faqtest -->
-              
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq13"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What income am I promising my investors? How long does this pledge last?</h3>
-                <p id="faq13" class="collapse demo faq-text-style">You will be sharing your online sales and streaming royalties that are linked with Alphabeats. If you decide to remove the song from Alphabeats (if you sell off the rights of the song to another person, for example), you need to buy back the royalty claims from your investors first.</p>
-              </div><!--ends faqtest -->
-              
-              <div faqtest>
-                <h3 data-toggle="collapse" data-target="#faq14"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How much money should I raise? What portion of my earnings should I offer to my investors?</h3>
-                <p id="faq14" class="collapse demo faq-text-style">
-                  We will publish a fundraising guide soon.</p>
-              </div><!--ends faqtest -->   
+<div faqtest>
 
-            </div><!-- ends faqapp -->
-          </div><!-- ends #faq-drop -->
-        </div><!-- ends faq-text -->
-      </div><!-- ends faqtest -->
+<div class="row">
+<a href="#faq-drop"><p data-toggle="collapse" data-target="#faq-drop" class="faq-click"><i class="fa fa-arrows-v"></i> Click to show/hide the FAQs</p></a>
+</div><!-- ends arrow-row <-->
+
+<div class="row">
+<div id="faq-drop" class="collapse demo">
+<div ng-app="faqApp">
+
+<h1>Frequently Asked Questions</h1>
+<h2 class="faq-subheads">About Alphabeats</h2>
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq1" class="question"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What is Alphabeats?</h3>
+<p id="faq1" class="collapse demo faq-text-style">
+Alphabeats is a website that gives music influencers (bloggers, audiophiles and record labels) the opportunity to invest in songs of unsigned and rising artists.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq1-1" class="question"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What is the difference between Alphabeats and traditional crowdfunding sites?</h3>
+<p id="faq1-1" class="collapse demo faq-text-style">
+Traditional crowdfunding platforms (Kickstarter, Indigogo & ArtistShare) are great to raise money during the creative process. Often times, backers and artists share a promised experience during or after the creative timeline, which puts an end to the exchange between the artist and the backer. <br><br> Alphabeats, on the other hand, aims to get supporters involved in the marketing stage. As influencers invest in songs, they will endorse consistently given their long term interest in the songs' success. <br><br> Please keep in mind, the different types of crowdfunding sites are not mutually exclusive - meaning you can very well use a traditional site to get help producing music, and then join us at Alphabeats to get help promoting your work.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq2"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How does it work?</h3>
+
+<p id="faq2" class="collapse demo faq-text-style">
+Artists upload their song on their Alphabeats account. Then, with the help of our chosen aggregator, <a href="https://distrokid.com/">Distrokid</a>, we put the song on all major streaming services - giving the artist (or relevant rightholders) the royalty payments. Musicians can request funding in exchange for the future royalty earnings of a song. Influencers (bloggers, audiophiles, labels) can then bid to invest in the song in a stock market like interface. <br><br>
+This creates magic. By investing in a song, influencers create an opportunity to earn fun money. Obviously, the more that they promote the song, the more they are likely to gain from their investment - creating a win-win situation for all: <br>
+1. Through the promotion efforts led by influencers, musicians gain exposure to new audiences <br>  
+2. Influencers can make some money in a fun way, as well as establish themselves as music curators <br>
+3. Audiences are more likely to discover hidden talents in the music industry <br>
+</div><!--ends faqtest -->
+
+<h2 class="faq-subheads">About the Wallet</h2>
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq3"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why do we use it?</h3>
+<p id="faq3" class="collapse demo faq-text-style">We use the wallet to reduce transaction costs. To do any activity on the website, you will be paying through your wallet to minimize the number of times a payment is made through your bank account. You can withdraw from your wallet anytime.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq3-1"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why is the default currency USD?</h3>
+<p id="faq3-1" class="collapse demo faq-text-style">Despite being an Irish company, we operate in USD because royalty payouts from the aggregator, <a href="https://distrokid.com">Distrokid</a>, are given in this currency.</p>
+</div><!--ends faqtest -->
+
+<h2 class="faq-subheads">Uploading Music (for artists)</h2>
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq8-1"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Which streaming services and online stores will Alphabeats upload my music on?</h3>
+<p id="faq8-1" class="collapse demo faq-text-style">Spotify, iTunes, Apple Music, Google Play, Amazon, Rdio, Deezer, Tidal, YouTube Music, Microsoft Groove, MediaNet and 150+ smaller outlets (<a href="http://www.mndigital.com/about-us/customers.html">such as...</a>)</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq8"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Am I eligible to upload music?</h3>
+<p id="faq8" class="collapse demo faq-text-style">Yes. As long as you have the rights to the song, you may upload it on Alphabeats. If you share the rights with others, you can put a note while uploading. From there, we will send a confirmation to the other rightholders that they are okay with the song being uploaded.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq9"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How much does uploading music and maintaining my account cost?</h3>
+<p id="faq9" class="collapse demo faq-text-style">
+See our <u><%= link_to 'pricing', pricing_path %></u> page
+</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq11"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What if I want to remove my song from the website?</h3>
+<p id="faq11" class="collapse demo faq-text-style">In your dashboard, Edit the song and write a removal request in the Notes field. We will review and act accordingly.</p>
+</div><!--ends faqtest -->
+
+<h2 class="faq-subheads">Raising Money (for artists)</h2>
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq12"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;Why should I raise money?</h3>
+<p id="faq12" class="collapse demo faq-text-style">By raising money, you are not just increasing your short term bank balance. You are also creating links with influencers in the industry. These links will motivate them to help your songs succeed, giving you reach to new fans and more time to work on the creative process.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq13"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;What income am I promising my investors? How long does this pledge last?</h3>
+<p id="faq13" class="collapse demo faq-text-style">You will be sharing your online sales and streaming royalties that are linked with Alphabeats. If you decide to remove the song from Alphabeats (if you sell off the rights of the song to another person, for example), you need to buy back the royalty claims from your investors first.</p>
+</div><!--ends faqtest -->
+
+<div faqtest>
+<h3 data-toggle="collapse" data-target="#faq14"><span class="glyphiconstyle glyphicon glyphicon-chevron-right"></span>&nbsp;How much money should I raise? What portion of my earnings should I offer to my investors?</h3>
+<p id="faq14" class="collapse demo faq-text-style">
+We will publish a fundraising guide soon.</p>
+</div><!--ends faqtest -->   
+
+</div><!-- ends faqapp -->
+</div><!-- ends #faq-drop -->
+</div><!-- ends faq-text -->
+</div><!-- ends faqtest -->
 
 
 
-    </div><!-- ends col-md-8 -->
+</div><!-- ends col-md-8 -->
 
-      <div class="col-md-2 faq-side-block"></div>
-    </div><!-- ends row -->
-  </div> <!-- ends #faq-home -->
-  <div id="contact-us">
-    <div class="row the-outside">
-      <div class="col-md-2 contact-side-block"></div>
-        <div class="col-md-8">
-            <br>
-            <p>Copyright &copy; Alphabeats Limited | The Black Church, St Mary's Place | Dublin 7, Ireland | Whatsapp: +353851496580</p>
-        </div>
-        <div class="col-md-2 contact-side-block"></div>
-    </div>
-  </div><!-- ends #contact-us -->
+<div class="col-md-2 faq-side-block"></div>
+</div><!-- ends row -->
+</div> <!-- ends #faq-home -->
+<div id="contact-us">
+<div class="row the-outside">
+<div class="col-md-2 contact-side-block"></div>
+<div class="col-md-8">
+<br>
+<p>Copyright &copy; Alphabeats Limited | The Black Church, St Mary's Place | Dublin 7, Ireland | Whatsapp: +353851496580</p>
+</div>
+<div class="col-md-2 contact-side-block"></div>
+</div>
+</div><!-- ends #contact-us -->
 </div><!-- ends #home -->
 
 </html>
