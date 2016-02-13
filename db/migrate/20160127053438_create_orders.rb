@@ -9,6 +9,5 @@ class CreateOrders < ActiveRecord::Migration
       t.boolean :store_maximizer, default: false
       t.timestamps null: false
     end
-    add_foreign_key :orders, :users, column: :musician_id
   end
 end
