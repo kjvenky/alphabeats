@@ -39,4 +39,7 @@ class StaticPagesController < ApplicationController
   def payment_page
   end
 
+  def post_login_home
+  end
+
 end

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
    	redirect_to albums_path
   end
   def after_sign_in_path_for(resource)
-    albums_path
+    post_login_home_path 
   end
 
   def song_album_list

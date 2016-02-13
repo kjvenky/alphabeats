@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'terms', to: "static_pages#terms"
   get 'cart_page', to: "static_pages#cart_page"
   get 'payment_page', to: "static_pages#payment_page"
+  get 'post_login_home', to: "static_pages#post_login_home"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
