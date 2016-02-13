@@ -1,27 +1,4 @@
 <div class="total_show">
-
-  <% if !current_order.order_items.nil? %>
-    <% @total = 0 %>
-    <% current_order.order_items.each do |order_item| %>
-      <% if order_item.album.songs.count==1 %>
-        <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
-        <% @total = @total+0.99 if order_item.order.shazam  %>
-        <% @total = @total+4.95 if order_item.order.youtube  %>
-        <% @total = @total+7.95 if order_item.order.store_maximizer  %>
-      <% elsif order_item.album.songs.count!=1 %>
-        <% order_item.album.songs.each do |song| %>
-          <% @total = @total+12 if !song.self_written  %>
-          <% @total = @total+0.99 if order_item.order.shazam  %>
-        <% end %>
-        <% @total = @total+14.95 if order_item.order.youtube  %>
-        <% @total = @total+7.95 if order_item.order.store_maximizer  %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  
-  <br/>
-
  <%=link_to "Remove Shazam & iPhone Siri", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
 <br/>
  <%=link_to "Remove Youtube Money", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
@@ -32,8 +9,58 @@
 <br/>
 <br/>
 
-Total: <%= @total %> <br>
-<%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST', data: {confirm: 'Please check pricing and click OK to continue'} %>
+  <% if !current_order.order_items.nil? %>
+    <% @total = 0 %>
+    <% current_order.order_items.each do |order_item| %>
+      <% if order_item.album.songs.count==1 %>
+        <%= raw("Itemized billing for the album #{order_item.album.album_name} <br/>") %>
+        <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
+        <% if !order_item.album.songs.last.self_written  %>
+          <% @total = @total+12 %> 
+          <%= raw("Cover Song charges : 12<br/>")%> 
+        <% end %>
+        <% if order_item.order.shazam  %>
+          <% @total = @total+0.99 %> 
+          <%= raw("Shazam charges : 0.99<br/>")%> 
+        <% end %>
+        <% if order_item.order.youtube  %>
+          <% @total = @total+4.95 %> 
+          <%= raw("Youtube charges : 4.95<br/>")%> 
+        <% end %>
+        <% if order_item.order.store_maximizer  %>
+          <% @total = @total+7.95 %> 
+          <%= raw("Store maximizer charges : 7.95<br/>")%> 
+        <% end %>
+      <% elsif order_item.album.songs.count!=1 %>
+        <%= order_item.album.album_name %>
+        <% order_item.album.songs.each do |song| %>
+          <%if !song.self_written  %>
+            <% @total = @total+12 %> 
+            <%= raw("Cover Song charges of #{song.song_title} : 12<br/>")%> 
+          <% end %>
+          <% if order_item.order.shazam  %>
+            <% @total = @total+0.99 %> 
+            <%= raw("Shazam Song charges of #{song.song_title} : 0.99<br/>")%> 
+          <% end %>
+        <% end %>
+        <% if order_item.order.youtube  %>
+          <% @total = @total+14.95 %> 
+          <%= raw("Youtube charges of #{order_item.album.album_name} : 14.95<br/>")%> 
+        <% end %>
+        <% if order_item.order.store_maximizer  %>
+          <% @total = @total+7.95 %> 
+          <%= raw("Store Maximizer charges of #{order_item.album.album_name} : 7.95<br/>")%> 
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  
+  <br/>
+Total: <%= @total %> 
+<%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :method => 'POST', data: {confirm: 'Please check pricing and click OK to continue'} %><br/>
+
+
 </div>
 
 
