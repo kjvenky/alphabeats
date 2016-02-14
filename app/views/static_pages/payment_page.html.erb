@@ -1,8 +1,9 @@
 
 
 <%= render "songs/secondheader" %>
+<br><br><br><br><br>
 <div class="row">
-<div class=" col-md-8"> 
+<div class=" col-md-offset-1 col-md-6"> 
     <a href="<%= order_path(current_order) %>", data-remote="true" data-params="order%5Bshazam%5D=true" data-method="PATCH" rel="nofollow">
 
       <div class="signup-updates">
@@ -42,7 +43,7 @@
 
 </div>
 
-<div class="col-md-4">
+<div class="col-md-offset-1 col-md-3">
 <%= render "total_show" %>
 </div>
 </div>

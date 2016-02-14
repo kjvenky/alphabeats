@@ -1,3 +1,4 @@
+
 <div class="total_show">
  <%=link_to "Remove Shazam & iPhone Siri", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
 <br/>
