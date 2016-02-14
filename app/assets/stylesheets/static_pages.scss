@@ -482,3 +482,72 @@ $header_menu_height: 70px;
   font-size:2em;
   font:bold;
 }
+
+////////////////////////////////
+///        Payment Page     ////
+////////////////////////////////
+
+#payment_page {
+  border: 2px solid white;
+  
+  .total_show {
+    padding: 2em;
+  }
+
+  .btn-transparent { 
+    color: black; 
+    // background-color: #611BBD;
+    background-color: #F8F8FF; 
+    // border-color: #130269; 
+    border-color: #F8F8FF;
+    border-radius: 100px;
+    padding: 14px 60px; 
+    transition: 1.5s;
+    font-size: 1.25em;
+  } 
+
+  .btn-transparent:hover, 
+  .btn-transparent:focus, 
+  .btn-transparent:active, 
+  .btn-transparent.active, 
+  .open .dropdown-toggle.btn-transparent { 
+    color: red; 
+    // background-color: #49247A;
+    background-color: #f7f7e3;
+    opacity: 1; 
+    // border-color: #130269;
+    border-color: #f7f7e3; 
+    transition: 1.5s;
+  } 
+
+  .btn-transparent:active, 
+  .btn-transparent.active, 
+  .open .dropdown-toggle.btn-transparent { 
+    background-image: none; 
+  } 
+
+  .btn-transparent.disabled, 
+  .btn-transparent[disabled], 
+  fieldset[disabled] .btn-transparent, 
+  .btn-transparent.disabled:hover, 
+  .btn-transparent[disabled]:hover, 
+  fieldset[disabled] .btn-transparent:hover, 
+  .btn-transparent.disabled:focus, 
+  .btn-transparent[disabled]:focus, 
+  fieldset[disabled] .btn-transparent:focus, 
+  .btn-transparent.disabled:active, 
+  .btn-transparent[disabled]:active, 
+  fieldset[disabled] .btn-transparent:active, 
+  .btn-transparent.disabled.active, 
+  .btn-transparent[disabled].active, 
+  fieldset[disabled] .btn-transparent.active { 
+    background-color: #611BBD; 
+    border-color: #130269; 
+  } 
+
+  .btn-transparent .badge { 
+    color: #611BBD; 
+    background-color: #ffffff; 
+  }
+
+}
