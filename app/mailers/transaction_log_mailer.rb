@@ -5,7 +5,13 @@ class TransactionLogMailer < ApplicationMailer
     @user = user
     @order = order.reload
     @transaction_log = order.reload.transaction_log
-    @album= order.order_items.last.album
+    @count = order.order_items.count
+    @albums = []
+    i=@count
+    while i>0
+      @albums.push(order.order_items[i-1].album)
+      i=i-1
+    end
 
     # @order = transactionlog.reload.order
     # @wallet_balance = @user.reload.wallet.amount

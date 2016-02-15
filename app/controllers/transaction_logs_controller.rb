@@ -1,5 +1,8 @@
 class TransactionLogsController < ApplicationController
 
+  before_filter :authenticate_user!
+  before_filter :authorize_musician
+
   def create
     #identify all the db changes i have to make
     #make a call to payment gateway
@@ -18,7 +21,11 @@ class TransactionLogsController < ApplicationController
     end
     TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
     session[:order_id] = nil
-    redirect_to albums_path, notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
+    redirect_to transaction_log_path(transactionlog), notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
+  end
+
+  def show
+    @transactionLog = current_user.transaction_logs.find(params[:id])
   end
 
 private
