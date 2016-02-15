@@ -1,12 +1,8 @@
 <%= render "songs/secondheader" %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 li-styling">
-    <h2>List of Albums and Songs</h2>
-  
-    <%= render "cart_show" %>
-
-   
-    
+<div class="col-md-6">
+    <h2>Uploaded Albums and Tracks</h2>  
 <% if !@albums.nil? %>
 
 <% @albums.each do |album| %>
@@ -18,17 +14,25 @@
       <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true %>
     </li>
     <% album.songs.each do |song| %>
-      <li class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <ul class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="song_index_name"> <%=song.song_title %> </span>
         <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
         <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
-      </li>
+      </ul>
     <% end %>
   <% end %>
 <% end %>
 <% else %>
-  <%= raw("You have not yet uploaded any songs or albums") %>
+  <%= raw("Please upload tracks in the albums that you create") %>
 <% end %>
+</div>
+<div class="col-md-6">
+    <h2>Cart</h2>  
+    <%= render "cart_show" %>
+</div>
+
+   
+    
   </div>
 </div>
 

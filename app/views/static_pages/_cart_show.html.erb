@@ -1,11 +1,12 @@
 <div class="cart_show">
-<p>Albums added to cart:
+<p>
 <% if current_order.order_items.count==0 %>
-<%= raw("No albums added to cart") %>
+<%= raw("Your cart is empty. Add albums to order to proceed.") %>
 <% else %>
+Albums added to cart: <br>
 <% current_order.order_items.each do |order_item| %>
   <%= order_item.album.album_name %>
-  <%= link_to "Remove from Order", order_item_path(order_item), method: :delete, remote: :true %>
+  <%= link_to "Remove from Order", order_item_path(order_item), method: :delete, remote: :true %> <br>
 <% end %>
 <% end %>
 </p>
