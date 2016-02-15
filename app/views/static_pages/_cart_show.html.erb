@@ -9,5 +9,16 @@
 <% end %>
 <% end %>
 </p>
-
+<%=raw("
+<div class='row'>
+  <div class='col-sm-offset-6 col-sm-6'>
+    <a href='#{payment_page_path}'>
+      <div class='signup-updates'>
+        <button class='btn btn-lg btn-transparent'>
+          <span id='updates'>Continue</span>
+        </button>
+      </div>
+    </a>
+  </div>") if !current_order.order_items.empty?
+%>
 </div>
