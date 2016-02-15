@@ -489,6 +489,10 @@ $header_menu_height: 70px;
 
 #payment_page {
   border: 2px solid white;
+
+  .no-border {
+    border: none;
+  }
   
   .total_show {
     padding: 2em;

@@ -18,7 +18,7 @@
    <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
    <% if !order_item.album.songs.last.self_written  %>
    <% @total = @total+12 %> 
-   <div class="row">
+   <div class="row no-border">
     <div class="col-md-7">
       <%= raw("Cover Song charges :")%> 
     </div>
@@ -30,7 +30,7 @@
    <% end %>
    <% if order_item.order.shazam  %>
    <% @total = @total+0.99 %> 
-   <div class="row">
+   <div class="row no-border">
     <div class="col-md-6">
       <%= raw("Shazam charges :")%> 
     </div>
