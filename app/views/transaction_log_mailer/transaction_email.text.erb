@@ -1,5 +1,11 @@
 Hi <%= @user.first_name %>
-Here are the details of the album you just placed order for <%= album_song_url(@album) %>
+Here are the details of the album you just placed order for:
+
+<% i=@count %>
+<% while i>0 %>
+  <%= album_song_url(@albums[i-1]) %>
+  <% i=i-1 %>
+<% end %>
 
 You have paid for the following services:
 <%= raw("Shazam") if @order.shazam %>
