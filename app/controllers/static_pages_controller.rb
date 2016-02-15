@@ -3,7 +3,11 @@ class StaticPagesController < ApplicationController
   before_filter :authenticate_user!, only: [:cart_page, :payment_page]
 
   def home
-    render :layout => false
+    if user_signed_in?
+      redirect_to post_login_home_url
+    else
+      render :layout => false
+    end
   end
 
   def about
