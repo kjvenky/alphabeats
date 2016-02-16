@@ -35,9 +35,9 @@ RSpec.describe User, type: :model do
 		 :email => "user@example.com",  :password => "secret123", :confirmed_at => Time.now-2.days}
 	  end
 
-    it { should have_many(:albums).with_foreign_key('musician_id') }
-    it { should have_many(:songs).with_foreign_key('musician_id') }
-    it { should have_many(:orders).with_foreign_key('musician_id') }
+    it { should have_many(:albums) }
+    it { should have_many(:songs) }
+    it { should have_many(:orders) }
     it { should have_one(:wallet) }
     it { should have_many(:transaction_logs) }
 

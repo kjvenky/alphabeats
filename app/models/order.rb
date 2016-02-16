@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
   belongs_to :transaction_log
 
-  validates_presence_of  :musician_id
+  validates_presence_of  :user_id
   validates_numericality_of :total
 
 end
