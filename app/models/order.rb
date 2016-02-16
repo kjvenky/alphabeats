@@ -15,7 +15,7 @@
 #
 
 class Order < ActiveRecord::Base
-  belongs_to :musician, class_name: User.name
+  belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   has_many :order_items
   belongs_to :transaction_log
 
