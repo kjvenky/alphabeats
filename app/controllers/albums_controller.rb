@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_filter :authenticate_user!
+  # before_filter :authorize_admin_or_user
   before_action :authorize_musician
 
   def index
@@ -44,7 +45,7 @@ class AlbumsController < ApplicationController
   end
 
   def album_song_show
-    @album = current_user.albums.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
 private

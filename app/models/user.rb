@@ -57,5 +57,8 @@ class User < ActiveRecord::Base
     self.musician 
   end
 
+  def admin?
+    self.admin 
+  end
   
 end

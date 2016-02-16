@@ -1,6 +1,7 @@
 class TransactionLogsController < ApplicationController
 
   before_filter :authenticate_user!
+  # before_filter :authorize_admin_or_user
   before_filter :authorize_musician
 
   def create
@@ -25,7 +26,7 @@ class TransactionLogsController < ApplicationController
   end
 
   def show
-    @transactionLog = current_user.transaction_logs.find(params[:id])
+    @transactionLog = TransactionLog.find(params[:id])
   end
 
 private

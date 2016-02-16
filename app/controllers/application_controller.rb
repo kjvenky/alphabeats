@@ -38,4 +38,11 @@ class ApplicationController < ActionController::Base
   def authorize_musician
     redirect_to root_url, alert: "You are not authorized" if !current_user.musician?
   end
+
+  # def authorize_admin_or_user
+  #   if !current_user.admin?
+  #     authenticate_user!
+  #   end
+  # end
+
 end
