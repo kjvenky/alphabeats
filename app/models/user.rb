@@ -38,8 +38,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 25 }
 
   has_many :albums# , foreign_key: 'musician_id'
-  has_many :songs, foreign_key: 'musician_id'
-  has_many :orders, foreign_key: 'musician_id'
+  has_many :songs# , foreign_key: 'musician_id'
+  has_many :orders# , foreign_key: 'musician_id'
   has_one :wallet
   has_many :transaction_logs
 
