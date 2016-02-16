@@ -20,14 +20,14 @@ require 'rails_helper'
 
 RSpec.describe Album, type: :model do
   it { should validate_presence_of(:album_name)}
-  it { should validate_presence_of(:musician_id)}
+  it { should validate_presence_of(:user_id)}
   it { should validate_presence_of(:stage_band_name)}
   it { should validate_presence_of(:album_cover)}
   it { should validate_presence_of(:language)}
   it { should validate_presence_of(:primary_genre)}
 
 
-  it { should validate_numericality_of(:musician_id)}
+  it { should validate_numericality_of(:user_id)}
   it { should validate_numericality_of(:language)}
   it { should validate_numericality_of(:primary_genre)}
   it { should validate_numericality_of(:secondary_genre)}

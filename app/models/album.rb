@@ -17,12 +17,12 @@
 #
 
 class Album < ActiveRecord::Base
-  belongs_to :musician, class_name: User.name
+  belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   has_many :songs
   has_many :order_items
 
-  validates_presence_of :album_name, :musician_id, :stage_band_name, :album_cover, :language, :primary_genre
-  validates_numericality_of :musician_id, :language, :primary_genre, :secondary_genre
+  validates_presence_of :album_name, :user_id, :stage_band_name, :album_cover, :language, :primary_genre
+  validates_numericality_of :user_id, :language, :primary_genre, :secondary_genre
 
   validates_inclusion_of :language, :in => 1..40
   validates_inclusion_of :primary_genre, :in => 0..33

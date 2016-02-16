@@ -21,11 +21,11 @@
 
 class Song < ActiveRecord::Base
 
-  belongs_to :musician, class_name: User.name
+  belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   belongs_to :album
 
 
-  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :musician_id,  :original_artist, :original_song_title
+  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :user_id,  :original_artist, :original_song_title
 
   validates :terms, acceptance: {accept: true}
   validates_inclusion_of :explicit_lyrics, :in => [true, false]

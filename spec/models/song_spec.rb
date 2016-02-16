@@ -29,7 +29,7 @@ RSpec.describe Song, type: :model do
   it { should validate_presence_of(:terms) }
   it { should validate_presence_of(:audio_file)}
   it { should validate_presence_of(:album_id)}
-  it { should validate_presence_of(:musician_id)}
+  it { should validate_presence_of(:user_id)}
   it { should validate_presence_of(:original_artist)}
   it { should validate_presence_of(:original_song_title)}
 

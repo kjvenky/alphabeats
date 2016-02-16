@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160209135626) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
-    t.integer  "musician_id"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "stage_band_name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160209135626) do
     t.integer  "secondary_genre"
   end
 
-  add_index "albums", ["musician_id"], name: "index_albums_on_musician_id"
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "album_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160209135626) do
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "musician_id"
+    t.integer  "user_id"
     t.decimal  "total",              precision: 7, scale: 2, default: 0.0
     t.boolean  "payment_status",                             default: false
     t.boolean  "shazam",                                     default: false
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20160209135626) do
     t.integer  "transaction_log_id"
   end
 
-  add_index "orders", ["musician_id"], name: "index_orders_on_musician_id"
   add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "songs", force: :cascade do |t|
     t.datetime "created_at",          null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20160209135626) do
     t.time     "duration"
     t.text     "note_to_admin"
     t.integer  "album_id"
-    t.integer  "musician_id"
+    t.integer  "user_id"
     t.boolean  "explicit_lyrics"
     t.boolean  "self_written"
     t.string   "original_artist"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160209135626) do
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
-  add_index "songs", ["musician_id"], name: "index_songs_on_musician_id"
+  add_index "songs", ["user_id"], name: "index_songs_on_user_id"
 
   create_table "transaction_logs", force: :cascade do |t|
     t.integer  "transaction_type"
