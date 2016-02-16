@@ -5,11 +5,16 @@
 <% else %>
 Albums added to cart: <br>
 <% current_order.order_items.each do |order_item| %>
-  <%= order_item.album.album_name %>
-  <%= link_to "Remove from Order", order_item_path(order_item), method: :delete, remote: :true %> <br>
+  <div class="col-md-3">
+    <%= order_item.album.album_name %>
+  </div>
+  <div class="col-md-offset-2 col-md-7">
+    <%= link_to "Remove from Order", order_item_path(order_item), method: :delete, remote: :true %> <br>
+  </div>
 <% end %>
 <% end %>
 </p>
+<br><br><br>
 <%=raw("
 <div class='row'>
   <div class='col-sm-offset-6 col-sm-6'>
