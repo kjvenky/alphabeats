@@ -1,4 +1,5 @@
 <%= render "songs/secondheader" %>
+<br><br><br><br>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 li-styling">
 <div class="col-md-6">
@@ -7,17 +8,33 @@
 
 <% @albums.each do |album| %>
   <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil?%>
-    <li class="album_<%= album.id %>">
-      <span class="album_index_name"> <%=album.album_name %> </span>
-      <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
-      <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
-      <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true %>
-    </li>
+    <br><ul class="album_<%= album.id %>">
+    <div class="row">
+      <div class="col-md-2">
+        <span class="album_index_name"> <%=album.album_name %> </span>
+      </div>
+      <div class="col-md-2">
+        <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
+      </div>
+      <div class="col-md-2">
+        <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "add_to_order" %>      
+      </div>
+    </div>
+    </ul>
     <% album.songs.each do |song| %>
       <ul class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="song_index_name"> <%=song.song_title %> </span>
-        <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
-        <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
+        <div class="col-md-2">
+          <span class="song_index_name"> <%=song.song_title %> </span>
+        </div>
+        <div class="col-md-2">
+          <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
+        </div>
+        <div class="col-md-2">
+          <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
+        </div>
       </ul>
     <% end %>
   <% end %>

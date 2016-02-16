@@ -492,16 +492,21 @@ $header_menu_height: 70px;
   font:bold;
 }
 
+.add_to_order {
+  background-color: white;
+  color: red;
+  padding: 2px;
+
+  &:hover, &:active {
+    color: red;
+  }
+}
 ////////////////////////////////
 ///        Payment Page     ////
 ////////////////////////////////
 
 #payment_page {
-  border: 2px solid white;
-
-  .no-border {
-    border: none;
-  }
+  
   
   .total_show {
     padding: 2em;

@@ -8,65 +8,112 @@
    <br/>
    <br/>
    <br/>
-   <br/>
 
    <% if !current_order.order_items.nil? %>
    <% @total = 0 %>
    <% current_order.order_items.each do |order_item| %>
-   <% if order_item.album.songs.count==1 %>
-   <%= raw("Itemized billing for the album #{order_item.album.album_name} <br/>") %>
+   <% if order_item.album.songs.count==1 %> <br>
+   <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
    <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
    <% if !order_item.album.songs.last.self_written  %>
    <% @total = @total+12 %> 
-   <div class="row no-border">
-    <div class="col-md-7">
-      <%= raw("Cover Song charges :")%> 
+   
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Cover Song fees for #{order_item.album.album_name}:")%> 
     </div>
-    <div class="col-offset-md-4 col-md-1">
+    <div class="col-md-offset-4 col-md-2">
       <%= raw("12")%> 
     </div>
    </div>
-   
    <% end %>
+
    <% if order_item.order.shazam  %>
    <% @total = @total+0.99 %> 
-   <div class="row no-border">
+   <div class="row">
     <div class="col-md-6">
-      <%= raw("Shazam charges :")%> 
+      <%= raw("Shazam:")%> 
     </div>
-    <div class="col-offset-md-5 col-md-1">
-      <%= raw("0.99")%>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$0.99")%>
     </div>
    </div>
-   
    <% end %>
+
    <% if order_item.order.youtube  %>
    <% @total = @total+4.95 %> 
-   <%= raw("Youtube charges : 4.95<br/>")%> 
+
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("YouTube Money:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$4.95")%>
+    </div>
+   </div>
    <% end %>
+
    <% if order_item.order.store_maximizer  %>
    <% @total = @total+7.95 %> 
-   <%= raw("Store maximizer charges : 7.95<br/>")%> 
+
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Store Maximizer:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$7.95")%>
+    </div>
+   </div>
    <% end %>
-   <% elsif order_item.album.songs.count!=1 %>
-   <%= order_item.album.album_name %>
+
+   <% elsif order_item.album.songs.count!=1 %> <br>
+
+   <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
    <% order_item.album.songs.each do |song| %>
    <%if !song.self_written  %>
    <% @total = @total+12 %> 
-   <%= raw("Cover Song charges of #{song.song_title} : 12<br/>")%> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Cover Song (#{song.song_title}):")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$12.00")%>
+    </div>
+   </div>
    <% end %>
    <% if order_item.order.shazam  %>
    <% @total = @total+0.99 %> 
-   <%= raw("Shazam Song charges of #{song.song_title} : 0.99<br/>")%> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Shazam (#{song.song_title}):")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$0.99")%>
+    </div>
+   </div>
    <% end %>
    <% end %>
    <% if order_item.order.youtube  %>
    <% @total = @total+14.95 %> 
-   <%= raw("Youtube charges of #{order_item.album.album_name} : 14.95<br/>")%> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Youtube Money:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$14.95")%>
+    </div>
+   </div>
    <% end %>
    <% if order_item.order.store_maximizer  %>
    <% @total = @total+7.95 %> 
-   <%= raw("Store Maximizer charges of #{order_item.album.album_name} : 7.95<br/>")%> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Store Maximizer:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$7.95")%>
+    </div>
+   </div> 
    <% end %>
    <% end %>
    <% end %>
@@ -74,8 +121,17 @@
 
 
    <br/>
-   Total: <%= @total %> <br><br>
-   <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please check pricing and click OK to continue'} %><br/>
+   <b> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Total")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      $<%= @total %> 
+    </div>
+   </div> 
+   </b><br><br>
+   <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. Please click on OK to confirm.'} %><br/>
 
 
  </div> <!-- ends total_show -->
