@@ -21,7 +21,7 @@
 
 class Song < ActiveRecord::Base
 
-  belongs_to :musician, class_name: User.name
+  belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   belongs_to :album
 
 
