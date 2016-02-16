@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }
 
-  has_many :albums, foreign_key: 'musician_id'
+  has_many :albums# , foreign_key: 'musician_id'
   has_many :songs, foreign_key: 'musician_id'
   has_many :orders, foreign_key: 'musician_id'
   has_one :wallet
