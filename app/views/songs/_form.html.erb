@@ -48,21 +48,21 @@
 
 
     <div class="row">
-      <div class="col-sm-3">
-        <br/>
-        <span>
-          <%= link_to 'I accept these Terms and Conditions', terms_path %>
-        </span>
-      </div>
       <div class="col-sm-6">
         <span>
-          <%= f.input :terms, label: false, input_html: {class: 'input input-style form-control'} %>
+          <%= f.input :terms, input_html: {class: 'input input-style form-control'} %>
         </span>
       </div>
-      <br/>
-      <br><br>
-      <%= f.button :submit, "Add to Cart", class: 'btn btn-transparent btn-lg' %>
+      <div class="col-sm-3">
+        <br/>
+      </div>
+      <br/><br/><br/>
+        <span>
+          <%= link_to 'Read Terms and Conditions', terms_path %>
+        </span>
+      <br/><br/><br/>
     </div>
+      <%= f.button :submit, "Add to Cart", class: 'btn btn-transparent btn-lg' %>
     <% end %>
   </div>
   <br/>
