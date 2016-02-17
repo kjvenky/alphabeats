@@ -1,5 +1,5 @@
 class TransactionLogMailer < ApplicationMailer
-  default to: 'alphabeatsuploads@gmail.com', from: 's@alphabeatsmusic.com'
+  default from: 's@alphabeatsmusic.com'
 
   def transaction_email(user, order)
     @user = user
@@ -16,6 +16,8 @@ class TransactionLogMailer < ApplicationMailer
     # @order = transactionlog.reload.order
     # @wallet_balance = @user.reload.wallet.amount
     # @album = transactionlog.reload.order.order_items.last.album
-    mail(to: @user.email, subject: 'Details of the album you paid')
+    mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: 'Details of the album you paid')
   end
+
+
 end
