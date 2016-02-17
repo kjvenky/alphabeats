@@ -1,3 +1,4 @@
+<%= render "songs/secondheader" %>
 <h2>The following are the details of the album <%= @album.album_name %> and the songs that belong to it. </h2>
 
 <%= render partial: "albums/album_show", locals: {album: @album}  %>
@@ -7,10 +8,13 @@
 <%= render partial: "songs/song_show", locals: {song: song} %>
 <% end %>
 
+<br/>
+<br/>
+<br/>
 
 <div class="row">
 
-  <div class="col-sm-6">
+  <div class="col-sm-offset-1 col-sm-5">
     <a href="<%= new_song_path %>">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
