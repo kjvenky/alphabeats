@@ -10,25 +10,26 @@
   <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil?%>
     <br><ul class="album_<%= album.id %>">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-5">
         <span class="album_index_name"> <%=album.album_name %> </span>
       </div>
       <div class="col-md-2">
-        <span class="album_link"> <%= link_to "Details", album_path(album) %></span>
+        <span class="album_index_name"> <%= link_to "Details", album_path(album) %></span>
       </div>
-      <div class="col-md-2">
-        <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
+      <div class="col-md-1">
+        <span class="album_index_name"> <%= link_to "Edit", edit_album_path(album) %></span>
       </div>
-      <div class="col-md-2">
-        <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "add_to_order" %>      
+      <div class="col-md-4">
+        <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
       </div>
     </div>
     </ul>
     <% album.songs.each do |song| %>
       <ul class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="col-md-2">
+        <div class="col-md-4">
           <span class="song_index_name"> <%=song.song_title %> </span>
         </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
           <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
         </div>
