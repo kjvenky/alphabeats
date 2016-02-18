@@ -124,14 +124,14 @@
    <b> 
    <div class="row">
     <div class="col-md-6">
-      <%= raw("Total")%> 
+      <%= raw("Total Annual Fee")%> 
     </div>
     <div class="col-md-offset-4 col-md-2">
       $<%= @total %> 
     </div>
    </div> 
    </b><br><br>
-   <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. Please click on OK to confirm.'} %><br/>
+   <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
 
 
  </div> <!-- ends total_show -->
