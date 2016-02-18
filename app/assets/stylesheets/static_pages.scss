@@ -483,19 +483,20 @@ $header_menu_height: 70px;
 
 
 .li-styling > li {
-  list-style:none;
+  list-style: none;
 }
 
 
 .album_index_name {
-  font-size:2em;
-  font:bold;
+  font-size: 1.5em;
+  font: bold;
 }
 
 .add_to_order {
   background-color: white;
   color: red;
   padding: 2px;
+  font-size: 1.5em;
 
   &:hover, &:active {
     color: red;
