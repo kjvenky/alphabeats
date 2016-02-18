@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
+  end
+  
+  def mobile_format
+    request.format = :mobile if mobile_device?
+  end
+
   protected
 
   def configure_permitted_parameters
