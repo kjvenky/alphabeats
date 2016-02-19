@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def mobile_device?
-    request.user_agent =~ /Mobile|webOS/
+   !!(request.user_agent =~ /Mobile|webOS/)
   end
   
   def mobile_format
