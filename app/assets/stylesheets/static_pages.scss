@@ -328,24 +328,16 @@ body {
 
 #mobile-home {
   background-color: white;
+  text-align: center;
+  color: black;
 
   #mobile-cover {
     background: url(mobile-cover.jpg);
     height: 100vh;
-
-    h1 {
-      color: white;
-      text-align: center;
-    }
+    color: white;
   }
 
-  #mobile-welcome-text {
-    color: black;
-  }
 
-  #mobile-steps {
-    color: black;
-  }
 }
 
 
