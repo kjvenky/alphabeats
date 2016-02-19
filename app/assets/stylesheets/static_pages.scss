@@ -531,6 +531,7 @@ $header_menu_height: 70px;
     color: red;
   }
 }
+
 ////////////////////////////////
 ///        Payment Page     ////
 ////////////////////////////////
@@ -599,3 +600,41 @@ $header_menu_height: 70px;
   }
 
 }
+
+
+////////////////////////////////
+///     mobile home.erb     ////
+////////////////////////////////
+.fbcenter {
+
+  text-align: center;
+  .fblogo {
+    color: #F8F8FF;
+    font-size: 0.6em;
+    padding: 0.5em;
+    border-radius: 50px;
+    // background-color: #990099;
+    background-color: #3b5998;
+  }
+
+  .iglogo {
+    color: #F8F8FF;
+    font-size: 0.6em;
+    padding: 0.5em;
+    border-radius: 50px;
+    background-color: #85536D;
+    // background-color: #125688;  
+  }
+
+  .gmlogo {
+    color: #F8F8FF;
+    font-size: 0.6em;
+    padding: 0.5em;
+    border-radius: 50px;
+    // background-color: #990099;
+    background-color: #dd4b39;
+  }
+
+}
+
+
