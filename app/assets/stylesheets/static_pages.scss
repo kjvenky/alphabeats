@@ -327,8 +327,14 @@ body {
 //////////////////////////////////
 
 #mobile-home {
-  #cover {
+  #mobile-cover {
+    background: url(mobile-cover.jpg);
     height: 100vh;
+
+    h1 {
+      color: white;
+      
+    }
   }
 }
 
