@@ -48,10 +48,11 @@
 
 
     <div class="row">
-      <div class="col-sm-8">
-        <span>
-          <%= f.input :terms, label: 'I agree to the terms and conditions', input_html: {class: 'input input-style form-control'} %>
-        </span>
+      <div class="col-md-1">
+          <%= f.input :terms, input_html: {class: 'input input-style form-control'}, label: ''  %>
+      </div>
+      <div class="col-md-7">
+        <a href="/terms">I agree to the terms and conditions</a>
       </div>
       <!-- <div class="col&#45;sm&#45;3"> -->
       <!--   <br/> -->
