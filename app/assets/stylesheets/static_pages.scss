@@ -327,15 +327,15 @@ body {
 //////////////////////////////////
 
 #mobile-home {
-  background: none;
-  
+  background-color: white;
+
   #mobile-cover {
     background: url(mobile-cover.jpg);
     height: 100vh;
 
     h1 {
       color: white;
-
+      text-align: center;
     }
   }
 }
