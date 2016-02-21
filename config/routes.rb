@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'static_pages/home'
+  get 'after_signup_home', to: "static_pages#after_signup_home"
+  get 'inactive_signup_home', to: "static_pages#inactive_signup_home"
   get 'about', to: "static_pages#about"
   get 'faq', to: "static_pages#faq"
   get 'contact', to: "static_pages#contact"

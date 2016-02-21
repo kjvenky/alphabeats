@@ -47,4 +47,10 @@ class StaticPagesController < ApplicationController
   def post_login_home
   end
 
+  def after_signup_home
+  end
+
+  def inactive_signup_home
+  end
+
 end
