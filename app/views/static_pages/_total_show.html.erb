@@ -8,7 +8,23 @@
    <br/>
    <br/>
    <br/>
-
+  <div class="row">
+    <div class="col-md-6">
+      Annual Upload Fee
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      $20
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Discount until 12/02/16*
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      ($20)
+    </div>
+  </div>
+  <br>
    <% if !current_order.order_items.nil? %>
    <% @total = 0 %>
    <% current_order.order_items.each do |order_item| %>
@@ -118,8 +134,7 @@
    <% end %>
    <% end %>
    <% end %>
-
-
+  
    <br/>
    <b> 
    <div class="row">
@@ -132,7 +147,7 @@
    </div> 
    </b><br><br>
    <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
-
+  <p><br>*This discount is only valid for first 20 artists that upload tracks onto Alphabeats.</p>
 
  </div> <!-- ends total_show -->
 </div> <!-- ends payment_page id -->
