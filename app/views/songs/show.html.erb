@@ -1,5 +1,8 @@
 <% if user_signed_in? %>
   <%= render "songs/secondheader" %>
+  <%= raw("<div class='row'><div class='col-sm-offset-1 col-sm-10'>") %>
+    <%= social_share_button_tag(@song.song_title) %>
+    <%= raw("</div></div>") %>
   <%= render partial: "songs/song_show", locals: {song: @song} %>
   <%= render partial: "songs/song_show_bottom", locals: {song: @song} %>
 <% else %>
