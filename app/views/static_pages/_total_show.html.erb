@@ -153,8 +153,8 @@
    </b><br><br>
    <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
   
-    <% if current_user.transaction_logs.empty? %>
-      <%= raw("*Artists pay this annual fee for unlimited album uploads. Extra features, however, will cost more")%> 
+    <% if current_user.transaction_logs.empty? %> <br>
+      <%= raw("*Artists pay this annual fee for unlimited album uploads. Extra features, however, will cost more")%> <br>
       <%= raw("**This discount is only valid for the first 20 artists")%> 
     <% else %>
     <% end %>
