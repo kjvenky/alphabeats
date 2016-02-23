@@ -44,6 +44,8 @@ gem "fog"
 gem "mini_magick"
 
 gem "annotate"
+
+gem 'social-share-button'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

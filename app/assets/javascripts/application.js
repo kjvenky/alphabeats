@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require angular
 //= require faq
+//= require social-share-button
 //= require_tree .
