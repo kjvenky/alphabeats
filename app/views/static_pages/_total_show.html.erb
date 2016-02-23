@@ -1,6 +1,6 @@
 <div id="payment_page">
   <div class="total_show">
-    <h3>Extra Features</h3>
+    
    <%=link_to "Click to Remove Shazam & iPhone Siri", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
    <br/>
    <%=link_to "Click to Remove Youtube Money", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
