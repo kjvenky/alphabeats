@@ -11,6 +11,7 @@
 
 </head>
 
+<body style="overflow-x:hidden;">
 <div class="container-fluid">
 
 <div class="row" id="home">
@@ -33,6 +34,8 @@
 </div>
 <h1>Alphabeats: Invest in Music</h1>
 </div><!-- ends #cover -->
+
+
 <div id="welcome-text">
 <h1>A Crowdsourced Record Label</h1>
 <p>Invite the music industry's bloggers and influencers to <b>invest in your songs</b>. Then, let <br>them promote your music while you continue busking and producing new tracks.</p>
@@ -48,12 +51,15 @@
 </div>
 </div>
 </div><!-- ends #welcome-text -->
+
+
 <div id="about-us">
 <h2>About Us</h2> <br>
 <p>Alphabeats gives music influencers (bloggers, audiophiles and record labels) the opportunity to invest in songs of unsigned and rising artists.</p> <br>
+<div class="row">
 <div class="col-md-4 screenshot">
 <div class="col-md-offset-1 col-md-10">
-<%= image_tag("upload.png") %>
+<%= image_tag("upload.png", class: "img-responsive") %>
 <p class="about-action">1. Upload</p>
 <p>Artists upload songs on Alphabeats. We will then put them on all the major streaming services.</p>
 </div>
@@ -61,7 +67,7 @@
 </div>
 <div class="col-md-4 screenshot">
 <div class="col-md-offset-1 col-md-10">
-<%= image_tag("trade.png") %>
+<%= image_tag("trade.png", class: "img-responsive") %>
 <p class="about-action">2. Invest</p>
 <p>Using the Alphabeats stock-market like platform, influencers can invest in their favorite songs.</p>
 </div>
@@ -69,14 +75,17 @@
 </div>
 <div class="col-md-4 screenshot">
 <div class="col-md-offset-1 col-md-10">
-<%= image_tag("latch.png") %>
+<%= image_tag("latch.png", class: "img-responsive") %>
 <p class="about-action">3. Share</p>
 <p>With personal interest in the song's success, investors endorse the track with their followers.</p>
 </div>
 <div class="col-md-1"></div>
 </div>
 <p class="about-dot"> . </p>
+</div>
 </div><!-- ends #about-us -->
+
+
 <div id="pricing-menu">
 <div class="row">
 
@@ -121,6 +130,9 @@
 <div class="col-md-2 side-block"></div>
 </div><!-- ends row -->
 </div><!-- ends #pricing-menu -->
+
+
+
 <div id="faq-home">
 <div class="row">
 
@@ -229,18 +241,23 @@ We will publish a fundraising guide soon.</p>
 <div class="col-md-2 faq-side-block"></div>
 </div><!-- ends row -->
 </div> <!-- ends #faq-home -->
+
 <div id="contact-us">
-<div class="row the-outside">
-<div class="col-md-2 contact-side-block"></div>
-<div class="col-md-8">
-<br>
-<p>Copyright &copy; Alphabeats Limited | The Black Church, St Mary's Place | Dublin 7, Ireland | Whatsapp: +353851496580</p>
-</div>
-<div class="col-md-2 contact-side-block"></div>
-</div>
+<!-- "the-outside" has been removed from the div right below -->
+  <div class="row "> 
+    <div class="col-md-2 contact-side-block"></div>
+    <div class="col-md-8">
+    <br>
+    <p>Copyright &copy; Alphabeats Limited | The Black Church, St Mary's Place | Dublin 7, Ireland | Whatsapp: +353851496580</p>
+    </div>
+    <div class="col-md-2 contact-side-block"></div>
+  </div>
 </div><!-- ends #contact-us -->
+
 </div><!-- ends #home -->
 
-</div>
+</div><!-- ends container-fluid -->
+
+</body>
 
 </html>
