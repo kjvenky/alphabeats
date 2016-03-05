@@ -19,6 +19,7 @@
 #Ignore production .env
 .env.production
 .env
+.env.test
 
 #Ignore uploads folder in public
 public/uploads/*
