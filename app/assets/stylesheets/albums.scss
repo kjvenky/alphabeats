@@ -1,0 +1,37 @@
+// Place all the styles related to the albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//////////////////////////////////
+//// Begin Album Form Styling ////
+//////////////////////////////////
+
+
+// Sets up the input box heights and adjusts the upload file feature
+#new_album {
+  input, select {
+    height:2.4em;
+    padding: 0px 3px;
+  }
+}
+
+//Begin release date styling
+.album_release_date{
+  label{
+    display:block}
+  }
+
+#album_release_date_1i{
+  display:inline-block;
+  width:30%;
+}
+#album_release_date_2i{
+  display:inline-block;
+  width:43%;
+}
+#album_release_date_3i{
+  display:inline-block;
+  width:22%;
+}
+//End release date styling
+

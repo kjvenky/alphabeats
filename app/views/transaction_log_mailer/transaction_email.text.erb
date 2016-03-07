@@ -1,0 +1,31 @@
+Hi <%= @user.first_name %>
+
+Your user id is <%= @user.id %>. Please quote this when you quote user id.
+
+Here are the details of the album you just placed order for:
+
+<% i=@count %>
+<% while i>0 %>
+  <%= album_song_url(@albums[i-1]) %>
+  <% i=i-1 %>
+<% end %>
+
+You have paid for the following services:
+<%= raw("Shazam") if @order.shazam %>
+<%= raw("Youtube") if @order.youtube %>
+<%= raw("Store Maximizer") if @order.store_maximizer %>
+
+
+
+You paid a total of <%= @transaction_log.amount %>
+
+Here are the details of your payment: <%= transaction_log_url(@transaction_log) %>
+
+
+
+regards,
+Shenil
+
+
+
+

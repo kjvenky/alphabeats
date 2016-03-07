@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Abm</title>
+  <title>Alphabeats - Invest in music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,700italic' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
+<div class="wrapper">
+  <%= render "static_pages/header" %>
+  <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
 
-<%= yield %>
-
+  <div class=<%= Width::CONTAINER %>><!-- Defined in applicaiton helper -->
+    
+      <%= yield %>
+    
+  </div>
+  <div class="push"></div>
+</div>
+  <%= render "static_pages/footer" %>
 </body>
 </html>

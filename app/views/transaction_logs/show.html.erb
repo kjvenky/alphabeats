@@ -1,0 +1,42 @@
+<%= render "songs/secondheader" %>
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <% order = @transactionLog.order %>
+    <% order.order_items.each do |order_item| %>
+      <% if order_item.album.songs.count==1 %>
+        <%= raw("Itemized billing for the album #{order_item.album.album_name} <br/>") %>
+        <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
+        <% if !order_item.album.songs.last.self_written  %>
+          <%= raw("Cover Song charges : 12<br/>")%> 
+        <% end %>
+        <% if order_item.order.shazam  %>
+          <%= raw("Shazam charges : 0.99<br/>")%> 
+        <% end %>
+        <% if order_item.order.youtube  %>
+          <%= raw("Youtube charges : 4.95<br/>")%> 
+        <% end %>
+        <% if order_item.order.store_maximizer  %>
+          <%= raw("Store maximizer charges : 7.95<br/>")%> 
+        <% end %>
+      <% elsif order_item.album.songs.count!=1 %>
+        <%= order_item.album.album_name %>
+        <% order_item.album.songs.each do |song| %>
+          <%if !song.self_written  %>
+            <%= raw("Cover Song charges of #{song.song_title} : 12<br/>")%> 
+          <% end %>
+          <% if order_item.order.shazam  %>
+            <%= raw("Shazam Song charges of #{song.song_title} : 0.99<br/>")%> 
+          <% end %>
+        <% end %>
+        <% if order_item.order.youtube  %>
+          <%= raw("Youtube charges of #{order_item.album.album_name} : 14.95<br/>")%> 
+        <% end %>
+        <% if order_item.order.store_maximizer  %>
+          <%= raw("Store Maximizer charges of #{order_item.album.album_name} : 7.95<br/>")%> 
+        <% end %>
+      <% end %>
+    <% end %>
+    Total: <%= @transactionLog.amount %>
+</div>
+</div>
+
