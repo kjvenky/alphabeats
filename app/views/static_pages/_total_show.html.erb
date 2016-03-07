@@ -1,0 +1,167 @@
+<div id="payment_page">
+  <div class="total_show">
+
+   <%=link_to "Click to Remove Shazam & iPhone Siri", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
+   <br/>
+   <%=link_to "Click to Remove Youtube Money", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
+   <br/>
+   <%=link_to "Click to Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
+   <br/>
+   <br/>
+   <br/>
+  <br>
+   <% if !current_order.order_items.nil? %>
+   <% @total = 0 %>
+    <% if current_user.transaction_logs.empty? %>
+       <% @total = @total+0 %> 
+       <div class="row">
+        <div class="col-md-6">
+          <%= raw("Annual Upload Fee*:")%> 
+        </div>
+        <div class="col-md-offset-4 col-md-2">
+          <%= raw("$20")%> 
+        </div>
+       </div>
+       <div class="row">
+        <div class="col-md-6">
+          <%= raw("Discount until 12/02/16**:")%> 
+        </div>
+        <div class="col-md-offset-4 col-md-2">
+          <%= raw("-$20")%> 
+        </div>
+       </div>
+    <% else %>
+    <% end %>
+   <% current_order.order_items.each do |order_item| %>
+   <% if order_item.album.songs.count==1 %> <br>
+   <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
+   <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
+   <% if !order_item.album.songs.last.self_written  %>
+   <% @total = @total+12 %> 
+   
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Cover Song fees for #{order_item.album.album_name}:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("12")%> 
+    </div>
+   </div>
+   <% end %>
+
+   <% if order_item.order.shazam  %>
+   <% @total = @total+0.99 %> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Shazam:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$0.99")%>
+    </div>
+   </div>
+   <% end %>
+
+   <% if order_item.order.youtube  %>
+   <% @total = @total+4.95 %> 
+
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("YouTube Money:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$4.95")%>
+    </div>
+   </div>
+   <% end %>
+
+   <% if order_item.order.store_maximizer  %>
+   <% @total = @total+7.95 %> 
+
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Store Maximizer:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$7.95")%>
+    </div>
+   </div>
+   <% end %>
+
+   <% elsif order_item.album.songs.count!=1 %> <br>
+
+   <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
+   <% order_item.album.songs.each do |song| %>
+   <%if !song.self_written  %>
+   <% @total = @total+12 %> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Cover Song (#{song.song_title}):")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$12.00")%>
+    </div>
+   </div>
+   <% end %>
+   <% if order_item.order.shazam  %>
+   <% @total = @total+0.99 %> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Shazam (#{song.song_title}):")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$0.99")%>
+    </div>
+   </div>
+   <% end %>
+   <% end %>
+   <% if order_item.order.youtube  %>
+   <% @total = @total+14.95 %> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Youtube Money:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$14.95")%>
+    </div>
+   </div>
+   <% end %>
+   <% if order_item.order.store_maximizer  %>
+   <% @total = @total+7.95 %> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Store Maximizer:")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      <%= raw("$7.95")%>
+    </div>
+   </div> 
+   <% end %>
+   <% end %>
+   <% end %>
+   <% end %>
+  
+   <br/>
+   <b> 
+   <div class="row">
+    <div class="col-md-6">
+      <%= raw("Total Annual Fee")%> 
+    </div>
+    <div class="col-md-offset-4 col-md-2">
+      $<%= @total %> 
+    </div>
+   </div> 
+   </b><br><br>
+   <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
+  
+    <% if current_user.transaction_logs.empty? %>
+      <%= raw("*Artists pay this annual fee for unlimited album uploads. Extra features, however, will cost more")%> 
+      <%= raw("**This discount is only valid for the first 20 artists")%> 
+    <% else %>
+    <% end %>
+
+ </div> <!-- ends total_show -->
+</div> <!-- ends payment_page id -->
+
+
+
+

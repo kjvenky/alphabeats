@@ -7,6 +7,9 @@ gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
+
+gem 'bootstrap-sass'
+
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -22,6 +25,27 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'devise'
+
+gem "letter_opener", :group => :development
+
+gem 'omniauth-facebook'
+
+gem 'angularjs-rails'
+
+gem "font-awesome-rails"
+
+gem "simple_form"
+
+gem "carrierwave"
+
+gem "fog"
+
+gem "mini_magick"
+
+gem "annotate"
+
+gem 'social-share-button'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -46,8 +70,8 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  # gem 'capybara'
   gem 'cucumber-rails', require: false
+  gem 'capybara-email'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
@@ -55,6 +79,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'guard-cucumber'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -64,6 +89,7 @@ end
 group :production do
   gem 'pg'            
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 

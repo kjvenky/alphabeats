@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require angular
+//= require faq
+//= require social-share-button
 //= require_tree .

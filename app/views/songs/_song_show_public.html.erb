@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+  <%= social_share_button_tag(@song.song_title) %>
+    <h1>Details of song <%= song.song_title %> </h1>
+    <div class="col-sm-5">
+      <h5>Song Title</h5>
+      <%= song.song_title %> <br/>
+
+      <h5>Song Writer</h5>
+      <% if song.self_written %>
+        <%= raw("Self Written") %>
+      <% else %>
+        <%= raw("Original artist:") %>
+        <%= song.original_artist %>
+        <br/>
+        <%= raw("Original song title:") %>
+        <%= song.original_song_title %>
+      <% end %>
+
+       
+        <br/>
+
+      <h5>Album Name</h5>
+      <%= song.album.album_name %> <br/>
+
+      <h5>Song Duration</h5>
+      <%= song.duration.strftime("%H:%M") if !song.duration.nil?%> <br/>
+
+      <h5>Explicit Lyrics</h5>
+      <% if song.explicit_lyrics %>
+        <%= raw("Yes") %>
+      <% else %>
+        <%= raw("No") %>
+      <% end %>
+       
+        <br/>
+
+    </div>
+    <div class="col-sm-7">
+      <h5>Lyrics of the song</h5>
+      <div id="lyrics-show">
+      <%= song.lyrics %> <br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
