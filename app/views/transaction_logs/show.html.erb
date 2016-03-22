@@ -16,7 +16,7 @@
           <%= raw("Youtube charges : 4.95<br/>")%> 
         <% end %>
         <% if order_item.order.store_maximizer  %>
-          <%= raw("Store maximizer charges : 7.95<br/>")%> 
+          <%= raw("Store maximizer charges : FREE<br/>")%> 
         <% end %>
       <% elsif order_item.album.songs.count!=1 %>
         <%= order_item.album.album_name %>
@@ -32,7 +32,7 @@
           <%= raw("Youtube charges of #{order_item.album.album_name} : 14.95<br/>")%> 
         <% end %>
         <% if order_item.order.store_maximizer  %>
-          <%= raw("Store Maximizer charges of #{order_item.album.album_name} : 7.95<br/>")%> 
+          <%= raw("Store Maximizer charges of #{order_item.album.album_name} : FREE<br/>")%> 
         <% end %>
       <% end %>
     <% end %>
