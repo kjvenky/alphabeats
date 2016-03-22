@@ -1,5 +1,5 @@
 class TransactionLogMailer < ApplicationMailer
-  default from: "#{ENV['FROM_EMAIL']}"
+  default from: "\"Alphabeats\" <s@alphabeatsmusic.com>"
 
   def transaction_email(user, order)
     @user = user
