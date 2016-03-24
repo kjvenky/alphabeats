@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :songs, :albums
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
+  resources :users, only: [:show]
+
   get 'static_pages/home'
   get 'after_signup_home', to: "static_pages#after_signup_home"
   get 'inactive_signup_home', to: "static_pages#inactive_signup_home"

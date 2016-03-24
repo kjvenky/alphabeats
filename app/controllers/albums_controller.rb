@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   # before_filter :authorize_admin_or_user
-  before_action :authorize_musician
+  # before_action :authorize_musician
 
   def index
     @albums = current_user.albums.all
@@ -9,7 +9,12 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = current_user.albums.find(params[:id])
+    # if current_user.admin?
+      @album = Album.find(params[:id])
+    # else
+    #   @album = current_user.albums.find(params[:id])
+    # end
+    authorize! :show, @album
   end
 
   def new
@@ -22,7 +27,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = current_user.albums.build(album_params)
-    # byebug
     if @album.save
       redirect_to album_path(@album), notice: "An album name #{@album.album_name} has been created. You can now go to song upload page and select #{@album.album_name} from the dropdown of the song upload page to add songs"
     else
