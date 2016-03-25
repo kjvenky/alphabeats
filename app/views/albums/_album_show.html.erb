@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
 
-  <h1>Details of the album <%= album.album_name %> <%= link_to "Edit", edit_album_path(album) %></h1>
+    <h1>Details of the album <%= album.album_name %>
+    <% if can? :create, Album %>
+      <%= link_to "Edit", edit_album_path(album) %>
+  <% end %></h1>
+
   <div class="col-sm-7">
 
   <h5>Album Name</h5>

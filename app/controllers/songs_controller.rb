@@ -3,6 +3,7 @@ class SongsController < ApplicationController
   before_filter :authorize_musician, except: :show
 
   
+  load_and_authorize_resource :only => [:show]
   def index
     @songs = current_user.songs
   end
@@ -24,11 +25,11 @@ class SongsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @song = current_user.songs.find(params[:id])
-    else
+    # if user_signed_in?
+    #   @song = current_user.songs.find(params[:id])
+    # else
       @song = Song.find(params[:id])
-    end
+    # end
   end
 
   def edit

@@ -2,16 +2,22 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    user ||= User.new(musician: false) # guest user (not logged in)
     if user.admin?
       can :manage, :all
     elsif user.musician?
-      # can :manage, :all
+      can :read, :all
+      can :album_song_show, Album
       can :manage, Album do |album|
          album.user_id == user.id
       end
       can :manage, Song do |song|
          song.user_id == user.id
       end
+    else
+      can :read, :all
+      can :album_song_show, Album
     end
     # Define abilities for the passed in user here. For example:
     #
