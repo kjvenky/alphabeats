@@ -25,11 +25,11 @@ class SongsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @song = current_user.songs.find(params[:id])
-    else
+    # if user_signed_in?
+    #   @song = current_user.songs.find(params[:id])
+    # else
       @song = Song.find(params[:id])
-    end
+    # end
   end
 
   def edit
