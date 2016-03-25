@@ -1,20 +1,17 @@
 class AlbumsController < ApplicationController
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show, :album_song_show]
   # before_filter :authorize_admin_or_user
-  # before_action :authorize_musician
+  before_action :authorize_musician, except: [:show, :album_song_show]
 
+
+  load_and_authorize_resource :only => [:show,:album_song_show]
   def index
     @albums = current_user.albums.all
     @paid_albums = current_user.albums.all.select { |album| !album.order_items.last.nil? && album.order_items.last.order.payment_status }
   end
 
   def show
-    # if current_user.admin?
-      @album = Album.find(params[:id])
-    # else
-    #   @album = current_user.albums.find(params[:id])
-    # end
-    authorize! :show, @album
+    @album = Album.find(params[:id])
   end
 
   def new
