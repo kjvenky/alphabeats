@@ -55,6 +55,17 @@
       </div>
     </div>
   </div>
+
+      <br/><br/>
+  <div class="col-sm-offset-1 col-sm-10">
+      <h3>Links of the song to different services</h3> 
+    <div class="col-sm-5">
+      <% if !song.youtube.nil? && !song.youtube.empty? %>
+        <%= raw("<h5>Youtube link</h5>") %>
+        <%= song.youtube %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

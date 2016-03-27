@@ -24,6 +24,7 @@
 #  provider               :string
 #  uid                    :string
 #  musician               :boolean          default(TRUE)
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'rails_helper'

@@ -4,7 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  album_name      :string
-#  musician_id     :integer
+#  user_id         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  stage_band_name :string
