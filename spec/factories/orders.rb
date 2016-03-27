@@ -3,7 +3,7 @@
 # Table name: orders
 #
 #  id                 :integer          not null, primary key
-#  musician_id        :integer
+#  user_id            :integer
 #  total              :decimal(7, 2)    default(0.0)
 #  payment_status     :boolean          default(FALSE)
 #  shazam             :boolean          default(FALSE)

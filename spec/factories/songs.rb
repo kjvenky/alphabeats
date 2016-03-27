@@ -12,11 +12,22 @@
 #  duration            :time
 #  note_to_admin       :text
 #  album_id            :integer
-#  musician_id         :integer
+#  user_id             :integer
 #  explicit_lyrics     :boolean
 #  self_written        :boolean
 #  original_artist     :string
 #  original_song_title :string
+#  spotify             :string
+#  itunes              :string
+#  apple_music         :string
+#  google_play         :string
+#  amazon              :string
+#  r_dio               :string
+#  deezer              :string
+#  tidal               :string
+#  youtube             :string
+#  microsoft_groove    :string
+#  media_net           :string
 #
 
 FactoryGirl.define do
