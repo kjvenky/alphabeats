@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216231849) do
+ActiveRecord::Schema.define(version: 20160327083707) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 20160216231849) do
     t.boolean  "self_written"
     t.string   "original_artist"
     t.string   "original_song_title"
+    t.string   "spotify"
+    t.string   "itunes"
+    t.string   "apple_music"
+    t.string   "google_play"
+    t.string   "amazon"
+    t.string   "r_dio"
+    t.string   "deezer"
+    t.string   "tidal"
+    t.string   "youtube"
+    t.string   "microsoft_groove"
+    t.string   "media_net"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
