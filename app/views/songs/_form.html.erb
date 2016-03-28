@@ -47,17 +47,17 @@
     </div>
 
     <% if current_user.admin? %>
-      <%= f.input :spotify, label: 'spotify Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :itunes, label: 'itunes Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :apple_music, label: 'apple_music Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :google_play, label: 'google_play Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :amazon, label: 'amazon Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :r_dio, label: 'r_dio Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :deezer, label: 'deezer Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :tidal, label: 'tidal Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :youtube, label: 'youtube Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :microsoft_groove, label: 'microsoft_groove Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :media_net, label: 'media_net Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :spotify, label: 'Spotify', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :itunes, label: 'iTunes', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :apple_music, label: 'Apple Music', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :google_play, label: 'Google Play', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :amazon, label: 'Amazon', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :r_dio, label: 'rdio', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :deezer, label: 'Deezer', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :tidal, label: 'Tidal', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :youtube, label: 'YouTube Music', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :microsoft_groove, label: 'Microsoft Groove', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :media_net, label: 'MediaNet', input_html: {class: 'input input-style form-control'} %> <br><br>
     <% end %>
 
     <div class="row">
@@ -76,7 +76,7 @@
         </span>
       <br/><br/><br/>
     </div>
-      <%= f.button :submit, "Add to Cart", class: 'btn btn-transparent btn-lg' %>
+      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
     <% end %>
   </div>
   <br/>
