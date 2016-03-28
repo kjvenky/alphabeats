@@ -60,9 +60,32 @@
   <div class="col-sm-offset-1 col-sm-10">
       <h3>Links of the song to different services</h3> 
     <div class="col-sm-5">
+      <% if !song.spotify.nil? && !song.spotify.empty? %>
+        <%= raw("<a target='_blank' href='#{song.spotify}'><h5>Spotify</h5></a>") %>
+      <% end %>
+      <% if !song.itunes.nil? && !song.itunes.empty? %>
+        <%= raw("<a target='_blank' href='#{song.itunes}'><h5>iTunes</h5></a>") %>
+      <% end %>
+      <% if !song.apple_music.nil? && !song.apple_music.empty? %>
+        <%= raw("<a target='_blank' href='#{song.apple_music}'><h5>Apple Music</h5></a>") %>
+      <% end %>
+      <% if !song.google_play.nil? && !song.google_play.empty? %>
+        <%= raw("<a target='_blank' href='#{song.google_play}'><h5>Google Play</h5></a>") %>
+      <% end %>
+      <% if !song.amazon.nil? && !song.amazon.empty? %>
+        <%= raw("<a target='_blank' href='#{song.amazon}'><h5>Amazon</h5></a>") %>
+      <% end %>
+      <% if !song.r_dio.nil? && !song.r_dio.empty? %>
+        <%= raw("<a target='_blank' href='#{song.r_dio}'><h5>Rdio</h5></a>") %>
+      <% end %>
+      <% if !song.deezer.nil? && !song.deezer.empty? %>
+        <%= raw("<a target='_blank' href='#{song.deezer}'><h5>Deezer</h5></a>") %>
+      <% end %>
+      <% if !song.tidal.nil? && !song.tidal.empty? %>
+        <%= raw("<a target='_blank' href='#{song.tidal}'><h5>Tidal</h5></a>") %>
+      <% end %>
       <% if !song.youtube.nil? && !song.youtube.empty? %>
-        <%= raw("<h5>Youtube link</h5>") %>
-        <%= song.youtube %>
+        <%= raw("<a target='_blank' href='#{song.youtube}'><h5>Youtube Music</h5></a>") %>
       <% end %>
     </div>
   </div>
