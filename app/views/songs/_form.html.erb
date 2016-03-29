@@ -40,6 +40,11 @@
 
       <%= f.input :original_song_title, label: 'Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
 
+      <%= f.input :producer, label: 'Producer', input_html: {class: 'input input-style form-control'} %> <br>
+
+      <%= f.input :producer_email, label: 'Producer Email', input_html: {class: 'input input-style form-control'} %> <br>
+
+
       <%= f.input :note_to_admin, label: 'Note to admin', input_html: {class: 'input input-style form-control'} %> 
       <li>If the song's royalties are being shared amongst multiple people, please provide their email address and percent of rights owned, and separate individuals by commas. Example songwriter@alphabeatsmusic.com (50%), drummer@example.com (10%)</li>
       <li>If you would like to delete a single, please write a note here</li> 
@@ -52,7 +57,7 @@
       <%= f.input :apple_music, label: 'Apple Music', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :google_play, label: 'Google Play', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :amazon, label: 'Amazon', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :r_dio, label: 'rdio', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.input :r_dio, label: 'Rdio', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :deezer, label: 'Deezer', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :tidal, label: 'Tidal', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :youtube, label: 'YouTube Music', input_html: {class: 'input input-style form-control'} %> <br><br>

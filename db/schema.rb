@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327083707) do
+ActiveRecord::Schema.define(version: 20160329134415) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20160327083707) do
     t.string   "youtube"
     t.string   "microsoft_groove"
     t.string   "media_net"
+    t.string   "producer"
+    t.string   "producer_email"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"

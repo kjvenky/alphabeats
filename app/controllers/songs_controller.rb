@@ -50,7 +50,7 @@ class SongsController < ApplicationController
 
 private
   def song_params
-    params.require(:song).permit(:song_title, :song_writer, :lyrics, :terms, :audio_file,  :duration, :note_to_admin, :album_id, :explicit_lyrics, :self_written, :original_artist, :original_song_title, :spotify, :itunes, :apple_music, :google_play, :amazon, :r_dio, :deezer, :tidal, :youtube, :microsoft_groove, :media_net)
+    params.require(:song).permit(:song_title, :song_writer, :lyrics, :terms, :audio_file,  :duration, :note_to_admin, :album_id, :explicit_lyrics, :self_written, :original_artist, :original_song_title, :spotify, :itunes, :apple_music, :google_play, :amazon, :r_dio, :deezer, :tidal, :youtube, :microsoft_groove, :media_net, :producer, :producer_email)
   end
 
 end
