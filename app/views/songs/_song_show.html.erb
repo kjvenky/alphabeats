@@ -38,13 +38,24 @@
         <%= song.note_to_admin %> <br/>
 
       <% end %>
+
       <h5>Explicit Lyrics</h5>
       <% if song.explicit_lyrics %>
         <%= raw("Yes") %>
       <% else %>
         <%= raw("No") %>
       <% end %>
-       
+      
+      <h5>Producer</h5>
+      <% if song.producer %>
+        <%= song.producer %>
+      <% end %>
+
+      <h5>Producer Email</h5>
+      <% if song.producer_email %>
+        <%= song.producer_email %>
+      <% end %>
+
         <br/>
 
     </div>
