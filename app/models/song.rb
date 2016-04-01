@@ -28,6 +28,8 @@
 #  youtube             :string
 #  microsoft_groove    :string
 #  media_net           :string
+#  producer            :string
+#  producer_email      :string
 #
 
 class Song < ActiveRecord::Base
@@ -41,6 +43,7 @@ class Song < ActiveRecord::Base
   validates :terms, acceptance: {accept: true}
   validates_inclusion_of :explicit_lyrics, :in => [true, false]
   validates_inclusion_of :self_written, :in => [true, false]
+  validates_format_of :producer_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})|^$\z/i, :message => "must be in a valid email format"
 
   mount_uploader :audio_file, AudioFileUploader
 
