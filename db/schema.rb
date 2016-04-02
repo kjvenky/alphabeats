@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329134415) do
+ActiveRecord::Schema.define(version: 20160401142747) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20160329134415) do
     t.string   "uid"
     t.boolean  "musician",               default: true
     t.boolean  "admin",                  default: false
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 20160329134415) do
   add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid"
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "wallets", force: :cascade do |t|
     t.decimal  "amount",     precision: 7, scale: 2, default: 0.0

@@ -41,6 +41,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:orders) }
     it { should have_one(:wallet) }
     it { should have_many(:transaction_logs) }
+    # it { should validate_uniqueness_of(:username) }
 
     it "should create a new instance given valid attributes" do 
         new_user = User.new(@attr)

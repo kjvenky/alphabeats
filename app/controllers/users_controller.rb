@@ -1,5 +1,22 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
   end
+
+  def update
+    # @song = current_user.songs.find(params[:id])
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to song_path(@user), notice: "The user #{@user.first_name} has been updated"
+    else
+      render "show", notice: "The user #{@user.first_name} could not be updated"
+    end
+  end
+private
+
+  def user_params
+    params.require(:user).permit(:first_name,:last_name, :username)
+  end
+
 end
