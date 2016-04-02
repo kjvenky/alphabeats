@@ -41,8 +41,12 @@ RSpec.describe User, type: :model do
     it { should have_many(:orders) }
     it { should have_one(:wallet) }
     it { should have_many(:transaction_logs) }
-    # it { should validate_uniqueness_of(:username) }
-
+    it { should validate_length_of(:username).is_at_most(32).with_message("exceeds maximum of 32 characters") }
+    it { should validate_uniqueness_of(:username) }
+    it { should validate_exclusion_of(:username).in_array(['www', 'mail', 'ftp']).with_message('is not available') }
+              
+                    
+      
     it "should create a new instance given valid attributes" do 
         new_user = User.new(@attr)
         expect(new_user).to be_valid

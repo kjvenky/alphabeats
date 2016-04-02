@@ -37,13 +37,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }
-  # validates_uniqueness_of :username
-  validates :username, format: {with: /\A[a-z0-9_]+\z/, message: "must be lowercase alphanumerics only"}, length: { maximum: 32, message: "exceeds maximum of 32 characters"}, exclusion: { in: ['www', 'mail', 'ftp'], message: "is not available"}, uniqueness: true
-
-
-  #   validates_format_of :username, with: /^[a-z0-9_]+$/, message: "must be lowercase alphanumerics only"
-  # validates_length_of :username, maximum: 32, message: "exceeds maximum of 32 characters"
-  # validates_exclusion_of :username, in: ['www', 'mail', 'ftp'], message: "is not available"
+  validates :username, :allow_blank => true, format: {with: /\A[a-z0-9_]+\z/, message: "must be lowercase alphanumerics only"}, length: { maximum: 32, message: "exceeds maximum of 32 characters"}, exclusion: { in: ['www', 'mail', 'ftp'], message: "is not available"}, uniqueness: true
 
   has_many :albums# , foreign_key: 'musician_id'
   has_many :songs# , foreign_key: 'musician_id'
