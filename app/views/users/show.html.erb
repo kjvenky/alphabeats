@@ -11,9 +11,14 @@ Last Name: <%= @user.last_name %> <br/>
 <%= raw("Username: #{@user.username}<br/>") if !current_user.username.nil? %>
 <div class="row">
   <div class="col-md-4">
-    <% if can? :create, Song && current_user.username.nil?%>
+    <% if current_user.songs.count > 0 && current_user.username.nil? %>
     <%= simple_form_for(@user) do |f| %>
       <%= f.input :username, label: 'Create username', input_html: {class: 'input input-style form-control'} %> <br><br>
+      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+    <% end %>
+    <% elsif current_user.songs.count > 0 %>
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.input :username, label: 'Update username', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
     <% end %>
   <% end %>
