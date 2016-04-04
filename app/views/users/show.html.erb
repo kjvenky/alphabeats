@@ -27,5 +27,32 @@ Last Name: <%= @user.last_name %> <br/>
 
 </p>
 
+<% if current_user.albums.count>0 %>
+  <%= raw("<h2> List of Albums </h2>") %>
+<div class="row list-albums">
+  <div class="col-md-3">
+    <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
+      <% current_user.albums.each do |album| %>
+        <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
+      <% end %>
+    </ul>
+  
+  </div>
+  <div class="col-md-9">
+     <div class="tab-content">
+          <% current_user.albums.each do |album| %>
+            <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
+              <% album.songs.each do |song| %>
+                <%=song.song_title %>
+                <%= raw("<br/>") %>
+              <% end %>
+            <%= raw("</div>") %>
+          <% end %>
+    </div> 
+  </div>
+</div>
+<% end %>
+
+
   </div>
 </div>
