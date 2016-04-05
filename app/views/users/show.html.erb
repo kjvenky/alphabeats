@@ -11,12 +11,12 @@ Last Name: <%= @user.last_name %> <br/>
 <%= raw("Username: #{@user.username}<br/>") if !current_user.username.nil? %>
 <div class="row">
   <div class="col-md-4">
-    <% if current_user.songs.count > 0 && current_user.username.nil? %>
+    <% if @song_count > 0 && current_user.username.nil? %>
     <%= simple_form_for(@user) do |f| %>
       <%= f.input :username, label: 'Create username', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
     <% end %>
-    <% elsif current_user.songs.count > 0 %>
+    <% elsif @song_count > 0 %>
     <%= simple_form_for(@user) do |f| %>
       <%= f.input :username, label: 'Update username', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
@@ -27,12 +27,12 @@ Last Name: <%= @user.last_name %> <br/>
 
 </p>
 
-<% if current_user.albums.count>0 %>
+<% if @albums.count>0 %>
   <%= raw("<h2> List of Albums </h2>") %>
 <div class="row list-albums">
   <div class="col-md-3">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
-      <% current_user.albums.each do |album| %>
+      <% @albums.each do |album| %>
         <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
       <% end %>
     </ul>
@@ -40,12 +40,25 @@ Last Name: <%= @user.last_name %> <br/>
   </div>
   <div class="col-md-9">
      <div class="tab-content">
-          <% current_user.albums.each do |album| %>
+          <% @albums.each do |album| %>
             <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Song</th>
+                  <th>Duration</th>
+                </tr>
+              </thead>
+             <tbody>
               <% album.songs.each do |song| %>
-                <%=song.song_title %>
-                <%= raw("<br/>") %>
+              <tr>
+                <td><%=song.song_title %></td>
+                <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
+              </tr>
+                <%# <%= raw("<br/>") %>
               <% end %>
+             </tbody>
+           </table>
             <%= raw("</div>") %>
           <% end %>
     </div> 
