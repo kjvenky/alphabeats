@@ -9,22 +9,23 @@ The following are your details: <br/><br/>
 First Name: <%= @user.first_name %> <br/>
 Last Name: <%= @user.last_name %> <br/>
 <%= raw("Username: #{@user.username}<br/>") if !current_user.username.nil? %>
+<br/><br/><br/>
+<%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-md btn-transparent" %>
 <div class="row">
   <div class="col-md-4">
-    <% if @song_count > 0 && current_user.username.nil? %>
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :username, label: 'Create username', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
-    <% end %>
-    <% elsif @song_count > 0 %>
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :username, label: 'Update username', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
-    <% end %>
-  <% end %>
+  <%#   <% if @song_count > 0 && current_user.username.nil? %>
+  <%#   <%= simple_form_for(@user) do |f| %>
+  <%#     <%= f.input :username, label: 'Create username', input_html: {class: 'input input-style form-control'} %> <br><br>
+  <%#     <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+  <%#   <% end %>
+  <%#   <% elsif @song_count > 0 %>
+  <%#   <%= simple_form_for(@user) do |f| %>
+  <%#     <%= f.input :username, label: 'Update username', input_html: {class: 'input input-style form-control'} %> <br><br>
+  <%#     <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+  <%#   <% end %>
+  <%# <% end %>
   </div>
 </div>
-
 </p>
 
 <% if @albums.count>0 %>

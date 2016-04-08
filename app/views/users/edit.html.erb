@@ -1,0 +1,16 @@
+
+<div class="col-md-offset-2 col-md-8">
+  <div class="form-bg">
+    <%= simple_form_for(@user) do |f| %>
+    <div class="row">
+      <%= render partial: 'shared/error_messages', locals: {resource: @user}  %>
+      <%= f.input :first_name, label: 'First Name', input_html: {class: 'input input-style form-control'} %> <br>
+      <%= f.input :last_name, label: 'Last name', input_html: {class: 'input input-style form-control'} %> <br>
+      
+    <% if @song_count > 0 %>
+      <%= f.input :username, label: 'Username', input_html: {class: 'input input-style form-control'} %> <br>
+    <% end %>
+    <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+    <% end %>
+    </div>
+</div>
