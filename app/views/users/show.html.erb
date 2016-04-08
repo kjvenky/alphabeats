@@ -30,15 +30,15 @@ Last Name: <%= @user.last_name %> <br/>
 <% if @albums.count>0 %>
   <%= raw("<h2> List of Albums </h2>") %>
 <div class="row list-albums">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
       <% @albums.each do |album| %>
-        <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
+          <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
       <% end %>
     </ul>
   
   </div>
-  <div class="col-md-9">
+  <div class="col-md-10">
      <div class="tab-content">
           <% @albums.each do |album| %>
             <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
@@ -47,6 +47,7 @@ Last Name: <%= @user.last_name %> <br/>
                 <tr>
                   <th>Song</th>
                   <th>Duration</th>
+                  <th>Publish Date</th>
                 </tr>
               </thead>
              <tbody>
@@ -54,11 +55,13 @@ Last Name: <%= @user.last_name %> <br/>
               <tr>
                 <td><%=song.song_title %></td>
                 <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
+                <td><%=song.created_at.strftime("%B %d %Y")%></td>
               </tr>
                 <%# <%= raw("<br/>") %>
               <% end %>
              </tbody>
            </table>
+            <%= render partial: "albums/album_show", locals: {album: album}  %>
             <%= raw("</div>") %>
           <% end %>
     </div> 
@@ -69,3 +72,9 @@ Last Name: <%= @user.last_name %> <br/>
 
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('.nav-stacked a:first').tab('show');
+  });
+</script>
