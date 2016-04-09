@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @albums = current_user.albums.all.select { |album| !album.order_items.last.nil? && album.order_items.last.order.payment_status }
-    @albums = @user.albums
+    @albums = current_user.albums.all.select { |album| !album.order_items.last.nil? && album.order_items.last.order.payment_status }
+    # @albums = @user.albums
     # @song_count = current_user.songs.count
     @song_count = @user.songs.count
   end
