@@ -8,24 +8,62 @@ The following are your details: <br/><br/>
 
 First Name: <%= @user.first_name %> <br/>
 Last Name: <%= @user.last_name %> <br/>
-<%= raw("Username: #{@user.username}<br/>") if !current_user.username.nil? %>
-<div class="row">
-  <div class="col-md-4">
-    <% if current_user.transaction_logs.count > 0 && current_user.username.nil? %>
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :username, label: 'Create username', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
-    <% end %>
-    <% elsif current_user.transaction_logs.count > 0 %>
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :username, label: 'Update username', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
-    <% end %>
-  <% end %>
-  </div>
-</div>
 
+<%= raw("Username: #{@user.username}<br/>") if !@user.username.nil? %>
+<br/><br/><br/>
+<% if can? :update, @user %>
+  <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-md btn-transparent" %>
+<% end %>
 </p>
 
+<% if @albums.count>0 %>
+  <%= raw("<h2> List of Albums </h2>") %>
+<div class="row list-albums">
+  <div class="col-md-2">
+    <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
+      <% @albums.each do |album| %>
+          <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
+      <% end %>
+    </ul>
+  
+  </div>
+  <div class="col-md-10">
+     <div class="tab-content">
+          <% @albums.each do |album| %>
+            <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Song</th>
+                  <th>Duration</th>
+                  <th>Publish Date</th>
+                </tr>
+              </thead>
+             <tbody>
+              <% album.songs.each do |song| %>
+              <tr>
+                <td><%=song.song_title %></td>
+                <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
+                <td><%=song.created_at.strftime("%B %d %Y")%></td>
+              </tr>
+                <%# <%= raw("<br/>") %>
+              <% end %>
+             </tbody>
+           </table>
+            <%= render partial: "albums/album_show", locals: {album: album}  %>
+            <%= raw("</div>") %>
+          <% end %>
+    </div> 
   </div>
 </div>
+<% end %>
+
+
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.nav-stacked a:first').tab('show');
+  });
+</script>

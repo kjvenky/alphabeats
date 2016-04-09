@@ -15,6 +15,7 @@ class Ability
       can :manage, Song do |song|
          song.user_id == user.id
       end
+      can :manage, User, :id => user.id
     else
       can :read, :all
       can :album_song_show, Album
