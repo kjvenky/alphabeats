@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401142747) do
+ActiveRecord::Schema.define(version: 20160409122215) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -122,6 +122,13 @@ ActiveRecord::Schema.define(version: 20160401142747) do
     t.boolean  "musician",               default: true
     t.boolean  "admin",                  default: false
     t.string   "username"
+    t.string   "profile_photo"
+    t.string   "stage_name"
+    t.string   "hometown"
+    t.string   "country"
+    t.string   "facebook"
+    t.string   "soundcloud"
+    t.string   "youtube"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
