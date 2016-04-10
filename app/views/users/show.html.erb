@@ -48,6 +48,10 @@ Last Name: <%= @user.last_name %> <br/>
                   <th>Song</th>
                   <th>Duration</th>
                   <th>Publish Date</th>
+                  <th>View Count</th>
+                  <th>Download Count</th>
+                  <th>Income till date</th>
+                  <th>Last updated</th>
                 </tr>
               </thead>
              <tbody>
@@ -56,6 +60,10 @@ Last Name: <%= @user.last_name %> <br/>
                 <td><%=song.song_title %></td>
                 <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
                 <td><%=song.created_at.strftime("%B %d %Y")%></td>
+                <td><%=song.view_count.present? ? song.view_count : raw("-")  %></td>
+                <td><%=song.download_count.present? ? song.download_count : raw("-")  %></td>
+                <td><%=song.income_till_date.present? ? song.income_till_date : raw("-")  %></td>
+                <td><%=song.updated_at.strftime("%B %d %Y")%></td>
               </tr>
                 <%# <%= raw("<br/>") %>
               <% end %>
