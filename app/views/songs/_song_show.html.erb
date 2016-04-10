@@ -99,13 +99,13 @@
         <%= raw("<a target='_blank' href='#{song.youtube}'><h5>Youtube Music</h5></a>") %>
       <% end %>
       <br/><br/>
-      <% if !song.view_count.nil? && !song.view_count.empty? %>
+      <% if song.view_count.present? %>
         <%= raw("<h5>View Count: #{song.view_count}</h5>") %>
       <% end %>
-      <% if !song.download_count.nil? && !song.download_count.empty? %>
+      <% if song.download_count.present? %>
         <%= raw("<h5>Download Count: #{song.download_count}</h5>") %>
       <% end %>
-      <% if !song.income_till_date.nil? && !song.income_till_date.empty? %>
+      <% if song.income_till_date.present? %>
         <%= raw("<h5>Income till date: #{song.income_till_date}</h5>") %>
       <% end %>
     </div>
