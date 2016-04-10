@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409122215) do
+ActiveRecord::Schema.define(version: 20160410113954) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160409122215) do
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "songs", force: :cascade do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "song_title"
     t.text     "lyrics"
     t.boolean  "terms"
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 20160409122215) do
     t.string   "media_net"
     t.string   "producer"
     t.string   "producer_email"
+    t.integer  "view_count"
+    t.integer  "download_count"
+    t.decimal  "income_till_date",    precision: 7, scale: 2
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
