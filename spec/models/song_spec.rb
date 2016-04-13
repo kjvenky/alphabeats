@@ -28,6 +28,11 @@
 #  youtube             :string
 #  microsoft_groove    :string
 #  media_net           :string
+#  producer            :string
+#  producer_email      :string
+#  view_count          :integer
+#  download_count      :integer
+#  income_till_date    :decimal(7, 2)
 #
 
 require 'rails_helper'
@@ -47,6 +52,13 @@ RSpec.describe Song, type: :model do
   it { should validate_inclusion_of(:explicit_lyrics).in_array([true, false]) }
   it { should validate_inclusion_of(:self_written).in_array([true, false]) }
 
+  it { should allow_value('').for(:producer_email) }
+  it { should allow_value('ravikanth@hello.com').for(:producer_email) }
+  it { should_not allow_value('a').for(:producer_email) }
+
+  it { should validate_numericality_of(:income_till_date) }
+  it { should validate_numericality_of(:view_count).only_integer }
+  it { should validate_numericality_of(:download_count).only_integer }
 
   
   #   it "is valid given valid attributes" do

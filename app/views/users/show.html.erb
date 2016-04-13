@@ -1,10 +1,28 @@
 <%= render "songs/secondheader" %>
 <div class='row'><div class='col-sm-offset-1 col-sm-10'>
-<h1>Hello <%= @user.first_name %></h1>
-<h4>Welcome to your profile page</h4>
-
+<div class="profile-box">
+  <div class="row">
+    <div class="col-md-4">
+    <%= @user.profile_photo.present? ? raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") : raw("<img src=\"http://s3-us-west-2.amazonaws.com/splitshire/Photo/SplitShire-3060109.jpg\" style=\"max-width:100%; max-height:100%;\" ><br/>") %>
+    </div>
+    <div class="col-md-8">
+    <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
+    <%= raw("#{@user.username}<br/>") if @user.username.present? %>
+    <hr style="border-top: 1px solid #7870A9;"/>
+    <div class="row">
+      <div class="col-xs-6">
+        HomeTown<br/>
+        <%= raw("#{@user.hometown} #{@user.country}") %><br/>
+      </div>
+      <div class="col-xs-6">
+        Email<br/>
+        <%= raw("#{@user.email}") %><br/>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 <p>
-The following are your details: <br/><br/>
 
 <% if @user.profile_photo.nil? %>
   <%= raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") %>
@@ -18,6 +36,7 @@ Last Name: <%= @user.last_name %> <br/>
 <%= raw("Stage name: #{@user.stage_name}<br/>") if !@user.stage_name.nil? %>
 <%= raw("Hometown: #{@user.hometown}<br/>") if !@user.hometown.nil? %>
 <%= raw("Country: #{@user.country}<br/>") if !@user.country.nil? %>
+
 <%= raw("Facebook Page: #{@user.facebook}<br/>") if !@user.facebook.nil? %>
 <%= raw("Soundcloud Url: #{@user.soundcloud}<br/>") if !@user.soundcloud.nil? %>
 <%= raw("Youtube channel: #{@user.youtube}<br/>") if !@user.youtube.nil? %>
@@ -29,7 +48,7 @@ Last Name: <%= @user.last_name %> <br/>
 </p>
 
 <% if @albums.count>0 %>
-  <%= raw("<h2> List of Albums </h2>") %>
+  <%= raw("<h2> Albums </h2><br/>") %>
 <div class="row list-albums">
   <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
@@ -46,17 +65,42 @@ Last Name: <%= @user.last_name %> <br/>
             <table class="table">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Song</th>
                   <th>Duration</th>
                   <th>Publish Date</th>
+                  <th>View Count</th>
+                  <th>Download Count</th>
+                  <th>Income till date</th>
+                  <th>Last updated</th>
                 </tr>
               </thead>
              <tbody>
               <% album.songs.each do |song| %>
               <tr>
+                <td><div class="dropdown">
+                  <i class="fa fa-play-circle dropdown-toggle"  data-toggle="dropdown"></i>
+                  <ul class="dropdown-menu">
+                      <%= raw("<li><a href=\"#{song.spotify}\">Spotify link</a></li>") if song.spotify.present? %>
+                      <%= raw("<li><a href=\"#{song.itunes}\">itunes link</a></li>") if song.itunes.present? %>
+                      <%= raw("<li><a href=\"#{song.apple_music}\">apple_music link</a></li>") if song.apple_music.present? %>
+                      <%= raw("<li><a href=\"#{song.google_play}\">google_play link</a></li>") if song.google_play.present? %>
+                      <%= raw("<li><a href=\"#{song.amazon}\">amazon link</a></li>") if song.amazon.present? %>
+                      <%= raw("<li><a href=\"#{song.r_dio}\">r_dio link</a></li>") if song.r_dio.present? %>
+                      <%= raw("<li><a href=\"#{song.deezer}\">deezer link</a></li>") if song.deezer.present? %>
+                      <%= raw("<li><a href=\"#{song.tidal}\">tidal link</a></li>") if song.tidal.present? %>
+                      <%= raw("<li><a href=\"#{song.youtube}\">youtube link</a></li>") if song.youtube.present? %>
+                      <%= raw("<li><a href=\"#{song.microsoft_groove}\">microsoft_groove link</a></li>") if song.microsoft_groove.present? %>
+                      <%= raw("<li><a href=\"#{song.media_net}\">media_net link</a></li>") if song.media_net.present? %>
+                  </ul>
+                </div></td>
                 <td><%=song.song_title %></td>
                 <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
                 <td><%=song.created_at.strftime("%B %d %Y")%></td>
+                <td><%=song.view_count.present? ? song.view_count : raw("-")  %></td>
+                <td><%=song.download_count.present? ? song.download_count : raw("-")  %></td>
+                <td><%=song.income_till_date.present? ? song.income_till_date : raw("-")  %></td>
+                <td><%=song.updated_at.strftime("%B %d %Y")%></td>
               </tr>
                 <%# <%= raw("<br/>") %>
               <% end %>

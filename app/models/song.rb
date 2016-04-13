@@ -30,6 +30,9 @@
 #  media_net           :string
 #  producer            :string
 #  producer_email      :string
+#  view_count          :integer
+#  download_count      :integer
+#  income_till_date    :decimal(7, 2)
 #
 
 class Song < ActiveRecord::Base
@@ -44,6 +47,9 @@ class Song < ActiveRecord::Base
   validates_inclusion_of :explicit_lyrics, :in => [true, false]
   validates_inclusion_of :self_written, :in => [true, false]
   validates :producer_email, :allow_blank => true, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})|^$\z/i, :message => "must be in a valid email format"}
+  validates_numericality_of :income_till_date
+  validates_numericality_of :view_count, :only_integer => true
+  validates_numericality_of :download_count,:only_integer => true 
 
   mount_uploader :audio_file, AudioFileUploader
 

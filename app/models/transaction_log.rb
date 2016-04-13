@@ -17,6 +17,7 @@ class TransactionLog < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :user_id
+  validates_numericality_of :amount
 
 
   def get_transaction_status
