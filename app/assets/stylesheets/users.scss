@@ -25,3 +25,28 @@
   background-color:#8d80ac; 
   padding: 10px;
 }
+
+.list-albums{
+   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    // color: #555555;
+    // color: #8d80ac;
+    color: #fff;
+    background-color:rgba(255,255,255,0.3);
+    // opacity:0.4;
+    border: 1px solid transparent;
+    // border-bottom-color: transparent;
+    cursor: default;
+  }
+
+.nav-tabs > li > a:hover{
+    color: #fff;
+    background-color:rgba(255,255,255,0.6);
+    // opacity:0.4;
+    border: 1px solid transparent;
+    // border-bottom-color: transparent;
+    cursor: default;
+
+}
+
+}
+
