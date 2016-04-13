@@ -23,20 +23,6 @@
   </div>
 </div>
 <p>
-
-<% if @user.profile_photo.nil? %>
-  <%= raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") %>
-<% end %>
-
-First Name: <%= @user.first_name %> <br/>
-Last Name: <%= @user.last_name %> <br/>
-
-<%= raw("Username: #{@user.username}<br/>") if !@user.username.nil? %>
-<%# <%= raw("Profile Photo: #{@user.profile_photo}<br/>") if !@user.profile_photo.nil? %>
-<%= raw("Stage name: #{@user.stage_name}<br/>") if !@user.stage_name.nil? %>
-<%= raw("Hometown: #{@user.hometown}<br/>") if !@user.hometown.nil? %>
-<%= raw("Country: #{@user.country}<br/>") if !@user.country.nil? %>
-
 <%= raw("Facebook Page: #{@user.facebook}<br/>") if !@user.facebook.nil? %>
 <%= raw("Soundcloud Url: #{@user.soundcloud}<br/>") if !@user.soundcloud.nil? %>
 <%= raw("Youtube channel: #{@user.youtube}<br/>") if !@user.youtube.nil? %>
