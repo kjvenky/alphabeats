@@ -25,6 +25,14 @@
 #  uid                    :string
 #  musician               :boolean          default(TRUE)
 #  admin                  :boolean          default(FALSE)
+#  username               :string
+#  profile_photo          :string
+#  stage_name             :string
+#  hometown               :string
+#  country                :string
+#  facebook               :string
+#  soundcloud             :string
+#  youtube                :string
 #
 
 require 'rails_helper'

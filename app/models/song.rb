@@ -30,6 +30,9 @@
 #  media_net           :string
 #  producer            :string
 #  producer_email      :string
+#  view_count          :integer
+#  download_count      :integer
+#  income_till_date    :decimal(7, 2)
 #
 
 class Song < ActiveRecord::Base

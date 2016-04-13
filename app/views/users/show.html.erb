@@ -1,22 +1,28 @@
 <%= render "songs/secondheader" %>
 <div class='row'><div class='col-sm-offset-1 col-sm-10'>
-<h1>Hello <%= @user.first_name %></h1>
-<h4>Welcome to your profile page</h4>
-
+<div class="profile-box">
+  <div class="row">
+    <div class="col-md-4">
+    <%= @user.profile_photo.present? ? raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") : raw("<img src=\"http://s3-us-west-2.amazonaws.com/splitshire/Photo/SplitShire-3060109.jpg\" style=\"max-width:100%; max-height:100%;\" ><br/>") %>
+    </div>
+    <div class="col-md-8">
+    <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
+    <%= raw("#{@user.username}<br/>") if @user.username.present? %>
+    <hr style="border-top: 1px solid #7870A9;"/>
+    <div class="row">
+      <div class="col-xs-6">
+        HomeTown<br/>
+        <%= raw("#{@user.hometown} #{@user.country}") %><br/>
+      </div>
+      <div class="col-xs-6">
+        Email<br/>
+        <%= raw("#{@user.email}") %><br/>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 <p>
-The following are your details: <br/><br/>
-
-<% if @user.profile_photo.nil? %>
-  <%= raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") %>
-<% end %>
-
-First Name: <%= @user.first_name %> <br/>
-Last Name: <%= @user.last_name %> <br/>
-<%= raw("Username: #{@user.username}<br/>") if !@user.username.nil? %>
-<%# <%= raw("Profile Photo: #{@user.profile_photo}<br/>") if !@user.profile_photo.nil? %>
-<%= raw("Stage name: #{@user.stage_name}<br/>") if !@user.stage_name.nil? %>
-<%= raw("Hometown: #{@user.hometown}<br/>") if !@user.hometown.nil? %>
-<%= raw("Country: #{@user.country}<br/>") if !@user.country.nil? %>
 <%= raw("Facebook Page: #{@user.facebook}<br/>") if !@user.facebook.nil? %>
 <%= raw("Soundcloud Url: #{@user.soundcloud}<br/>") if !@user.soundcloud.nil? %>
 <%= raw("Youtube channel: #{@user.youtube}<br/>") if !@user.youtube.nil? %>
@@ -28,7 +34,7 @@ Last Name: <%= @user.last_name %> <br/>
 </p>
 
 <% if @albums.count>0 %>
-  <%= raw("<h2> List of Albums </h2>") %>
+  <%= raw("<h2> Albums </h2><br/>") %>
 <div class="row list-albums">
   <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
