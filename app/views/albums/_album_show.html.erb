@@ -1,42 +1,56 @@
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-10">
+  <div class="col-sm-offset-1 col-sm-10 album-show">
 
-    <h1>Details of the album <%= album.album_name %>
-    <% if can? :create, Album %>
-      <%= link_to "Edit", edit_album_path(album) %>
-  <% end %></h1>
-
-  <div class="col-sm-7">
-
-  <h5>Album Name</h5>
-  <%=album.album_name %>
-
-  <h5>Stage/Band Name</h5>
-  <%=album.stage_band_name %>
-
-  <h5>Release Date</h5>
-  <%=album.release_date.strftime("%B %d %Y") if !album.release_date.nil?%>
-
-  <h5>Record Label</h5>
-  <%=album.record_label %>
-
-  <h5>Language</h5>
-  <%= Album::Language.language_list[album.language-1].text %> <br/>
-
-  <h5>Primary Genre</h5>
-  <%= Album::Genre.genre_list[album.primary_genre].text %> <br/>
+      <div class="row">
+        <div class="col-xs-12">     
+            <h1><%= album.album_name %>
+            <% if can? :create, Album %>
+                <%= link_to "Edit", edit_album_path(album) %>
+              <% end %></h1>
+        </div>
 
 
-  <% if Album::Genre.genre_list[album.secondary_genre].text!=0 %> 
-    <%= raw("<h5>Secondary Genre</h5>") %>
-    <%= Album::Genre.genre_list[album.secondary_genre].text %>
-  <% end %>
-  </div>
+      <hr style="border-top: 1px solid #746eaa;"/>
 
-  <div class="col-sm-5">
-    <h5>Album Cover</h5>
-    <img src="<%=album.album_cover %>" width="300px" alt="">
-  </div>
+      <div class="col-sm-4">
+        <img src="<%=album.album_cover %>"class="img-responsive"  alt="">
+        <h5 class='low-opacity-font' >Album Cover</h5>
+      </div>
+
+      <div class="col-sm-4">
+
+        <h5 class='low-opacity-font'>Album Name</h5>
+        <%=album.album_name %>
+
+        <h5 class='low-opacity-font' >Stage/Band Name</h5>
+        <%=album.stage_band_name %>
+
+        <% if album.release_date.present? %>
+          <%= raw("<h5 class=\"low-opacity-font\" >Release Date</h5>") %>
+          <%= album.release_date.strftime("%B %d %Y") %>
+        <% end %>
+
+        <h5 class='low-opacity-font' >Record Label</h5>
+        <%=album.record_label %>
+
+      </div>
+      <div class="col-sm-4">
+      
+        <h5 class='low-opacity-font' >Language</h5>
+        <%= Album::Language.language_list[album.language-1].text %> <br/>
+
+        <h5 class='low-opacity-font' >Primary Genre</h5>
+        <%= Album::Genre.genre_list[album.primary_genre].text %> <br/>
+
+
+        <% if Album::Genre.genre_list[album.secondary_genre].text!=0 %> 
+          <%= raw("<h5 class=\"low-opacity-font\" >Secondary Genre</h5>") %>
+          <%= Album::Genre.genre_list[album.secondary_genre].text %>
+        <% end %>
+      </div>
+
+
+    </div>
 
   </div>
 </div>

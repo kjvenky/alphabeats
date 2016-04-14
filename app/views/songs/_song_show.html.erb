@@ -1,16 +1,16 @@
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-10">
-    <h1>Details of song <%= song.song_title %> 
+  <div class="col-sm-offset-1 col-sm-10 album-show">
+    <h1><%= song.song_title %> 
     
     <% if can? :create, Song %>
       <%= link_to "Edit", edit_song_path(song) %>
     <% end %>
     </h1>
     <div class="col-sm-5">
-      <h5>Song Title</h5>
+      <h5 class='low-opacity-font' >Song Title</h5>
       <%= song.song_title %> <br/>
 
-      <h5>Song Writer</h5>
+      <h5 class='low-opacity-font' >Song Writer</h5>
       <% if song.self_written %>
         <%= raw("Self Written") %>
       <% else %>
@@ -24,43 +24,46 @@
        
         <br/>
 
-      <h5>Album Name</h5>
+      <h5 class='low-opacity-font' >Album Name</h5>
       <%= song.album.album_name %> <br/>
 
-      <h5>Song Duration</h5>
-      <%= song.duration.strftime("%H:%M") if !song.duration.nil?%> <br/>
+      <% if !song.duration.nil? && !song.duration==Time.utc(2000,01,01,00,00,00) %>
+        <%= raw("<h5 class='low-opacity-font' >Song Duration</h5>") %>
+        <%= song.duration.strftime("%H:%M") if !song.duration.nil? && !song.duration==Time.utc(2000,01,01,00,00,00) %> <br/>
+      <% end %>
 
       <% if can? :create, Song %>
-        <%= raw("<h5>Link to Song</h5>") %>
+        <%= raw("<h5 class='low-opacity-font' >Link to Song</h5>") %>
         <%= song.audio_file %> <br/>
 
-        <%= raw("<h5>Note to Admin</h5>") %>
+        <%= raw("<h5 class='low-opacity-font' >Note to Admin</h5>") %>
         <%= song.note_to_admin %> <br/>
 
       <% end %>
 
-      <h5>Explicit Lyrics</h5>
+      <h5 class='low-opacity-font' >Explicit Lyrics</h5>
       <% if song.explicit_lyrics %>
         <%= raw("Yes") %>
       <% else %>
         <%= raw("No") %>
       <% end %>
       
-      <h5>Producer</h5>
-      <% if song.producer %>
+      <% if song.producer.present? %>
+        <%= raw("<h5 class='low-opacity-font' >Producer</h5>") %>
         <%= song.producer %>
       <% end %>
 
-      <h5>Producer Email</h5>
-      <% if song.producer_email %>
+      <% if song.producer_email.present? %>
+        <%= raw("<h5 class='low-opacity-font' >Producer Email</h5>") %>
         <%= song.producer_email %>
       <% end %>
 
         <br/>
+        <br/>
 
     </div>
     <div class="col-sm-7">
-      <h5>Lyrics of the song</h5>
+      <h5 class='low-opacity-font' >Lyrics of the song</h5>
       <div id="lyrics-show">
       <%= song.lyrics %> <br/>
       </div>
@@ -71,42 +74,42 @@
   <div class="col-sm-offset-1 col-sm-10">
       <h3>Links of the song to different services</h3> 
     <div class="col-sm-5">
-      <% if !song.spotify.nil? && !song.spotify.empty? %>
-        <%= raw("<a target='_blank' href='#{song.spotify}'><h5>Spotify</h5></a>") %>
+      <% if song.spotify.present? %>
+        <%= raw("<a target='_blank' href='#{song.spotify}'><h5 class='low-opacity-font' >Spotify</h5></a>") %>
       <% end %>
-      <% if !song.itunes.nil? && !song.itunes.empty? %>
-        <%= raw("<a target='_blank' href='#{song.itunes}'><h5>iTunes</h5></a>") %>
+      <% if song.itunes.present? %>
+        <%= raw("<a target='_blank' href='#{song.itunes}'><h5 class='low-opacity-font' >iTunes</h5></a>") %>
       <% end %>
-      <% if !song.apple_music.nil? && !song.apple_music.empty? %>
-        <%= raw("<a target='_blank' href='#{song.apple_music}'><h5>Apple Music</h5></a>") %>
+      <% if song.apple_music.present? %>
+        <%= raw("<a target='_blank' href='#{song.apple_music}'><h5 class='low-opacity-font' >Apple Music</h5></a>") %>
       <% end %>
-      <% if !song.google_play.nil? && !song.google_play.empty? %>
-        <%= raw("<a target='_blank' href='#{song.google_play}'><h5>Google Play</h5></a>") %>
+      <% if song.google_play.present? %>
+        <%= raw("<a target='_blank' href='#{song.google_play}'><h5 class='low-opacity-font' >Google Play</h5></a>") %>
       <% end %>
-      <% if !song.amazon.nil? && !song.amazon.empty? %>
-        <%= raw("<a target='_blank' href='#{song.amazon}'><h5>Amazon</h5></a>") %>
+      <% if song.amazon.present? %>
+        <%= raw("<a target='_blank' href='#{song.amazon}'><h5 class='low-opacity-font' >Amazon</h5></a>") %>
       <% end %>
-      <% if !song.r_dio.nil? && !song.r_dio.empty? %>
-        <%= raw("<a target='_blank' href='#{song.r_dio}'><h5>Rdio</h5></a>") %>
+      <% if song.r_dio.present? %>
+        <%= raw("<a target='_blank' href='#{song.r_dio}'><h5 class='low-opacity-font' >Rdio</h5></a>") %>
       <% end %>
-      <% if !song.deezer.nil? && !song.deezer.empty? %>
-        <%= raw("<a target='_blank' href='#{song.deezer}'><h5>Deezer</h5></a>") %>
+      <% if song.deezer.present? %>
+        <%= raw("<a target='_blank' href='#{song.deezer}'><h5 class='low-opacity-font' >Deezer</h5></a>") %>
       <% end %>
-      <% if !song.tidal.nil? && !song.tidal.empty? %>
-        <%= raw("<a target='_blank' href='#{song.tidal}'><h5>Tidal</h5></a>") %>
+      <% if song.tidal.present? %>
+        <%= raw("<a target='_blank' href='#{song.tidal}'><h5 class='low-opacity-font' >Tidal</h5></a>") %>
       <% end %>
-      <% if !song.youtube.nil? && !song.youtube.empty? %>
-        <%= raw("<a target='_blank' href='#{song.youtube}'><h5>Youtube Music</h5></a>") %>
+      <% if song.youtube.present? %>
+        <%= raw("<a target='_blank' href='#{song.youtube}'><h5 class='low-opacity-font' >Youtube Music</h5></a>") %>
       <% end %>
       <br/><br/>
       <% if song.view_count.present? %>
-        <%= raw("<h5>View Count: #{song.view_count}</h5>") %>
+        <%= raw("<h5 class='low-opacity-font' >View Count: #{song.view_count}</h5>") %>
       <% end %>
       <% if song.download_count.present? %>
-        <%= raw("<h5>Download Count: #{song.download_count}</h5>") %>
+        <%= raw("<h5 class='low-opacity-font' >Download Count: #{song.download_count}</h5>") %>
       <% end %>
       <% if song.income_till_date.present? %>
-        <%= raw("<h5>Income till date: #{song.income_till_date}</h5>") %>
+        <%= raw("<h5 class='low-opacity-font' >Income till date: #{song.income_till_date}</h5>") %>
       <% end %>
     </div>
   </div>

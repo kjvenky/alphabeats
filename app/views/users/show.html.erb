@@ -1,11 +1,13 @@
 <%= render "songs/secondheader" %>
 <div class='row'><div class='col-sm-offset-1 col-sm-10'>
+    <br/><br/>
 <div class="profile-box">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 vertical-line">
     <%= @user.profile_photo.present? ? raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") : raw("<img src=\"http://s3-us-west-2.amazonaws.com/splitshire/Photo/SplitShire-3060109.jpg\" style=\"max-width:100%; max-height:100%;\" ><br/>") %>
     </div>
     <div class="col-md-8">
+      <br/>
     <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
     <%= raw("#{@user.username}") if @user.username.present? %> 
     <span style="float:right">
@@ -13,8 +15,9 @@
       <a href="<%= @user.facebook %>"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
       <a href="<%= @user.youtube %>"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
     </span>
-    <!-- <hr style="border&#45;top: 1px solid #7870A9;"/> -->
+
     <hr style="border-top: 1px solid #746eaa;"/>
+
     <div class="row">
       <div class="col-xs-6">
         HomeTown<br/>
@@ -29,9 +32,6 @@
   </div>
 </div>
 <p>
-<%= raw("Facebook Page: #{@user.facebook}<br/>") if !@user.facebook.nil? %>
-<%= raw("Soundcloud Url: #{@user.soundcloud}<br/>") if !@user.soundcloud.nil? %>
-<%= raw("Youtube channel: #{@user.youtube}<br/>") if !@user.youtube.nil? %>
 
 <br/><br/><br/>
 <% if can? :update, @user %>
@@ -54,7 +54,8 @@
      <div class="tab-content">
           <% @albums.each do |album| %>
             <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
-            <table class="table">
+            <%= render partial: "albums/album_show", locals: {album: album}  %>
+            <table class="table ">
               <thead>
                 <tr>
                   <th></th>
@@ -67,7 +68,7 @@
                   <th>Last updated</th>
                 </tr>
               </thead>
-             <tbody>
+             <tbody class="song-table">
               <% album.songs.each do |song| %>
               <tr>
                 <td><div class="dropdown">
@@ -98,7 +99,6 @@
               <% end %>
              </tbody>
            </table>
-            <%= render partial: "albums/album_show", locals: {album: album}  %>
             <%= raw("</div>") %>
           <% end %>
     </div> 

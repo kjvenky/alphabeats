@@ -29,16 +29,19 @@
 }
 
 .profile-box {
+  .vertical-line{
+    border-right:5px;
+    border-color:#504f88;
+  }
   margin: auto;
   width: 90%;
   // #7870A9
   // height: 20vh;
   // border: 3px solid #73AD21;
   background-color:#8d80ac; 
-  padding: 10px;
-
+  // padding: 0px 10px 0px 0px;
+  padding: 0em 1em 0em 0em;
   
-
 }
 
 .list-albums{
@@ -65,4 +68,9 @@
 }
 
 }
+
+.song-table {
+    background-color:rgba(255,255,255,0.3);
+}
+
 
