@@ -71,49 +71,21 @@
   </div><!-- end col-sm-offset-1 col-sm-10 album-show -->
 
       <br/><br/>
-  <div class="col-sm-offset-1 col-sm-10">
-      <h3>Links of the song to different services</h3> 
-    <div class="col-sm-5">
-      <% if song.spotify.present? %>
-        <%= raw("<a target='_blank' href='#{song.spotify}'><h5 class='low-opacity-font' >Spotify</h5></a>") %>
-      <% end %>
-      <% if song.itunes.present? %>
-        <%= raw("<a target='_blank' href='#{song.itunes}'><h5 class='low-opacity-font' >iTunes</h5></a>") %>
-      <% end %>
-      <% if song.apple_music.present? %>
-        <%= raw("<a target='_blank' href='#{song.apple_music}'><h5 class='low-opacity-font' >Apple Music</h5></a>") %>
-      <% end %>
-      <% if song.google_play.present? %>
-        <%= raw("<a target='_blank' href='#{song.google_play}'><h5 class='low-opacity-font' >Google Play</h5></a>") %>
-      <% end %>
-      <% if song.amazon.present? %>
-        <%= raw("<a target='_blank' href='#{song.amazon}'><h5 class='low-opacity-font' >Amazon</h5></a>") %>
-      <% end %>
-      <% if song.r_dio.present? %>
-        <%= raw("<a target='_blank' href='#{song.r_dio}'><h5 class='low-opacity-font' >Rdio</h5></a>") %>
-      <% end %>
-      <% if song.deezer.present? %>
-        <%= raw("<a target='_blank' href='#{song.deezer}'><h5 class='low-opacity-font' >Deezer</h5></a>") %>
-      <% end %>
-      <% if song.tidal.present? %>
-        <%= raw("<a target='_blank' href='#{song.tidal}'><h5 class='low-opacity-font' >Tidal</h5></a>") %>
-      <% end %>
-      <% if song.youtube.present? %>
-        <%= raw("<a target='_blank' href='#{song.youtube}'><h5 class='low-opacity-font' >Youtube Music</h5></a>") %>
-      <% end %>
-      <br/><br/>
-      <% if song.view_count.present? %>
-        <%= raw("<h5 class='low-opacity-font' >View Count: #{song.view_count}</h5>") %>
-      <% end %>
-      <% if song.download_count.present? %>
-        <%= raw("<h5 class='low-opacity-font' >Download Count: #{song.download_count}</h5>") %>
-      <% end %>
-      <% if song.income_till_date.present? %>
-        <%= raw("<h5 class='low-opacity-font' >Income till date: #{song.income_till_date}</h5>") %>
-      <% end %>
-    </div>
-  </div>
 
+      <%= render partial: "shared/service_url_show", locals: {object: song} %>
+  <div class="col-sm-offset-1 col-sm-10">
+    <div class="col-sm-5">
+        <% if song.view_count.present? %>
+          <%= raw("<h5 class='low-opacity-font' >View Count: #{song.view_count}</h5>") %>
+        <% end %>
+        <% if song.download_count.present? %>
+          <%= raw("<h5 class='low-opacity-font' >Download Count: #{song.download_count}</h5>") %>
+        <% end %>
+        <% if song.income_till_date.present? %>
+          <%= raw("<h5 class='low-opacity-font' >Income till date: #{song.income_till_date}</h5>") %>
+        <% end %>
+    </div><!-- end col-sm-5 view count -->
+  </div><!-- end col-sm-offset-1 col-sm-10 -->
 </div> <!-- end row -->
 
 

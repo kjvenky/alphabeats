@@ -52,7 +52,8 @@
     </div>
 
 
-    <%= render partial: "shared/service_urls", locals: {f: f} %>
+    <%= render partial: "shared/service_url_edit", locals: {f: f} %>
+
     <% if current_user.admin? %>
       <%= f.input :view_count, label: 'View Count', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :download_count, label: 'Download Count', input_html: {class: 'input input-style form-control'} %> <br><br>
