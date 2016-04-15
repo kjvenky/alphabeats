@@ -51,22 +51,12 @@
       <li>Special requests?</li><br> 
     </div>
 
+
+    <%= render partial: "shared/service_urls", locals: {f: f} %>
     <% if current_user.admin? %>
-      <%= f.input :spotify, label: 'Spotify', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :itunes, label: 'iTunes', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :apple_music, label: 'Apple Music', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :google_play, label: 'Google Play', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :amazon, label: 'Amazon', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :r_dio, label: 'Rdio', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :deezer, label: 'Deezer', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :tidal, label: 'Tidal', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :youtube, label: 'YouTube Music', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :microsoft_groove, label: 'Microsoft Groove', input_html: {class: 'input input-style form-control'} %> <br><br>
-      <%= f.input :media_net, label: 'MediaNet', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :view_count, label: 'View Count', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :download_count, label: 'Download Count', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :income_till_date, label: 'Income so far on this song', input_html: {class: 'input input-style form-control'} %> <br><br>
-
     <% end %>
 
     <div class="row">

@@ -19,7 +19,7 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = current_user.albums.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def create
@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
 
   def update
 
-    @album = current_user.albums.find(params[:id])
+    @album = Album.find(params[:id])
 
     if @album.update_attributes(album_params)
       redirect_to album_path(@album), notice: "The album #{@album.album_name} has been updated"
@@ -51,7 +51,7 @@ class AlbumsController < ApplicationController
 
 private
   def album_params
-    params.require(:album).permit(:album_name, :stage_band_name, :release_date, :record_label, :album_cover, :language, :primary_genre, :secondary_genre)
+    params.require(:album).permit(:album_name, :stage_band_name, :release_date, :record_label, :album_cover, :language, :primary_genre, :secondary_genre, :spotify, :itunes, :apple_music, :google_play, :amazon, :r_dio, :deezer, :tidal, :youtube, :microsoft_groove, :media_net)
   end
 
 end

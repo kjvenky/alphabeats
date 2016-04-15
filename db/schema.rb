@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410113954) do
+ActiveRecord::Schema.define(version: 20160415022815) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "stage_band_name"
     t.date     "release_date"
     t.string   "record_label"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160410113954) do
     t.integer  "language"
     t.integer  "primary_genre"
     t.integer  "secondary_genre"
+    t.string   "spotify"
+    t.string   "itunes"
+    t.string   "apple_music"
+    t.string   "google_play"
+    t.string   "amazon"
+    t.string   "r_dio"
+    t.string   "deezer"
+    t.string   "tidal"
+    t.string   "youtube"
+    t.string   "microsoft_groove"
+    t.string   "media_net"
   end
 
   add_index "albums", ["user_id"], name: "index_albums_on_user_id"
