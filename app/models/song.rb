@@ -47,9 +47,9 @@ class Song < ActiveRecord::Base
   validates_inclusion_of :explicit_lyrics, :in => [true, false]
   validates_inclusion_of :self_written, :in => [true, false]
   validates :producer_email, :allow_blank => true, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})|^$\z/i, :message => "must be in a valid email format"}
-  validates_numericality_of :income_till_date
-  validates_numericality_of :view_count, :only_integer => true
-  validates_numericality_of :download_count,:only_integer => true 
+  validates :income_till_date, :allow_blank => true, numericality: true
+  validates :view_count, :allow_blank => true, numericality: { :only_integer => true }
+  validates :download_count, :allow_blank => true, numericality: { :only_integer => true} 
 
   mount_uploader :audio_file, AudioFileUploader
 

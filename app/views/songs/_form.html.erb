@@ -51,6 +51,9 @@
       <li>Special requests?</li><br> 
     </div>
 
+
+    <%= render partial: "shared/service_url_edit", locals: {f: f} %>
+
     <% if current_user.admin? %>
       <%= f.input :spotify, label: 'Spotify', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :itunes, label: 'iTunes', input_html: {class: 'input input-style form-control'} %> <br><br>

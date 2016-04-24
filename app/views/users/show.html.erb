@@ -1,14 +1,23 @@
 <%= render "songs/secondheader" %>
-<div class='row'><div class='col-sm-offset-1 col-sm-10'>
-<div class="profile-box">
+<div class='row'><div class='col-sm-offset-1 col-sm-10 tab-content'>
+    <br/><br/>
+ <div class="profile-box tab-pane" id="profile-box" >
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 vertical-line">
     <%= @user.profile_photo.present? ? raw("<img src=\"#{@user.profile_photo}\" width=\"300px\"><br/>") : raw("<img src=\"http://s3-us-west-2.amazonaws.com/splitshire/Photo/SplitShire-3060109.jpg\" style=\"max-width:100%; max-height:100%;\" ><br/>") %>
     </div>
     <div class="col-md-8">
+      <br/>
     <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
-    <%= raw("#{@user.username}<br/>") if @user.username.present? %>
-    <hr style="border-top: 1px solid #7870A9;"/>
+    <%= raw("#{@user.username}") if @user.username.present? %> 
+    <span style="float:right">
+      <a href="<%= @user.soundcloud %>"><i class="fa fa-soundcloud circle-icon" aria-hidden="true"></i></a>&nbsp;
+      <a href="<%= @user.facebook %>"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
+      <a href="<%= @user.youtube %>"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
+    </span>
+
+    <hr style="border-top: 1px solid #746eaa;"/>
+
     <div class="row">
       <div class="col-xs-6">
         HomeTown<br/>
@@ -21,12 +30,14 @@
     </div>
     </div>
   </div>
-</div>
-<p>
-<%= raw("Facebook Page: #{@user.facebook}<br/>") if !@user.facebook.nil? %>
-<%= raw("Soundcloud Url: #{@user.soundcloud}<br/>") if !@user.soundcloud.nil? %>
-<%= raw("Youtube channel: #{@user.youtube}<br/>") if !@user.youtube.nil? %>
+</div><!-- end of profile-box -->
 
+<% @albums.each do |album| %>
+    <%= raw("<div id=\"#{album.id}-top\" class=\"tab-pane\">") %>
+      <%= render partial: "albums/album_show", locals: {album: album}  %>
+    <%= raw("</div>") %>
+<% end %>
+<p>
 <br/><br/><br/>
 <% if can? :update, @user %>
   <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-md btn-transparent" %>
@@ -34,21 +45,28 @@
 </p>
 
 <% if @albums.count>0 %>
-  <%= raw("<h2> Albums </h2><br/>") %>
+  <%# <%= raw("<h2> Albums </h2><br/>") %>
 <div class="row list-albums">
   <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
+        <li><a href="#profile-box" data-target="#profile-box-empty, #profile-box" data-toggle="tab">Profile Details</a></li>
+        <li><h2>Albums</h2></li>
+        <!-- <br/><br/> -->
       <% @albums.each do |album| %>
-          <%= raw("<li><a href=\"##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
+          <%= raw("<li><a href=\"##{album.id}\" data-target=\"##{album.id}-top, ##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
       <% end %>
     </ul>
   
   </div>
   <div class="col-md-10">
      <div class="tab-content">
+        <br/><br/><br/><br/>
+       <div id="profile-box-empty" class="tab-pane">
+         <p></p>
+       </div>
           <% @albums.each do |album| %>
             <%= raw("<div class=\"tab-pane\" id=\"#{album.id}\"><br/>") %>
-            <table class="table">
+            <table class="table ">
               <thead>
                 <tr>
                   <th></th>
@@ -61,7 +79,7 @@
                   <th>Last updated</th>
                 </tr>
               </thead>
-             <tbody>
+             <tbody class="song-table">
               <% album.songs.each do |song| %>
               <tr>
                 <td><div class="dropdown">
@@ -88,21 +106,19 @@
                 <td><%=song.income_till_date.present? ? song.income_till_date : raw("-")  %></td>
                 <td><%=song.updated_at.strftime("%B %d %Y")%></td>
               </tr>
-                <%# <%= raw("<br/>") %>
               <% end %>
              </tbody>
            </table>
-            <%= render partial: "albums/album_show", locals: {album: album}  %>
             <%= raw("</div>") %>
           <% end %>
     </div> 
-  </div>
-</div>
+  </div><!-- col-md-10 of tab-content -->
+</div><!-- row list-albums -->
 <% end %>
 
 
-  </div>
-</div>
+  </div><!-- end col-sm-offset-1 col-sm-10 -->
+</div><!-- end row -->
 
 <script>
 $(document).ready(function() {

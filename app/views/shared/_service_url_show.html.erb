@@ -1,0 +1,33 @@
+  <div class="col-sm-offset-1 col-sm-10">
+      <h3>Links of the object to different services</h3> 
+    <div class="col-sm-5">
+      <% if object.spotify.present? %>
+        <%= raw("<a target='_blank' href='#{object.spotify}'><h5 class='low-opacity-font' >Spotify</h5></a>") %>
+      <% end %>
+      <% if object.itunes.present? %>
+        <%= raw("<a target='_blank' href='#{object.itunes}'><h5 class='low-opacity-font' >iTunes</h5></a>") %>
+      <% end %>
+      <% if object.apple_music.present? %>
+        <%= raw("<a target='_blank' href='#{object.apple_music}'><h5 class='low-opacity-font' >Apple Music</h5></a>") %>
+      <% end %>
+      <% if object.google_play.present? %>
+        <%= raw("<a target='_blank' href='#{object.google_play}'><h5 class='low-opacity-font' >Google Play</h5></a>") %>
+      <% end %>
+      <% if object.amazon.present? %>
+        <%= raw("<a target='_blank' href='#{object.amazon}'><h5 class='low-opacity-font' >Amazon</h5></a>") %>
+      <% end %>
+      <% if object.r_dio.present? %>
+        <%= raw("<a target='_blank' href='#{object.r_dio}'><h5 class='low-opacity-font' >Rdio</h5></a>") %>
+      <% end %>
+      <% if object.deezer.present? %>
+        <%= raw("<a target='_blank' href='#{object.deezer}'><h5 class='low-opacity-font' >Deezer</h5></a>") %>
+      <% end %>
+      <% if object.tidal.present? %>
+        <%= raw("<a target='_blank' href='#{object.tidal}'><h5 class='low-opacity-font' >Tidal</h5></a>") %>
+      <% end %>
+      <% if object.youtube.present? %>
+        <%= raw("<a target='_blank' href='#{object.youtube}'><h5 class='low-opacity-font' >Youtube Music</h5></a>") %>
+      <% end %>
+      <br/><br/>
+    </div><!-- end col-sm-5 -->
+  </div><!-- end col-sm-offset-1 col-sm-10 -->

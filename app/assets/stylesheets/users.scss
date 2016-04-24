@@ -16,12 +16,61 @@
   }
 }
 
+.circle-icon {
+  $circle-size:30px;
+  background: #8d80ac;
+  width: $circle-size;
+  height: $circle-size;
+  text-align: center;
+  line-height: $circle-size;
+  vertical-align:middle;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
 .profile-box {
+  .vertical-line{
+    border-right:5px;
+    border-color:#504f88;
+  }
   margin: auto;
   width: 90%;
   // #7870A9
   // height: 20vh;
   // border: 3px solid #73AD21;
   background-color:#8d80ac; 
-  padding: 10px;
+  // padding: 0px 10px 0px 0px;
+  padding: 0em 1em 0em 0em;
+  
 }
+
+.list-albums{
+
+   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    // color: #555555;
+    // color: #8d80ac;
+    color: #fff;
+    background-color:rgba(255,255,255,0.3);
+    // opacity:0.4;
+    border: 1px solid transparent;
+    // border-bottom-color: transparent;
+    cursor: default;
+  }
+
+.nav-tabs > li > a:hover{
+    color: #fff;
+    background-color:rgba(255,255,255,0.6);
+    // opacity:0.4;
+    border: 1px solid transparent;
+    // border-bottom-color: transparent;
+    cursor: default;
+
+}
+
+}
+
+.song-table {
+    background-color:rgba(255,255,255,0.3);
+}
+
+

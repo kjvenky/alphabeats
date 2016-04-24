@@ -17,6 +17,8 @@
       <%= f.input :primary_genre, label: 'Choose Primary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false  %> <br>
       <%= f.input :secondary_genre, label: 'Choose Secondary Genre', input_html: {class: 'input input-style form-control'}, collection: Album::Genre.genre_list, label_method: :text, value_method: :code, include_blank: false   %> <br>
       <br/>
+      <%= render partial: "shared/service_url_edit", locals: {f: f} %>
+      <br/>
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
 <% end %>
 </div>
