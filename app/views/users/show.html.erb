@@ -8,23 +8,25 @@
     </div>
     <div class="col-md-8">
       <br/>
+      <div class="box-title vertical-line">
     <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
-    <%= raw("#{@user.username}") if @user.username.present? %> 
+      </div>
+    <%= raw("Username: #{@user.username}") if @user.username.present? %> 
     <span style="float:right">
-      <a href="<%= @user.soundcloud %>"><i class="fa fa-soundcloud circle-icon" aria-hidden="true"></i></a>&nbsp;
-      <a href="<%= @user.facebook %>"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
-      <a href="<%= @user.youtube %>"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
+      <a href="<%= @user.soundcloud %>" target="_blank"><i class="fa fa-soundcloud circle-icon" aria-hidden="true"></i></a>&nbsp;
+      <a href="<%= @user.facebook %>" target="_blank"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
+      <a href="<%= @user.youtube %>" target="_blank"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
     </span>
 
     <hr style="border-top: 1px solid #746eaa;"/>
 
     <div class="row">
       <div class="col-xs-6">
-        HomeTown<br/>
-        <%= raw("#{@user.hometown} #{@user.country}") %><br/>
+        <h5 class='low-opacity-font' >Hometown</h5>
+        <%= raw("#{@user.hometown}, #{@user.country}") %><br/>
       </div>
       <div class="col-xs-6">
-        Email<br/>
+        <h5 class='low-opacity-font' >Email</h5>
         <%= raw("#{@user.email}") %><br/>
       </div>
     </div>
@@ -49,7 +51,9 @@
 <div class="row list-albums">
   <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
-        <li><a href="#profile-box" data-target="#profile-box-empty, #profile-box" data-toggle="tab">Profile Details</a></li>
+        <li><a href="#profile-box" data-target="#profile-box-empty, #profile-box" data-toggle="tab">
+          <%= @user.stage_name.present? ? raw("#{@user.stage_name}'s Profile") : raw("#{@user.first_name}'s Profile") %>
+        </a></li>
         <li><h2>Albums</h2></li>
         <!-- <br/><br/> -->
       <% @albums.each do |album| %>
