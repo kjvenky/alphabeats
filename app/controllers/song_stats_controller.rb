@@ -5,6 +5,10 @@ class SongStatsController < ApplicationController
   # GET /song_stats.json
   def index
     @song_stats = SongStat.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @song_stats.to_csv }
+    end
   end
 
   # GET /song_stats/1
