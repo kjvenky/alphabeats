@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Song Stats</h1>
+<p>
+  Download:
+    <%= link_to "CSV", song_stats_path(format: "csv") %> 
+</p>
 
 <table class="table-condensed" >
   <thead>
