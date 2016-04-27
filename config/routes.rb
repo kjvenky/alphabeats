@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
 
-  resources :song_stats
+  resources :song_stats do
+      collection { post :import }
+  end
+
   resources :transaction_logs
   resources :orders, only: [:update, :destroy]
   resources :order_items, only: [:create, :update, :destroy]

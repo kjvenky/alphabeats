@@ -65,6 +65,11 @@ class SongStatsController < ApplicationController
     end
   end
 
+  def import
+    SongStat.import(params[:file])
+    redirect_to song_stats_url, notice: "Song Stats imported"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song_stat

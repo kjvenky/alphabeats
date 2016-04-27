@@ -8,4 +8,11 @@ class SongStat < ActiveRecord::Base
       end
     end
   end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      SongStat.create! row.to_hash
+    end
+  end
+
 end

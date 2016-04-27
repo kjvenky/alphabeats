@@ -53,3 +53,10 @@
 <br>
 
 <%= link_to 'New Song stat', new_song_stat_path %>
+
+
+<h2>Import Song Stats</h2>
+<%= form_tag import_song_stats_path, multipart: true %>
+  <%= file_field_tag :file, input_html: {class: 'input input-style form-control'} %>
+  <br/>
+<%= submit_tag "Import", class: 'btn btn-transparent btn-sm' %>
