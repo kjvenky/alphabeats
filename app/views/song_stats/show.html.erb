@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reporting date:</strong>
+  <%= @song_stat.reporting_date %>
+</p>
+
+<p>
+  <strong>Sale month:</strong>
+  <%= @song_stat.sale_month %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @song_stat.store %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song_stat.artist %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song_stat.title %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @song_stat.quantity %>
+</p>
+
+<p>
+  <strong>Song album:</strong>
+  <%= @song_stat.song_album %>
+</p>
+
+<p>
+  <strong>Customer paid:</strong>
+  <%= @song_stat.customer_paid %>
+</p>
+
+<p>
+  <strong>Customer currency:</strong>
+  <%= @song_stat.customer_currency %>
+</p>
+
+<p>
+  <strong>Country of sale:</strong>
+  <%= @song_stat.country_of_sale %>
+</p>
+
+<p>
+  <strong>Songwriter royalties withheld:</strong>
+  <%= @song_stat.songwriter_royalties_withheld %>
+</p>
+
+<p>
+  <strong>Earnings:</strong>
+  <%= @song_stat.earnings %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @song_stat.song_id %>
+</p>
+
+<%= link_to 'Edit', edit_song_stat_path(@song_stat) %> |
+<%= link_to 'Back', song_stats_path %>
