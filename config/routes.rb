@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :orders, only: [:update, :destroy]
   resources :order_items, only: [:create, :update, :destroy]
 
-  resources :songs, :albums
+  resources :songs do
+    collection { get :all_index }
+  end
+
+  resources :albums
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :users, only: [:show, :update, :edit]

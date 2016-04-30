@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
+<%= render "songs/secondheader" %>
 
 <h1>Listing Song Stats</h1>
 <p>
-  Download:
-    <%= link_to "CSV", song_stats_path(format: "csv") %> 
+  Download Song Stats:
+  <%= link_to "CSV of song stats", song_stats_path(format: "csv") %> |
+  Download Songs table:
+  <%= link_to "CSV of songs", all_index_songs_path(format: "csv") %> 
+  
+
+
 </p>
 
 <table class="table-condensed" >

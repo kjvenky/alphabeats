@@ -5,6 +5,17 @@ class SongsController < ApplicationController
   
   load_and_authorize_resource :only => [:show,:edit,:update]
 
+  def all_index
+    if current_user.admin?
+      @all_songs = Song.all
+      respond_to do |format|
+        format.csv { send_data @all_songs.to_csv }
+      end
+    else
+      redirect_to root_url, :alert => "You are not authorized to access"
+    end
+  end
+
   def index
     @songs = current_user.songs
   end
