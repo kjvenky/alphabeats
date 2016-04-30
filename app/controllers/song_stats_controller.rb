@@ -1,19 +1,28 @@
 class SongStatsController < ApplicationController
   before_action :set_song_stat, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource 
 
   # GET /song_stats
   # GET /song_stats.json
   def index
-    @song_stats = SongStat.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @song_stats.to_csv }
+    if current_user.admin?
+      @song_stats = SongStat.all
+      respond_to do |format|
+        format.html
+        format.csv { send_data @song_stats.to_csv }
+      end
+    else
+      redirect_to root_url, :alert => "You are not authorized to access"
     end
   end
 
   # GET /song_stats/1
   # GET /song_stats/1.json
   def show
+    if current_user.admin?
+    else
+      redirect_to root_url, :alert => "You are not authorized to access"
+    end
   end
 
   # GET /song_stats/new
