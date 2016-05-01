@@ -54,7 +54,7 @@
         <li><a href="#profile-box" data-target="#profile-box-empty, #profile-box" data-toggle="tab">
           <%= @user.stage_name.present? ? raw("#{@user.stage_name}'s Profile") : raw("#{@user.first_name}'s Profile") %>
         </a></li>
-        <li><h2>Albums</h2></li>
+        <li><h2>Albums</h2></li> <br>
         <!-- <br/><br/> -->
       <% @albums.each do |album| %>
           <%= raw("<li><a href=\"##{album.id}\" data-target=\"##{album.id}-top, ##{album.id}\" data-toggle=\"tab\">#{album.album_name}</a></li>") %>
