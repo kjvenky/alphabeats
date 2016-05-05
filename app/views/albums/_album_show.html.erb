@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-xs-6">
           <h5 class='low-opacity-font'> Release Date </h5>
-          
+          <%= album.release_date.strftime("%B %d %Y") if !album.release_date.nil?%>
         </div>
         <div class="col-xs-6">
           <h5 class='low-opacity-font' >Language</h5>
