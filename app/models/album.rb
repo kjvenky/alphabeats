@@ -2,18 +2,29 @@
 #
 # Table name: albums
 #
-#  id              :integer          not null, primary key
-#  album_name      :string
-#  user_id         :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  stage_band_name :string
-#  release_date    :date
-#  record_label    :string
-#  album_cover     :string
-#  language        :integer
-#  primary_genre   :integer
-#  secondary_genre :integer
+#  id               :integer          not null, primary key
+#  album_name       :string
+#  user_id          :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  stage_band_name  :string
+#  release_date     :date
+#  record_label     :string
+#  album_cover      :string
+#  language         :integer
+#  primary_genre    :integer
+#  secondary_genre  :integer
+#  spotify          :string
+#  itunes           :string
+#  apple_music      :string
+#  google_play      :string
+#  amazon           :string
+#  r_dio            :string
+#  deezer           :string
+#  tidal            :string
+#  youtube          :string
+#  microsoft_groove :string
+#  media_net        :string
 #
 
 class Album < ActiveRecord::Base

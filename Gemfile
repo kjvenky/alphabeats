@@ -48,6 +48,12 @@ gem "annotate"
 gem 'social-share-button'
 
 gem 'cancancan' #for authorization
+
+#gems for importing from spreadsheet
+# gem "google-drive"
+gem "roo"
+# gem "roo-google"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
