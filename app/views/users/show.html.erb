@@ -8,15 +8,17 @@
     </div>
     <div class="col-md-8">
       <br/>
-      <div class="box-title vertical-line">
-    <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
-      </div>
-    <%= raw("Username: #{@user.username}") if @user.username.present? %> 
-    <span style="float:right">
+    <div class="icon-list">   
+        <span style="float:right">
       <a href="<%= @user.soundcloud %>" target="_blank"><i class="fa fa-soundcloud circle-icon" aria-hidden="true"></i></a>&nbsp;
       <a href="<%= @user.facebook %>" target="_blank"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
       <a href="<%= @user.youtube %>" target="_blank"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
     </span>
+  </div>
+      <div class="box-title vertical-line">
+    <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
+      </div>
+    <%= raw("Username: #{@user.username}") if @user.username.present? %> 
 
     <hr style="border-top: 1px solid #746eaa;"/>
 
