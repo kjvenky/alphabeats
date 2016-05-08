@@ -1,6 +1,6 @@
-<div class="col-md-offset-2 col-md-8">
-  <div class="form-bg">
-    <%= simple_form_for(song) do |f| %>
+<div class="col-md-offset-2 col-md-8 bg-album-song-color"><br/>
+  <!-- <div class="form&#45;bg"> -->
+  <%= simple_form_for song, :html => { class: 'song-form-style' } do |f| %>
     <div class="row">
 
       <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
@@ -75,12 +75,10 @@
           <%= link_to 'Read Terms and Conditions', terms_path %>
         </span>
       <br/><br/><br/>
-    </div>
+    <!-- </div> -->
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
     <% end %>
   </div>
-  <br/>
-  <br/>
 
   <script>
   $("#song_album_id").on('change', function(e) {

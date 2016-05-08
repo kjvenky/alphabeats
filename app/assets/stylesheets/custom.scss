@@ -104,3 +104,17 @@ body{
 .low-opacity-font{
     color:rgba(255,255,255,0.4);
 }
+
+// Begin style album and song forms
+.bg-album-song-color {
+  background-color: #8F7DAA;
+  input, select, textarea {
+    background-color:#77668E;
+  }
+
+}
+
+//centre text
+.center-text{
+  text-align: center;
+}
