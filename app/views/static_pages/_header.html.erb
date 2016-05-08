@@ -15,11 +15,11 @@
         
         <% if user_signed_in? %>
             <div id="logged_in_menu">
-              <!-- <div id="discover"><i class="fa fa&#45;globe fa&#45;2x icon&#45;color"></i> <br/><span class="white&#45;top&#45;menu&#45;font">DISCOVER</span> </div> -->
-              <!--   <div id="invest"><i class="fa fa&#45;dollar fa&#45;2x icon&#45;color"></i><br/><span class="white&#45;top&#45;menu&#45;font">INVEST</span> </div> -->
+              <div class="my_account" id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
+                <div class="my_account" id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
                 
                 <div class="my_account"><a href="/albums"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
-                <div class="my_account"><i class="fa fa-dollar icon-color"></i><span class="white-top-menu-font"> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> </span></div>
+                <!-- <div class="my_account"><i class="fa fa&#45;dollar icon&#45;color"></i><span class="white&#45;top&#45;menu&#45;font"> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> </span></div> -->
             </div>
           <% else %>
             <li><%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-md btn-transparent" %></li>
