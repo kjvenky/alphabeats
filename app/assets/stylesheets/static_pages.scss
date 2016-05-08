@@ -444,9 +444,11 @@ $header_menu_height: 70px;
   background-color: white;
   // margin: -35px 803px;
   color: #4E4E4E;
-  position: absolute;
-  left: 950px;
-  top: 10px;
+  float: right;
+  margin-top: -1em;
+  // position: absolute;
+  // left: 950px;
+  // top: 10px;
 
   .icon-color {
     color:#EB5443;
@@ -479,7 +481,7 @@ $header_menu_height: 70px;
     padding: 10px;
   }
 
-  #my_account {
+  .my_account {
     width: $header_menu_width/2;
     height: $header_menu_height;
     border:solid;
