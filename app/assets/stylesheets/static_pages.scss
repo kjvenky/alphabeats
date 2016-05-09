@@ -430,13 +430,16 @@ html, body {
 //////////////////////////////////
 ////    header customization  ////
 //////////////////////////////////
+.navbar{
+  border-bottom:none
+}
 #navigation-header {
   background-color: #4c004c;
   height: 5em;
   line-height: 5em;
 }
 
-$header_menu_width: 300px;
+$header_menu_width: 400px;
 $header_menu_height: 70px;
 #logged_in_menu {
   width: $header_menu_width;
@@ -513,6 +516,37 @@ $header_menu_height: 70px;
     font-size: 1.5em;
     margin: 0 2em 0 2em;
   }
+}
+
+
+  // .second-navbar::before{
+  //     display:inline-block;
+  //     content:'';
+  //     height:100%;
+  //     vertical-align:bottom;
+  //     width:2px;
+  //   }
+
+.second-navbar {
+  // width: 100vw;
+  li {
+    margin: 0 2em 0 2em;
+  }
+  width: 96.5vw;
+  height: 7vh;
+  background-color: #C57E6C;
+  .icon-color {
+    color:white;
+  }
+  margin-top:-1.4em;
+  ul {
+    margin-top:3vh;
+  // display:table-cell;
+  // vertical-align:bottom;
+}
+  // display:flex;
+  // align-items:bottom;
+  // border-spacing:0em -2em;
 }
 
 
