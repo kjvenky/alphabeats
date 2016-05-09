@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415022815) do
+ActiveRecord::Schema.define(version: 20160426145540) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -64,6 +64,24 @@ ActiveRecord::Schema.define(version: 20160415022815) do
 
   add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "song_stats", force: :cascade do |t|
+    t.date     "reporting_date"
+    t.string   "sale_month"
+    t.string   "store"
+    t.string   "artist"
+    t.string   "title"
+    t.integer  "quantity"
+    t.string   "song_album"
+    t.decimal  "customer_paid",                 precision: 7, scale: 2
+    t.string   "customer_currency"
+    t.string   "country_of_sale"
+    t.string   "songwriter_royalties_withheld"
+    t.decimal  "earnings",                      precision: 7, scale: 2
+    t.integer  "song_id"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+  end
 
   create_table "songs", force: :cascade do |t|
     t.datetime "created_at",                                  null: false

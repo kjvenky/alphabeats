@@ -1,0 +1,23 @@
+<%= simple_form_for(@song_stat) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :reporting_date, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :sale_month, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :store, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :artist, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :title, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :quantity, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :song_album, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :customer_paid, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :customer_currency, input_html: {class: 'input input-style form-control'}%>
+    <%= f.input :country_of_sale, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :songwriter_royalties_withheld, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :earnings, input_html: {class: 'input input-style form-control'} %>
+    <%= f.input :song_id, input_html: {class: 'input input-style form-control'} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+  </div>
+<% end %>

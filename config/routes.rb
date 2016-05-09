@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   
 
+  resources :song_stats do
+      collection { post :import }
+  end
+
   resources :transaction_logs
   resources :orders, only: [:update, :destroy]
   resources :order_items, only: [:create, :update, :destroy]
 
-  resources :songs, :albums
+  resources :songs do
+    collection { get :all_index }
+  end
+
+  resources :albums
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   resources :users, only: [:show, :update, :edit]
@@ -24,6 +32,8 @@ Rails.application.routes.draw do
   get 'cart_page', to: "static_pages#cart_page"
   get 'payment_page', to: "static_pages#payment_page"
   get 'post_login_home', to: "static_pages#post_login_home"
+  get 'discover', to: "static_pages#discover"
+  get 'fund', to: "static_pages#fund"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -37,8 +37,10 @@
 
 class Song < ActiveRecord::Base
 
+
   belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   belongs_to :album
+  has_many :song_stats
 
 
   validates_presence_of :song_title,  :terms, :audio_file, :album_id, :user_id,  :original_artist, :original_song_title
@@ -53,5 +55,15 @@ class Song < ActiveRecord::Base
 
   mount_uploader :audio_file, AudioFileUploader
 
+  # extend ConvertCsv
+  #
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |song_stat_row|
+        csv << song_stat_row.attributes.values_at(*column_names)
+      end
+    end
+  end
 
 end

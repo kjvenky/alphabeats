@@ -86,7 +86,7 @@ body {
     border-radius: 100px;
     padding: 14px 60px; 
     transition: 1.5s;
-    font-size: 1.25em;
+    font-size: 1em;
   } 
 
   .btn-transparent:hover, 
@@ -139,7 +139,7 @@ body {
 
   p {
     padding-top: 1.5em;
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   h1 {
@@ -156,7 +156,7 @@ body {
     h1 {
       color: #F8F8FF;
       font-weight: bold;
-      font-size: 5em;
+      font-size: 3.5em;
     }
   }
 
@@ -170,17 +170,18 @@ body {
     }
 
     h1 {
-      padding-top: 1em;
+      padding-top:0.5em;
+      font-size: 2.5em;
     }
 
     p {
       padding-top: 1.5em;
-      font-size: 1.5em;
+      font-size: 1em;
     }
 
     a {
       color: black;
-      font-size: 3em;
+      font-size: 2em;
     }
     
     .fbright {
@@ -444,9 +445,11 @@ $header_menu_height: 70px;
   background-color: white;
   // margin: -35px 803px;
   color: #4E4E4E;
-  position: absolute;
-  left: 950px;
-  top: 10px;
+  float: right;
+  margin-top: -1em;
+  // position: absolute;
+  // left: 950px;
+  // top: 10px;
 
   .icon-color {
     color:#EB5443;
@@ -479,7 +482,7 @@ $header_menu_height: 70px;
     padding: 10px;
   }
 
-  #my_account {
+  .my_account {
     width: $header_menu_width/2;
     height: $header_menu_height;
     border:solid;
@@ -492,13 +495,19 @@ $header_menu_height: 70px;
     &.active{
       color: white;
       background-color: #C57E6C;
+      .icon-color {
+        color:white;
+      }
+      .white-top-menu-font {
+        color:white;
+      }
     }
   }
 }
 
 .second-menu {
-  width: 97vw;
-  height: 4vh;
+  width: 100vw;
+  height: 5vh;
   background-color: #FEF5F8;
   .second-menu-font {
     color:#E72501;
