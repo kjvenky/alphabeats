@@ -15,10 +15,9 @@
         
         <% if user_signed_in? %>
             <div id="logged_in_menu">
-              <div class="my_account" id="discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span> </div>
-                <div class="my_account" id="invest"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span> </div>
-                
-                <div class="my_account"><a href="/albums"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
+              <div class="my_account <%= active_class(discover_path) %>" id="discover"><a href="/discover"><i class="fa fa-globe fa-2x icon-color"></i> <br/><span class="white-top-menu-font">DISCOVER</span></a></div>
+                <div class="my_account <%= active_class(fund_path) %>" id="invest"><a href="/fund"><i class="fa fa-dollar fa-2x icon-color"></i><br/><span class="white-top-menu-font">INVEST</span></a></div>
+                <div class="my_account <%= active_class(albums_path) %>"><a href="/albums"><i class="fa fa-user icon-color"></i><span class="white-top-menu-font"> MY ACCOUNT</span></a></div>
                 <!-- <div class="my_account"><i class="fa fa&#45;dollar icon&#45;color"></i><span class="white&#45;top&#45;menu&#45;font"> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> </span></div> -->
             </div>
           <% else %>

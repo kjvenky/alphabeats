@@ -494,6 +494,12 @@ $header_menu_height: 70px;
     &.active{
       color: white;
       background-color: #C57E6C;
+      .icon-color {
+        color:white;
+      }
+      .white-top-menu-font {
+        color:white;
+      }
     }
   }
 }
