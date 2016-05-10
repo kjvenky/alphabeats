@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:cart_page, :payment_page, :discover, :fund]
+  before_filter :authenticate_user!, only: [:cart_page, :payment_page, :discover, :fund, :wallet]
   before_filter :mobile_format, only: [:home]
 
   def home
@@ -57,6 +57,9 @@ class StaticPagesController < ApplicationController
   end
 
   def fund
+  end
+
+  def wallet
   end
 
 end

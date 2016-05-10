@@ -514,7 +514,7 @@ $header_menu_height: 70px;
   .second-menu-font {
     color:#E72501;
     font-size: 1.5em;
-    margin: 0 2em 0 2em;
+    margin: 0 1vw 0 1vw;
   }
 }
 
@@ -529,10 +529,13 @@ $header_menu_height: 70px;
 
 .second-navbar {
   // width: 100vw;
+  .active{
+    text-decoration:underline;
+  }
   li {
     margin: 0 2em 0 2em;
   }
-  width: 96.5vw;
+  width: 96.4vw;
   height: 7vh;
   background-color: #C57E6C;
   .icon-color {
