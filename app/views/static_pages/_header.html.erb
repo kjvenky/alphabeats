@@ -2,15 +2,16 @@
   <div class=<%= Width::CONTAINER %>>
     <div class="navbar-header">
       <a class="navbar-brand" id="logoheader" href="<%= user_signed_in? ? post_login_home_path : root_path %>"><img src="<%= asset_path("whitelogo.png") %>" alt="logo" /></a>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-        </button>
+        <!-- <button type="button" class="navbar&#45;toggle" data&#45;toggle="collapse" data&#45;target="#myNavbar"> -->
+        <!--     <span class="icon&#45;bar"></span> -->
+        <!--     <span class="icon&#45;bar"></span> -->
+        <!--     <span class="icon&#45;bar"></span>                         -->
+        <!-- </button> -->
     </div>
 
 
-     <div class="collapse navbar-collapse" id="myNavbar">
+     <!-- <div class="collapse navbar&#45;collapse" id="myNavbar"> -->
+     <div class="" id="myNavbar">
       <ul class="nav-justified">
         
         <% if user_signed_in? %>
@@ -29,8 +30,6 @@
       </ul>
     </div>
   </div>
-</nav>
-
 
 <% if user_signed_in? %>
   <% if current_page?(albums_path) || current_page?(user_path(current_user)) || current_page?(wallet_path) || current_page?(new_album_path) || current_page?(new_song_path) || current_page?(cart_page_path) %>
@@ -38,3 +37,6 @@
   <% else %>
   <% end %>
 <% end %>
+</nav>
+
+
