@@ -519,21 +519,18 @@ $header_menu_height: 70px;
 }
 
 
-  // .second-navbar::before{
-  //     display:inline-block;
-  //     content:'';
-  //     height:100%;
-  //     vertical-align:bottom;
-  //     width:2px;
-  //   }
 
 .second-navbar {
-  // width: 100vw;
   .active{
-    text-decoration:underline;
+    border-bottom: 3px solid #fff;
   }
   li {
     margin: 0 2em 0 2em;
+    a:hover {
+      text-decoration:none;
+    border-bottom: 3px solid #fff;
+    }
+    
   }
   width: 96.4vw;
   height: 7vh;
