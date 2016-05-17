@@ -33,8 +33,10 @@ Rails.application.routes.draw do
   get 'payment_page', to: "static_pages#payment_page"
   get 'post_login_home', to: "static_pages#post_login_home"
   get 'discover', to: "static_pages#discover"
-  get 'fund', to: "static_pages#fund"
+  get 'performance', to: "static_pages#performance"
   get 'wallet', to: "static_pages#wallet"
+  get 'shortlist', to: "static_pages#shortlist"
+  get 'holdings', to: "static_pages#holdings"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
