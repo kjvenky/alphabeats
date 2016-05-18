@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'shortlist', to: "static_pages#shortlist"
   get 'holdings', to: "static_pages#holdings"
 
+  resources :bids, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

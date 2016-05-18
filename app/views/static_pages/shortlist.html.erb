@@ -1,0 +1,44 @@
+<div class="<%= Width::CONTAINER %>">
+
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Song</th>
+          <th>Make Bid</th>
+        </tr>
+      </thead>
+     <tbody class="song-table">
+      <% @songs.each do |song| %>
+      <tr>
+        <td><div class="dropdown">
+          <i class="fa fa-play-circle dropdown-toggle"  data-toggle="dropdown"></i>
+          <ul class="dropdown-menu">
+              <%= raw("<li><a href=\"#{song.spotify}\">Spotify link</a></li>") if song.spotify.present? %>
+              <%= raw("<li><a href=\"#{song.itunes}\">itunes link</a></li>") if song.itunes.present? %>
+              <%= raw("<li><a href=\"#{song.apple_music}\">apple_music link</a></li>") if song.apple_music.present? %>
+              <%= raw("<li><a href=\"#{song.google_play}\">google_play link</a></li>") if song.google_play.present? %>
+              <%= raw("<li><a href=\"#{song.amazon}\">amazon link</a></li>") if song.amazon.present? %>
+              <%= raw("<li><a href=\"#{song.r_dio}\">r_dio link</a></li>") if song.r_dio.present? %>
+              <%= raw("<li><a href=\"#{song.deezer}\">deezer link</a></li>") if song.deezer.present? %>
+              <%= raw("<li><a href=\"#{song.tidal}\">tidal link</a></li>") if song.tidal.present? %>
+              <%= raw("<li><a href=\"#{song.youtube}\">youtube link</a></li>") if song.youtube.present? %>
+              <%= raw("<li><a href=\"#{song.microsoft_groove}\">microsoft_groove link</a></li>") if song.microsoft_groove.present? %>
+              <%= raw("<li><a href=\"#{song.media_net}\">media_net link</a></li>") if song.media_net.present? %>
+          </ul>
+        </div></td>
+        <td><%=song.song_title %></td>
+        <td>
+          <%= form_tag bids_path, method: :post, :class => "form-inline" do %>
+              <%= label_tag(:percent, "%") %>
+             <%= text_field_tag :percent,"", class: "input input-style" %>
+              <%= label_tag(:price, "$") %>
+             <%= text_field_tag :price,"", class: "input input-style" %>
+             <%= submit_tag "Submit", name: nil, class: "btn btn-transparent" %>   
+          <% end %> 
+        </td>
+      </tr>
+      <% end %>
+     </tbody>
+   </table>
+</div>

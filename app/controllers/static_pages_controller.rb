@@ -56,16 +56,17 @@ class StaticPagesController < ApplicationController
   def discover
   end
 
-  def performance
-  end
-
   def wallet
   end
 
   def shortlist
+    @songs = Song.all
   end
 
   def holdings
+  end
+
+  def performance
   end
 
 end

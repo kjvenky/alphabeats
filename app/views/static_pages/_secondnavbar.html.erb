@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if current_page?(albums_path) || current_page?(user_path(current_user)) || current_page?(wallet_path) || current_page?(new_album_path) || current_page?(new_song_path) || current_page?(cart_page_path) %>
-      <div class="<%= Width::CONTAINER %> table">
+      <div class="<%= Width::CONTAINER %>">
         <nav class="second-navbar">
           <ul class='list-inline pull-right'>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  PROFILE").html_safe, current_user, :class =>"second-menu-font #{active_class(user_path(current_user))}" %></li>
@@ -11,7 +11,7 @@
         </nav>
       </div>
     <% elsif current_page?(shortlist_path) || current_page?(holdings_path) || current_page?(performance_path) %>
-      <div class="<%= Width::CONTAINER %> table">
+      <div class="<%= Width::CONTAINER %>">
         <nav class="second-navbar">
           <ul class='list-inline pull-right'>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  FUNDING CONSIDERATIONS").html_safe, shortlist_path, :class =>"second-menu-font #{active_class(shortlist_path)}" %></li>
