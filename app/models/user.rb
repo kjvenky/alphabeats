@@ -53,6 +53,19 @@ class User < ActiveRecord::Base
   has_one :wallet
   has_many :transaction_logs
 
+  #trading module
+  has_many :shareholders
+  has_many :shareholder_songs, through: :shareholders, class_name: 'Song'
+
+  has_many :bids
+  has_many :bid_songs, through: :bids, class_name: 'Song'
+
+  has_many :offers
+  has_many :offer_songs, through: :offers, class_name: 'Song'
+
+  has_many :purchases, :class_name => 'TradeLog', :foreign_key => 'buyer_id'
+  has_many :sales, :class_name => 'TradeLog', :foreign_key => 'seller_id'
+
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 

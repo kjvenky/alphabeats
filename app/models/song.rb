@@ -53,6 +53,18 @@ class Song < ActiveRecord::Base
   validates :view_count, :allow_blank => true, numericality: { :only_integer => true }
   validates :download_count, :allow_blank => true, numericality: { :only_integer => true} 
 
+  #trading module
+  has_many :shareholders
+  has_many :shareholder_users, through: :shareholders, class_name: 'User'
+
+  has_many :bids
+  has_many :bid_users, through: :bids, class_name: 'User'
+
+  has_many :offers
+  has_many :offer_users, through: :offers, class_name: 'User'
+
+  has_many :trade_logs
+
   mount_uploader :audio_file, AudioFileUploader
 
   # extend ConvertCsv

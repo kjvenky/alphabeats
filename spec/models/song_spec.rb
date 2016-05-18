@@ -60,6 +60,19 @@ RSpec.describe Song, type: :model do
   it { should validate_numericality_of(:view_count).only_integer }
   it { should validate_numericality_of(:download_count).only_integer }
 
+  #trading module
+
+  it { should have_many(:shareholders) }
+  it { should have_many(:shareholder_users).through(:shareholders) }
+
+  it { should have_many(:bids) }
+  it { should have_many(:bid_users).through(:bids) }
+
+  it { should have_many(:offers) }
+  it { should have_many(:offer_users).through(:offers) }
+
+  it { should have_many(:trade_logs) }
+
   
   #   it "is valid given valid attributes" do
   #     new_song = FactoryGirl.create(:song)

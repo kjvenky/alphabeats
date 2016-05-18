@@ -49,9 +49,24 @@ RSpec.describe User, type: :model do
     it { should have_many(:orders) }
     it { should have_one(:wallet) }
     it { should have_many(:transaction_logs) }
+    
+
     it { should validate_length_of(:username).is_at_most(32).with_message("exceeds maximum of 32 characters") }
     it { should validate_uniqueness_of(:username) }
     it { should validate_exclusion_of(:username).in_array(['www', 'mail', 'ftp']).with_message('is not available') }
+    
+    #trading module tests
+    it { should have_many(:shareholders) }
+    it { should have_many(:shareholder_songs).through(:shareholders) }
+
+    it { should have_many(:bids) }
+    it { should have_many(:bid_songs).through(:bids) }
+
+    it { should have_many(:offers) }
+    it { should have_many(:offer_songs).through(:offers) }
+
+    it { should have_many(:purchases).class_name('TradeLog').with_foreign_key(:buyer_id) }
+    it { should have_many(:sales).class_name('TradeLog').with_foreign_key(:seller_id) }
               
                     
       

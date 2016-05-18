@@ -18,4 +18,5 @@ RSpec.describe TransactionLog, type: :model do
     it { should have_one(:order) }
     it { should validate_presence_of(:user_id)}
     it { should validate_numericality_of(:amount) }
+    it { should have_one(:trade_log) }
 end

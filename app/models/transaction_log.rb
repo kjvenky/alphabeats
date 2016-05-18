@@ -15,6 +15,7 @@ TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'from bank', 3 => 'to wallet'}
 class TransactionLog < ActiveRecord::Base
   has_one :order
   belongs_to :user
+  has_one :trade_log
 
   validates_presence_of :user_id
   validates_numericality_of :amount

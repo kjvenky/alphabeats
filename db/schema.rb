@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426145540) do
+ActiveRecord::Schema.define(version: 20160515052712) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -40,6 +40,32 @@ ActiveRecord::Schema.define(version: 20160426145540) do
 
   add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
+  create_table "bids", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.integer  "open_status"
+    t.decimal  "share",       precision: 8, scale: 5
+    t.decimal  "amount",      precision: 7, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "bids", ["song_id"], name: "index_bids_on_song_id"
+  add_index "bids", ["user_id"], name: "index_bids_on_user_id"
+
+  create_table "offers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.integer  "open_status"
+    t.decimal  "share",       precision: 8, scale: 5
+    t.decimal  "amount",      precision: 7, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "offers", ["song_id"], name: "index_offers_on_song_id"
+  add_index "offers", ["user_id"], name: "index_offers_on_user_id"
+
   create_table "order_items", force: :cascade do |t|
     t.integer  "album_id"
     t.integer  "order_id"
@@ -64,6 +90,17 @@ ActiveRecord::Schema.define(version: 20160426145540) do
 
   add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "shareholders", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.decimal  "share",      precision: 8, scale: 5
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "shareholders", ["song_id"], name: "index_shareholders_on_song_id"
+  add_index "shareholders", ["user_id"], name: "index_shareholders_on_user_id"
 
   create_table "song_stats", force: :cascade do |t|
     t.date     "reporting_date"
@@ -118,6 +155,21 @@ ActiveRecord::Schema.define(version: 20160426145540) do
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
   add_index "songs", ["user_id"], name: "index_songs_on_user_id"
+
+  create_table "trade_logs", force: :cascade do |t|
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "song_id"
+    t.decimal  "share",              precision: 8, scale: 5
+    t.decimal  "amount",             precision: 7, scale: 2
+    t.integer  "transaction_log_id"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "trade_logs", ["buyer_id"], name: "index_trade_logs_on_buyer_id"
+  add_index "trade_logs", ["seller_id"], name: "index_trade_logs_on_seller_id"
+  add_index "trade_logs", ["song_id"], name: "index_trade_logs_on_song_id"
 
   create_table "transaction_logs", force: :cascade do |t|
     t.integer  "transaction_type"
