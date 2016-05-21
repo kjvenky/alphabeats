@@ -1,5 +1,8 @@
 <div class="<%= Width::CONTAINER %>">
-
+<div class="row">
+  <div class="col-md-6">
+    <h2 class="center-text" >My Open Bids</h2>
+  
     <table class="table ">
       <thead>
         <tr>
@@ -9,7 +12,29 @@
         </tr>
       </thead>
      <tbody class="song-table">
-      <% @songs.each do |song| %>
+      <% @bids.each do |bid| %>
+      <tr>
+        <td>
+            <%= render partial: "shared/song_dropdown", locals: {song: bid.song} %>
+        </td>
+        <td><%=bid.song.song_title %></td>
+      </tr>
+      <% end %>
+     </tbody>
+   </table>
+  </div>
+  <div class="col-md-6">
+    <h2 class="center-text" >My Open Offers</h2>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Song</th>
+          <th>Make Bid</th>
+        </tr>
+      </thead>
+     <tbody class="song-table">
+      <% @offer_songs.each do |song| %>
       <tr>
         <td>
             <%= render partial: "shared/song_dropdown", locals: {song: song} %>
@@ -29,4 +54,7 @@
       <% end %>
      </tbody>
    </table>
+  
+  </div>
+</div>
 </div>

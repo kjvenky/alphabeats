@@ -12,6 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
+BID_STATUS = { 1 => 'open', 2=>'closed'}
 class Bid < ActiveRecord::Base
 
   belongs_to :user
@@ -22,4 +23,7 @@ class Bid < ActiveRecord::Base
   validates_numericality_of :share, greater_than_or_equal_to: 0, less_than_or_equal_to: 100
   validates_numericality_of :amount
 
+  def get_bid_status
+    BID_STATUS[self.open_status]
+  end
 end
