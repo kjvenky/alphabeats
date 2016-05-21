@@ -16,6 +16,8 @@ class BidsController < ApplicationController
   end
 
   def destroy
+      @bid = current_user.bids.find(params[:id])
+      @bid.destroy
   end
 
 private
