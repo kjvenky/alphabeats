@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'opentrades', to: "static_pages#open_trades"
 
   resources :bids, only: [:create, :update, :destroy]
+  resources :offers, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

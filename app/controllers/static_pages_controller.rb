@@ -61,10 +61,11 @@ class StaticPagesController < ApplicationController
   end
 
   def shortlist
-    @songs = Song.all
+    @songs = current_user.songs
   end
 
   def holdings
+    @songs = current_user.songs
   end
 
   def performance
@@ -72,8 +73,7 @@ class StaticPagesController < ApplicationController
 
   def open_trades
     @bids = current_user.bids
-    # @offer_songs = current_user.offers.songs
-    @offer_songs = Song.all
+    @offers = current_user.offers
   end
 
 end
