@@ -13,6 +13,9 @@ class BidsController < ApplicationController
   end
 
   def update
+    # byebug
+      @bid = current_user.bids.find(params[:id])
+      @bid.update(share: params[:bid][:share], amount: params[:bid][:amount])
   end
 
   def destroy
