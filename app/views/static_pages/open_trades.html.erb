@@ -35,19 +35,7 @@
         </tr>
       </thead>
      <tbody class="song-table">
-      <% @offers.each do |offer| %>
-      <tr id="offer_<%= offer.id %>">
-        <td>
-            <%= render partial: "shared/song_dropdown", locals: {song: offer.song} %>
-        </td>
-        <td><%= offer.song.song_title %></td>
-        <td><%= offer.get_offer_status %></td>
-        <td><%= offer.share %></td>
-        <td><%= offer.amount %></td>
-        <td>Edit</td>
-        <td><%= link_to "Destroy", offer_path(offer), method: :delete, remote: :true %></td>
-      </tr>
-      <% end %>
+       <%= render @bids %>
      </tbody>
    </table>
   

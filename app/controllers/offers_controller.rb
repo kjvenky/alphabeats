@@ -13,6 +13,8 @@ class OffersController < ApplicationController
   end
 
   def update
+      @offer = current_user.offers.find(params[:id])
+      @offer.update(share: params[:offer][:share], amount: params[:offer][:amount])
   end
 
   def destroy

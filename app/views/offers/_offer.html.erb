@@ -1,0 +1,46 @@
+<%# <% @offers.each do |offer| %>
+  <tr id="offer_<%= offer.id %>">
+  <td>
+      <%= render partial: "shared/song_dropdown", locals: {song: offer.song} %>
+  </td>
+  <td><%=offer.song.song_title %></td>
+  <td><%= offer.get_offer_status %></td>
+  <td><%= offer.share %></td>
+  <td><%= offer.amount %></td>
+  <td> <a href="#myupdateoffer_<%= offer.id %>" data-toggle="modal" data-target="#myupdateoffer_<%= offer.id %>">Edit</a>
+                <!-- Modal - update offers -->
+    <%= form_for(offer, :method => :put, remote: true) do |f| %>
+    <div class="modal fade" id="myupdateoffer_<%= offer.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit</h4>
+        </div>
+        <div class="modal-body">
+
+        <div class="field">
+          <%= f.label :share %><br>
+          <%= f.text_area :share, class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= f.label :amount %><br>
+          <%= f.text_area :amount, class: "form-control" %>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="myupdatebutton_<%= offer.id %>" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Update", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    </div>
+    <% end %>
+      <!-- Modal -->
+  
+  
+  </td>
+  <td><%= link_to "Destroy", offer_path(offer), method: :delete, remote: :true %></td>
+</tr>
+<%# <% end %>
