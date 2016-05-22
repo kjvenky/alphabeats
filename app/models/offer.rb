@@ -12,6 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
+OFFER_STATUS = { 1 => 'open', 2=>'closed'}
 class Offer < ActiveRecord::Base
 
   belongs_to :user
@@ -23,4 +24,7 @@ class Offer < ActiveRecord::Base
   validates_numericality_of :share, greater_than_or_equal_to: 0, less_than_or_equal_to: 100
   validates_numericality_of :amount
 
+  def get_offer_status
+    OFFER_STATUS[self.open_status]
+  end
 end

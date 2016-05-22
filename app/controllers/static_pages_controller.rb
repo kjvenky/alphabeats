@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:cart_page, :payment_page, :discover, :fund, :wallet, :shortlist, :holdings]
+  # before_filter :authenticate_user!, only: [:cart_page, :payment_page, :discover, :fund, :wallet, :shortlist, :holdings, :open_trades, :performance]
+  before_filter :authenticate_user!, except: [:home, :about, :faq, :pricing, :contact, :terms, :updates, :letter, :after_signup_home, :inactive_signup_home]
   before_filter :mobile_format, only: [:home]
 
   def home
@@ -60,13 +61,19 @@ class StaticPagesController < ApplicationController
   end
 
   def shortlist
-    @songs = Song.all
+    @songs = current_user.songs
   end
 
   def holdings
+    @songs = current_user.songs
   end
 
   def performance
+  end
+
+  def open_trades
+    @bids = current_user.bids
+    @offers = current_user.offers
   end
 
 end

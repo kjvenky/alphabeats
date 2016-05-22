@@ -37,8 +37,10 @@ Rails.application.routes.draw do
   get 'wallet', to: "static_pages#wallet"
   get 'shortlist', to: "static_pages#shortlist"
   get 'holdings', to: "static_pages#holdings"
+  get 'opentrades', to: "static_pages#open_trades"
 
   resources :bids, only: [:create, :update, :destroy]
+  resources :offers, only: [:create, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

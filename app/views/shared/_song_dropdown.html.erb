@@ -1,0 +1,16 @@
+<div class="dropdown">
+  <i class="fa fa-play-circle dropdown-toggle"  data-toggle="dropdown"></i>
+  <ul class="dropdown-menu">
+      <%= raw("<li><a href=\"#{song.spotify}\">Spotify link</a></li>") if song.spotify.present? %>
+      <%= raw("<li><a href=\"#{song.itunes}\">itunes link</a></li>") if song.itunes.present? %>
+      <%= raw("<li><a href=\"#{song.apple_music}\">apple_music link</a></li>") if song.apple_music.present? %>
+      <%= raw("<li><a href=\"#{song.google_play}\">google_play link</a></li>") if song.google_play.present? %>
+      <%= raw("<li><a href=\"#{song.amazon}\">amazon link</a></li>") if song.amazon.present? %>
+      <%= raw("<li><a href=\"#{song.r_dio}\">r_dio link</a></li>") if song.r_dio.present? %>
+      <%= raw("<li><a href=\"#{song.deezer}\">deezer link</a></li>") if song.deezer.present? %>
+      <%= raw("<li><a href=\"#{song.tidal}\">tidal link</a></li>") if song.tidal.present? %>
+      <%= raw("<li><a href=\"#{song.youtube}\">youtube link</a></li>") if song.youtube.present? %>
+      <%= raw("<li><a href=\"#{song.microsoft_groove}\">microsoft_groove link</a></li>") if song.microsoft_groove.present? %>
+      <%= raw("<li><a href=\"#{song.media_net}\">media_net link</a></li>") if song.media_net.present? %>
+  </ul>
+</div>
