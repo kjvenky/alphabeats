@@ -29,10 +29,15 @@
 }
 
 .profile-box {
-  .vertical-line{
+  .vertical-line {
     border-right:5px;
     border-color:#504f88;
   }
+
+  .name-display {
+    font-size: 1.5em;
+  }
+
   margin: auto;
   width: 90%;
   // #7870A9
@@ -74,5 +79,7 @@
 .song-table {
     background-color:rgba(255,255,255,0.3);
 }
+
+
 
 

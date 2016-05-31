@@ -16,7 +16,7 @@
           <a href="<%= @user.youtube %>" target="_blank"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
         </span>
     </div>
-      <div class="box-title vertical-line">
+      <div class="box-title vertical-line name-display">
     <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
       </div>
         <%= raw("Username: #{@user.username}") if @user.username.present? %> 
