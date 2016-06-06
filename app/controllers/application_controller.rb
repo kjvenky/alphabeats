@@ -37,6 +37,10 @@ class ApplicationController < ActionController::Base
     request.format = :mobile if mobile_device?
   end
 
+  def wallet_create_if_empty
+      Wallet.create(user_id: current_user.id, amount:0) if current_user.wallet.nil?
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515052712) do
+ActiveRecord::Schema.define(version: 20160603130936) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 20160515052712) do
 
   add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "express_token"
+    t.string   "express_payer_id"
+    t.integer  "wallet_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "shareholders", force: :cascade do |t|
     t.integer  "song_id"
