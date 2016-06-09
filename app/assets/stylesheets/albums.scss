@@ -37,5 +37,17 @@
 
 .album-show {
   background-color:#8d80ac; 
+  height: 80vh;
+}
+
+.lyrics-show-overview {
+  width:70vh;
+  height:80vh;
+  float:right;
+}
+
+.lyrics-show {
+  height:60vh;
+  overflow:auto;
 }
 
