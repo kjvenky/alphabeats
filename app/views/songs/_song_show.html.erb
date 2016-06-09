@@ -2,9 +2,9 @@
   <div class="col-sm-offset-1 col-sm-10 album-show">
   
     <% if can? :create, Song %>
-        <%= link_to "Editfsd", edit_song_path(song) %>
+        <%= link_to "Edit Song", edit_song_path(song) %>
     <% end %>
-    <%= social_share_button_tag(@song.song_title) %>
+   
     <div class="col-sm-5">
       <h5 class='low-opacity-font' >Song Title</h5>
       <%= song.song_title %> <br/>
