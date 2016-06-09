@@ -15,10 +15,16 @@
           <a href="<%= @user.facebook %>" target="_blank"><i class="fa fa-youtube circle-icon" aria-hidden="true"></i></a>&nbsp;
           <a href="<%= @user.youtube %>" target="_blank"><i class="fa fa-facebook circle-icon" aria-hidden="true"></i></a>
         </span>
+        
     </div>
       <div class="box-title vertical-line name-display">
     <%= @user.stage_name.present? ? raw("#{@user.stage_name}<br/>") : raw("#{@user.first_name} #{@user.last_name}<br/>") %>
       </div>
+      <span style="float:right">
+          <% if can? :update, @user %>
+            <a href="<%= edit_user_path(@user) %>">Edit Profile</a>
+          <% end %>
+        </span>
         <%= raw("Username: #{@user.username}") if @user.username.present? %> 
  
     
@@ -43,22 +49,18 @@
       <%= render partial: "albums/album_show", locals: {album: album}  %>
     <%= raw("</div>") %>
 <% end %>
-<p>
-<br/><br/><br/>
-<% if can? :update, @user %>
-  <%= link_to "Edit Profile", edit_user_path(@user), class:"btn btn-md btn-transparent" %>
-<% end %>
-</p>
 
 <% if @albums.count>0 %>
   <%# <%= raw("<h2> Albums </h2><br/>") %>
 <div class="row list-albums">
   <div class="col-md-2">
     <ul class="nav nav-tabs nav-stacked"><!-- 'tabs-right' for right tabs -->
+      <br style="line-height:0.5em;"/>
         <li><a href="#profile-box" data-target="#profile-box-empty, #profile-box" data-toggle="tab">
           <%= @user.stage_name.present? ? raw("#{@user.stage_name}'s Profile") : raw("#{@user.first_name}'s Profile") %>
         </a></li>
-        <li><h2>Albums</h2></li> <br style="line-height:2.5em;"/>
+        <br style="line-height:1.5em;"/>
+        <li><h2>Albums</h2></li> 
         <!-- <br/><br/> -->
 <!-- <br style="line&#45;height:0.01em;"/><br style="line&#45;height:0.1em;"/> -->
       <% @albums.each do |album| %>
