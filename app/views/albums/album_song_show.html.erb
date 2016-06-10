@@ -1,22 +1,12 @@
 <%= render "songs/secondheader" %>
-<h2>Please check the details of: <%= @album.album_name %>. Click <a href="<%= cart_page_path %>">Next</a> to continue</h2>
 <br>
-<%= render partial: "albums/album_show", locals: {album: @album}  %>
-<br>
-<%# <%= @album.songs.count %>
-<% @album.songs.each do |song| %>
-  <%= render partial: "songs/song_show", locals: {song: song} %>
-<% end %>
-
-<br/>
-
 <div class="row">
 
   <div class="col-sm-offset-1 col-sm-5">
-    <a href="javascript:history.back()">
+    <a href="<%= new_song_path %>">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
-          <span id="updates">Previous </span>
+          <span id="updates">Upload Song</span>
         </button>
       </div>
     </a>
@@ -27,11 +17,22 @@
     <a href="<%= cart_page_path %>">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
-          <span id="updates">Next </span>
+          <span id="updates">Go to Cart</span>
         </button>
       </div>
     </a>
   </div>
 
 </div>
+<br>
+<%= render partial: "albums/album_show", locals: {album: @album}  %>
+<br>
+<%# <%= @album.songs.count %>
+<% @album.songs.each do |song| %>
+  <%= render partial: "songs/song_show", locals: {song: song} %>
+<% end %>
+
+<br/>
+
+
 <br>

@@ -557,20 +557,11 @@ $header_menu_height: 70px;
 
 
 .album_index_name {
-  font-size: 1.5em;
+  font-size: 1em;
   font: bold;
 }
 
-.add_to_order {
-  background-color: white;
-  color: red;
-  padding: 2px;
-  font-size: 1.5em;
 
-  &:hover, &:active {
-    color: red;
-  }
-}
 
 .cart-show {
   background:#8F7DAA;
@@ -581,7 +572,29 @@ $header_menu_height: 70px;
   background:#77668E;
   height:35vh;
   overflow:auto;
+}
+
+.your-albums {
+  background:#77668E;
+  height:35vh;
+  overflow:auto;
   padding:1em;
+
+  a {
+    text-decoration:underline;
+  }
+  
+  .add_to_order {
+  background-color: white;
+  color: red;
+  padding: 2px;
+  font-size: 1em;
+  text-decoration:none;
+
+  &:hover, &:active {
+    color: red;
+  }
+}
 }
 
 ////////////////////////////////

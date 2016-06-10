@@ -1,18 +1,18 @@
 <%= render "songs/secondheader" %>
 <br>
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-10 li-styling">
+  <div class="col-sm-offset-2 col-sm-10 li-styling">
 <div class="col-md-5 cart-show">
     <h2>Your Albums</h2>  
 <% if !@albums.nil? %>
 <% @albums.each do |album| %>
   <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil?%>
-    <ul class="render-cart">
+    <ul class="your-albums">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-9">
           <span class="album_index_name"> <%= link_to album.album_name, album_song_path(album) %></span>
         </div>
-        <div class="col-md-offset-2 col-md-4">
+        <div class="col-md-offset-1 col-md-2">
           <%= link_to ">>", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
         </div>
       </div>
@@ -28,13 +28,20 @@
     <div class="render-cart">
       <%= render "cart_show" %>
     </div>
-</div>
-
-   
-    
+</div>    
   </div>
 </div>
-
+<br>
+<%=raw("<div class='row'>
+  <div class='col-sm-offset-9 col-sm-3'>
+    <a href='#{payment_page_path}'>
+      <div class='signup-updates'>
+        <button class='btn btn-lg btn-transparent'>
+          <span id='updates'>Continue</span>
+        </button>
+      </div>
+    </a>
+  </div>") %>
 
 <!-- <div class="row"> -->
 <!--   <div class="col&#45;sm&#45;offset&#45;6 col&#45;sm&#45;6"> -->
