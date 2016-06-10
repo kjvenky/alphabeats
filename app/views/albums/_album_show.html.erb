@@ -7,10 +7,12 @@
       <br/>
       <div class="vertical-line box-title">
         <%= album.album_name %>
+        <div class="album-show-edit">
+          <%= link_to "Edit Album", edit_album_path(album) %>
+        </div>
       </div>
-      <%= album.stage_band_name %>
-        
-       
+      <%= album.stage_band_name %> 
+      
     <hr style="border-top: 1px solid #746eaa;"/>
 
       <div class="row">

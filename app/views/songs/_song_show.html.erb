@@ -1,10 +1,13 @@
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 album-show">
-  
-    <% if can? :create, Song %>
+    <br style="line-height:1em;">
+    <div class="album-show-edit">
+      <% if can? :create, Song %>
         <%= link_to "Edit Song", edit_song_path(song) %>
-    <% end %>
-   
+        
+      <% end %>
+    </div>
+   <br style="line-height:2em;">
     <div class="col-sm-5">
       <h5 class='low-opacity-font' >Song Title</h5>
       <%= song.song_title %> <br/>
@@ -62,7 +65,7 @@
 
     </div>
     <div class="col-sm-7 lyrics-show-overview">
-      <h5 class='low-opacity-font' >Lyrics of the song</h5>
+      <h5 class='low-opacity-font' >Lyrics of the Song</h5>
       <div id="lyrics-show" class="lyrics-show">
       <%= song.lyrics %> <br/>
       </div>

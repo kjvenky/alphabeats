@@ -1,9 +1,9 @@
 <%= render "songs/secondheader" %>
-<br><br><br><br>
+<br>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 li-styling">
 <div class="col-md-7">
-    <h2>Uploaded Albums and Tracks</h2>  
+    <h2>Your Albums</h2>  
 <% if !@albums.nil? %>
 
 <% @albums.each do |album| %>
@@ -11,42 +11,30 @@
     <br><ul class="album_<%= album.id %>">
     <div class="row">
       <div class="col-md-5">
-        <span class="album_index_name"> <%=album.album_name %> </span>
+        <span class="album_index_name"> <%= link_to album.album_name, album_song_path(album) %></span>
       </div>
       <div class="col-md-2">
-        <span class="album_index_name"> <%= link_to "Details", album_path(album) %></span>
+        
       </div>
       <div class="col-md-1">
-        <span class="album_index_name"> <%= link_to "Edit", edit_album_path(album) %></span>
+        
       </div>
       <div class="col-md-4">
-        <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
+        <%= link_to ">>", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
       </div>
     </div>
     </ul>
-    <% album.songs.each do |song| %>
-      <ul class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="col-md-4">
-          <span class="song_index_name"> <%=song.song_title %> </span>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-          <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
-        </div>
-        <div class="col-md-2">
-          <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
-        </div>
-      </ul>
-    <% end %>
   <% end %>
 <% end %>
 <% else %>
   <%= raw("Please upload tracks in the albums that you create") %>
 <% end %>
 </div>
-<div class="col-md-5">
+<div class="col-md-5 cart-show">
     <h2>Cart</h2>  
-    <%= render "cart_show" %>
+    <div class="render-cart">
+      <%= render "cart_show" %>
+    </div>
 </div>
 
    

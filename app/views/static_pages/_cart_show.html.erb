@@ -3,13 +3,13 @@
 <% if current_order.order_items.count==0 %>
 <%= raw("Your cart is empty. Add albums to order to proceed.") %>
 <% else %>
-Albums added to cart: <br>
+
 <% current_order.order_items.each do |order_item| %>
-  <div class="col-md-3">
+  <div class="col-md-9">
     <%= order_item.album.album_name %>
   </div>
-  <div class="col-md-offset-2 col-md-7">
-    <%= link_to "Remove from Order", order_item_path(order_item), method: :delete, remote: :true %> <br>
+  <div class="col-md-offset-2 col-md-1">
+    <%= link_to "x", order_item_path(order_item), method: :delete, remote: :true %> <br>
   </div>
 <% end %>
 <% end %>
@@ -17,7 +17,7 @@ Albums added to cart: <br>
 <br><br><br>
 <%=raw("
 <div class='row'>
-  <div class='col-sm-offset-6 col-sm-6'>
+  <div class='col-sm-offset-8 col-sm-4'>
     <a href='#{payment_page_path}'>
       <div class='signup-updates'>
         <button class='btn btn-lg btn-transparent'>
