@@ -9,6 +9,8 @@ class PaymentsController < ApplicationController
 			allow_guest_checkout: true,
 			items: [{name: "Add Money", description: "Adds money to wallet ", amount: BigDecimal.new(params[:amount])*100}]
 		)
+    p response
+    puts response
 		redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
 	end
 
