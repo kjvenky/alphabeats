@@ -1,7 +1,7 @@
 <div class="cart_show">
 <p>
 <% if current_order.order_items.count==0 %>
-<%= raw("Your cart is empty. Add albums to order to proceed.") %>
+<%= raw("Your cart is empty. Click on >> to add an album to cart.") %>
 <% else %>
 
 <% current_order.order_items.each do |order_item| %>

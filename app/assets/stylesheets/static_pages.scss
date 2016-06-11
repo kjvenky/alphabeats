@@ -606,10 +606,17 @@ $header_menu_height: 70px;
   
   .total_show {
     padding: 2em;
+    background-color:#8F7DAA;;
+  }
+
+  .total-show-display {
+  background:#77668E;
+  padding:1em;
   }
 
   .btn-transparent { 
     color: black; 
+    float:right;
     // background-color: #611BBD;
     background-color: #F8F8FF; 
     // border-color: #130269; 
@@ -665,6 +672,13 @@ $header_menu_height: 70px;
   }
 
 }
+
+.extra-features {
+  height:45vh;
+  overflow:auto;
+  background:#8F7DAA;
+  word-break:break-word;
+  }
 
 
 ////////////////////////////////
