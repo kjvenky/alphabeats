@@ -677,9 +677,16 @@ $header_menu_height: 70px;
   height:40vh;
   overflow:auto;
   background:#8F7DAA;
+  margin:2vh;
   word-break:break-word;
+  padding-top:2px;
   }
 
+.feature-description {
+  background:#77668E;
+  height:18vh;
+  overflow:auto; 
+}
 
 ////////////////////////////////
 ///     mobile home.erb     ////

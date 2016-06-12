@@ -1,7 +1,7 @@
 <%= render "songs/secondheader" %>
 <div class="row">
 <div class=" col-sm-offset-1 col-sm-10">
-  <h2>Payment Page</h2> <br>
+  <h2 class="center-text">Payment Page</h2> <br>
   <div class="col-md-3 extra-features">
     <a href="<%= order_path(current_order) %>", data-remote="true" data-params="order%5Bshazam%5D=true" data-method="PATCH" rel="nofollow">
     <div class="signup-updates">
@@ -11,10 +11,11 @@
     </div> 
   </a>
   <%=link_to "Track: $0.99 per year", order_path(current_order), data: { params: { order: {  shazam: true} }.to_param }, :method => 'PATCH', remote: true%> <br><br>
-  <p><br>Make it easy for people to identify this single if they hear it playing on radio/tv, in stores, restaurants, parties, etc.</p>
+  <br><p class="feature-description">Make it easy for people to identify this single if they hear it playing on radio/tv, in stores, restaurants, parties, etc.</p>
   <br/>
   </div> 
-  <div class="col-md-offset-1 col-md-4 extra-features">
+  <div class="col-md-5 extra-features">
+    <div class="row"></div>
     <a href="<%= order_path(current_order) %>", data-remote="true" data-params="order%5Byoutube%5D=true" data-method="PATCH" rel="nofollow">
     <div class="signup-updates">
       <button class="btn btn-lg btn-transparent">
@@ -22,11 +23,12 @@
       </button>
     </div>
   </a> 
-   <%=link_to "Track: $4.95/year + 20% of YouTube ad revenue Album: $14.95/year + 20% of YouTube ad revenue", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%> <br><br>
-   <p>Get notified & paid if your music is ever used in any YouTube videos. We'll add this single/ album to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you, instead of to the person who uploaded the video.</p>
+   <%=link_to "Track: $4.95/year + 20% of YouTube ad revenue", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%> <br>
+   <%=link_to "Album: $14.95/year + 20% of YouTube ad revenue", order_path(current_order), data: { params: { order: {  youtube: true} }.to_param }, :method => 'PATCH', remote: true%><br><br>
+   <p class="feature-description">Get notified & paid if your music is ever used in any YouTube videos. We'll add this single/ album to YouTube's Content ID database, and continually scan for matches. When your music is detected in any YouTube video, you'll be notified—and ad revenue will automatically go to you.</p>
 <br/>
   </div>
-  <div class="col-md-offset-1 col-md-3 extra-features">
+  <div class="col-md-3 extra-features">
     <a href="<%=order_path(current_order) %>", data-remote="true" data-params="order%5Bstore_maximizer%5D=true" data-method="PATCH" rel="nofollow">
       <div class="signup-updates">
         <button class="btn btn-lg btn-transparent">
@@ -36,7 +38,7 @@
     </a>
 
  <%=link_to "FREE", order_path(current_order), data: { params: { order: {  store_maximizer: true} }.to_param }, :method => 'PATCH', remote: true%> <br><br>
- <p><br>Alphabeats will automatically deliver this album to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
+ <br><p class="feature-description">Alphabeats will automatically deliver this album to new stores and streaming services as we add them. Which is often. We'll give you notice before adding.</p>
 
 </div>
 
