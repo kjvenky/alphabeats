@@ -1,7 +1,7 @@
 <%= render "songs/secondheader" %>
 <br>
 <div class="row">
-  <div class="col-sm-offset-2 col-sm-10 li-styling">
+  <div class="col-sm-offset-2 col-sm-9 li-styling">
 <div class="col-md-5 cart-show">
     <h2>Your Albums</h2>  
 <% if !@albums.nil? %>
@@ -23,7 +23,7 @@
   <%= raw("Please create an album, and upload songs in it.") %>
 <% end %>
 </div>
-<div class="col-md-5 cart-show">
+<div class="col-md-offset-1 col-md-5 cart-show">
     <h2>Cart</h2>  
     <div class="render-cart">
       <%= render "cart_show" %>

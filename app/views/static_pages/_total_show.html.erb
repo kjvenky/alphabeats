@@ -149,7 +149,7 @@
        <%=link_to "Click to Remove YouTube Money", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
        <br/>
        <%=link_to "Click to Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
-       <br>
+       <br><br><br>
     </div>
    <br>
    <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-md btn-transparent', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
