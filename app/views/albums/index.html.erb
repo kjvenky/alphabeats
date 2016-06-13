@@ -1,5 +1,10 @@
 <%= render "songs/secondheader" %>
 <h1 class="center-text">List of My Albums</h1>
 <ol class="albums">
+  <h2>Unpaid albums</h2>
+  <%= render @albums %>
+</ol>
+<ol class="albums">
+  <h2>Paid albums </h2>
   <%= render @paid_albums %>
 </ol>

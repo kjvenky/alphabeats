@@ -26,10 +26,41 @@
 </div>
 <br>
 <%= render partial: "albums/album_show", locals: {album: @album}  %>
+<br/>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+  <% if can? :create, Album %>
+    <%# <%= link_to "Delete Song", album_path(@album), method: :delete %>
+    <div class="col-sm-offset-1 col-sm-5">
+      <a data-method="delete" href="<%= album_path(@album) %>">
+        <div class="signup-updates">
+          <button class="btn btn-lg btn-transparent">
+            <span id="updates">Delete <%= @album.album_name %></span>
+          </button>
+        </div>
+      </a>
+    </div>
+  <% end %>
+    </div></div> 
 <br>
 <%# <%= @album.songs.count %>
 <% @album.songs.each do |song| %>
   <%= render partial: "songs/song_show", locals: {song: song} %>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+  <% if can? :create, Song %>
+    <%# <%= link_to "Delete Song", song_path(song), method: :delete %>
+    <div class="col-sm-offset-1 col-sm-5">
+      <a data-method="delete" href="<%= song_path(song) %>">
+        <div class="signup-updates">
+          <button class="btn btn-lg btn-transparent">
+            <span id="updates">Delete <%= song.song_title %></span>
+          </button>
+        </div>
+      </a>
+    </div>
+  <% end %>
+    </div></div> <br/>
 <% end %>
 
 <br/>

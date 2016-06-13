@@ -46,17 +46,23 @@ class SongsController < ApplicationController
 
   def edit
     # @song = current_user.songs.find(params[:id])
-    @song = Song.find(params[:id])
+    @song = current_user.song.find(params[:id])
   end
 
   def update
     # @song = current_user.songs.find(params[:id])
-    @song = Song.find(params[:id])
+    @song = current_user.song.find(params[:id])
     if @song.update_attributes(song_params)
       redirect_to song_path(@song), notice: "The song #{@song.song_title} has been updated"
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @song = current_user.songs.find(params[:id])
+    @song.destroy
+    redirect_to album_song_path(@song.album), notice: "The song #{@song.song_title} has been deleted"
   end
 
 private

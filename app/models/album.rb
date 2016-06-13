@@ -29,7 +29,7 @@
 
 class Album < ActiveRecord::Base
   belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
-  has_many :songs
+  has_many :songs, dependent: :delete_all
   has_many :order_items
   default_scope -> { order(created_at: :desc) }
 
