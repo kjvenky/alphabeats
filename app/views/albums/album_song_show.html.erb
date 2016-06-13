@@ -27,6 +27,7 @@
 <br>
 <%= render partial: "albums/album_show", locals: {album: @album}  %>
 <br/>
+<% if @album.order_items.empty? %>
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
   <% if can? :create, Album %>
@@ -42,10 +43,12 @@
     </div>
   <% end %>
     </div></div> 
+<% end %>
 <br>
 <%# <%= @album.songs.count %>
 <% @album.songs.each do |song| %>
   <%= render partial: "songs/song_show", locals: {song: song} %>
+<% if @album.order_items.empty? %>
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
   <% if can? :create, Song %>
@@ -61,6 +64,7 @@
     </div>
   <% end %>
     </div></div> <br/>
+<% end %>
 <% end %>
 
 <br/>
