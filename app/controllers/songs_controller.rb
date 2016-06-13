@@ -28,7 +28,7 @@ class SongsController < ApplicationController
   def create
     @song = current_user.songs.new(song_params)
     if @song.save
-      redirect_to song_path(@song), notice: "The song #{@song.song_title} has been created"
+      redirect_to album_song_path(@song.album.id), notice: "The song #{@song.song_title} has been created"
     else
       @song_album_list = song_album_list #Defined in application controller 
       # and makes sure album field is prepopulated properly when there is an error in the form
