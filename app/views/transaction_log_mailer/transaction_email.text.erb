@@ -1,6 +1,4 @@
-Hi <%= @user.first_name %>
-
-Your user id is <%= @user.id %>. Please quote this when you quote user id.
+Hi <%= @user.first_name %> (user id: <%= @user.id %>)
 
 Here are the details of the album you just placed order for:
 
@@ -10,22 +8,18 @@ Here are the details of the album you just placed order for:
   <% i=i-1 %>
 <% end %>
 
-You have paid for the following services:
 <%= raw("Shazam") if @order.shazam %>
 <%= raw("Youtube") if @order.youtube %>
 <%= raw("Store Maximizer") if @order.store_maximizer %>
 
-
-
 You paid a total of <%= @transaction_log.amount %>
 
-Here are the details of your payment: <%= transaction_log_url(@transaction_log) %>
+Please find details on your transaction here: <%= transaction_log_url(@transaction_log) %>
 
+kind regards,
 
-
-regards,
 Shenil
-
+(Founder of ALphabeats)
 
 
 

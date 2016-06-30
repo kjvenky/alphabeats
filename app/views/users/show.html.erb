@@ -42,7 +42,11 @@
     <div class="row">
       <div class="col-xs-6">
         <h5 class='low-opacity-font' >Hometown</h5>
+        <% if @user.hometown? %>
         <%= raw("#{@user.hometown}, #{@user.country}") %><br/>
+        <% else %>
+        <%= raw("New York, USA") %>
+        <% end %>
       </div>
       <div class="col-xs-6">
         <h5 class='low-opacity-font' >Email</h5>
