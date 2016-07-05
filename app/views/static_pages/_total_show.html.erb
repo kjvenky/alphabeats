@@ -13,7 +13,7 @@
    <% if !current_order.order_items.nil? %>
    <% @total = 0 %>
     <% if current_user.transaction_logs.empty? %>
-       <% @total = @total+0 %> 
+       <% @total = (@total+0 ).round(2) %> 
        <div class="row">
         <div class="col-md-6">
           <%= raw("Annual Upload Fee* :")%> 
@@ -37,7 +37,7 @@
    <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
    <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
    <% if !order_item.album.songs.last.self_written  %>
-   <% @total = @total+12 %> 
+   <% @total = (@total+12 ).round(2) %> 
    
    <div class="row">
     <div class="col-md-6">
@@ -50,7 +50,7 @@
    <% end %>
 
    <% if order_item.order.shazam  %>
-   <% @total = @total+0.99 %> 
+   <% @total = (@total+0.99 ).round(2) %> 
    <div class="row">
     <div class="col-md-6">
       <%= raw("Shazam:")%> 
@@ -62,7 +62,7 @@
    <% end %>
 
    <% if order_item.order.youtube  %>
-   <% @total = @total+4.95 %> 
+   <% @total = (@total+4.95 ).round(2) %> 
 
    <div class="row">
     <div class="col-md-6">
@@ -75,7 +75,7 @@
    <% end %>
 
    <% if order_item.order.store_maximizer  %>
-   <% @total = @total+0 %> 
+   <% @total = (@total+0 ).round(2) %> 
 
    <div class="row">
     <div class="col-md-6">
@@ -92,7 +92,7 @@
    <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
    <% order_item.album.songs.each do |song| %>
    <%if !song.self_written  %>
-   <% @total = @total+12 %> 
+   <% @total = (@total+12 ).round(2) %> 
    <div class="row">
     <div class="col-md-6">
       <%= raw("Cover Song (#{song.song_title}):")%> 
@@ -103,7 +103,7 @@
    </div>
    <% end %>
    <% if order_item.order.shazam  %>
-   <% @total = @total+0.99 %> 
+   <% @total = (@total+0.99 ).round(2) %> 
    <div class="row">
     <div class="col-md-6">
       <%= raw("Shazam (#{song.song_title}):")%> 
@@ -115,7 +115,7 @@
    <% end %>
    <% end %>
    <% if order_item.order.youtube  %>
-   <% @total = @total+14.95 %> 
+   <% @total = (@total+14.95 ).round(2) %> 
    <div class="row">
     <div class="col-md-6">
       <%= raw("Youtube Money:")%> 
@@ -126,7 +126,7 @@
    </div>
    <% end %>
    <% if order_item.order.store_maximizer  %>
-   <% @total = @total+7.95 %> 
+   <% @total = (@total+7.95 ).round(2) %> 
    <div class="row">
     <div class="col-md-6">
       <%= raw("Store Maximizer:")%> 
