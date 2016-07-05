@@ -14,11 +14,10 @@
       <div class="<%= Width::CONTAINER %>">
         <nav class="second-navbar">
           <ul class='list-inline pull-right'>
-            <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  FUNDING CONSIDERATIONS").html_safe, shortlist_path, :class =>"second-menu-font #{active_class(shortlist_path)}" %></li>
-            <li><%= link_to (content_tag(:i, "", :class => "fa fa-money icon-color")+"  HOLDINGS").html_safe, holdings_path, :class =>"second-menu-font #{active_class(holdings_path)}" %></li>
-            <li><%= link_to (content_tag(:i, "", :class => "fa fa-money icon-color")+"  OPEN TRADES").html_safe, opentrades_path, :class =>"second-menu-font #{active_class(opentrades_path)}" %></li>
+            <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  SHORTLIST").html_safe, shortlist_path, :class =>"second-menu-font #{active_class(shortlist_path)}" %></li>
+            <li><%= link_to (content_tag(:i, "", :class => "fa fa-pie-chart icon-color")+"  HOLDINGS").html_safe, holdings_path, :class =>"second-menu-font #{active_class(holdings_path)}" %></li>
+            <li><%= link_to (content_tag(:i, "", :class => "fa fa-line-chart icon-color")+"  OPEN TRADES").html_safe, opentrades_path, :class =>"second-menu-font #{active_class(opentrades_path)}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-money icon-color")+"  PERFORMANCE").html_safe, performance_path, :class =>"second-menu-font #{active_class(performance_path)}" %></li>
-            <li><%= link_to (content_tag(:i, "", :class => "fa fa-sign-out icon-color")+"  LOGOUT").html_safe, destroy_user_session_path, method: :delete, :class =>"second-menu-font" %></li>
           </ul>
         </nav>
       </div>

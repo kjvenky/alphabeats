@@ -26,6 +26,7 @@
 
       <%= f.label :self_written, label: "Song Writer" %> </br>
       <%= f.collection_radio_buttons :self_written, [[true, "I wrote this song (it's an original tune)"] ,[false, "Another artist wrote it (it's a cover, read below for more info)"]], :first, :last , :item_wrapper_class => "radio-css"%>
+
       <li><b>Cover songs are okay!</b><br>A "cover song" is a song that you performed & recorded yourself, but the music was written by someone else. For example, when your band plays "Smooth Criminal" (written by Michael Jackson). This is totally okay—DistroKid makes it easy and legal to sell cover songs.</li><br>
       <li><b>Sampling is probably not okay</b><br>Sampling is when you use the actual recording of another artist's performance. For example, if you use the 1971 recording of Led Zeppelin's "When The Levee Breaks" as your drum track. That's generally not allowed, unless you have permission from the original artist.</li><br>
       <li><b>DistroKid will handle licensing & pay the original songwriter(s)</b><br>DistroKid will obtain the required compulsory mechanical license for you. We'll automatically deduct the legally-mandated fee of 9.1¢ per song sold in the U.S. from your earnings and pay it to the original songwriter. You'll get 100% of the rest.</li><br>
@@ -65,16 +66,11 @@
           <%= f.input :terms, input_html: {class: 'input input-style form-control'}, label: ''  %>
       </div>
       <div class="col-md-7">
-        <a href="/terms">I agree to the terms and conditions</a>
-      </div>
+        <a href="/terms">I agree to the <u>these terms</u></a>
+      </div><br><br>
       <!-- <div class="col&#45;sm&#45;3"> -->
       <!--   <br/> -->
       <!-- </div> -->
-      <br/><br/><br/>
-        <span>
-          <%= link_to 'Read Terms and Conditions', terms_path %>
-        </span>
-      <br/><br/><br/>
     <!-- </div> -->
       <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
     <% end %>
