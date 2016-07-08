@@ -55,6 +55,7 @@ fieldset[disabled] .btn-transparent.active {
 // end custom bootstrap button
 
 
+
 //////////////////////////////////
 ////     body customization  ////
 //////////////////////////////////
@@ -112,7 +113,20 @@ body{
     background-color:#77668E;
   }
 
+  .solid-button {
+    background-color: #98aa7d;
+    border-radius:0;
+    border:none;
+  }
+
+  .form-sidenote {
+    padding:0;
+    font-size:0.75em;
+    margin-bottom:0;
+    margin-top:0.4em;
+  }
 }
+
 
 //centre text
 .center-text{
