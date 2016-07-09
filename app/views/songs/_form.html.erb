@@ -115,13 +115,15 @@
     <% end %>
     <br><br>
     <div class="row">
-      <div class="col-md-offset-4 col-md-1">
-        <div class="col-md-offset-11">
-          <%= f.input :terms, input_html: {class: 'input input-style form-control'}, label: ''  %></div>
+      <div class="col-md-offset-4 col-md-7">
+        <%= f.label :terms do %>
+        <%= f.check_box :terms, :style => "float:left;" %>
+        <%= f.label :terms, "&nbsp;&nbsp;" "#{link_to 'I accept these terms of service', terms_path, :target => "_blank", :class => "terms-line"}.".html_safe, :style => "float:right;" %>
+      <% end %>
       </div>
-      <div class="col-md-7">
-        <a href="/terms" class="align-bottom">I agree to the <u>these terms</u></a>
-      </div><br><br><br>
+      </div>
+
+      
       <!-- <div class="col&#45;sm&#45;3"> -->
       <!--   <br/> -->
       <!-- </div> -->
