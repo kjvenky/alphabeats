@@ -6,7 +6,7 @@ class BidsController < ApplicationController
     if current_user.wallet.amount < BigDecimal.new(params[:amount])
       render "low_balance.js.erb"
     else
-      @bid = current_user.bids.new(share: params[:share], amount: params[:amount], song_id: params[:song_id], open_status: 1)
+      @bid = current_user.bids.new(share: params[:share], amount: params[:amount], song_id: params[:song_id], bid_price: (BigDecimal.new(params[:amount])/BigDecimal.new(params[:share])).round(2), open_status: 1)
       if @bid.save
         render "create.js.erb" 
       else
@@ -18,7 +18,7 @@ class BidsController < ApplicationController
 
   def update
       @bid = current_user.bids.find(params[:id])
-      @bid.update(share: params[:bid][:share], amount: params[:bid][:amount])
+      @bid.update(share: params[:bid][:share], amount: params[:bid][:amount], bid_price: (BigDecimal.new(params[:bid][:amount])/BigDecimal.new(params[:bid][:share])).round(2))
   end
 
   def destroy

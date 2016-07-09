@@ -7,6 +7,7 @@
   <td><%= offer.get_offer_status %></td>
   <td><%= offer.share %></td>
   <td><%= offer.amount %></td>
+  <td><%= offer.offer_price %></td>
   <td> <a href="#myupdateoffer_<%= offer.id %>" data-toggle="modal" data-target="#myupdateoffer_<%= offer.id %>">Edit</a>
                 <!-- Modal - update offers -->
     <%= form_for(offer, :method => :put, remote: true) do |f| %>
