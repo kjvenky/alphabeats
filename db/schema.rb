@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603130936) do
+ActiveRecord::Schema.define(version: 20160709034718) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160603130936) do
     t.decimal  "amount",      precision: 7, scale: 2
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.decimal  "bid_price",   precision: 7, scale: 2
   end
 
   add_index "bids", ["song_id"], name: "index_bids_on_song_id"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160603130936) do
     t.decimal  "amount",      precision: 7, scale: 2
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.decimal  "offer_price", precision: 7, scale: 2
   end
 
   add_index "offers", ["song_id"], name: "index_offers_on_song_id"

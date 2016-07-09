@@ -72,8 +72,8 @@ class StaticPagesController < ApplicationController
   end
 
   def open_trades
-    @bids = current_user.bids
-    @offers = current_user.offers
+    @bids = current_user.bids.where(open_status: 1)
+    @offers = current_user.offers.where(open_status: 1)
   end
 
 end
