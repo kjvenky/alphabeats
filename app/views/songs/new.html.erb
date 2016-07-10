@@ -6,3 +6,27 @@
 </div>
 
 <%= render partial: "form", locals: {song: @song} %>
+
+<script type="text/javascript">
+var selfwrittencheck = document.getElementById("self_written_check");
+var coversong = document.getElementById("cover_song");
+
+$(document).ready(function(){
+  $("#song_self_written_true").change ( function(){
+  	console.log("a");
+    if($('#song_self_written_true').is(':checked')) { document.getElementById('cover_song').style.display = 'none'; }
+  });
+  $("#song_self_written_false").change ( function(){
+  	console.log("b");
+    if($('#song_self_written_false').is(':checked')) { document.getElementById('cover_song').style.display = 'block'; }
+  });
+})
+</script>
+
+
+
+<!-- 
+      $("#cover_song").style['display'] = 'block';
+    } 
+    else {
+      $("#cover_song").style['display'] = 'none';  -->
