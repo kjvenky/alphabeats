@@ -11,18 +11,25 @@ class TransactionLogsController < ApplicationController
     # status(success: 1, failure: 2)
     #orders-> update payment_status and save
     #once everthing is done set order session to null
-    transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
-    order = current_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
-    if current_user.wallet.nil?
-      new_wallet = Wallet.create(user_id: current_user.id, amount: -BigDecimal.new(params[:transaction_logs][:amount]))
-
+    
+    
+    if current_user.wallet.amount <  BigDecimal.new(params[:transaction_logs][:amount])
+      redirect_to wallet_path, notice: "Please add #{current_user.wallet.amount-BigDecimal.new(params[:transaction_logs][:amount])+2}USD to the wallet"
     else
-      new_wallet_amount = current_user.wallet.amount - BigDecimal.new(params[:transaction_logs][:amount])
-      current_user.wallet.update(amount: new_wallet_amount)
+      transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
+      order = current_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
+      if current_user.wallet.nil?
+        new_wallet = Wallet.create(user_id: current_user.id, amount: -BigDecimal.new(params[:transaction_logs][:amount]))
+
+      else
+        new_wallet_amount = current_user.wallet.amount - BigDecimal.new(params[:transaction_logs][:amount])
+        current_user.wallet.update(amount: new_wallet_amount)
+      end
+      create_shareholders
+      TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
+      session[:order_id] = nil
+      redirect_to transaction_log_path(transactionlog), notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
     end
-    TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
-    session[:order_id] = nil
-    redirect_to transaction_log_path(transactionlog), notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
   end
 
   def show
@@ -32,6 +39,16 @@ class TransactionLogsController < ApplicationController
 private
   def transaction_logs_params
     params.require(:transaction_logs).permit(:amount)
+  end
+  
+  def create_shareholders
+    if !current_order.order_items.nil?
+       current_order.order_items.each do |order_item|
+         order_item.album.songs.each do |s|
+           Shareholder.create(song_id: s.id, user_id: s.musician.id, share: 100) if s.shareholders.empty?
+         end
+       end
+    end
   end
 
 end

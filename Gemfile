@@ -54,6 +54,8 @@ gem 'cancancan' #for authorization
 gem "roo"
 # gem "roo-google"
 
+gem 'activemerchant'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

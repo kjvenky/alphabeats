@@ -37,6 +37,11 @@
 
 class User < ActiveRecord::Base
 
+  # don't use after_create, see https://github.com/plataformatec/devise/issues/2615
+  after_commit :create_wallet, on: :create
+
+  # after_create: create_wallet
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -86,5 +91,9 @@ class User < ActiveRecord::Base
   def admin?
     self.admin 
   end
-  
+
+  def create_wallet
+    Wallet.create(user_id: self.id, amount: 0)
+  end
+
 end

@@ -1,5 +1,17 @@
   <div class="row">
     <div class="container">
       <h1> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %></h1>
+
+      <p>
+         <br/><br/>
+      <%= form_tag express_checkout_path do %>
+          <%= label_tag(:amount, "Add Money  ") %>
+         <%= text_field_tag :amount,"In dollars", class: "input input-style" %>
+         <br/><br/>
+         <%= image_submit_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>   
+      <% end %> 
+      
+      </p>
+
     </div>
   </div>

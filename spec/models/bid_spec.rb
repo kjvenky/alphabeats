@@ -33,5 +33,6 @@ RSpec.describe Bid, type: :model do
 
   it { should validate_numericality_of(:share).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(100) }
   it { should validate_numericality_of(:amount) }
+  it { should validate_numericality_of(:bid_price) }
 
 end

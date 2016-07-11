@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'albums/:id/album_song' => 'albums#album_song_show', as: :album_song
 
+  resources :payments, only: [:new, :create]
+  post 'express_checkout' => 'payments#express_checkout', as: :express_checkout
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

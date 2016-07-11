@@ -22,7 +22,7 @@ class Offer < ActiveRecord::Base
   validates_presence_of :song_id, :user_id, :share, :open_status, :amount
   validates_numericality_of :song_id, :user_id, :open_status, only_integer: true
   validates_numericality_of :share, greater_than_or_equal_to: 0, less_than_or_equal_to: 100
-  validates_numericality_of :amount
+  validates_numericality_of :amount, :offer_price
 
   def get_offer_status
     OFFER_STATUS[self.open_status]

@@ -12,6 +12,7 @@
 #
 TRANSACTION_STATUS = { 1 => 'success', 2=>'failure'}
 TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'from bank', 3 => 'to wallet'}
+#Transaction types - bank to wallet, wallet to wallet, wallet to bank
 class TransactionLog < ActiveRecord::Base
   has_one :order
   belongs_to :user
