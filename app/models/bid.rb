@@ -27,4 +27,7 @@ class Bid < ActiveRecord::Base
   def get_bid_status
     BID_STATUS[self.open_status]
   end
+
+
+
 end

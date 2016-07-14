@@ -61,11 +61,11 @@ class StaticPagesController < ApplicationController
   end
 
   def shortlist
-    @songs = current_user.songs
+    @songs = Song.all
   end
 
   def holdings
-    @songs = current_user.songs
+    @songs = current_user.shareholder_songs
   end
 
   def performance
