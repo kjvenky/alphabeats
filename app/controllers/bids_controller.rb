@@ -11,7 +11,7 @@ class BidsController < ApplicationController
         if does_bid_match_offer?(@bid)
           if make_bid_offer_trade(@bid)
             # redirect_to root_path, :notice => "Your bid has been successfully traded"
-          render "create_reload.js.erb" 
+            render "create_reload.js.erb" 
           end
         else
           render "create.js.erb" 
@@ -42,8 +42,8 @@ private
 
   def does_bid_match_offer?(bid)
     # if @bid.bid_price > Bid.where(song_id: @bid.song_id, open_status: 1).order(bid_price: :desc).first.bid_price
-    if Offer.where(song_id: @bid.song_id, open_status: 1).present?
-      return true if @bid.bid_price > Offer.where(song_id: @bid.song_id, open_status: 1).order(offer_price: :asc).first.offer_price
+    if Offer.where(song_id: bid.song_id, open_status: 1).present?
+      return true if bid.bid_price >= Offer.where(song_id: bid.song_id, open_status: 1).order(offer_price: :asc).first.offer_price
     else
       return false
     end
