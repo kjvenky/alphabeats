@@ -56,20 +56,20 @@ private
 
   def make_offer_bid_trade(offer)
 
-    bid = Bid.where(song_id: offer.song_id, open_status: 1).order(bid_price: :desc).first
+    bid = Bid.where(song_id: offer.song_id, open_status: [1,3] ).order(bid_price: :desc).first
     # byebug
     min_share_traded = offer.share <= bid.share ? offer : bid
     amount_paid = min_share_traded.share*bid.bid_price
 
     begin
       ActiveRecord::Base.transaction do
-        transactionlog= TransactionLog.create!(amount: amount_paid, transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
+        transactionlog= TransactionLog.create!(amount: amount_paid, transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: offer.user.id)
 
-        TradeLog.create!(seller_id: current_user.id, buyer_id: bid.user.id, song_id: bid.song.id, share: min_share_traded.share , amount: amount_paid , transaction_log_id: transactionlog.id )
+        TradeLog.create!(seller_id: offer.user.id, buyer_id: bid.user.id, song_id: bid.song.id, share: min_share_traded.share , amount: amount_paid , transaction_log_id: transactionlog.id )
 
         #update_wallet
-        offer_new_wallet_amount = current_user.wallet.amount + amount_paid
-        current_user.wallet.update_attributes!(amount: offer_new_wallet_amount)
+        offer_new_wallet_amount = offer.user.wallet.amount + amount_paid
+        offer.user.wallet.update_attributes!(amount: offer_new_wallet_amount)
 
         bidder_wallet = Wallet.find_by(user_id: bid.user.id)
         bidder_new_wallet_amount = bidder_wallet.amount + amount_paid
@@ -77,7 +77,7 @@ private
 
         #update_shareholdings
         if !bid.song.shareholders.find_by(user_id: bid.user.id)
-            # bidder_shareholder_account = offer.song.shareholders.create!(user_id: current_user.id, share: 0)
+            # bidder_shareholder_account = offer.song.shareholders.create!(user_id: offer.user.id, share: 0)
           Shareholder.create!(song_id: bid.song.id, user_id: bid.user.id, share: min_share_traded.share)
         else
           bidder_shareholder_account = bid.song.shareholders.find_by(user_id: bid.user.id)
@@ -88,11 +88,25 @@ private
           offer_shares = offer_shareholder_account.share
         offer_shareholder_account.update_attributes!(share: offer_shares - min_share_traded.share )
         
+        #update bid and offer
+        if bid.share == min_share_traded
+          bid.update_attributes!(open_status: 2)
+        else
+          updated_bid_share = bid.share-min_share_traded
+          bid.update_attributes!(open_status: 3, share: updated_bid_share)
+        end
 
-      end
+        if offer.share == min_share_traded
+          offer.update_attributes!(open_status: 2)
+        else
+          updated_offer_share = offer.share-min_share_traded
+          offer.update_attributes!(open_status: 3, share: updated_offer_share)
+        end
+
+      end #End activerecord transaction
     rescue ActiveRecord::RecordInvalid => invalid
       return false
-    end
+    end #end of begin
 
     return true
   end

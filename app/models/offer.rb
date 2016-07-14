@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
-OFFER_STATUS = { 1 => 'open', 2=>'closed'}
+OFFER_STATUS = { 1 => 'open', 2=>'closed', 3 => 'partially traded' }
 class Offer < ActiveRecord::Base
 
   belongs_to :user
