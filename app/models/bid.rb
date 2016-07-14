@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
-BID_STATUS = { 1 => 'open', 2=>'closed'}
+BID_STATUS = { 1 => 'open', 2=>'closed', 3 => 'partially traded' }
 class Bid < ActiveRecord::Base
 
   belongs_to :user
@@ -27,4 +27,7 @@ class Bid < ActiveRecord::Base
   def get_bid_status
     BID_STATUS[self.open_status]
   end
+
+
+
 end
