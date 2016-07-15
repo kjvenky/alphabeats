@@ -1,0 +1,18 @@
+
+  <div class="your-unpaid-albums">
+    <% current_user.albums.each do |album| %>
+      <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil? && !current_order.order_items.find_by(album_id: album.id )%>
+        <!-- <div class="your&#45;albums"> -->
+          <div class="row">
+            <div class="col-md-9">
+              <span class="album_index_name"> <%= link_to album.album_name, album_song_path(album) %></span>
+            </div>
+            <div class="col-md-offset-1 col-md-2">
+              <%= link_to ">>", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
+            </div>
+          </div>
+          <br/>
+        <!-- </div> -->
+      <% end %>
+    <% end %>
+  </div>

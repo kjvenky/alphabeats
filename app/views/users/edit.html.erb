@@ -6,13 +6,13 @@
       <%= render partial: 'shared/error_messages', locals: {resource: @user}  %>
       <%= f.input :first_name, label: 'First Name', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :last_name, label: 'Last name', input_html: {class: 'input input-style form-control'} %> <br>
-      
-    <% if @song_count > 0 %>
-      <%= f.input :username, label: 'Username', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :profile_photo, label: 'Profile Photo', input_html: {class: 'input input-style form-control'} %> <br>
-      <%= f.input :stage_name, label: 'Stage Name', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :hometown, label: 'Hometown', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :country, label: 'Country', input_html: {class: 'input input-style form-control'} %> <br>
+
+    <% if @song_count > 0 %>
+      <%= f.input :username, label: 'Username', input_html: {class: 'input input-style form-control'} %> <br>
+      <%= f.input :stage_name, label: 'Stage Name', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :facebook, label: 'Facebook Page', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :soundcloud, label: 'Soundcloud Url', input_html: {class: 'input input-style form-control'} %> <br>
       <%= f.input :youtube, label: 'Youtube Channel', input_html: {class: 'input input-style form-control'} %> <br>

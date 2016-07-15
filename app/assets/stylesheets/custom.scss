@@ -52,7 +52,15 @@ fieldset[disabled] .btn-transparent.active {
   background-color: #ffffff; 
 }
 
+
 // end custom bootstrap button
+
+.solid-button {
+    background-color: #98aa7d;
+    border-radius:0;
+    border:none;
+    color:black;
+  }
 
 
 //////////////////////////////////
@@ -112,7 +120,31 @@ body{
     background-color:#77668E;
   }
 
+  .solid-button {
+    background-color: #98aa7d;
+    border-radius:0;
+    border:none;
+  }
+
+  .terms-line {
+    font-size:1em;
+    text-decoration:underline;
+  }
+
+  .form-sidenote {
+    padding:0;
+    font-size:0.75em;
+    margin-bottom:0;
+    margin-top:0.4em;
+  }
+  .cover-song-sidenote {
+    padding:0;
+    font-size:1em;
+    margin-bottom:0;
+  }
 }
+
+
 
 //centre text
 .center-text{

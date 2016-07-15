@@ -43,7 +43,8 @@ class Song < ActiveRecord::Base
   has_many :song_stats
 
 
-  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :user_id,  :original_artist, :original_song_title
+  validates_presence_of :song_title,  :terms, :audio_file, :album_id, :user_id 
+ # validates_presence_of :song_title,  :terms, :audio_file, :album_id, :user_id,  :original_artist, :original_song_title
 
   validates :terms, acceptance: {accept: true}
   validates_inclusion_of :explicit_lyrics, :in => [true, false]

@@ -1,16 +1,28 @@
 <div class="profile-box tab-pane">
   <div class="row">
+      <% if can? :create, Album %>
+        <div class="album-show-edit">
+          <a data-method="delete" data-confirm="Are you sure that you want to delete this album?" href="<%= album_path(album) %>">
+            <span id="updates" class="delete-item">x</span>
+          </a>
+        </div>
+      <% end %>
     <div class="col-md-4 vertical-line">
-      <img src="<%=album.album_cover %>"class="img-responsive"  alt="">
+      <img src="<%=album.album_cover %>"class="img-responsive"  alt="" height="300" width="300">
     </div>
     <div class="col-md-8">
-      <br/>
+   
       <div class="vertical-line box-title">
         <%= album.album_name %>
+        <% if can? :create, Album %>
+          <div class="album-show-edit">
+            <%= link_to "Edit Album", edit_album_path(album) %>
+           
+          </div>
+        <% end %>
       </div>
-      <%= album.stage_band_name %>
-        
-       
+      <%= album.stage_band_name %> 
+      
     <hr style="border-top: 1px solid #746eaa;"/>
 
       <div class="row">

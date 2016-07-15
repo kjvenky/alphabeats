@@ -421,10 +421,11 @@ html, body {
   background-color: transparent;
   border-style: solid;
   color: white;
-  font-size: 1.2em;
-  border-color: white;
+  font-size: 1em;
+  border-color: #AE94AE;
+  border-radius:0;
   &:focus{
-   border-color: white;
+   border-color: #b69fb6;
  }
 }
 
@@ -557,19 +558,44 @@ $header_menu_height: 70px;
 
 
 .album_index_name {
-  font-size: 1.5em;
+  font-size: 1em;
   font: bold;
 }
 
-.add_to_order {
+
+
+.cart-show {
+  background:#8F7DAA;
+  height:50vh;
+}
+
+.render-cart {
+  background:#77668E;
+  height:35vh;
+  overflow:auto;
+}
+
+.your-unpaid-albums {
+  background:#77668E;
+  height:35vh;
+  overflow:auto;
+  padding:1em;
+
+  a {
+    text-decoration:underline;
+  }
+  
+  .add_to_order {
   background-color: white;
   color: red;
   padding: 2px;
-  font-size: 1.5em;
+  font-size: 1em;
+  text-decoration:none;
 
   &:hover, &:active {
     color: red;
   }
+}
 }
 
 ////////////////////////////////
@@ -581,66 +607,34 @@ $header_menu_height: 70px;
   
   .total_show {
     padding: 2em;
+    background-color:#8F7DAA;;
   }
 
-  .btn-transparent { 
-    color: black; 
-    // background-color: #611BBD;
-    background-color: #F8F8FF; 
-    // border-color: #130269; 
-    border-color: #F8F8FF;
-    border-radius: 100px;
-    padding: 14px 60px; 
-    transition: 1.5s;
-    font-size: 1.25em;
-  } 
+  .total-show-display {
+  background:#77668E;
+  padding:1em;
+  }
 
-  .btn-transparent:hover, 
-  .btn-transparent:focus, 
-  .btn-transparent:active, 
-  .btn-transparent.active, 
-  .open .dropdown-toggle.btn-transparent { 
-    color: red; 
-    // background-color: #49247A;
-    background-color: #f7f7e3;
-    opacity: 1; 
-    // border-color: #130269;
-    border-color: #f7f7e3; 
-    transition: 1.5s;
-  } 
-
-  .btn-transparent:active, 
-  .btn-transparent.active, 
-  .open .dropdown-toggle.btn-transparent { 
-    background-image: none; 
-  } 
-
-  .btn-transparent.disabled, 
-  .btn-transparent[disabled], 
-  fieldset[disabled] .btn-transparent, 
-  .btn-transparent.disabled:hover, 
-  .btn-transparent[disabled]:hover, 
-  fieldset[disabled] .btn-transparent:hover, 
-  .btn-transparent.disabled:focus, 
-  .btn-transparent[disabled]:focus, 
-  fieldset[disabled] .btn-transparent:focus, 
-  .btn-transparent.disabled:active, 
-  .btn-transparent[disabled]:active, 
-  fieldset[disabled] .btn-transparent:active, 
-  .btn-transparent.disabled.active, 
-  .btn-transparent[disabled].active, 
-  fieldset[disabled] .btn-transparent.active { 
-    background-color: #611BBD; 
-    border-color: #130269; 
-  } 
-
-  .btn-transparent .badge { 
-    color: #611BBD; 
-    background-color: #ffffff; 
+  .solid-button {
+  float:right;
   }
 
 }
 
+.extra-features {
+  height:40vh;
+  overflow:auto;
+  background:#8F7DAA;
+  margin:2vh;
+  word-break:break-word;
+  padding-top:2px;
+  }
+
+.feature-description {
+  background:#77668E;
+  height:18vh;
+  overflow:auto; 
+}
 
 ////////////////////////////////
 ///     mobile home.erb     ////

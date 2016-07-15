@@ -1,54 +1,111 @@
-<div class="col-md-offset-2 col-md-8 bg-album-song-color"><br/>
+<div class="col-md-12 bg-album-song-color"><br>
   <!-- <div class="form&#45;bg"> -->
   <%= simple_form_for song, :html => { class: 'song-form-style' } do |f| %>
     <div class="row">
-
       <%= render partial: 'shared/error_messages', locals: {resource: song}  %>
-      <%= f.input :album_id, label: 'Album', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Choose an option first" %> 
-      <li>If you are uploading a single, you must still create a unique album for it. We suggest you use the name of the single itself as the album name.</li> <br>
 
-      <%= f.input :song_title, label: 'Write your song title', input_html: {class: 'input input-style form-control'} %>
-      <li>Featured artists: Use the word feat. in parenthesis, with names separated by ampersand & commas. Example: Sweetest Girl (feat. Akon, Lil Wayne & Niia)</li>
-      <li>Instrumental/remix/versioning: If the title needs an explanatory word, put it in parenthesis. Example: Cheerleader (instrumental)</li>
-      <li>Multiple parenthesis: Titles can only have 1 set of parenthesis. If you need more, use brackets instead. Example: C'mon (Catch 'Em by Surprise) [Tiësto remix] [feat. Busta Rhymes]</li>
-      <li>Cover songs: If a cover, remix, or mashup, do not include the original artist's name here. Example: Thriller</li>   
-      <li>Capitalization: Use title case. Stores will reject all-lowercase or wEirD capitalization. Example: It's the End of the World As We Know It (And I Feel Fine)</li> <br>   
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Album</div>
+            <div class="col-md-7"><%= f.input :album_id, label: '', input_html: {class: 'input input-style form-control'}, collection: @song_album_list, label_method: :text, value_method: :code, include_blank: "Select or Create an Album" %>
+              <ul class="form-sidenote">If you are uploading a single, you must still create a unique album for it. We suggest you use the name of the single itself as the album name.</ul>
+            </div>
+      </div>
+      <br><br>
 
-      <%= f.label :explicit_lyrics %> </br>
-      <%= f.collection_radio_buttons :explicit_lyrics, [[true, 'Yes'] ,[false, 'No']], :first, :last , :item_wrapper_class => "radio-css"%>
-      <%= f.input :duration, label: 'Song Duration (minutes, seconds)', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("00:00") %> <br>
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Song title</div>
+            <div class="col-md-7"><%= f.input :song_title, label: '', input_html: {class: 'input input-style form-control'} %>
+              <ul class="form-sidenote">Featured artists: Use the word feat. in parenthesis, with names separated by ampersand &amp; commas. Example: Sweetest Girl (feat. Akon, Lil Wayne &amp; Niia)</ul>
+              <ul class="form-sidenote">Instrumental/remix/versioning: If the title needs an explanatory word, put it in parenthesis. Example: Cheerleader (instrumental)</ul>
+              <ul class="form-sidenote">Multiple parenthesis: Titles can only have 1 set of parenthesis. If you need more, use brackets instead. Example: C'mon (Catch 'Em by Surprise) [Tiësto remix] [feat. Busta Rhymes]</ul>
+              <ul class="form-sidenote">Cover songs: If a cover, remix, or mashup, do not include the original artist's name here. Example: Thriller</ul>   
+              <ul class="form-sidenote">Capitalization: Use title case. Stores will reject all-lowercase or wEirD capitalization. Example: It's the End of the World As We Know It (And I Feel Fine)</ul>
+            </div>
+      </div>
+      <br><br>
 
-      <%= f.input :audio_file, label: 'Upload Audio file', input_html: {class: 'input input-style form-control'} %> 
-      <li>WAV, WMA, M4A, FLAC, MP3, or CDDA</li><br>
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">*Explicit Lyrics</div>
+            <div class="col-md-7"><%= f.collection_radio_buttons :explicit_lyrics, [[true, 'Yes'] ,[false, 'No']], :first, :last , :item_wrapper_class => "radio-css"%>
+            </div>
+      </div>
+      <br><br>
 
-      <%= f.input :lyrics, label: 'Lyrics', input_html: {class: 'input input-style form-control'} %> <br>
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Duration (mm:ss)</div>
+            <div class="col-md-7"><%= f.input :duration, label: '.', input_html: {class: 'input input-style form-control', autocomplete:'off'}, :default=> Time.parse("00:00") %>
+            </div>
+      </div>
+      <br><br>
+
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Upload Audio File</div>
+            <div class="col-md-7"><%= f.input :audio_file, label: '', input_html: {class: 'input input-style form-control'} %> 
+              <ul class="form-sidenote">WAV, WMA, M4A, FLAC, MP3, or CDDA</ul>
+            </div>
+      </div>
+      <br><br>
+
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Lyrics</div>
+            <div class="col-md-7"><%= f.input :lyrics, label: '.', input_html: {class: 'input input-style form-control'} %>
+            </div>
+      </div>
+      <br><br>
+
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Song Writer</div>
+            <div class="col-md-7"><%= f.collection_radio_buttons :self_written, [[true, "I wrote this song (it's an original tune)"] ,[false, "Another artist wrote it (it's a cover, read below for more info)"]], :first, :last , :item_wrapper_class => "radio-css", :id => "self_written_check" %>
+              <div id="cover_song" style="display:none;">
+                <ul class="cover-song-sidenote"><b>Cover songs are okay!</b><br>A "cover song" is a song that you performed &amp; recorded yourself, but the music was written by someone else. For example, when your band plays "Smooth Criminal" (written by Michael Jackson). This is totally okay—DistroKid makes it easy and legal to sell cover songs.</ul><br>
+                <ul class="cover-song-sidenote"><b>Sampling is probably not okay</b><br>Sampling is when you use the actual recording of another artist's performance. For example, if you use the 1971 recording of Led Zeppelin's "When The Levee Breaks" as your drum track. That's generally not allowed, unless you have permission from the original artist.</ul><br>
+                <ul class="cover-song-sidenote"><b>DistroKid will handle licensing &amp; pay the original songwriter(s)</b><br>DistroKid will obtain the required compulsory mechanical license for you. We'll automatically deduct the legally-mandated fee of 9.1¢ per song sold in the U.S. from your earnings and pay it to the original songwriter. You'll get 100% of the rest.</ul><br>
+                <ul class="cover-song-sidenote"><b>Fee: DistroKid charges a fee of $1 per month (paid annually, so $12 billed to your cc) to manage this cover song for you. They will:</b></ul>
+                <ul class="cover-song-sidenote">Obtain license(s)</ul>
+                <ul class="cover-song-sidenote">Pay the original songwriter(s) every month</ul>
+                <ul class="cover-song-sidenote">Keep up-to-date on copyright laws affecting your music</ul>
+                <ul class="cover-song-sidenote">Do the things described <u><a href="http://www.copyright.gov/licensing/sec_115.html">here</a></u> and <u><a href="http://www.copyright.gov/title17/92chap1.html#115">here</a></u></ul>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">Original Songwriter</div>
+                <div class="col-md-9"><%= f.input :original_artist, label: '', input_html: {class: 'input input-style form-control'} %></div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3">Original Song Title</div>
+                <div class="col-md-9"><%= f.input :original_song_title, label: '', input_html: {class: 'input input-style form-control'} %></div>
+                </div>
+              </div>
+              
+            </div>
+      </div>
+      <br><br>
+
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Producer</div>
+            <div class="col-md-7"><%= f.input :producer, label: '.', input_html: {class: 'input input-style form-control'} %>
+            </div>
+      </div>
+      <br><br>
+
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Producer Email</div>
+            <div class="col-md-7"><%= f.input :producer_email, label: '.', input_html: {class: 'input input-style form-control'} %>
+            </div>
+      </div>
+      <br><br>
 
 
-      <%= f.label :self_written, label: "Song Writer" %> </br>
-      <%= f.collection_radio_buttons :self_written, [[true, "I wrote this song (it's an original tune)"] ,[false, "Another artist wrote it (it's a cover, read below for more info)"]], :first, :last , :item_wrapper_class => "radio-css"%>
-      <li><b>Cover songs are okay!</b><br>A "cover song" is a song that you performed & recorded yourself, but the music was written by someone else. For example, when your band plays "Smooth Criminal" (written by Michael Jackson). This is totally okay—DistroKid makes it easy and legal to sell cover songs.</li><br>
-      <li><b>Sampling is probably not okay</b><br>Sampling is when you use the actual recording of another artist's performance. For example, if you use the 1971 recording of Led Zeppelin's "When The Levee Breaks" as your drum track. That's generally not allowed, unless you have permission from the original artist.</li><br>
-      <li><b>DistroKid will handle licensing & pay the original songwriter(s)</b><br>DistroKid will obtain the required compulsory mechanical license for you. We'll automatically deduct the legally-mandated fee of 9.1¢ per song sold in the U.S. from your earnings and pay it to the original songwriter. You'll get 100% of the rest.</li><br>
-      <li><b>Fee</b>DistroKid charges a fee of $1 per month (paid annually, so $12 billed to your cc) to manage this cover song for you. They will:
-        <ul>Obtain license(s)</ul>
-        <ul>Pay the original songwriter(s) every month</ul>
-        <ul>Keep up-to-date on copyright laws affecting your music</ul>
-        <ul>Do the things described <u><a href="http://www.copyright.gov/licensing/sec_115.html">here</a></u> and <u><a href="http://www.copyright.gov/title17/92chap1.html#115">here</a></u></ul>
-      </li><br>
 
-      <%= f.input :original_artist, label: 'Original artist/songwriter (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %>
+      <div class="row">
+            <div class="col-md-offset-1 col-md-2">Note to Admin</div>
+            <div class="col-md-7"><%= f.input :note_to_admin, label: '.', input_html: {class: 'input input-style form-control'} %>
+              <ul class="form-sidenote">If the song's royalties are being shared amongst multiple people, please provide their email address and percent of rights owned, and separate individuals by commas. Example songwriter@alphabeatsmusic.com (50%), drummer@example.com (10%)</ul>
+              <ul class="form-sidenote">If you would like to delete a single, please write a note here</ul> 
+              <ul class="form-sidenote">Special requests?</ul>
+            </div>
+      </div>
 
-      <%= f.input :original_song_title, label: 'Original song title (write n/a if not a cover song)', input_html: {class: 'input input-style form-control'} %> <br><br>
-
-      <%= f.input :producer, label: 'Producer', input_html: {class: 'input input-style form-control'} %> <br>
-
-      <%= f.input :producer_email, label: 'Producer Email', input_html: {class: 'input input-style form-control'} %> <br>
-
-
-      <%= f.input :note_to_admin, label: 'Note to admin', input_html: {class: 'input input-style form-control'} %> 
-      <li>If the song's royalties are being shared amongst multiple people, please provide their email address and percent of rights owned, and separate individuals by commas. Example songwriter@alphabeatsmusic.com (50%), drummer@example.com (10%)</li>
-      <li>If you would like to delete a single, please write a note here</li> 
-      <li>Special requests?</li><br> 
     </div>
 
 
@@ -59,24 +116,22 @@
       <%= f.input :download_count, label: 'Download Count', input_html: {class: 'input input-style form-control'} %> <br><br>
       <%= f.input :income_till_date, label: 'Income so far on this song', input_html: {class: 'input input-style form-control'} %> <br><br>
     <% end %>
-
+    <br><br>
     <div class="row">
-      <div class="col-md-1">
-          <%= f.input :terms, input_html: {class: 'input input-style form-control'}, label: ''  %>
+      <div class="col-md-offset-4 col-md-7">
+        <%= f.label :terms do %>
+        <%= f.check_box :terms, :style => "float:left;" %>
+        <%= f.label :terms, "&nbsp;&nbsp;" "#{link_to 'I accept these terms of service', terms_path, :target => "_blank", :class => "terms-line"}.".html_safe, :style => "float:right;" %>
+      <% end %>
       </div>
-      <div class="col-md-7">
-        <a href="/terms">I agree to the terms and conditions</a>
       </div>
+
+      
       <!-- <div class="col&#45;sm&#45;3"> -->
       <!--   <br/> -->
       <!-- </div> -->
-      <br/><br/><br/>
-        <span>
-          <%= link_to 'Read Terms and Conditions', terms_path %>
-        </span>
-      <br/><br/><br/>
     <!-- </div> -->
-      <%= f.button :submit, class: 'btn btn-transparent btn-lg' %>
+    <div class="col-md-offset-5"><%= f.button :submit, class: 'btn btn-transparent btn-lg solid-button' %></div>
     <% end %>
   </div>
 

@@ -1,58 +1,39 @@
 <%= render "songs/secondheader" %>
-<br><br><br><br>
+<br>
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-10 li-styling">
-<div class="col-md-7">
-    <h2>Uploaded Albums and Tracks</h2>  
+  <div class="col-sm-offset-2 col-sm-9 li-styling">
+
+<div class="col-md-5 cart-show unpaid-cart">
+    <h2 class="center-text">Your Albums</h2>  
 <% if !@albums.nil? %>
-
-<% @albums.each do |album| %>
-  <% if (album.order_items.last.nil? || !album.order_items.last.order.payment_status) && !album.songs.last.nil?%>
-    <br><ul class="album_<%= album.id %>">
-    <div class="row">
-      <div class="col-md-5">
-        <span class="album_index_name"> <%=album.album_name %> </span>
-      </div>
-      <div class="col-md-2">
-        <span class="album_index_name"> <%= link_to "Details", album_path(album) %></span>
-      </div>
-      <div class="col-md-1">
-        <span class="album_index_name"> <%= link_to "Edit", edit_album_path(album) %></span>
-      </div>
-      <div class="col-md-4">
-        <%= link_to "Add To Order", order_items_path(:album_id => album.id), method: :post, remote: :true, :class => "album_index_name, add_to_order" %>      
-      </div>
-    </div>
-    </ul>
-    <% album.songs.each do |song| %>
-      <ul class="song_<%= song.id %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="col-md-4">
-          <span class="song_index_name"> <%=song.song_title %> </span>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-          <span class="song_link"> <%= link_to "Details", song_path(song) %></span>
-        </div>
-        <div class="col-md-2">
-          <span class="song_edit"> <%= link_to "Edit", edit_song_path(song) %></span>
-        </div>
-      </ul>
-    <% end %>
-  <% end %>
-<% end %>
+      <%= render "your_unpaid_albums" %>
 <% else %>
-  <%= raw("Please upload tracks in the albums that you create") %>
+  <%= raw("Please create an album, and upload songs in it.") %>
 <% end %>
 </div>
-<div class="col-md-5">
-    <h2>Cart</h2>  
-    <%= render "cart_show" %>
-</div>
 
-   
-    
+
+<div class="col-md-offset-1 col-md-5 cart-show">
+    <h2 class="center-text">Cart</h2>  
+    <div class="render-cart">
+      <%= render "cart_show" %>
+    </div>
+</div>    
   </div>
 </div>
+<br>
+
+
+<%=raw("<div class='row'>
+  <div class='col-sm-offset-9 col-sm-3'>
+    <a href='#{payment_page_path}'>
+      <div class='signup-updates'>
+        <button class='btn btn-lg solid-button'>
+          <span id='updates'>Continue</span>
+        </button>
+      </div>
+    </a>
+  </div>") %>
 
 
 <!-- <div class="row"> -->
