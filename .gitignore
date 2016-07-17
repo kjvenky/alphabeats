@@ -24,5 +24,6 @@
 #Ignore uploads folder in public
 public/uploads/*
 stray-thoughts.txt
+stray_thoughts.txt
 stray-thoughts
 tabclose
