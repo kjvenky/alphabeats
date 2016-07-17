@@ -56,10 +56,10 @@ fieldset[disabled] .btn-transparent.active {
 // end custom bootstrap button
 
 .solid-button {
-    background-color: #98aa7d;
+    background-color: #FEF5F8;
+    color: #EB5443;
     border-radius:0;
     border:none;
-    color:black;
   }
 
 
@@ -121,9 +121,12 @@ body{
   }
 
   .solid-button {
-    background-color: #98aa7d;
+    background-color: #FEF5F8;
+    color: #EB5443;
     border-radius:0;
-    border:none;
+    border-right:solid 1px;
+    border-bottom:solid 1px;
+    border-color: black;
   }
 
   .terms-line {
