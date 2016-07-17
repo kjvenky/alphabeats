@@ -85,17 +85,18 @@ private
         offer_shareholder_account.update_attributes!(share: offer_shares - min_share_traded.share )
 
         #update bid and offer
-        if bid.share == min_share_traded
+        if bid.share == min_share_traded.share
           bid.update_attributes!(open_status: 2)
         else
-          updated_bid_share = bid.share-min_share_traded
+          byebug
+          updated_bid_share = bid.share-min_share_traded.share
           bid.update_attributes!(open_status: 3, share: updated_bid_share)
         end
 
-        if offer.share == min_share_traded
+        if offer.share == min_share_traded.share
           offer.update_attributes!(open_status: 2)
         else
-          updated_offer_share = offer.share-min_share_traded
+          updated_offer_share = offer.share-min_share_traded.share
           offer.update_attributes!(open_status: 3, share: updated_offer_share)
         end
 
