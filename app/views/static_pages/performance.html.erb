@@ -1,3 +1,64 @@
 <div class="<%= Width::CONTAINER %>">
-  <h1> Coming Soon ...</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h2 class="center-text" >My Trade Sells</h2>
+  
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>Song Name</th>
+          <th>Artist Name</th>
+          <th>Offer Share</th>
+          <th>Offer Price</th>
+        </tr>
+      </thead>
+     <tbody class="song-table">
+       <%  @trade_sells.each do |trade_sell| %>
+  <tr id="bid_<%= trade_sell.id %>">
+    <td></td>
+    <td></td>
+  <td><%=trade_sell.song.song_title %></td>
+  <td><%=trade_sell.song.musician.first_name + trade_sell.song.musician.last_name %></td>
+  <td><%= trade_sell.share %></td>
+  <td><%= trade_sell.amount %></td>
+</tr>
+       <% end %>
+     </tbody>
+   </table>
+  </div>
+
+
+  <div class="col-md-6">
+    <h2 class="center-text" >My Trade Buys</h2>
+  
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>Song Name</th>
+          <th>Artist Name</th>
+          <th>Offer Share</th>
+          <th>Offer Price</th>
+        </tr>
+      </thead>
+     <tbody class="song-table">
+       <%  @trade_buys.each do |trade_sell| %>
+  <tr id="bid_<%= trade_sell.id %>">
+    <td></td>
+    <td></td>
+  <td><%=trade_sell.song.song_title %></td>
+  <td><%=trade_sell.song.musician.first_name + trade_sell.song.musician.last_name %></td>
+  <td><%= trade_sell.share %></td>
+  <td><%= trade_sell.amount %></td>
+</tr>
+       <% end %>
+     </tbody>
+   </table>
+  </div>
 </div>
+
+
+

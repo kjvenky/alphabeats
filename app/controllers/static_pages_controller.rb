@@ -69,6 +69,9 @@ class StaticPagesController < ApplicationController
   end
 
   def performance
+    @trade_sells = TradeLog.where(seller_id: current_user.id)
+    @trade_buys = TradeLog.where(buyer_id: current_user.id)
+    # byebug
   end
 
   def open_trades
