@@ -50,8 +50,8 @@ class SongsController < ApplicationController
   end
 
   def update
-    # @song = current_user.songs.find(params[:id])
-    @song = current_user.song.find(params[:id])
+    @song = current_user.songs.find(params[:id])
+    # @song = current_user.song.find(params[:id])
     if @song.update_attributes(song_params)
       redirect_to song_path(@song), notice: "The song #{@song.song_title} has been updated"
     else
