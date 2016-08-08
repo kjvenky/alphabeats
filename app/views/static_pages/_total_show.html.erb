@@ -1,5 +1,6 @@
 <div id="payment_page">
   <div class="total_show row col-md-offset-1 col-md-10">
+
     <div class="total-show-display">
     <% if !current_order.order_items.nil? %>
        <% @total = 0 %>
@@ -152,7 +153,9 @@
        <br/>
        <%=link_to "Click to Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
        <br><br><br>
-    </div>
+    </div><!-- end total-show-display -->
+
+
    <br>
    <%= link_to "Make Payment", transaction_logs_path( transaction_logs: { amount: @total} ), :class => 'btn btn-lg solid-button', :method => 'POST', data: {confirm: 'Please verify the total in the form. This is an annual fee to be paid for the extra features selected for these albums. We will collect the balance in one month. Please click on OK to confirm.'} %><br/>
   
