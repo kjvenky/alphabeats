@@ -1,0 +1,14 @@
+<div id="continue">
+  <% if current_order.order_items.count!=0 %>
+    <%=raw("<div class='row'>
+      <div class='col-sm-offset-9 col-sm-3'>
+        <a href='#{payment_page_path}'>
+          <div class='signup-updates'>
+            <button class='btn btn-lg solid-button'>
+              <span id='updates'>Continue</span>
+            </button>
+          </div>
+        </a>
+      </div>") %>
+  <% end %>
+</div>
