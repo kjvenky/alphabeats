@@ -8,8 +8,10 @@
       <% end %>
     <br style="line-height:1em;">
     <div class="album-show-edit">
-      <% if can? :create, Song %>
-        <%= link_to "Edit Song", edit_song_path(song) %> 
+      <% if !paid_album?(song.album) %>
+        <% if can? :create, Song %>
+          <%= link_to "Edit Song", edit_song_path(song) %> 
+        <% end %>
       <% end %>
     </div>
    <br style="line-height:2em;">

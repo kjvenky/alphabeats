@@ -1,4 +1,6 @@
 <li class="album_<%= album.id %>">
   <span class="album_index_name"> <%=link_to album.album_name, album_song_path(album) %> </span>
-  <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
+  <% if !paid_album?(album) %>
+    <span class="album_edit"> <%= link_to "Edit", edit_album_path(album) %></span>
+  <% end %>
 </li>

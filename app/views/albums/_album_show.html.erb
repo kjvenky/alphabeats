@@ -14,11 +14,15 @@
    
       <div class="vertical-line box-title">
         <%= album.album_name %>
-        <% if can? :create, Album %>
-          <div class="album-show-edit">
-            <%= link_to "Edit Album", edit_album_path(album) %>
-           
-          </div>
+        <%# <% if !(!album.order_items.last.nil? && album.order_items.last.order.payment_status) %>
+        <% if !paid_album?(album) %>
+          <% if can? :create, Album %>
+
+            <div class="album-show-edit">
+              <%= link_to "Edit Album", edit_album_path(album) %>
+             
+            </div>
+          <% end %>
         <% end %>
       </div>
       <%= album.stage_band_name %> 

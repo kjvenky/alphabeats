@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter  :configure_permitted_parameters, if: :devise_controller? 
-  helper_method :current_order
+  helper_method :current_order, :paid_album?
   def after_sign_up_path_for(resource_or_scope)
   	# if request.env['omniauth.origin']
    #    root_path
@@ -41,9 +41,14 @@ class ApplicationController < ActionController::Base
       Wallet.create(user_id: current_user.id, amount:0) if current_user.wallet.nil?
   end
 
+  def paid_album?(resource)
+    !resource.order_items.last.nil? && resource.order_items.last.order.payment_status
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
+
 
   protected
 
