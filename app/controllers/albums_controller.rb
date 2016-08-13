@@ -46,8 +46,15 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album = current_user.albums.find(params[:id])
-    @album.destroy
-    redirect_to albums_path, notice: "The album #{@album.album_name} has been deleted"
+    if !paid_album?(@album)
+      @album.destroy
+      redirect_to albums_path, notice: "The album #{@album.album_name} has been deleted"
+    elsif @album.album_fully_owned?
+      @album.destroy
+      redirect_to albums_path, notice: "The album #{@album.album_name} has been deleted since it is fully owned by you"
+    else
+      redirect_to albums_path, notice: "FAILURE: The album #{@album.album_name} cannot be deleted since you do not own all the shares for all the songs in the album"
+    end
   end
 
   def album_song_show

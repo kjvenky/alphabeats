@@ -79,4 +79,9 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def song_fully_owned?
+    return true if self.shareholders.count == 1 || self.shareholders.find_by(user_id: self.musician.id).share == 100
+    return false
+  end
+
 end

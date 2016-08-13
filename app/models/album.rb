@@ -130,4 +130,13 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def album_fully_owned? 
+    self.songs.each  do |s|
+     if !s.song_fully_owned? 
+       return false
+     end
+    end
+    return true
+  end
+
 end
