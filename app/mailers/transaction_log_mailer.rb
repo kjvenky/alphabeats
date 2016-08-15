@@ -19,5 +19,12 @@ class TransactionLogMailer < ApplicationMailer
     mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: 'Details of the album you paid')
   end
 
+  def destroy_paid_album_email(user, album)
+    @user = user
+    @album = album
+    @song_count = album.songs.count
+    mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: 'Details of the paid album you deleted')
+  end
+
 
 end
