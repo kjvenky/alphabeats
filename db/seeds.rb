@@ -42,16 +42,16 @@ end
 
 puts "Created three musicians and three musicFANs"
     
-#     
-# 3.times do |n|
-#   musician_email = "musician_#{n+1}@helloravi.com"
-#   user = User.find_by(email: musician_email)
-#
-#   3.times do |m|
-#     user.albums.create(album_name:"Musician_#{n+1}_Album_#{m+1}", stage_band_name:"M_#{n+1}_A_#{m+1}", release_date:, record_label:"Label_M_#{n+1}_A_#{m+1}", album_cover:, language:"#{n+1+m+1}", primary_genre:"#{n+1+m+1}", secondary_genre:"#{n+1+m+4}")
-#     user.albums.create(album_name:"Musician_#{n+1}_Single_#{m+1}", stage_band_name:"M_#{n+1}_S_#{m+1}", release_date:, record_label:"Label_M_#{n+1}_S_#{m+1}", album_cover:, language:"#{n+1+m+1}", primary_genre:"#{n+1+m+1}", secondary_genre:"#{n+1+m+4}")
-#   end
-#
-# end
-#
-# puts "Created 9 albums and 9 singles, (3 albums and 3 singles) for each of the three  musician"
+    
+3.times do |n|
+  musician_email = "musician_#{n+1}@helloravi.com"
+  user = User.find_by(email: musician_email)
+
+  3.times do |m|
+    user.albums.create(album_name:"Musician_#{n+1}_Album_#{m+1}", stage_band_name:"M_#{n+1}_A_#{m+1}",  record_label:"Label_M_#{n+1}_A_#{m+1}", album_cover:File.open(Rails.root + "app/assets/images/album.jpg"), language:"#{n+1+m+1}", primary_genre:"#{n+1+m+1}", secondary_genre:"#{n+1+m+4}")
+    user.albums.create(album_name:"Musician_#{n+1}_Single_#{m+1}", stage_band_name:"M_#{n+1}_S_#{m+1}", record_label:"Label_M_#{n+1}_S_#{m+1}", album_cover:File.open(Rails.root + "app/assets/images/single.jpg"), language:"#{n+1+m+1}", primary_genre:"#{n+1+m+1}", secondary_genre:"#{n+1+m+4}")
+  end
+
+end
+
+puts "Created 9 albums and 9 singles, (3 albums and 3 singles) for each of the three  musician"
