@@ -55,3 +55,23 @@ puts "Created three musicians and three musicFANs"
 end
 
 puts "Created 9 albums and 9 singles, (3 albums and 3 singles) for each of the three  musician"
+
+3.times do |n|
+  musician_email = "musician_#{n+1}@helloravi.com"
+  user = User.find_by(email: musician_email)
+
+  3.times do |m|
+    single = user.albums.find_by(stage_band_name:"M_#{n+1}_S_#{m+1}")
+    single.songs.create!(song_title:"Musician_#{n+1}_Single_#{m+1}_Song", lyrics:"Musician_#{n+1}_Single_#{m+1}_Lyrics", terms: true, audio_file: File.open(Rails.root + "public/muted_one_sec.mp3"), explicit_lyrics: true, self_written: true, user_id: user.id)
+    puts "Created a song for Musician_#{n+1}_Single_#{m+1}_Song"
+    album = user.albums.find_by(stage_band_name:"M_#{n+1}_A_#{m+1}")
+    3.times do |o|
+    album.songs.create!(song_title:"Musician_#{n+1}_Album_#{m+1}_Song_#{o+1}", lyrics:"Musician_#{n+1}_Album_#{m+1}_Lyrics_#{o+1}", terms: true, audio_file: File.open(Rails.root + "public/muted_one_sec.mp3"), explicit_lyrics: true, self_written: true, user_id: user.id)
+    puts "Created a song for Musician_#{n+1}_Album_#{m+1}_Song_#{o+1}"
+    end
+    # single.songs.create(song_title:"Musician_#{n+1}_Single_#{m+1}_Song", song_writer:, lyrics:"Musician_#{n+1}_Single_#{m+1}_Lyrics", terms:, audio_file:,  duration:, note_to_admin:, album_id:, explicit_lyrics:, self_written:, original_artist:, original_song_title:)
+  end
+
+end
+
+puts "Created 36 songs: 12 for each user - 3 for 3 albums an 1 for each of 3 singles"
