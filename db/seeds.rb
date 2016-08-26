@@ -22,7 +22,7 @@
                password: password,
                password_confirmation: password,
                          confirmed_at: Time.now)
-  Wallet.create!(user_id: musician.id, amount: 1000)
+  musician.wallet.update!(amount: 1000)
 
   puts "created musician_#{n+1} and its wallet"
 
@@ -35,7 +35,8 @@
                password: password,
                password_confirmation: password,
                          confirmed_at: Time.now)
-  Wallet.create!(user_id: music_fan.id, amount: 1000)
+  music_fan.wallet.update!(amount: 1000)
+  
   puts "created musicfan_#{n+1} and its wallet"
 
 end
