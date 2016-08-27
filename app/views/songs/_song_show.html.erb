@@ -2,9 +2,11 @@
   
   <div class="col-sm-offset-1 col-sm-10 album-show">
     <% if can? :create, Song %>
-        <a data-method="delete" data-confirm="Are you sure that you want to delete this song?" href="<%= song_path(song) %>">
-          <span id="updates" class="delete-item">x</span>
-        </a>    
+        <% if !paid_album?(song.album) %>
+          <a data-method="delete" data-confirm="Are you sure that you want to delete this song?" href="<%= song_path(song) %>">
+            <span id="updates" class="delete-item">x</span>
+          </a>    
+        <% end %>
       <% end %>
     <br style="line-height:1em;">
     <div class="album-show-edit">
