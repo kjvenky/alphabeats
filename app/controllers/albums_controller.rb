@@ -51,7 +51,7 @@ class AlbumsController < ApplicationController
       redirect_to albums_path, notice: "The album #{@album.album_name} has been deleted"
     elsif @album.album_fully_owned?
       @album.destroy
-      TransactionLogMailer.destroy_paid_album(@album.musician, @album).deliver_now
+      TransactionLogMailer.destroy_paid_album_email(@album.musician, @album).deliver_now
       redirect_to albums_path, notice: "The album #{@album.album_name} has been deleted since it is fully owned by you"
     else
       redirect_to albums_path, notice: "FAILURE: The album #{@album.album_name} cannot be deleted since you do not own all the shares for all the songs in the album"
