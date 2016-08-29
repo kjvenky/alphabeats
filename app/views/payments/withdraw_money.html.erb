@@ -4,6 +4,28 @@
 
   <p> Paypal account typed in: <%= session[:paypal_id] %> </p>
   <p>Amount being withdrawn:<%= session[:amount] %> </p>
+  <p> Current Balance: <%= current_user.reload.wallet.amount %></p>
   <p>Balance after withdrawl: <%= current_user.reload.wallet.amount - session[:amount].to_f %></p>
+
+<br><br>
+  <div class="col-sm-6">
+    <a href="<%= wallet_path %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent solid-button">
+          <span id="updates">Change Details</span>
+        </button>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-sm-6">
+    <a href="<%= cart_page_path %>">
+      <div class="signup-updates">
+        <button class="btn btn-lg btn-transparent solid-button">
+          <span id="updates">Initiate Email Verification</span>
+        </button>
+      </div>
+    </a>
+  </div>
   </div>
 </div>

@@ -1,5 +1,13 @@
 class PaymentsController < ApplicationController
 
+  def withdraw_money
+    session[:amount]=params[:amount]
+    session[:paypal_id]=params[:paypal_id]
+  end
+
+  def initiate_withdrawl_email
+  end
+
 	def express_checkout
 		response = EXPRESS_GATEWAY.setup_purchase(BigDecimal.new(params[:amount])*100,
 			ip: request.remote_ip,

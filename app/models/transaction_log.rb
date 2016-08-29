@@ -10,8 +10,8 @@
 #  updated_at         :datetime         not null
 #  user_id            :integer
 #
-TRANSACTION_STATUS = { 1 => 'success', 2=>'failure'}
-TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'from bank', 3 => 'to wallet'}
+TRANSACTION_STATUS = { 1 => 'success', 2=>'failure', 3=> 'pending' }
+TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'deposit from bank into wallet', 3 => 'to wallet', 4 => 'withdrawl from wallet'}
 #Transaction types - bank to wallet, wallet to wallet, wallet to bank
 class TransactionLog < ActiveRecord::Base
   has_one :order
@@ -33,11 +33,13 @@ class TransactionLog < ActiveRecord::Base
   module TransactionStatus
     SUCCESS = 1
     FAILURE = 2
+    PENDING = 3
   end
 
   module TransactionType
     FROM_WALLET = 1
     FROM_BANK = 2
     TO_WALLET = 3
+    WITHDRAWL_FROM_WALLET = 4
   end
 end

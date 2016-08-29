@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:new, :create]
   post 'express_checkout' => 'payments#express_checkout', as: :express_checkout
+  post 'withdraw_money' => 'payments#withdraw_money', as: :withdraw_money
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
