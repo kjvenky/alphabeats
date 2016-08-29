@@ -1,17 +1,36 @@
-  <div class="row">
-    <div class="container">
+  <div class="container">
+    <div class="row">
       <h1> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %></h1>
 
+      <div class="col-md-6">
       <p>
          <br/><br/>
+         <h3>Add money</h3>
       <%= form_tag express_checkout_path do %>
           <%= label_tag(:amount, "Add Money  ") %>
          <%= text_field_tag :amount,"In dollars", class: "input input-style" %>
          <br/><br/>
          <%= image_submit_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif") %>   
       <% end %> 
-      
       </p>
+      </div>
+      <div class="col-md-6">
+      <p>
+         <br/><br/>
+         <h3>Withdraw money</h3>
+      <%= form_tag withdraw_money_path do %>
+        <%= label_tag(:amount, "Money") %>
+         <%= text_field_tag :amount,"In dollars", class: "input input-style" %>
+         <br/><br/>
+          <%= label_tag(:paypal_id, "Paypal Id  ") %>
+         <%= text_field_tag :paypal_id,"paypal email address", class: "input input-style" %>
+         <br/><br/>
+    <%# <%= f.button :submit, class: 'btn btn-transparent btn-lg solid-button' %>
+    <%= submit_tag "Continue", data: { confirm: "Are you sure?" }, class: 'btn btn-transparent btn-lg solid-button' %>
+      <% end %> 
+      </p>
+      </div>
+
 
     </div>
   </div>
