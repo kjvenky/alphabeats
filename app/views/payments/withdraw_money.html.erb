@@ -1,0 +1,9 @@
+<div class="container">
+<div class="row">
+  <h2>Please confirm the following details</h2>
+
+  <p> Paypal account typed in: <%= session[:paypal_id] %> </p>
+  <p>Amount being withdrawn:<%= session[:amount] %> </p>
+  <p>Balance after withdrawl: <%= current_user.reload.wallet.amount - session[:amount].to_f %></p>
+  </div>
+</div>
