@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
 
-  def withdraw_money
+  def confirm_withdrawl
     session[:amount]=params[:amount]
     session[:paypal_id]=params[:paypal_id]
   end

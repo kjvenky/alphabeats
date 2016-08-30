@@ -18,7 +18,7 @@
       <p>
          <br/><br/>
          <h3>Withdraw money</h3>
-      <%= form_tag withdraw_money_path do %>
+      <%= form_tag confirm_withdrawl_path do %>
         <%= label_tag(:amount, "Money") %>
          <%= text_field_tag :amount,"In dollars", class: "input input-style" %>
          <br/><br/>
@@ -26,7 +26,7 @@
          <%= text_field_tag :paypal_id,"paypal email address", class: "input input-style" %>
          <br/><br/>
     <%# <%= f.button :submit, class: 'btn btn-transparent btn-lg solid-button' %>
-    <%= submit_tag "Continue", data: { confirm: "Are you sure?" }, class: 'btn btn-transparent btn-lg solid-button' %>
+    <%= submit_tag "Continue",  class: 'btn btn-transparent btn-lg solid-button' %>
       <% end %> 
       </p>
       </div>
