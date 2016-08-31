@@ -34,3 +34,12 @@
 
     </div>
   </div>
+
+  <script>
+  $("#song_album_id").on('change', function(e) {
+    var valueSelected = this.value;
+    if (valueSelected == -1) {
+      window.location.href=("<%= ENV['CREATE_NEW_ALBUM'] %>")
+   }; 
+ })
+  </script>
