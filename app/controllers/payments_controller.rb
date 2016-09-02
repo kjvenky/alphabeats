@@ -3,9 +3,20 @@ class PaymentsController < ApplicationController
   def confirm_withdrawl
     session[:amount]=params[:amount]
     session[:paypal_id]=params[:paypal_id]
+    if params[:amount].to_f > current_user.wallet.amount
+      redirect_to wallet_path, alert: "You cannot withdraw more than the available balance: #{ current_user.reload.wallet.amount}"
+    end
   end
 
-  def initiate_withdrawl_email
+  def initiate_withdrawl_email_verification
+    @transactionlog = Payment.verify_withdrawl(current_user, current_user.wallet, session[:amount], session[:paypal_id])
+    session[:amount]= nil
+    session[:paypal_id]= nil
+    if @transactionlog
+      redirect_to transaction_log_path(@transactionlog), notice: "Please check your email and respond accordingly"
+    else
+      redirect_to wallet_path, alert: "Withdrawl has been unsuccessful. Please try again"
+    end
   end
 
 	def express_checkout

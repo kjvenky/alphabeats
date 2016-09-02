@@ -1,10 +1,13 @@
   <div class="container">
     <div class="row">
-      <h1> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %></h1>
-
+      <h3> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> &nbsp;&nbsp;
+       <% if current_user.transaction_logs.where(transaction_type: 4) %>
+        <p>Pending  Withdrawl: <%= current_user.transaction_logs.where(transaction_type:4).collect {|t| t.amount }.sum %></p>
+       <% end %>
+      </h3>
       <div class="col-md-6">
       <p>
-         <br/><br/>
+         <!-- <br/><br/> -->
          <h3>Add money</h3>
       <%= form_tag express_checkout_path do %>
           <%= label_tag(:amount, "Add Money  ") %>
@@ -16,7 +19,7 @@
       </div>
       <div class="col-md-6">
       <p>
-         <br/><br/>
+         <!-- <br/><br/> -->
          <h3>Withdraw money</h3>
       <%= form_tag confirm_withdrawl_path do %>
         <%= label_tag(:amount, "Money") %>

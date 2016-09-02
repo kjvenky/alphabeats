@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709034718) do
+ActiveRecord::Schema.define(version: 20160901132913) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -97,8 +97,11 @@ ActiveRecord::Schema.define(version: 20160709034718) do
     t.string   "express_token"
     t.string   "express_payer_id"
     t.integer  "wallet_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "transaction_log_id"
+    t.string   "paypal_id"
+    t.integer  "payment_type",       default: 1, null: false
   end
 
   create_table "shareholders", force: :cascade do |t|

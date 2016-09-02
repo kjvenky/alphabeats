@@ -10,6 +10,7 @@
 #  amount      :decimal(7, 2)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  bid_price   :decimal(7, 2)
 #
 
 BID_STATUS = { 1 => 'open', 2=>'closed', 3 => 'partially traded' }

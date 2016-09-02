@@ -1,6 +1,11 @@
 <%= render "songs/secondheader" %>
 <div class="row">
   <div class="col-md-offset-1 col-md-10">
+<% if @transactionLog.transaction_type == 4 %>
+  <p> Current Balance: <%= current_user.reload.wallet.amount %></p>
+  <p> Balance before withdrawl: <%= current_user.reload.wallet.amount + @transactionLog.amount %></p>
+  <p> Pending withdrawl: <%=  @transactionLog.amount %></p>
+<% else %>
     <% order = @transactionLog.order %>
     <% order.order_items.each do |order_item| %>
       <% if order_item.album.songs.count==1 %>
@@ -37,6 +42,7 @@
       <% end %>
     <% end %>
     Total: <%= @transactionLog.amount %>
+<% end %>
 </div>
 </div>
 

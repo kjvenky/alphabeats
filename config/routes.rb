@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   resources :payments, only: [:new, :create]
   post 'express_checkout' => 'payments#express_checkout', as: :express_checkout
   post 'confirm_withdrawl' => 'payments#confirm_withdrawl', as: :confirm_withdrawl
+  get 'initiate_withdrawl_email_verification' => 'payments#initiate_withdrawl_email_verification', as: :initiate_withdrawl_email_verification
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

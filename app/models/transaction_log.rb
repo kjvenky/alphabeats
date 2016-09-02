@@ -17,6 +17,7 @@ class TransactionLog < ActiveRecord::Base
   has_one :order
   belongs_to :user
   has_one :trade_log
+  has_one :payment
 
   validates_presence_of :user_id
   validates_numericality_of :amount
