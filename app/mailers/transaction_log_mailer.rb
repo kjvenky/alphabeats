@@ -26,5 +26,15 @@ class TransactionLogMailer < ApplicationMailer
     mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: 'Details of the paid album you deleted')
   end
 
+  def withdrawl_email(user, transactionLog, payment) 
+    @user = user
+    @transactionLog= transactionLog
+    @paypal_id= payment.paypal_id
+    @withdrawl_amount= transactionLog.amount
+    @balance= user.wallet.amount
+    @email= user.email 
+    mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: "Tx id: #{transactionLog.id} Withdrawl Request Confirmation")
+  end
+
 
 end

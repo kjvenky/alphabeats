@@ -57,14 +57,14 @@ class Payment < ActiveRecord::Base
       begin
         ActiveRecord::Base.transaction do
           @transactionLog= TransactionLog.create!(amount: amount.to_f, transaction_type: TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::PENDING,  user_id: user.id)
-          Payment.create!(wallet_id: wallet.id, transaction_log_id: @transactionLog.id, paypal_id: paypal_id, payment_type: PaymentType::WITHDRAWL)
+          @payment = Payment.create!(wallet_id: wallet.id, transaction_log_id: @transactionLog.id, paypal_id: paypal_id, payment_type: PaymentType::WITHDRAWL)
           new_wallet_amount = wallet.amount - amount.to_f
           wallet.update_attributes!(amount: new_wallet_amount)
         end
       rescue ActiveRecord::RecordInvalid => invalid
         return false
       end #end of begin
-      # TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
+      TransactionLogMailer.withdrawl_email(user, @transactionLog, @payment).deliver_now 
       return @transactionLog
     end
 

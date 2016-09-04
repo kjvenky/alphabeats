@@ -1,0 +1,18 @@
+
+Hi <%= @user.first_name %> (user id: <%= @user.id %>)
+
+This is a verification email for the withdrawl request you placed. You are supposed to do two more steps to process the withdrawl.
+
+1. Please verify the details you mentioned in the email.
+2. Reply to this email with the following line: " I confirm that I placed a withdrawl request to my paypal id: <%= @paypal_id %> for the amount: <%= @withdrawl_amount %>. Please process the withdrawl."
+
+Transaction id: <%= @transactionLog.id %>
+Paypal Id(for withdrawl): <%= @paypal_id %>
+Withdrawl Amount: <%= @withdrawl_amount %>
+Balance after withdrawl: <%= @balance %> 
+Email registered: <%= @email %> 
+
+kind regards,
+
+Shenil
+(Founder of ALphabeats)
