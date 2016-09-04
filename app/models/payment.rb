@@ -68,6 +68,20 @@ class Payment < ActiveRecord::Base
       return @transactionLog
     end
 
+    def self.confirm(transaction_id)
+      transaction = TransactionLog.find(transaction_id)
+      if transaction.confirm_withdrawl
+        puts "\n\n "
+        puts "Withdrawl is confirmed"
+        puts "\n\n "
+      else
+        puts "\n\n "
+        puts "Withdrawl has failed"
+        puts "\n\n "
+      end
+    end
+
+
     private
 
     def express_purchase_options

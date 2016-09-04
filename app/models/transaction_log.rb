@@ -43,4 +43,12 @@ class TransactionLog < ActiveRecord::Base
     TO_WALLET = 3
     WITHDRAWL_FROM_WALLET = 4
   end
+
+  def confirm_withdrawl
+    if self.update_attributes(transaction_status: TransactionStatus::SUCCESS)
+      return true
+    else
+      return false
+    end
+  end
 end
