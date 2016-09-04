@@ -37,7 +37,7 @@ class Album < ActiveRecord::Base
   validates_numericality_of :user_id, :language, :primary_genre, :secondary_genre
 
   validates_inclusion_of :language, :in => 1..40
-  validates_inclusion_of :primary_genre, :in => 0..33
+  validates_inclusion_of :primary_genre, :in => 1..33
   validates_inclusion_of :secondary_genre, :in => 0..33
 
   mount_uploader :album_cover, AlbumCoverUploader
