@@ -76,7 +76,8 @@ class SongStatsController < ApplicationController
 
   def import
     SongStat.import(params[:file])
-    redirect_to song_stats_url, notice: "Song Stats imported"
+    SongStat.update_stats
+    redirect_to song_stats_url, notice: "Song Stats have been imported and stats have been updated individually"
   end
 
   private

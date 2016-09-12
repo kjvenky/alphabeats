@@ -41,4 +41,17 @@ class SongStat < ActiveRecord::Base
     end
   end
 
+  def self.update_stats
+    SongStat.uniq.pluck(:song_id).each do |i|
+      song_statistics = SongStat.where(song_id: i)
+      views = song_statistics.sum(:quantity)
+      downloads = song_statistics.sum(:quantity)
+      earnings = song_statistics.sum(:earnings)
+      if !Song.find(i).update_attributes(view_count: views, download_count: downloads, income_till_date: earnings)
+        return false
+      end
+    end
+      return true
+  end
+
 end
