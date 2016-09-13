@@ -1,1 +1,41 @@
-<h1> Coming Soon ...</h1>
+<div class="<%= Width::CONTAINER %>">
+  <div class="row">
+    <div class="col-md-12">
+      <h1></h1>
+        <table class="table ">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Song</th>
+              <th>Artist</th>
+              <th>Album</th>
+              <th>Duration</th>
+              <th>Published on</th>
+              <th>Genre</th>
+              <th>View Count</th>
+              <th>Download Count</th>
+              <th>Income</th>
+            </tr>
+          </thead>
+         <tbody class="song-table">
+          <% @songs.each do |song| %>
+          <tr>
+            <td>
+                <%= render partial: "shared/song_dropdown", locals: {song: song} %>
+            </td>
+            <td><%=song.song_title %></td>
+            <td><%=song.musician.first_name %></td>
+            <td><%=song.album.album_name %></td>
+            <td><%= song.duration.strftime("%H:%M") if !song.duration.nil?%></td>
+            <td><%=song.created_at.strftime("%B %d %Y")%></td>
+            <td><%=Album::Genre.genre_list[song.album.primary_genre].text%></td>
+            <td><%=song.view_count.present? ? song.view_count : raw("-")  %></td>
+            <td><%=song.download_count.present? ? song.download_count : raw("-")  %></td>
+            <td><%=song.income_till_date.present? ? song.income_till_date : raw("-")  %></td>
+          </tr>
+          <% end %>
+         </tbody>
+       </table>
+    </div>
+  </div>
+</div>

@@ -55,6 +55,7 @@ class StaticPagesController < ApplicationController
   end
 
   def discover
+    @songs = Song.all
   end
 
   def wallet
