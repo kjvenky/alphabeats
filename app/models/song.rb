@@ -65,6 +65,10 @@ class Song < ActiveRecord::Base
   has_many :offer_users, through: :offers, class_name: 'User'
 
   has_many :trade_logs
+  
+  #shortlist module
+  has_many :shortlists
+  has_many :shortlist_users, through: :shortlists, source: :user
 
   mount_uploader :audio_file, AudioFileUploader
 

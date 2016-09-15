@@ -10,7 +10,7 @@
 #  updated_at         :datetime         not null
 #  transaction_log_id :integer
 #  paypal_id          :string
-#  payment_type       :integer
+#  payment_type       :integer          default(1), not null
 #
 
 PAYMENT_TYPE = { 1 => 'deposit', 2=> 'withdrawl'}

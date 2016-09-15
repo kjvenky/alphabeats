@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
   has_many :purchases, :class_name => 'TradeLog', :foreign_key => 'buyer_id'
   has_many :sales, :class_name => 'TradeLog', :foreign_key => 'seller_id'
 
+  #shortlist module
+  has_many :shortlists
+  has_many :shortlist_songs, through: :shortlists,  source: :song 
+
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 

@@ -46,8 +46,8 @@ RSpec.describe Song, type: :model do
   it { should validate_presence_of(:audio_file)}
   it { should validate_presence_of(:album_id)}
   it { should validate_presence_of(:user_id)}
-  it { should validate_presence_of(:original_artist)}
-  it { should validate_presence_of(:original_song_title)}
+  # it { should validate_presence_of(:original_artist)}
+  # it { should validate_presence_of(:original_song_title)}
 
 
   it { should validate_inclusion_of(:explicit_lyrics).in_array([true, false]) }
@@ -74,6 +74,9 @@ RSpec.describe Song, type: :model do
 
   it { should have_many(:trade_logs) }
 
+  #shortlist module tests
+  it { should have_many(:shortlists) }
+  it { should have_many(:shortlist_users).through(:shortlists) }
   
   #   it "is valid given valid attributes" do
   #     new_song = FactoryGirl.create(:song)

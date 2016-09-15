@@ -68,6 +68,9 @@ RSpec.describe User, type: :model do
     it { should have_many(:purchases).class_name('TradeLog').with_foreign_key(:buyer_id) }
     it { should have_many(:sales).class_name('TradeLog').with_foreign_key(:seller_id) }
               
+    #shortlist module tests
+    it { should have_many(:shortlists) }
+    it { should have_many(:shortlist_songs).through(:shortlists) }
                     
       
     it "should create a new instance given valid attributes" do 

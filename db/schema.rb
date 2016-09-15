@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901132913) do
+ActiveRecord::Schema.define(version: 20160915075829) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -114,6 +114,13 @@ ActiveRecord::Schema.define(version: 20160901132913) do
 
   add_index "shareholders", ["song_id"], name: "index_shareholders_on_song_id"
   add_index "shareholders", ["user_id"], name: "index_shareholders_on_user_id"
+
+  create_table "shortlists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "song_stats", force: :cascade do |t|
     t.date     "reporting_date"
