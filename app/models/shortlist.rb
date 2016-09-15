@@ -14,4 +14,5 @@ class Shortlist < ActiveRecord::Base
   belongs_to :song
   belongs_to :user
 
+  validates_presence_of :user_id, :song_id
 end
