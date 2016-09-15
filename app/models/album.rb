@@ -94,7 +94,7 @@ class Album < ActiveRecord::Base
     ALTERNATIVE = {code: 1, text: "Alternative"}
     BIGBAND = {code: 2, text: "Big Band"}
     BLUES = {code: 3, text: "Blues"}
-    CHILDRENSMUSIC = {code: 4, text: "Childern's Music"} #CHANGE
+    CHILDRENSMUSIC = {code: 4, text: "Children's Music"} #CHANGE
     CHRISTIANGOSPEL = {code: 5, text: "Christian/Gospel"} #CHANGE
     CLASSICAL = {code: 6, text: "Classical"}
     COMEDY = {code: 7, text: "Comedy"}
