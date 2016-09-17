@@ -55,14 +55,14 @@ class StaticPagesController < ApplicationController
   end
 
   def discover
-    @songs = Song.all
+    @songs = Song.all - current_user.shortlist_songs
   end
 
   def wallet
   end
 
   def shortlist
-    @songs = Song.all
+    @songs = current_user.shortlist_songs
   end
 
   def holdings

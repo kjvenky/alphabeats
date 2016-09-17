@@ -1,10 +1,11 @@
 <div class="<%= Width::CONTAINER %>">
   <div class="row">
     <div class="col-md-12">
-      <h1></h1>
+      <h1 id="delete"></h1>
         <table class="table ">
           <thead>
             <tr>
+              <th></th>
               <th></th>
               <th>Song</th>
               <th>Artist</th>
@@ -19,7 +20,11 @@
           </thead>
          <tbody class="song-table">
           <% @songs.each do |song| %>
-          <tr>
+          <tr id="song_<%= song.id %>">
+            <td>
+
+              <%= link_to raw("<i class='fa fa-plus' aria-hidden='true'></i>"), shortlists_path(:song_id => song.id), method: :post, remote: :true %>      
+            </td>
             <td>
                 <%= render partial: "shared/song_dropdown", locals: {song: song} %>
             </td>

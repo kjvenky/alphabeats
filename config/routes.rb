@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :shortlists, only: [:create ]
+
   resources :song_stats do
       collection { post :import }
   end
