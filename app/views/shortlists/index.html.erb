@@ -27,11 +27,12 @@
           <th></th>
           <th>Song</th>
           <th>Make Bid</th>
+          <th></th>
         </tr>
       </thead>
      <tbody class="song-table">
       <% @songs.each do |song| %>
-      <tr>
+      <tr id="shortlist_song_<%= song.id %>">
         <td>
             <%= render partial: "shared/song_dropdown", locals: {song: song} %>
         </td>
@@ -46,6 +47,7 @@
              <%= submit_tag "Submit", name: nil, class: "btn btn-transparent" %>   
           <% end %> 
         </td>
+        <td><%= link_to "x", shortlist_path(song.id), method: :delete, remote: :true, :data => {:confirm => 'Are you sure you want to remove this song from shortlist?'} %><td/>
       </tr>
       <% end %>
      </tbody>

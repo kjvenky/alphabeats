@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  resources :shortlists, only: [:create ]
+  resources :shortlists, only: [:create, :destroy, :index]
 
   resources :song_stats do
       collection { post :import }
@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   get 'discover', to: "static_pages#discover"
   get 'performance', to: "static_pages#performance"
   get 'wallet', to: "static_pages#wallet"
-  get 'shortlist', to: "static_pages#shortlist"
   get 'holdings', to: "static_pages#holdings"
   get 'opentrades', to: "static_pages#open_trades"
 

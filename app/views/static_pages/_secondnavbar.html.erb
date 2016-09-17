@@ -10,11 +10,11 @@
           </ul>
         </nav>
       </div>
-    <% elsif current_page?(shortlist_path) || current_page?(holdings_path) || current_page?(performance_path) || current_page?(opentrades_path) %>
+    <% elsif current_page?(shortlists_path) || current_page?(holdings_path) || current_page?(performance_path) || current_page?(opentrades_path) %>
       <div class="<%= Width::CONTAINER %>">
         <nav class="second-navbar">
           <ul class='list-inline pull-right'>
-            <li><%= link_to (content_tag(:i, "", :class => "fa fa-list-ol icon-color ")+"  SHORTLIST | BIDS").html_safe, shortlist_path, :class =>"second-menu-font #{active_class(shortlist_path)}" %></li>
+            <li><%= link_to (content_tag(:i, "", :class => "fa fa-list-ol icon-color ")+"  SHORTLIST | BIDS").html_safe, shortlists_path, :class =>"second-menu-font #{active_class(shortlists_path)}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-pie-chart icon-color")+"  PORTFOLIO | OFFERS").html_safe, holdings_path, :class =>"second-menu-font #{active_class(holdings_path)}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-line-chart icon-color")+"  DASHBOARD").html_safe, performance_path, :class =>"second-menu-font #{active_class(performance_path)}" %></li>
           </ul>
