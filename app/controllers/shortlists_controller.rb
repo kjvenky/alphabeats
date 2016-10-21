@@ -20,8 +20,7 @@ class ShortlistsController < ApplicationController
   end
 
   def destroy
-
-	@shortlist = current_user.shortlists.find_by(params[:id])
+    @shortlist = current_user.shortlists.find_by(song_id: params[:id])
     if @shortlist
       @shortlist.destroy
     else
