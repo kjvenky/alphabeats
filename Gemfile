@@ -50,6 +50,8 @@ gem 'social-share-button'
 
 gem 'cancancan' #for authorization
 
+gem 'will_paginate' #for pagination
+
 #gems for importing from spreadsheet
 # gem "google-drive"
 gem "roo"
