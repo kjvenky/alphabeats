@@ -3,7 +3,13 @@
     <div class="col-md-12">
       <h1 id="delete"></h1>
         <table class="table ">
-           <%= will_paginate @songs %>
+					<div class="digg_pagination">
+						<div class="page_info">
+							<%= page_entries_info @songs %>
+						</div>
+						<%= will_paginate @songs, :container => false %>
+					</div>
+           <%# <%= will_paginate @songs %>
           <thead>
             <tr>
               <th></th>
