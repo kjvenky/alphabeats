@@ -4,10 +4,7 @@
       <h1 id="delete"></h1>
         <table class="table ">
 					<div class="digg_pagination">
-						<div class="page_info">
-							<%= page_entries_info @songs %>
-						</div>
-						<%= will_paginate @songs, :container => false %>
+			      <%= render "static_pages/discover_pagination" %>	
 					</div>
            <%# <%= will_paginate @songs %>
           <thead>
