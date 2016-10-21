@@ -55,7 +55,8 @@ class StaticPagesController < ApplicationController
   end
 
   def discover
-    @songs = Song.all - current_user.shortlist_songs
+    @songs = (Song.all - current_user.shortlist_songs).paginate(:page => params[:page], :per_page => 10)
+    #Added config/initializers/array_paginate.rb to make paginate work with arrays
   end
 
   def wallet
