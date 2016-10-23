@@ -47,7 +47,8 @@ class PaymentsController < ApplicationController
 
 		if @payment.save
 			if @payment.purchase # this is where we purchase the order. refer to the model method below
-        new_wallet_amount = current_user.wallet.amount + BigDecimal.new(params[:payment][:amount])
+        # new_wallet_amount = current_user.wallet.amount + BigDecimal.new(params[:payment][:amount])
+        new_wallet_amount = current_user.wallet.amount + BigDecimal.new(@payment.amount)
         # byebug
         current_user.wallet.update(amount: new_wallet_amount)
 				redirect_to wallet_path

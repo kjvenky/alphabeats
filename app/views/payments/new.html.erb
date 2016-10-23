@@ -2,9 +2,7 @@
   <div class="row">
     <%= form_for(@payment) do |f| %>
           <%= render partial: 'shared/error_messages', locals: {resource: @payment}  %>
-      <%# <% if @payment.express_token.present? %>
         <%= f.hidden_field :express_token %>
-        <%= f.hidden_field :amount, :value => @payment.amount %>
         <h3> Payment Confirmation details </h3>
         <p>
           Your name:  <%= @payment.name %> <br/>
@@ -13,7 +11,6 @@
           Amount: <%= @payment.amount %><br/>
         </p>
 
-      <%# <% end %>
       <%= f.submit "Complete Payment", class: 'btn btn-transparent'  %> &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "Cancel and Make new Payment", wallet_path, class:"btn btn-md btn-transparent" %>
     <% end %>
 </div>
