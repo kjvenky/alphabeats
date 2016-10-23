@@ -11,6 +11,7 @@
 #  transaction_log_id :integer
 #  paypal_id          :string
 #  payment_type       :integer          default(1), not null
+#  details            :text
 #
 
 PAYMENT_TYPE = { 1 => 'deposit', 2=> 'withdrawl'}
@@ -20,6 +21,7 @@ class Payment < ActiveRecord::Base
   belongs_to :wallet
   belongs_to :transaction_log
   validates_numericality_of  :payment_type
+  serialize :details
 
     def purchase
       response = EXPRESS_GATEWAY.purchase(BigDecimal.new(self.amount)*100, express_purchase_options)
@@ -41,6 +43,7 @@ class Payment < ActiveRecord::Base
         self.phone = details.contact_phone
         self.address = details.address
         self.shipping = details.shipping
+        self.details = details
       end
     end
 

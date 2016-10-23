@@ -11,6 +11,7 @@
 #  transaction_log_id :integer
 #  paypal_id          :string
 #  payment_type       :integer          default(1), not null
+#  details            :text
 #
 
 require 'rails_helper'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915075829) do
+ActiveRecord::Schema.define(version: 20161023064917) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160915075829) do
     t.integer  "transaction_log_id"
     t.string   "paypal_id"
     t.integer  "payment_type",       default: 1, null: false
+    t.text     "details"
   end
 
   create_table "shareholders", force: :cascade do |t|
