@@ -8,7 +8,9 @@
           Your name:  <%= @payment.name %> <br/>
           Email: <%= @payment.email %><br/>
           Your country: <%= @payment.country %> <br/>
-          Amount: <%= @payment.amount %><br/>
+          Current Balance: <%= current_user.wallet.amount %>&nbsp;USD<br/>
+          Amount: <%= @payment.amount %>&nbsp;USD<br/>
+          Balance after payment: <%= current_user.wallet.amount + BigDecimal.new(@payment.amount) %>&nbsp;USD<br/>
         </p>
 
       <%= f.submit "Complete Payment", class: 'btn btn-transparent'  %> &nbsp;&nbsp;&nbsp;&nbsp; <%= link_to "Cancel and Make new Payment", wallet_path, class:"btn btn-md btn-transparent" %>
