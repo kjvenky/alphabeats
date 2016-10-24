@@ -26,6 +26,7 @@
         <tr>
           <th></th>
           <th>Song</th>
+          <th>Artist</th>
           <th>Make Bid</th>
           <th></th>
         </tr>
@@ -37,6 +38,7 @@
             <%= render partial: "shared/song_dropdown", locals: {song: song} %>
         </td>
         <td><%=song.song_title %></td>
+        <td><%=song.musician.name %></td>
         <td>
           <%= form_tag bids_path, method: :post, remote: true, :class => "form-inline", :id => "song_#{song.id}" do %>
               <%= label_tag(:share, "%") %>

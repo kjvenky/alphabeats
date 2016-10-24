@@ -106,4 +106,9 @@ RSpec.describe User, type: :model do
         expect(non_musican_user.musician?).to be false
     end
 
+    it "should return full name" do
+      user = User.create(@attr.merge(:first_name => 'ravi', :last_name => 'kanth'))
+      expect(user.name).to eq "ravi kanth"
+    end
+
 end

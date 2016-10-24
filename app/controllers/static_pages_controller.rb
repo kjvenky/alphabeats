@@ -62,9 +62,9 @@ class StaticPagesController < ApplicationController
   def wallet
   end
 
-  def shortlist
-    @songs = current_user.shortlist_songs
-  end
+  # def shortlist
+  #   @songs = current_user.shortlist_songs
+  # end
 
   def holdings
     @songs = current_user.shareholder_songs
