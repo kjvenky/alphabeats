@@ -25,4 +25,9 @@ class TradeLog < ActiveRecord::Base
   validates_numericality_of :share, greater_than_or_equal_to: 0, less_than_or_equal_to: 100
   validates_numericality_of :amount
 
+  def trade_price
+    amount/share
+  end
+
+
 end

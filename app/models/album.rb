@@ -130,6 +130,10 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def get_release_date 
+    release_date.present? ? release_date : ""
+  end
+
   def album_fully_owned? 
     self.songs.each  do |s|
      if !s.song_fully_owned? 

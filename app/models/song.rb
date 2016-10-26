@@ -88,4 +88,8 @@ class Song < ActiveRecord::Base
     return false
   end
 
+  def last_trade_price
+      trade_logs.present? ? trade_logs.last.trade_price : ""
+  end
+
 end

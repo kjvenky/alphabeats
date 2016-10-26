@@ -21,12 +21,16 @@
     </div>
 
 <div class="<%= Width::CONTAINER %>">
+  <h2>Shortlisted songs</h2>
     <table class="table ">
       <thead>
         <tr>
           <th></th>
           <th>Song</th>
           <th>Artist</th>
+          <th>Release Date</th>
+          <th>Income till Date</th>
+          <th>Last trade price(per %)</th>
           <th>Make Bid</th>
           <th></th>
         </tr>
@@ -39,14 +43,17 @@
         </td>
         <td><%=song.song_title %></td>
         <td><%=song.musician.name %></td>
+        <td><%=song.album.get_release_date %></td>
+        <td><%=song.income_till_date %></td>
+        <td><%=song.last_trade_price %></td>
         <td>
-          <%= form_tag bids_path, method: :post, remote: true, :class => "form-inline", :id => "song_#{song.id}" do %>
+          <%= form_tag bids_path, method: :post, remote: true, :class => "form-inline input-mini", :id => "song_#{song.id}" do %>
               <%= label_tag(:share, "%") %>
-             <%= text_field_tag :share,"", class: "input input-style" %>
+             <%= text_field_tag :share,"", class: "input input-style input-5em-width" %>
               <%= label_tag(:amount, "$") %>
-             <%= text_field_tag :amount,"", class: "input input-style" %>
+             <%= text_field_tag :amount,"", class: "input input-style input-5em-width" %>
              <%= hidden_field_tag "song_id", song.id %>
-             <%= submit_tag "Submit", name: nil, class: "btn btn-transparent" %>   
+             <%= submit_tag "Submit", name: nil, class: "btn btn-sm btn-transparent" %>   
           <% end %> 
         </td>
         <td><%= link_to "x", shortlist_path(song.id), method: :delete, remote: :true, :data => {:confirm => 'Are you sure you want to remove this song from shortlist?'} %><td/>
