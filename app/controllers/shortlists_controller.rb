@@ -8,7 +8,7 @@ class ShortlistsController < ApplicationController
 
   def index
     @songs = current_user.shortlist_songs
-    @bids = current_user.bids
+    @bids = current_user.bids.order(updated_at: :desc)
   end
 
   def create

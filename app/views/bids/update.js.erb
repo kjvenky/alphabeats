@@ -1,2 +1,7 @@
-window.location.href=("<%= opentrades_url %>")
 $("#myupdatebid_<%= @bid.id %>").modal('hide');
+$("#bid_<%= @bid.id %>").fadeOut(500, function(){
+    $(this).remove();
+});
+setTimeout(function() {
+  $("#open-bid-table").prepend("<%= j render partial: "bids/bid", locals: {bid: @bid} %>");
+}, 500);
