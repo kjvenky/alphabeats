@@ -1,1 +1,4 @@
 $(".input").val('');
+setTimeout(function() {
+  $("#open-offer-table").prepend("<%= j render @offer %>");
+}, 500);

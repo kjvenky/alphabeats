@@ -1,1 +1,4 @@
 $(".input").val('');
+setTimeout(function() {
+    $("#open-bid-table").prepend("<%= j render @bid %>");
+}, 500);
