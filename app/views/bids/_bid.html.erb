@@ -4,7 +4,10 @@
       <%= render partial: "shared/song_dropdown", locals: {song: bid.song} %>
   </td>
   <td><%=bid.song.song_title %></td>
-  <td><%= bid.get_bid_status %></td>
+  <td><%=bid.song.musician.name %></td>
+  <td><%=bid.song.album.get_release_date %></td>
+  <td><%=bid.song.income_till_date %></td>
+  <td><%=bid.song.last_trade_price %></td>
   <td><%= bid.share %></td>
   <td><%= bid.amount %></td>
   <td><%= bid.bid_price %></td>

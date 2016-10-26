@@ -8,6 +8,7 @@ class ShortlistsController < ApplicationController
 
   def index
     @songs = current_user.shortlist_songs
+    @bids = current_user.bids
   end
 
   def create

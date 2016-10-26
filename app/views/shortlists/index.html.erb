@@ -61,5 +61,27 @@
       <% end %>
      </tbody>
    </table>
+
+
+  <h2>Open Bids</h2>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Song</th>
+          <th>Artist</th>
+          <th>Release Date</th>
+          <th>Income till Date</th>
+          <th>Last trade price(per %)</th>
+          <th>Bid Share</th>
+          <th>Bid amount</th>
+          <th>Bid price(per %)</th>
+          <th></th>
+        </tr>
+      </thead>
+     <tbody class="song-table">
+      <%= render @bids  %>
+     </tbody>
+   </table>
 </div>
 
