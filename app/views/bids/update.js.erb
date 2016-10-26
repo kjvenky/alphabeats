@@ -3,5 +3,5 @@ $("#bid_<%= @bid.id %>").fadeOut(500, function(){
     $(this).remove();
 });
 setTimeout(function() {
-  $("#open-bid-table").prepend("<%= j render partial: "bids/bid", locals: {bid: @bid} %>");
+  $("#open-bid-table").prepend("<%= j render @bid %>");
 }, 500);
