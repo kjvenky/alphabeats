@@ -21,11 +21,16 @@
     </div>
 
 <div class="<%= Width::CONTAINER %>">
+    <h2>Portfolio</h2>
     <table class="table ">
       <thead>
         <tr>
           <th></th>
           <th>Song</th>
+          <th>Artist</th>
+          <th>Release Date</th>
+          <th>Income till Date</th>
+          <th>Last trade price(per %)</th>
           <th>Make Offer</th>
 
         </tr>
@@ -37,14 +42,18 @@
             <%= render partial: "shared/song_dropdown", locals: {song: song} %>
         </td>
         <td><%=song.song_title %></td>
+        <td><%=song.musician.name %></td>
+        <td><%=song.album.get_release_date %></td>
+        <td><%=song.income_till_date %></td>
+        <td><%=song.last_trade_price %></td>
         <td>
           <%= form_tag offers_path, method: :post, remote: true, :class => "form-inline", :id => "song_#{song.id}" do %>
               <%= label_tag(:share, "%") %>
-             <%= text_field_tag :share,"", class: "input input-style" %>
+             <%= text_field_tag :share,"", class: "input input-style input-5em-width" %>
               <%= label_tag(:amount, "$") %>
-             <%= text_field_tag :amount,"", class: "input input-style" %>
+             <%= text_field_tag :amount,"", class: "input input-style input-5em-width" %>
              <%= hidden_field_tag "song_id", song.id %>
-             <%= submit_tag "Submit", name: nil, class: "btn btn-transparent" %>   
+             <%= submit_tag "Submit", name: nil, class: "btn btn-sm btn-transparent" %>   
           <% end %> 
         </td>
       </tr>
@@ -52,4 +61,24 @@
      </tbody>
    </table>
 
+  <h2>My Open Offers</h2>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Song</th>
+          <th>Artist</th>
+          <th>Release Date</th>
+          <th>Income till Date</th>
+          <th>Last trade price(per %)</th>
+          <th>Offer Share</th>
+          <th>Offer amount</th>
+          <th>Offer price(per %)</th>
+          <th></th>
+        </tr>
+      </thead>
+     <tbody class="song-table" id="open-offer-table">
+      <%= render @offers  %>
+     </tbody>
+   </table>
 </div>

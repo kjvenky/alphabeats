@@ -1,2 +1,7 @@
-window.location.href=("<%= opentrades_url %>")
 $("#myupdateoffer_<%= @offer.id %>").modal('hide');
+$("#offer_<%= @offer.id %>").fadeOut(500, function(){
+    $(this).remove();
+});
+setTimeout(function() {
+  $("#open-offer-table").prepend("<%= j render @offer %>");
+}, 500);

@@ -68,6 +68,7 @@ class StaticPagesController < ApplicationController
 
   def holdings
     @songs = current_user.shareholder_songs
+    @offers = current_user.offers.order(updated_at: :desc)
   end
 
   def performance
