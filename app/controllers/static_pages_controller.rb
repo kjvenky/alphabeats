@@ -82,4 +82,11 @@ class StaticPagesController < ApplicationController
     @offers = current_user.offers.where(open_status: [1,3])
   end
 
+
+  def membership
+  end
+
+  def renewals
+  end
+
 end

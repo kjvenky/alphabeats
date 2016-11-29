@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   get 'holdings', to: "static_pages#holdings"
   get 'opentrades', to: "static_pages#open_trades"
 
+  get 'membership', to: "static_pages#membership"
+  get 'renewals', to: "static_pages#renewals"
+
   resources :bids, only: [:create, :update, :destroy]
   resources :offers, only: [:create, :update, :destroy]
 

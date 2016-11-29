@@ -1,8 +1,9 @@
 <% if user_signed_in? %>
-  <% if current_page?(albums_path) || current_page?(user_path(current_user)) || current_page?(wallet_path) || current_page?(new_album_path) || current_page?(new_song_path) || current_page?(cart_page_path) %>
+  <% if current_page?(albums_path) || current_page?(user_path(current_user)) || current_page?(wallet_path) || current_page?(new_album_path) || current_page?(new_song_path) || current_page?(cart_page_path) || current_page?(membership_path) || current_page?(renewals_path)%>
       <div class="<%= Width::CONTAINER %>">
         <nav class="second-navbar">
           <ul class='list-inline pull-right'>
+            <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  MEMBERSHIP").html_safe, membership_path, :class =>"second-menu-font #{active_class(membership_path)}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-user icon-color ")+"  PROFILE").html_safe, current_user, :class =>"second-menu-font #{active_class(user_path(current_user))}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-money icon-color")+"  WALLET").html_safe, wallet_path, :class =>"second-menu-font #{active_class(wallet_path)}" %></li>
             <li><%= link_to (content_tag(:i, "", :class => "fa fa-upload icon-color")+"  UPLOADS").html_safe, albums_path, :class =>"second-menu-font #{active_class(albums_path)}" %></li>
