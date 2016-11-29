@@ -50,6 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+
   protected
 
   def configure_permitted_parameters
@@ -58,7 +59,8 @@ class ApplicationController < ActionController::Base
    end
 
   def authorize_musician
-    redirect_to root_url, alert: "You are not authorized" if !current_user.musician?
+    redirect_to membership_path, alert: "Only musicians are authorized to access" if !current_user.musician?
+    # redirect_to root_url, alert: "You are not authorized" if !current_user.musician?
   end
 
   # def authorize_admin_or_user

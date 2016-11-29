@@ -1,1 +1,15 @@
 <%= render "songs/secondheader" %>
+  <br>
+  <br>
+  <br>
+<div class="container">
+  <div class="row">
+    <% if !current_user.musician? %>
+    <h2>Become a musician on Alphabeats</h2>
+    <p>Becoming a musician costs only 20USD an year.As a musician on alphabeatsmusic you can upload your songs to multiple music stores at once. Apart from that you can sell shares of your songs on the alphabeats share market. </p>
+    <h3> Your current balance is: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> &nbsp;&nbsp; </h3>
+    <p>Membership is autorenewed subject to availability of balance in wallet</p>
+    <% end %>
+
+  </div>
+</div>

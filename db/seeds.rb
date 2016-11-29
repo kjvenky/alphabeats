@@ -34,6 +34,7 @@
                email: music_fan_email,
                password: password,
                password_confirmation: password,
+               musician: false,
                          confirmed_at: Time.now)
   music_fan.wallet.update!(amount: 1000)
   
