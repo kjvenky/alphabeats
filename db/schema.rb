@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023064917) do
+ActiveRecord::Schema.define(version: 20161202065636) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -224,7 +224,7 @@ ActiveRecord::Schema.define(version: 20161023064917) do
     t.string   "unconfirmed_email"
     t.string   "provider"
     t.string   "uid"
-    t.boolean  "musician",               default: true
+    t.boolean  "musician",               default: false
     t.boolean  "admin",                  default: false
     t.string   "username"
     t.string   "profile_photo"
