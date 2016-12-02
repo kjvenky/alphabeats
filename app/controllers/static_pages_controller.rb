@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
 
   # before_filter :authenticate_user!, only: [:cart_page, :payment_page, :discover, :fund, :wallet, :shortlist, :holdings, :open_trades, :performance]
-  before_filter :authenticate_user!, except: [:home, :about, :faq, :pricing, :contact, :terms, :updates, :letter, :after_signup_home, :inactive_signup_home]
-  before_filter :mobile_format, only: [:home]
-  before_filter :authorize_musician, only: [:cart_page, :renewals]
+  before_action :authenticate_user!, except: [:home, :about, :faq, :pricing, :contact, :terms, :updates, :letter, :after_signup_home, :inactive_signup_home]
+  before_action :mobile_format, only: [:home]
+  before_action :authorize_musician, only: [:cart_page, :renewals]
 
   def home
     if user_signed_in?
