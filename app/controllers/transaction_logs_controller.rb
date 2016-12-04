@@ -1,8 +1,8 @@
 class TransactionLogsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   # before_filter :authorize_admin_or_user
-  before_filter :authorize_musician
+  before_action :authorize_musician
 
   def create
     #identify all the db changes i have to make

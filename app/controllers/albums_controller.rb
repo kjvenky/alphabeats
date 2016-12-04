@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :album_song_show]
+  before_action :authenticate_user!, except: [:show, :album_song_show]
   # before_filter :authorize_admin_or_user
   before_action :authorize_musician, except: [:show, :album_song_show]
 

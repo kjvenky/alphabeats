@@ -1,6 +1,6 @@
 class ShortlistsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # def discover
   #   @songs = Song.all - current_user.shortlist_songs

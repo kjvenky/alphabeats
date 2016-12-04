@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
-  before_filter :authenticate_user!, except: :show
-  before_filter :authorize_musician, except: :show
+  before_action :authenticate_user!, except: :show
+  before_action :authorize_musician, except: :show
 
   
   load_and_authorize_resource :only => [:show,:edit,:update]
