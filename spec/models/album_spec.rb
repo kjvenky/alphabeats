@@ -44,7 +44,7 @@ RSpec.describe Album, type: :model do
   it { should validate_numericality_of(:secondary_genre)}
 
   it { should validate_inclusion_of(:language).in_range(1..40) }
-  it { should validate_inclusion_of(:primary_genre).in_range(0..33)}
+  it { should validate_inclusion_of(:primary_genre).in_range(1..33)}
   it { should validate_inclusion_of(:secondary_genre).in_range(0..33)}
 
 
