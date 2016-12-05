@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202065636) do
+ActiveRecord::Schema.define(version: 20161205063124) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -67,31 +67,6 @@ ActiveRecord::Schema.define(version: 20161202065636) do
 
   add_index "offers", ["song_id"], name: "index_offers_on_song_id"
   add_index "offers", ["user_id"], name: "index_offers_on_user_id"
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "order_items", ["album_id"], name: "index_order_items_on_album_id"
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.decimal  "total",              precision: 7, scale: 2, default: 0.0
-    t.boolean  "payment_status",                             default: false
-    t.boolean  "shazam",                                     default: false
-    t.boolean  "youtube",                                    default: false
-    t.boolean  "store_maximizer",                            default: false
-    t.datetime "created_at",                                                 null: false
-    t.datetime "updated_at",                                                 null: false
-    t.integer  "transaction_log_id"
-  end
-
-  add_index "orders", ["transaction_log_id"], name: "index_orders_on_transaction_log_id"
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "payments", force: :cascade do |t|
     t.string   "express_token"
@@ -176,6 +151,31 @@ ActiveRecord::Schema.define(version: 20161202065636) do
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
   add_index "songs", ["user_id"], name: "index_songs_on_user_id"
+
+  create_table "subscription_items", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "subscription_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "subscription_items", ["album_id"], name: "index_subscription_items_on_album_id"
+  add_index "subscription_items", ["subscription_id"], name: "index_subscription_items_on_subscription_id"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.decimal  "total",              precision: 7, scale: 2, default: 0.0
+    t.boolean  "payment_status",                             default: false
+    t.boolean  "shazam",                                     default: false
+    t.boolean  "youtube",                                    default: false
+    t.boolean  "store_maximizer",                            default: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+    t.integer  "transaction_log_id"
+  end
+
+  add_index "subscriptions", ["transaction_log_id"], name: "index_subscriptions_on_transaction_log_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "trade_logs", force: :cascade do |t|
     t.integer  "seller_id"
