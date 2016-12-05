@@ -36,7 +36,7 @@ RSpec.describe SongsController, type: :controller do
     context "with valid attributes" do
       it "redirects to show page upon save" do
         post :create, song: FactoryGirl.attributes_for(:song, album_id: @new_create_album.id, musician_id: @new_create_album.musician.id)
-        expect(response).to redirect_to song_path(assigns[:song])
+        expect(response).to redirect_to album_song_path(assigns[:song])
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe SongsController, type: :controller do
     context "with valid attributes including a note to admin" do
       it "redirects to show page upon save" do
         post :create, song: FactoryGirl.attributes_for(:song_with_notes, album_id: @new_create_album.id, musician_id: @new_create_album.musician.id)
-        expect(response).to redirect_to song_path(assigns[:song])
+        expect(response).to redirect_to album_song_path(assigns[:song])
         expect(Song.last.note_to_admin).to_not eql " "
         expect(Song.last.note_to_admin).to eql "please add my notes"
       end
