@@ -23,7 +23,7 @@
 #  unconfirmed_email      :string
 #  provider               :string
 #  uid                    :string
-#  musician               :boolean          default(TRUE)
+#  musician               :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
 #  username               :string
 #  profile_photo          :string
