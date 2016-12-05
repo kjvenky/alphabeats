@@ -1,6 +1,6 @@
 Hi <%= @user.first_name %> (user id: <%= @user.id %>)
 
-Here are the details of the album you just placed order for:
+Here are the details of the album you just placed subscription for:
 
 <% i=@count %>
 <% while i>0 %>
@@ -8,9 +8,9 @@ Here are the details of the album you just placed order for:
   <% i=i-1 %>
 <% end %>
 
-<%= raw("Shazam") if @order.shazam %>
-<%= raw("Youtube") if @order.youtube %>
-<%= raw("Store Maximizer") if @order.store_maximizer %>
+<%= raw("Shazam") if @subscription.shazam %>
+<%= raw("Youtube") if @subscription.youtube %>
+<%= raw("Store Maximizer") if @subscription.store_maximizer %>
 
 You paid a total of <%= @transaction_log.amount %>
 

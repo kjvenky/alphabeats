@@ -1,15 +1,15 @@
-class OrdersController < ApplicationController
+class SubscriptionsController < ApplicationController
 
   def update
-    current_order.update_attributes(order_params)
+    current_subscription.update_attributes(subscription_params)
   end
 
   def destroy
   end
 
 private
-  def order_params
-    params.require(:order).permit(:youtube,:shazam,:total,:store_maximizer)
+  def subscription_params
+    params.require(:subscription).permit(:youtube,:shazam,:total,:store_maximizer)
   end
 
 end

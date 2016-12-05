@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: order_items
+# Table name: subscription_items
 #
 #  id         :integer          not null, primary key
 #  album_id   :integer
-#  order_id   :integer
+#  subscription_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :order_item do
+  factory :subscription_item do
     album nil
-order nil
+subscription nil
   end
 
 end

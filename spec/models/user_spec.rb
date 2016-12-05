@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
 
     it { should have_many(:albums) }
     it { should have_many(:songs) }
-    it { should have_many(:orders) }
+    it { should have_many(:subscriptions) }
     it { should have_one(:wallet) }
     it { should have_many(:transaction_logs) }
     

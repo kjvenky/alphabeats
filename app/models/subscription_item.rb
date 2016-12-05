@@ -1,15 +1,15 @@
 # == Schema Information
 #
-# Table name: order_items
+# Table name: subscription_items
 #
 #  id         :integer          not null, primary key
 #  album_id   :integer
-#  order_id   :integer
+#  subscription_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class OrderItem < ActiveRecord::Base
+class SubscriptionItem < ActiveRecord::Base
   belongs_to :album
-  belongs_to :order
+  belongs_to :subscription
 end

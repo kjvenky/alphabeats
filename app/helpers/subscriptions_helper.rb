@@ -1,2 +1,2 @@
-module OrdersHelper
+module SubscriptionsHelper
 end

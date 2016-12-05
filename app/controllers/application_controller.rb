@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action  :configure_permitted_parameters, if: :devise_controller? 
-  helper_method :current_order, :paid_album?
+  helper_method :current_subscription, :paid_album?
 def after_sign_up_path_for(resource_or_scope)
   	# if request.env['omniauth.origin']
    #    root_path
@@ -17,15 +17,15 @@ def after_sign_up_path_for(resource_or_scope)
 
   def song_album_list
     default_list = [OpenStruct.new({code: -1, text: "Create New Album"})]
-    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.order_items.last.nil?}.compact
+    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.subscription_items.last.nil?}.compact
     default_list + dynamic_list
   end
 
-  def current_order
-    if !session[:order_id].nil?
-      current_user.orders.find(session[:order_id])
+  def current_subscription
+    if !session[:subscription_id].nil?
+      current_user.subscriptions.find(session[:subscription_id])
     else
-      current_user.orders.new
+      current_user.subscriptions.new
     end
   end
 
@@ -42,7 +42,7 @@ def after_sign_up_path_for(resource_or_scope)
   end
 
   def paid_album?(resource)
-    !resource.order_items.last.nil? && resource.order_items.last.order.payment_status
+    !resource.subscription_items.last.nil? && resource.subscription_items.last.subscription.payment_status
   end
 
   rescue_from CanCan::AccessDenied do |exception|

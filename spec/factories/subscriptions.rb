@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: subscriptions
 #
 #  id                 :integer          not null, primary key
 #  user_id            :integer
@@ -15,7 +15,7 @@
 #
 
 FactoryGirl.define do
-  factory :order do
+  factory :subscription do
     musician nil
     total "9.99"
     payment_status false

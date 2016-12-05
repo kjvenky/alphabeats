@@ -14,7 +14,7 @@
    
       <div class="vertical-line box-title">
         <%= album.album_name %>
-        <%# <% if !(!album.order_items.last.nil? && album.order_items.last.order.payment_status) %>
+        <%# <% if !(!album.subscription_items.last.nil? && album.subscription_items.last.subscription.payment_status) %>
         <% if !paid_album?(album) %>
           <% if can? :create, Album %>
 

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: subscriptions
 #
 #  id                 :integer          not null, primary key
 #  user_id            :integer
@@ -14,9 +14,9 @@
 #  transaction_log_id :integer
 #
 
-class Order < ActiveRecord::Base
+class Subscription < ActiveRecord::Base
   belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
-  has_many :order_items
+  has_many :subscription_items
   belongs_to :transaction_log
 
   validates_presence_of  :user_id

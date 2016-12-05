@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the OrderItemsHelper. For example:
+# the SubscriptionItemsHelper. For example:
 #
-# describe OrderItemsHelper do
+# describe SubscriptionItemsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe OrderItemsHelper, type: :helper do
+RSpec.describe SubscriptionItemsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

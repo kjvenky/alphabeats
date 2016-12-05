@@ -6,38 +6,38 @@
   <p> Balance before withdrawl: <%= current_user.reload.wallet.amount + @transactionLog.amount %></p>
   <p> Pending withdrawl: <%=  @transactionLog.amount %></p>
 <% else %>
-    <% order = @transactionLog.order %>
-    <% order.order_items.each do |order_item| %>
-      <% if order_item.album.songs.count==1 %>
-        <%= raw("Itemized billing for the album #{order_item.album.album_name} <br/>") %>
-        <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
-        <% if !order_item.album.songs.last.self_written  %>
+    <% subscription = @transactionLog.subscription %>
+    <% subscription.subscription_items.each do |subscription_item| %>
+      <% if subscription_item.album.songs.count==1 %>
+        <%= raw("Itemized billing for the album #{subscription_item.album.album_name} <br/>") %>
+        <%# <% @total = @total+12 if !subscription_item.album.songs.last.self_written  %>
+        <% if !subscription_item.album.songs.last.self_written  %>
           <%= raw("Cover Song charges : 12<br/>")%> 
         <% end %>
-        <% if order_item.order.shazam  %>
+        <% if subscription_item.subscription.shazam  %>
           <%= raw("Shazam charges : 0.99<br/>")%> 
         <% end %>
-        <% if order_item.order.youtube  %>
+        <% if subscription_item.subscription.youtube  %>
           <%= raw("Youtube charges : 4.95<br/>")%> 
         <% end %>
-        <% if order_item.order.store_maximizer  %>
+        <% if subscription_item.subscription.store_maximizer  %>
           <%= raw("Store maximizer charges : FREE<br/>")%> 
         <% end %>
-      <% elsif order_item.album.songs.count!=1 %>
-        <%= order_item.album.album_name %>
-        <% order_item.album.songs.each do |song| %>
+      <% elsif subscription_item.album.songs.count!=1 %>
+        <%= subscription_item.album.album_name %>
+        <% subscription_item.album.songs.each do |song| %>
           <%if !song.self_written  %>
             <%= raw("Cover Song charges of #{song.song_title} : 12<br/>")%> 
           <% end %>
-          <% if order_item.order.shazam  %>
+          <% if subscription_item.subscription.shazam  %>
             <%= raw("Shazam Song charges of #{song.song_title} : 0.99<br/>")%> 
           <% end %>
         <% end %>
-        <% if order_item.order.youtube  %>
-          <%= raw("Youtube charges of #{order_item.album.album_name} : 14.95<br/>")%> 
+        <% if subscription_item.subscription.youtube  %>
+          <%= raw("Youtube charges of #{subscription_item.album.album_name} : 14.95<br/>")%> 
         <% end %>
-        <% if order_item.order.store_maximizer  %>
-          <%= raw("Store Maximizer charges of #{order_item.album.album_name} : FREE<br/>")%> 
+        <% if subscription_item.subscription.store_maximizer  %>
+          <%= raw("Store Maximizer charges of #{subscription_item.album.album_name} : FREE<br/>")%> 
         <% end %>
       <% end %>
     <% end %>

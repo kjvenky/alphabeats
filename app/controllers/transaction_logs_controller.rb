@@ -17,7 +17,7 @@ class TransactionLogsController < ApplicationController
       redirect_to wallet_path, notice: "Please add #{current_user.wallet.amount-BigDecimal.new(params[:transaction_logs][:amount])+2}USD to the wallet"
     else
       transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
-      order = current_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
+      subscription = current_subscription.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
       if current_user.wallet.nil?
         new_wallet = Wallet.create(user_id: current_user.id, amount: -BigDecimal.new(params[:transaction_logs][:amount]))
 
@@ -26,8 +26,8 @@ class TransactionLogsController < ApplicationController
         current_user.wallet.update(amount: new_wallet_amount)
       end
       create_shareholders
-      TransactionLogMailer.transaction_email(current_user, current_order).deliver_now 
-      session[:order_id] = nil
+      TransactionLogMailer.transaction_email(current_user, current_subscription).deliver_now 
+      session[:subscription_id] = nil
       redirect_to transaction_log_path(transactionlog), notice: "Payment has been successful. Your current wallet balance is #{current_user.reload.wallet.amount}USD"
     end
   end
@@ -42,9 +42,9 @@ private
   end
   
   def create_shareholders
-    if !current_order.order_items.nil?
-       current_order.order_items.each do |order_item|
-         order_item.album.songs.each do |s|
+    if !current_subscription.subscription_items.nil?
+       current_subscription.subscription_items.each do |subscription_item|
+         subscription_item.album.songs.each do |s|
            Shareholder.create(song_id: s.id, user_id: s.musician.id, share: 100) if s.shareholders.empty?
          end
        end

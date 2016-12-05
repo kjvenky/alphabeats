@@ -1,15 +1,15 @@
 <div class="cart_show">
 <p>
-<% if current_order.order_items.count==0 %>
+<% if current_subscription.subscription_items.count==0 %>
 <%= raw("Your cart is empty. Click on >> to add an album to cart.") %>
 <% else %>
 
-<% current_order.order_items.each do |order_item| %>
+<% current_subscription.subscription_items.each do |subscription_item| %>
   <div class="col-md-9">
-    <%= order_item.album.album_name %>
+    <%= subscription_item.album.album_name %>
   </div>
   <div class="col-md-offset-2 col-md-1">
-    <%= link_to "x", order_item_path(order_item), method: :delete, remote: :true %> <br>
+    <%= link_to "x", subscription_item_path(subscription_item), method: :delete, remote: :true %> <br>
   </div>
 <% end %>
 <% end %>

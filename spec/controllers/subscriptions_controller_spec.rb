@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe OrdersController, type: :controller do
+RSpec.describe SubscriptionsController, type: :controller do
 
   # describe "GET #update" do
   #   it "returns http success" do

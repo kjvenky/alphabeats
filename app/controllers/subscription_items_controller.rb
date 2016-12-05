@@ -1,29 +1,29 @@
-class OrderItemsController < ApplicationController
+class SubscriptionItemsController < ApplicationController
 
   def create
-    if !current_order.order_items.find_by(album_id: params[:album_id])
-      @order = current_order
-      @order_item = @order.order_items.new(album_id: params[:album_id])
-      @order.save
-      session[:order_id] = @order.id
+    if !current_subscription.subscription_items.find_by(album_id: params[:album_id])
+      @subscription = current_subscription
+      @subscription_item = @subscription.subscription_items.new(album_id: params[:album_id])
+      @subscription.save
+      session[:subscription_id] = @subscription.id
     else
       render nothing: true
     end
   end
 
   def update
-    # @order_item = current_order.order_items.update_attributes(order_item_params)
+    # @subscription_item = current_subscription.subscription_items.update_attributes(subscription_item_params)
   end
 
   def destroy
-      @order = current_order
-      @order_item = current_order.order_items.find(params[:id])
-      @order_item.destroy
+      @subscription = current_subscription
+      @subscription_item = current_subscription.subscription_items.find(params[:id])
+      @subscription_item.destroy
   end
 
   private
-  def order_item_params
-    params.require(:order_item).permit(:order_id,:album_id)
+  def subscription_item_params
+    params.require(:subscription_item).permit(:subscription_id,:album_id)
   end
 
 end

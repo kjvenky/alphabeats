@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :transaction_logs
-  resources :orders, only: [:update, :destroy]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :subscriptions, only: [:update, :destroy]
+  resources :subscription_items, only: [:create, :update, :destroy]
 
   resources :songs do
     collection { get :all_index }

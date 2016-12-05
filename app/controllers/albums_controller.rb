@@ -6,8 +6,8 @@ class AlbumsController < ApplicationController
 
   load_and_authorize_resource :only => [:show,:album_song_show]
   def index
-    # @albums = current_user.albums.all.select { |album| album.order_items.last.nil? }
-    # @paid_albums = current_user.albums.all.select { |album| !album.order_items.last.nil? && album.order_items.last.order.payment_status }
+    # @albums = current_user.albums.all.select { |album| album.subscription_items.last.nil? }
+    # @paid_albums = current_user.albums.all.select { |album| !album.subscription_items.last.nil? && album.subscription_items.last.subscription.payment_status }
     @paid_albums = current_user.albums.all.select { |album| paid_album?(album) }
     @albums = current_user.albums - @paid_albums
   end

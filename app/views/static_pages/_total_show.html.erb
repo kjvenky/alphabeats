@@ -2,7 +2,7 @@
   <div class="total_show row col-md-offset-1 col-md-10">
 
     <div class="total-show-display">
-    <% if !current_order.order_items.nil? %>
+    <% if !current_subscription.subscription_items.nil? %>
        <% @total = 0 %>
         <% if current_user.transaction_logs.empty? %>
            <% @total = (@total+0).round(2) %> 
@@ -24,16 +24,16 @@
            </div>
         <% else %>
         <% end %>
-       <% current_order.order_items.each do |order_item| %>
-       <% if order_item.album.songs.count==1 %> <br>
-       <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
-       <%# <% @total = @total+12 if !order_item.album.songs.last.self_written  %>
-       <% if !order_item.album.songs.last.self_written  %>
+       <% current_subscription.subscription_items.each do |subscription_item| %>
+       <% if subscription_item.album.songs.count==1 %> <br>
+       <b><%= raw("Charges for #{subscription_item.album.album_name} <br/>") %></b>
+       <%# <% @total = @total+12 if !subscription_item.album.songs.last.self_written  %>
+       <% if !subscription_item.album.songs.last.self_written  %>
        <% @total = (@total+12).round(2) %> 
        
        <div class="row">
         <div class="col-md-6">
-          <%= raw("Cover Song fees for #{order_item.album.album_name}:")%> 
+          <%= raw("Cover Song fees for #{subscription_item.album.album_name}:")%> 
         </div>
         <div class="col-md-offset-4 col-md-2">
           <%= raw("12")%> 
@@ -41,7 +41,7 @@
        </div>
        <% end %>
 
-       <% if order_item.order.shazam  %>
+       <% if subscription_item.subscription.shazam  %>
        <% @total = (@total+0.99).round(2) %> 
        <div class="row">
         <div class="col-md-6">
@@ -53,7 +53,7 @@
        </div>
        <% end %>
 
-       <% if order_item.order.youtube  %>
+       <% if subscription_item.subscription.youtube  %>
        <% @total = (@total+4.95).round(2) %> 
 
        <div class="row">
@@ -67,7 +67,7 @@
        </div>
        <% end %>
 
-       <% if order_item.order.store_maximizer  %>
+       <% if subscription_item.subscription.store_maximizer  %>
        <% @total = (@total+0).round(2) %> 
 
        <div class="row">
@@ -80,10 +80,10 @@
        </div>
        <% end %>
       
-       <% elsif order_item.album.songs.count!=1 %> <br>
+       <% elsif subscription_item.album.songs.count!=1 %> <br>
 
-       <b><%= raw("Charges for #{order_item.album.album_name} <br/>") %></b>
-       <% order_item.album.songs.each do |song| %>
+       <b><%= raw("Charges for #{subscription_item.album.album_name} <br/>") %></b>
+       <% subscription_item.album.songs.each do |song| %>
        <%if !song.self_written  %>
        <% @total = (@total+12).round(2) %> 
        <div class="row">
@@ -95,7 +95,7 @@
         </div>
        </div>
        <% end %>
-       <% if order_item.order.shazam  %>
+       <% if subscription_item.subscription.shazam  %>
        <% @total = (@total+0.99).round(2) %> 
        <div class="row">
         <div class="col-md-6">
@@ -107,7 +107,7 @@
        </div>
        <% end %>
        <% end %>
-       <% if order_item.order.youtube  %>
+       <% if subscription_item.subscription.youtube  %>
        <% @total = (@total+14.95).round(2) %> 
        <div class="row">
         <div class="col-md-6">
@@ -118,7 +118,7 @@
         </div>
        </div>
        <% end %>
-       <% if order_item.order.store_maximizer  %>
+       <% if subscription_item.subscription.store_maximizer  %>
        <% @total = (@total+0).round(2) %> 
        <%# <% @total = (@total+7.95).round(2) %> 
        <div class="row">
@@ -147,11 +147,11 @@
        </div> 
        </b><br>
 
-       <%=link_to "Click to Remove Shazam & iPhone Siri", order_path(current_order), data: { params: { order: { shazam: false, youtube: current_order.youtube, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.shazam %>
+       <%=link_to "Click to Remove Shazam & iPhone Siri", subscription_path(current_subscription), data: { params: { subscription: { shazam: false, youtube: current_subscription.youtube, store_maximizer: current_subscription.store_maximizer, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.shazam %>
        <br/>
-       <%=link_to "Click to Remove YouTube Money", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: false, store_maximizer: current_order.store_maximizer, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.youtube %>
+       <%=link_to "Click to Remove YouTube Money", subscription_path(current_subscription), data: { params: { subscription: { shazam: current_subscription.shazam, youtube: false, store_maximizer: current_subscription.store_maximizer, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.youtube %>
        <br/>
-       <%=link_to "Click to Remove Store Maximizer", order_path(current_order), data: { params: { order: { shazam: current_order.shazam, youtube: current_order.youtube, store_maximizer: false, total: current_order.total } }.to_param }, :method => 'PATCH', remote: true if current_order.store_maximizer %>
+       <%=link_to "Click to Remove Store Maximizer", subscription_path(current_subscription), data: { params: { subscription: { shazam: current_subscription.shazam, youtube: current_subscription.youtube, store_maximizer: false, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.store_maximizer %>
        <br><br><br>
     </div><!-- end total-show-display -->
 

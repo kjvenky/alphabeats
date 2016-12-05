@@ -14,7 +14,7 @@ TRANSACTION_STATUS = { 1 => 'success', 2=>'failure', 3=> 'pending' }
 TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'deposit from bank into wallet', 3 => 'to wallet', 4 => 'withdrawl from wallet'}
 #Transaction types - bank to wallet, wallet to wallet, wallet to bank
 class TransactionLog < ActiveRecord::Base
-  has_one :order
+  has_one :subscription
   belongs_to :user
   has_one :trade_log
   has_one :payment

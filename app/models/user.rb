@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
   has_many :albums# , foreign_key: 'musician_id'
   has_many :songs# , foreign_key: 'musician_id'
-  has_many :orders# , foreign_key: 'musician_id'
+  has_many :subscriptions# , foreign_key: 'musician_id'
   has_one :wallet
   has_many :transaction_logs
 
