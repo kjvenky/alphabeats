@@ -21,6 +21,7 @@
                email: musician_email,
                password: password,
                password_confirmation: password,
+               musician: true,
                          confirmed_at: Time.now)
   musician.wallet.update!(amount: 1000)
 
