@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action  :configure_permitted_parameters, if: :devise_controller? 
-  helper_method :current_subscription, :paid_album?
+  helper_method :current_subscription_order, :paid_album?
 def after_sign_up_path_for(resource_or_scope)
   	# if request.env['omniauth.origin']
    #    root_path
@@ -21,7 +21,7 @@ def after_sign_up_path_for(resource_or_scope)
     default_list + dynamic_list
   end
 
-  def current_subscription
+  def current_subscription_order
     if !session[:subscription_id].nil?
       current_user.subscriptions.find(session[:subscription_id])
     else

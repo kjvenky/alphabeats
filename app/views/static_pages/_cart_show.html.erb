@@ -1,10 +1,10 @@
 <div class="cart_show">
 <p>
-<% if current_subscription.subscription_items.count==0 %>
+<% if current_subscription_order.subscription_items.count==0 %>
 <%= raw("Your cart is empty. Click on >> to add an album to cart.") %>
 <% else %>
 
-<% current_subscription.subscription_items.each do |subscription_item| %>
+<% current_subscription_order.subscription_items.each do |subscription_item| %>
   <div class="col-md-9">
     <%= subscription_item.album.album_name %>
   </div>

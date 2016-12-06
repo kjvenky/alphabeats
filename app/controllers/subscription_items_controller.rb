@@ -1,8 +1,8 @@
 class SubscriptionItemsController < ApplicationController
 
   def create
-    if !current_subscription.subscription_items.find_by(album_id: params[:album_id])
-      @subscription = current_subscription
+    if !current_subscription_order.subscription_items.find_by(album_id: params[:album_id])
+      @subscription = current_subscription_order
       @subscription_item = @subscription.subscription_items.new(album_id: params[:album_id])
       @subscription.save
       session[:subscription_id] = @subscription.id
@@ -12,12 +12,12 @@ class SubscriptionItemsController < ApplicationController
   end
 
   def update
-    # @subscription_item = current_subscription.subscription_items.update_attributes(subscription_item_params)
+    # @subscription_item = current_subscription_order.subscription_items.update_attributes(subscription_item_params)
   end
 
   def destroy
-      @subscription = current_subscription
-      @subscription_item = current_subscription.subscription_items.find(params[:id])
+      @subscription = current_subscription_order
+      @subscription_item = current_subscription_order.subscription_items.find(params[:id])
       @subscription_item.destroy
   end
 

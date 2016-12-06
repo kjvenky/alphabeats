@@ -2,7 +2,7 @@
   <div class="total_show row col-md-offset-1 col-md-10">
 
     <div class="total-show-display">
-    <% if !current_subscription.subscription_items.nil? %>
+    <% if !current_subscription_order.subscription_items.nil? %>
        <% @total = 0 %>
         <% if current_user.transaction_logs.empty? %>
            <% @total = (@total+0).round(2) %> 
@@ -24,7 +24,7 @@
            </div>
         <% else %>
         <% end %>
-       <% current_subscription.subscription_items.each do |subscription_item| %>
+       <% current_subscription_order.subscription_items.each do |subscription_item| %>
        <% if subscription_item.album.songs.count==1 %> <br>
        <b><%= raw("Charges for #{subscription_item.album.album_name} <br/>") %></b>
        <%# <% @total = @total+12 if !subscription_item.album.songs.last.self_written  %>
@@ -147,11 +147,11 @@
        </div> 
        </b><br>
 
-       <%=link_to "Click to Remove Shazam & iPhone Siri", subscription_path(current_subscription), data: { params: { subscription: { shazam: false, youtube: current_subscription.youtube, store_maximizer: current_subscription.store_maximizer, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.shazam %>
+       <%=link_to "Click to Remove Shazam & iPhone Siri", subscription_path(current_subscription_order), data: { params: { subscription: { shazam: false, youtube: current_subscription_order.youtube, store_maximizer: current_subscription_order.store_maximizer, total: current_subscription_order.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription_order.shazam %>
        <br/>
-       <%=link_to "Click to Remove YouTube Money", subscription_path(current_subscription), data: { params: { subscription: { shazam: current_subscription.shazam, youtube: false, store_maximizer: current_subscription.store_maximizer, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.youtube %>
+       <%=link_to "Click to Remove YouTube Money", subscription_path(current_subscription_order), data: { params: { subscription: { shazam: current_subscription_order.shazam, youtube: false, store_maximizer: current_subscription_order.store_maximizer, total: current_subscription_order.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription_order.youtube %>
        <br/>
-       <%=link_to "Click to Remove Store Maximizer", subscription_path(current_subscription), data: { params: { subscription: { shazam: current_subscription.shazam, youtube: current_subscription.youtube, store_maximizer: false, total: current_subscription.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription.store_maximizer %>
+       <%=link_to "Click to Remove Store Maximizer", subscription_path(current_subscription_order), data: { params: { subscription: { shazam: current_subscription_order.shazam, youtube: current_subscription_order.youtube, store_maximizer: false, total: current_subscription_order.total } }.to_param }, :method => 'PATCH', remote: true if current_subscription_order.store_maximizer %>
        <br><br><br>
     </div><!-- end total-show-display -->
 

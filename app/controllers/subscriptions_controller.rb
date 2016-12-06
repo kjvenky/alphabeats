@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
   def update
-    current_subscription.update_attributes(subscription_params)
+    current_subscription_order.update_attributes(subscription_params)
   end
 
   def destroy
