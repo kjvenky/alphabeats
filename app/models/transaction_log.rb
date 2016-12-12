@@ -9,7 +9,10 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :integer
+#  transactable_id    :integer
+#  transactable_type  :string
 #
+
 TRANSACTION_STATUS = { 1 => 'success', 2=>'failure', 3=> 'pending' }
 TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'deposit from bank into wallet', 3 => 'to wallet', 4 => 'withdrawl from wallet'}
 #Transaction types - bank to wallet, wallet to wallet, wallet to bank
@@ -17,7 +20,9 @@ class TransactionLog < ActiveRecord::Base
   has_one :subscription
   belongs_to :user
   has_one :trade_log
-  has_one :payment
+  # has_one :payment
+
+  belongs_to :transactable, polymorphic: :true
 
   validates_presence_of :user_id
   validates_numericality_of :amount

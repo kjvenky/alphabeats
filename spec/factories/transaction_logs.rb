@@ -9,6 +9,8 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :integer
+#  transactable_id    :integer
+#  transactable_type  :string
 #
 
 FactoryGirl.define do

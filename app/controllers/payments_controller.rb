@@ -51,6 +51,7 @@ class PaymentsController < ApplicationController
         new_wallet_amount = current_user.wallet.amount + BigDecimal.new(@payment.amount)
         # byebug
         current_user.wallet.update(amount: new_wallet_amount)
+        @payment.create_transaction_log(amount: BigDecimal.new(@payment.amount), transaction_type: TransactionLog::TransactionType::FROM_BANK, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
 				redirect_to wallet_path
 			else
 				render :action => "failure"

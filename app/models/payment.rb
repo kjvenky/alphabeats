@@ -14,14 +14,26 @@
 #  details            :text
 #
 
-PAYMENT_TYPE = { 1 => 'deposit', 2=> 'withdrawl'}
+PAYMENT_TYPE = { 1 => 'deposit', 2=> 'withdrawl', 3 => 'deposit by alphabeats'}
 class Payment < ActiveRecord::Base
 
   attr_accessor :name, :country, :email, :phone, :address, :shipping, :amount, :ip
   belongs_to :wallet
-  belongs_to :transaction_log
+  # belongs_to :transaction_log
   validates_numericality_of  :payment_type
   serialize :details
+
+  has_one :transaction_log, as: :transactable, dependent: :destroy
+
+    def get_payment_type
+      PAYMENT_TYPE[self.payment_type]
+    end
+
+    module PaymentType
+      DEPOSIT = 1
+      WITHDRAWL = 2
+      ALPHABEATS_DEPOSIT = 3
+    end
 
     def purchase
       response = EXPRESS_GATEWAY.purchase(BigDecimal.new(self.amount)*100, express_purchase_options)
@@ -45,15 +57,6 @@ class Payment < ActiveRecord::Base
         self.shipping = details.shipping
         self.details = details
       end
-    end
-
-    def get_payment_type
-      PAYMENT_TYPE[self.payment_type]
-    end
-
-    module PaymentType
-      DEPOSIT = 1
-      WITHDRAWL = 2
     end
 
     def self.verify_withdrawl(user, wallet, amount, paypal_id)
