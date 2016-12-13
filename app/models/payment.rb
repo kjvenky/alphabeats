@@ -62,8 +62,10 @@ class Payment < ActiveRecord::Base
     def self.verify_withdrawl(user, wallet, amount, paypal_id)
       begin
         ActiveRecord::Base.transaction do
-          @transactionLog= TransactionLog.create!(amount: amount.to_f, transaction_type: TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::PENDING,  user_id: user.id)
-          @payment = Payment.create!(wallet_id: wallet.id, transaction_log_id: @transactionLog.id, paypal_id: paypal_id, payment_type: PaymentType::WITHDRAWL)
+          @payment = Payment.create!(wallet_id: wallet.id, paypal_id: paypal_id, payment_type: PaymentType::WITHDRAWL)
+          @transactionLog= @payment.create_transaction_log(amount: amount.to_f, transaction_type: TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::PENDING,  user_id: user.id)
+          # @transactionLog= TransactionLog.create!(amount: amount.to_f, transaction_type: TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::PENDING,  user_id: user.id)
+          # @payment = Payment.create!(wallet_id: wallet.id, transaction_log_id: @transactionLog.id, paypal_id: paypal_id, payment_type: PaymentType::WITHDRAWL)
           new_wallet_amount = wallet.amount - amount.to_f
           wallet.update_attributes!(amount: new_wallet_amount)
         end

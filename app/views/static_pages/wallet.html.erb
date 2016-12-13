@@ -2,7 +2,7 @@
     <div class="row">
       <h3> Balance: <%= current_user.wallet.nil? ? 0 : current_user.reload.wallet.amount %> &nbsp;&nbsp;
        <% if current_user.transaction_logs.where(transaction_type:TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET) %>
-        <p>Pending  Withdrawl: <%= current_user.transaction_logs.where(transaction_type:TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status:TransactionLog::TransactionStatus::SUCCESS).collect {|t| t.amount }.sum %></p>
+        <p>Pending  Withdrawl: <%= current_user.transaction_logs.where(transaction_type:TransactionLog::TransactionType::WITHDRAWL_FROM_WALLET, transaction_status:TransactionLog::TransactionStatus::PENDING).collect {|t| t.amount }.sum %></p>
        <% end %>
       </h3>
       <div class="col-md-6">
