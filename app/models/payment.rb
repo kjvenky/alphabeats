@@ -76,6 +76,7 @@ class Payment < ActiveRecord::Base
       return @transactionLog
     end
 
+    #This is the function which admin uses to remove pending withdrawl - Payment.confirm(transaction_id)
     def self.confirm(transaction_id)
       transaction = TransactionLog.find(transaction_id)
       if transaction.confirm_withdrawl
