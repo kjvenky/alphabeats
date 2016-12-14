@@ -20,7 +20,7 @@ RSpec.describe TransactionLog, type: :model do
     it { should validate_presence_of(:user_id)}
     it { should validate_numericality_of(:amount) }
     it { should belong_to(:transactable) }
-    it { should have_one(:trade_log) }
+    # it { should have_one(:trade_log) }
     # it { should have_one(:payment) }
     # it { should have_one(:subscription) }
 end

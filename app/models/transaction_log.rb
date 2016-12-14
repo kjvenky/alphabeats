@@ -19,7 +19,7 @@ TRANSACTION_TYPE = { 1 => 'from wallet', 2=> 'deposit from bank into wallet', 3 
 class TransactionLog < ActiveRecord::Base
   # has_one :subscription
   belongs_to :user
-  has_one :trade_log
+  # has_one :trade_log
   # has_one :payment
 
   belongs_to :transactable, polymorphic: :true

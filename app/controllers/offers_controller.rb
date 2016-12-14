@@ -63,9 +63,12 @@ private
 
     begin
       ActiveRecord::Base.transaction do
-        transactionlog= TransactionLog.create!(amount: amount_paid, transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: offer.user.id)
+        # transactionlog= TransactionLog.create!(amount: amount_paid, transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: offer.user.id)
+        #
+        # TradeLog.create!(seller_id: offer.user.id, buyer_id: bid.user.id, song_id: bid.song.id, share: min_share_traded.share , amount: amount_paid , transaction_log_id: transactionlog.id )
 
-        TradeLog.create!(seller_id: offer.user.id, buyer_id: bid.user.id, song_id: bid.song.id, share: min_share_traded.share , amount: amount_paid , transaction_log_id: transactionlog.id )
+        tradeLog = TradeLog.create!(seller_id: offer.user.id, buyer_id: bid.user.id, song_id: bid.song.id, share: min_share_traded.share , amount: amount_paid )
+        transactionlog= tradeLog.create_transaction_log!(amount: amount_paid, transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: offer.user.id)
 
         #update_wallet
         offer_new_wallet_amount = offer.user.wallet.amount + amount_paid
