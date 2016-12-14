@@ -18,6 +18,7 @@ require 'rails_helper'
 
 RSpec.describe Payment, type: :model do
   it { should belong_to(:wallet) }
-  it { should belong_to(:transaction_log) }
+  it { should have_one(:transaction_log) }
+  # it { should belong_to(:transaction_log) }
 
 end

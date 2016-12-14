@@ -20,6 +20,7 @@ RSpec.describe Subscription, type: :model do
   it { should validate_presence_of(:user_id)}
   it { should belong_to(:musician).class_name('User') }
   it { should validate_numericality_of(:total) }
+  it { should have_one(:transaction_log) }
 
   it { should have_many(:subscription_items) }
 end
