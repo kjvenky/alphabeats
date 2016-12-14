@@ -5,8 +5,8 @@
   <p> Current Balance: <%= current_user.reload.wallet.amount %></p>
   <p> Balance before withdrawl: <%= current_user.reload.wallet.amount + @transactionLog.amount %></p>
   <p> Pending withdrawl: <%=  @transactionLog.amount %></p>
-<% else %>
-    <% subscription = @transactionLog.subscription %>
+<% elsif @transactionLog.transactable_type="Subscription" %>
+    <% subscription = @transactionLog.transactable %>
     <% subscription.subscription_items.each do |subscription_item| %>
       <% if subscription_item.album.songs.count==1 %>
         <%= raw("Itemized billing for the album #{subscription_item.album.album_name} <br/>") %>

@@ -16,8 +16,10 @@ class TransactionLogsController < ApplicationController
     if current_user.wallet.amount <  BigDecimal.new(params[:transaction_logs][:amount])
       redirect_to wallet_path, notice: "Please add #{current_user.wallet.amount-BigDecimal.new(params[:transaction_logs][:amount])+2}USD to the wallet"
     else
-      transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
-      subscription = current_subscription_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
+      # transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
+      # subscription = current_subscription_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
+      subscription = current_subscription_order.update_attributes(payment_status: true) 
+      transactionlog= current_subscription_order.create_transaction_log(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
       if current_user.wallet.nil?
         new_wallet = Wallet.create(user_id: current_user.id, amount: -BigDecimal.new(params[:transaction_logs][:amount]))
 

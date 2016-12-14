@@ -17,7 +17,8 @@
 class Subscription < ActiveRecord::Base
   belongs_to :musician, class_name: User.name, foreign_key: 'user_id'
   has_many :subscription_items
-  belongs_to :transaction_log
+  # belongs_to :transaction_log
+  has_one :transaction_log, as: :transactable, dependent: :destroy
 
   validates_presence_of  :user_id
   validates_numericality_of :total
