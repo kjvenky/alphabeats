@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212040227) do
+ActiveRecord::Schema.define(version: 20161217061839) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20161212040227) do
 
   add_index "bids", ["song_id"], name: "index_bids_on_song_id"
   add_index "bids", ["user_id"], name: "index_bids_on_user_id"
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "renewal_status"
+    t.date     "start_date"
+    t.date     "next_renewal_date"
+    t.integer  "number_of_times_renewed", default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "user_id"
@@ -157,9 +167,12 @@ ActiveRecord::Schema.define(version: 20161212040227) do
     t.integer  "subscription_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "itemable_id"
+    t.string   "itemable_type"
   end
 
   add_index "subscription_items", ["album_id"], name: "index_subscription_items_on_album_id"
+  add_index "subscription_items", ["itemable_type", "itemable_id"], name: "index_subscription_items_on_itemable_type_and_itemable_id"
   add_index "subscription_items", ["subscription_id"], name: "index_subscription_items_on_subscription_id"
 
   create_table "subscriptions", force: :cascade do |t|
