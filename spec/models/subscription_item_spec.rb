@@ -13,5 +13,6 @@ require 'rails_helper'
 
 RSpec.describe SubscriptionItem, type: :model do
   it {should belong_to(:subscription)}
-  it {should belong_to(:album)}
+  # it {should belong_to(:album)}
+  it {should belong_to(:itemable) }
 end

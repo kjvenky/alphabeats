@@ -10,6 +10,7 @@
 #
 
 class SubscriptionItem < ActiveRecord::Base
-  belongs_to :album
+  # belongs_to :album
   belongs_to :subscription
+  belongs_to :itemable, polymorphic: :true
 end
