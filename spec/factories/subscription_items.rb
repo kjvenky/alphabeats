@@ -7,6 +7,8 @@
 #  subscription_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  itemable_id     :integer
+#  itemable_type   :string
 #
 
 FactoryGirl.define do
