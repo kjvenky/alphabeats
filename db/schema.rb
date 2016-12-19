@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217061839) do
+ActiveRecord::Schema.define(version: 20161219025827) do
+
+  create_table "album_addons", force: :cascade do |t|
+    t.integer  "album_id"
+    t.boolean  "youtube"
+    t.boolean  "shazam"
+    t.boolean  "store_maximizer"
+    t.integer  "renewal_status"
+    t.date     "start_date"
+    t.date     "next_renewal_date"
+    t.integer  "number_of_times_renewed"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
@@ -185,6 +198,7 @@ ActiveRecord::Schema.define(version: 20161217061839) do
     t.datetime "created_at",                                                 null: false
     t.datetime "updated_at",                                                 null: false
     t.integer  "transaction_log_id"
+    t.integer  "subscription_type"
   end
 
   add_index "subscriptions", ["transaction_log_id"], name: "index_subscriptions_on_transaction_log_id"

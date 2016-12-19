@@ -23,4 +23,9 @@ RSpec.describe Subscription, type: :model do
   it { should have_one(:transaction_log) }
 
   it { should have_many(:subscription_items) }
+
+  it do
+    should define_enum_for(:subscription_type).
+      with([:membership, :albumaddon])
+  end
 end

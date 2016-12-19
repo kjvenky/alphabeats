@@ -23,4 +23,6 @@ class Subscription < ActiveRecord::Base
   validates_presence_of  :user_id
   validates_numericality_of :total
 
+  enum subscription_type: [:membership, :albumaddon]
+
 end
