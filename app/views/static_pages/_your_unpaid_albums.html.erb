@@ -1,7 +1,9 @@
 
   <div class="your-unpaid-albums">
     <% current_user.albums.each do |album| %>
-      <% if (album.subscription_items.last.nil? || !album.subscription_items.last.subscription.payment_status) && !album.songs.last.nil? && !current_subscription_order.subscription_items.find_by(album_id: album.id )%>
+      <%# <% if (album.subscription_items.last.nil? || !album.subscription_items.last.subscription.payment_status) && !album.songs.last.nil? && !current_subscription_order.subscription_items.find_by(album_id: album.id )%>
+      <%# <% if album.album_addon.nil? && !album.songs.last.nil? %>
+      <% if album.album_addon.nil? && album.songs.present? %>
         <!-- <div class="your&#45;albums"> -->
           <div class="row">
             <div class="col-md-9">

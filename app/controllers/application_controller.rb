@@ -42,7 +42,9 @@ def after_sign_up_path_for(resource_or_scope)
   end
 
   def paid_album?(resource)
-    !resource.subscription_items.last.nil? && resource.subscription_items.last.subscription.payment_status
+    # !resource.subscription_items.last.nil? && resource.subscription_items.last.subscription.payment_status
+    !resource.album_addon.nil? 
+    #needs_work make sure the renewal date is also beyond the current date
   end
 
   rescue_from CanCan::AccessDenied do |exception|

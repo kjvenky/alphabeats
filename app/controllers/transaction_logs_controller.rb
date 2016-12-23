@@ -19,6 +19,7 @@ class TransactionLogsController < ApplicationController
       # transactionlog= TransactionLog.create(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
       # subscription = current_subscription_order.update_attributes(payment_status: true, transaction_log_id: transactionlog.id) 
       subscription = current_subscription_order.update_attributes(payment_status: true) 
+      current_subscription_order.copy_addon_values
       transactionlog= current_subscription_order.create_transaction_log(amount: BigDecimal.new(params[:transaction_logs][:amount]), transaction_type: TransactionLog::TransactionType::FROM_WALLET, transaction_status: TransactionLog::TransactionStatus::SUCCESS,  user_id: current_user.id)
       if current_user.wallet.nil?
         new_wallet = Wallet.create(user_id: current_user.id, amount: -BigDecimal.new(params[:transaction_logs][:amount]))
@@ -44,9 +45,9 @@ private
   end
   
   def create_shareholders
-    if !current_subscription_order.subscription_items.nil?
+    if !current_subscription_order.subscription_items.nil? && current_subscription_order.subscription_type==1
        current_subscription_order.subscription_items.each do |subscription_item|
-         subscription_item.album.songs.each do |s|
+         subscription_item.itemable.album.songs.each do |s|
            Shareholder.create(song_id: s.id, user_id: s.musician.id, share: 100) if s.shareholders.empty?
          end
        end

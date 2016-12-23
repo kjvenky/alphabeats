@@ -5,39 +5,39 @@
   <p> Current Balance: <%= current_user.reload.wallet.amount %></p>
   <p> Balance before withdrawl: <%= current_user.reload.wallet.amount + @transactionLog.amount %></p>
   <p> Pending withdrawl: <%=  @transactionLog.amount %></p>
-<% elsif @transactionLog.transactable_type="Subscription" %>
+<% elsif @transactionLog.transactable_type=="Subscription" && @transactionLog.transactable.subscription_type == 'albumaddon' %>
     <% subscription = @transactionLog.transactable %>
     <% subscription.subscription_items.each do |subscription_item| %>
-      <% if subscription_item.album.songs.count==1 %>
-        <%= raw("Itemized billing for the album #{subscription_item.album.album_name} <br/>") %>
-        <%# <% @total = @total+12 if !subscription_item.album.songs.last.self_written  %>
-        <% if !subscription_item.album.songs.last.self_written  %>
+      <% if subscription_item.itemable.album.songs.count==1 %>
+        <%= raw("Itemized billing for the album #{subscription_item.itemable.album.album_name} <br/>") %>
+        <%# <% @total = @total+12 if !subscription_item.itemable.album.songs.last.self_written  %>
+        <% if !subscription_item.itemable.album.songs.last.self_written  %>
           <%= raw("Cover Song charges : 12<br/>")%> 
         <% end %>
-        <% if subscription_item.subscription.shazam  %>
+        <% if subscription_item.itemable.shazam  %>
           <%= raw("Shazam charges : 0.99<br/>")%> 
         <% end %>
-        <% if subscription_item.subscription.youtube  %>
+        <% if subscription_item.itemable.youtube  %>
           <%= raw("Youtube charges : 4.95<br/>")%> 
         <% end %>
-        <% if subscription_item.subscription.store_maximizer  %>
+        <% if subscription_item.itemable.store_maximizer  %>
           <%= raw("Store maximizer charges : FREE<br/>")%> 
         <% end %>
-      <% elsif subscription_item.album.songs.count!=1 %>
-        <%= subscription_item.album.album_name %>
-        <% subscription_item.album.songs.each do |song| %>
+      <% elsif subscription_item.itemable.album.songs.count!=1 %>
+        <%= subscription_item.itemable.album.album_name %>
+        <% subscription_item.itemable.album.songs.each do |song| %>
           <%if !song.self_written  %>
             <%= raw("Cover Song charges of #{song.song_title} : 12<br/>")%> 
           <% end %>
-          <% if subscription_item.subscription.shazam  %>
+          <% if subscription_item.itemable.shazam  %>
             <%= raw("Shazam Song charges of #{song.song_title} : 0.99<br/>")%> 
           <% end %>
         <% end %>
-        <% if subscription_item.subscription.youtube  %>
-          <%= raw("Youtube charges of #{subscription_item.album.album_name} : 14.95<br/>")%> 
+        <% if subscription_item.itemable.youtube  %>
+          <%= raw("Youtube charges of #{subscription_item.itemable.album.album_name} : 14.95<br/>")%> 
         <% end %>
-        <% if subscription_item.subscription.store_maximizer  %>
-          <%= raw("Store Maximizer charges of #{subscription_item.album.album_name} : FREE<br/>")%> 
+        <% if subscription_item.itemable.store_maximizer  %>
+          <%= raw("Store Maximizer charges of #{subscription_item.itemable.album.album_name} : FREE<br/>")%> 
         <% end %>
       <% end %>
     <% end %>

@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20161219025827) do
     t.integer  "renewal_status"
     t.date     "start_date"
     t.date     "next_renewal_date"
-    t.integer  "number_of_times_renewed"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "number_of_times_renewed", default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "albums", force: :cascade do |t|

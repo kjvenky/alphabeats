@@ -1,9 +1,14 @@
 class SubscriptionItemsController < ApplicationController
 
   def create
-    if !current_subscription_order.subscription_items.find_by(album_id: params[:album_id])
+    if AlbumAddon.find_by(album_id: params[:album_id]).nil?
+    # if !current_subscription_order.subscription_items.find_by(album_id: params[:album_id])
       @subscription = current_subscription_order
-      @subscription_item = @subscription.subscription_items.new(album_id: params[:album_id])
+      @subscription.update_attributes(subscription_type: 'albumaddon')
+      # @subscription_item = @subscription.subscription_items.new(album_id: params[:album_id])
+      album_addon = AlbumAddon.create(album_id: params[:album_id])
+      @subscription_item = @subscription.subscription_items.new(itemable_id: album_addon.id,  itemable_type: 'AlbumAddon')
+      # byebug
       @subscription.save
       session[:subscription_id] = @subscription.id
     else

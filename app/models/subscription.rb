@@ -25,4 +25,12 @@ class Subscription < ActiveRecord::Base
 
   enum subscription_type: [:membership, :albumaddon]
 
+  def copy_addon_values
+    if subscription_type == 'albumaddon'
+      self.subscription_items.each do |s|
+        s.itemable.update_attributes!(youtube: self.youtube, shazam: self.shazam, store_maximizer: self.store_maximizer, renewal_status: "active", start_date: Date.today, next_renewal_date: 1.year.since)
+      end
+    end
+  end
+
 end

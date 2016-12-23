@@ -1,3 +1,4 @@
+# SEARCH FOR needs_work to find places to put in additional code
 rails generate migration AddPartNumberToProducts part_number:string
 class AddPartNumberToProducts < ActiveRecord::Migration[5.0]
   def change

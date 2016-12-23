@@ -25,15 +25,15 @@
         <% else %>
         <% end %>
        <% current_subscription_order.subscription_items.each do |subscription_item| %>
-       <% if subscription_item.album.songs.count==1 %> <br>
-       <b><%= raw("Charges for #{subscription_item.album.album_name} <br/>") %></b>
-       <%# <% @total = @total+12 if !subscription_item.album.songs.last.self_written  %>
-       <% if !subscription_item.album.songs.last.self_written  %>
+       <% if subscription_item.itemable_type=='AlbumAddon' && subscription_item.itemable.album.songs.count==1 %> <br>
+       <b><%= raw("Charges for #{subscription_item.itemable.album.album_name} <br/>") %></b>
+       <%# <% @total = @total+12 if !subscription_item.itemable.album.songs.last.self_written  %>
+       <% if !subscription_item.itemable.album.songs.last.self_written  %>
        <% @total = (@total+12).round(2) %> 
        
        <div class="row">
         <div class="col-md-6">
-          <%= raw("Cover Song fees for #{subscription_item.album.album_name}:")%> 
+          <%= raw("Cover Song fees for #{subscription_item.itemable.album.album_name}:")%> 
         </div>
         <div class="col-md-offset-4 col-md-2">
           <%= raw("12")%> 
@@ -80,10 +80,10 @@
        </div>
        <% end %>
       
-       <% elsif subscription_item.album.songs.count!=1 %> <br>
+       <% elsif subscription_item.itemable_type=='AlbumAddon' && subscription_item.itemable.album.songs.count!=1 %> <br>
 
-       <b><%= raw("Charges for #{subscription_item.album.album_name} <br/>") %></b>
-       <% subscription_item.album.songs.each do |song| %>
+       <b><%= raw("Charges for #{subscription_item.itemable.album.album_name} <br/>") %></b>
+       <% subscription_item.itemable.album.songs.each do |song| %>
        <%if !song.self_written  %>
        <% @total = (@total+12).round(2) %> 
        <div class="row">

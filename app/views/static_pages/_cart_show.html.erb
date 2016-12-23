@@ -6,7 +6,7 @@
 
 <% current_subscription_order.subscription_items.each do |subscription_item| %>
   <div class="col-md-9">
-    <%= subscription_item.album.album_name %>
+    <%= subscription_item.itemable.album.album_name if subscription_item.itemable_type=="AlbumAddon" %>
   </div>
   <div class="col-md-offset-2 col-md-1">
     <%= link_to "x", subscription_item_path(subscription_item), method: :delete, remote: :true %> <br>

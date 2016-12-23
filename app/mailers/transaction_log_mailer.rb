@@ -9,7 +9,7 @@ class TransactionLogMailer < ApplicationMailer
     @albums = []
     i=@count
     while i>0
-      @albums.push(subscription.subscription_items[i-1].album)
+      @albums.push(subscription.subscription_items[i-1].itemable.album)
       i=i-1
     end
 
