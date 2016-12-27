@@ -17,7 +17,7 @@ def after_sign_up_path_for(resource_or_scope)
 
   def song_album_list
     default_list = [OpenStruct.new({code: -1, text: "Create New Album"})]
-    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.subscription_items.last.nil?}.compact
+    dynamic_list = current_user.albums.collect {|album| OpenStruct.new({code: album.id, text: album.album_name}) if album.album_addon.nil?}.compact
     default_list + dynamic_list
   end
 
