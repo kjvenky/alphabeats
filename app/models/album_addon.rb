@@ -21,4 +21,15 @@ class AlbumAddon < ActiveRecord::Base
   has_one :subscription_item, as: :itemable, dependent: :destroy
 
   enum renewal_status: [:expired, :active]
+
+  def self.paid_songs_list
+    song_list = []
+    AlbumAddon.all.each do |addon|
+      addon.album.songs.each do |song|
+        song_list.push(song)
+      end
+    end
+    return song_list
+  end
+
 end
