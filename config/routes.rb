@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  resources :memberships, only: [:create]
   resources :shortlists, only: [:create, :destroy, :index]
 
   resources :song_stats do

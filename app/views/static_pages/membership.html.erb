@@ -11,13 +11,14 @@
     <p>Membership is autorenewed subject to availability of balance in wallet</p>
     <br/><br/><br/><br/>
     <div class="col-md-offset-5">
-      <a href="<%= new_song_path %>">
+      <a href="<%= memberships_path %>" data-method="post">
         <div class="signup-updates">
           <button class="btn btn-lg btn-transparent solid-button">
             <span id="updates">Activate Membership</span>
           </button>
         </div>
       </a>
+
     </div>
     <% end %>
   </div>
