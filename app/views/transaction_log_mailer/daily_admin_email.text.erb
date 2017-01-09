@@ -1,0 +1,15 @@
+Dear admin,
+
+List of user_ids of members whose memberships have expired: <%= @expired_membership_list %>
+
+List of user_ids of members whose memberships have been renewed: <%= @renewed_membership_list  %>
+
+List of album_ids of albums whose addon subscriptions have expired: <%= @expired_album_list %>
+
+List of album_ids of albums whose addon subscriptions have been renewed: <%= @renewed_album_list %>
+
+
+Summary: A total of <%= @expired_membership_list.count %>  memberships have expired, <%= @renewed_membership_list.count %> memberships have been renewed, <%= @expired_album_list.count %> album addons have expired, <%= @renewed_album_list.count %> album addons have been renewed,
+
+regards,
+Ravikanth

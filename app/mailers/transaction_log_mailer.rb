@@ -36,5 +36,12 @@ class TransactionLogMailer < ApplicationMailer
     mail(to: @user.email, bcc: 'alphabeatsuploads@gmail.com', subject: "Tx id: #{transactionLog.id} Withdrawl Request Confirmation")
   end
 
+  def daily_admin_email(expired_membership_list, expired_album_list, renewed_membership_list, renewed_album_list)
+    @expired_membership_list = expired_membership_list
+    @expired_album_list = expired_album_list
+    @renewed_membership_list = renewed_membership_list
+    @renewed_album_list = renewed_album_list
+    mail(to: 'alphabeatsuploads@gmail.com', subject: "Daily admin update")
+  end
 
 end
